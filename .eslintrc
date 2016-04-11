@@ -7,5 +7,8 @@
     },
     "globals":{
     },
-    "extends": "eslint:recommended"
+    "extends": "eslint:recommended",
+    "parserOptions": {,
+        "sourceType": "module",
+    },
 }
