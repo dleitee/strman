@@ -4,7 +4,7 @@
 import {slugify} from 'vitjs'
 ```
 
-## slugify(<String>)
+## slugify([String])
 
 Converts a string to a slug.
 
