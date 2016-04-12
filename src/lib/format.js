@@ -1,6 +1,6 @@
 import {isNil} from './isnil.js';
 import {_isArray} from './isarray.js';
-import {_isString} from './string';
+import {isString} from './string';
 import {reduce} from './reduce.js';
 
 export const _format =
@@ -16,7 +16,7 @@ export const _format =
                     throw new Error('The function for format is null or undefined.');
                 }
 
-                if(!_isString(acc)){
+                if(!isString(acc)){
                     throw new Error(acc + ' is not a String object!');
                 }
 
