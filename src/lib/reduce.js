@@ -26,18 +26,18 @@
 
 export const reduce = (func, index, array) => {
     if (Array.prototype.reduce) {
-        return Array.prototype.reduce.apply(array, [func, index])
+        return Array.prototype.reduce.apply(array, [func, index]);
     }
 
     // Transform array to iterator es2015
-    const iterator = array[Symbol.iterator]()
+    const iterator = array[Symbol.iterator]();
 
     // Recursive function
     const go = (acc, iterable) => {
-        const {value, done} = iterable.next()
-        return done ? acc : go(func(acc, value), iterable)
+        const {value, done} = iterable.next();
+        return done ? acc : go(func(acc, value), iterable);
     }
 
     // Call recursive function
-    return go(index, iterator)
+    return go(index, iterator);
 }
