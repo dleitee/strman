@@ -13,6 +13,6 @@ Transform to lowercase.
 import {toLowerCase} from 'vitjs'
 
 let title = "TRANSFORM TO lowercase";
-let result = slugify(title);
+let result = toLowerCase(title);
 // result => "transform to lowercase."
 ```
