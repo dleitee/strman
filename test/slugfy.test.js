@@ -1,9 +1,9 @@
 import chai from 'chai';
-import {slugfy} from '../src/vitjs'
+import {slugify} from '../src/vitjs'
 
-describe('Slugfy function', () => {
+describe('Slugfiy function', () => {
     it('teste', () => {
-        let test = slugfy(' Bar bár');
+        let test = slugify(' Bar bár');
         chai.expect(test).to.equal('bar-bar');
     })
 })
