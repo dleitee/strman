@@ -1,3 +1,3 @@
-export * from './slugfy'
+export * from './slugify'
 
 export * from './lib/string'
