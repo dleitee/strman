@@ -36,11 +36,12 @@ let result = slugify(title);
 - [x] [Utils](https://github.com/dleitee/vitjs/blob/master/docs/utils.md)
   - [x] isString
   - [x] trim
-  - [ ] rtrim
-  - [ ] ltrim
+  - [x] rtrim
+  - [x] ltrim
   - [x] removeSpaces
   - [x] replace
   - [x] removeNonChars
+  - [x] removeNonWords
 - [ ] [String Cases](https://github.com/dleitee/vitjs/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase
@@ -49,7 +50,7 @@ let result = slugify(title);
   - [ ] toDecamelize
   - [ ] toSnakeCase
   - [ ] toKebabCase
-  
+
 # LICENSE
 The MIT License (MIT)
 
