@@ -2,7 +2,7 @@ import {ascii} from "./ascii";
 
 /*
  * Checks whether a string
- * @param value - value to check 
+ * @param value - value to check
  * @return Boolean - true or false
  */
 export const isString = value =>
@@ -28,7 +28,7 @@ export const trim = value => value.trim();
  * @param value - The string being searched and replaced on.
  * @return String without spaces
  */
-export const removeSpaces = (replace = "") => (value) => _replace(value, "\s+", replace);
+export const removeSpaces = (replace = "") => (value) => _replace(value, "\\s+", replace);
 
 /*
  * Replace [search] value to [newvalue]
@@ -42,7 +42,7 @@ export const replace =
         (value) => _replace(value, search, newvalue);
 
 /*
- * Remove all non valid characters 
+ * Remove all non valid characters
  * Example: change á => a or ẽ => e
  * @params value - The string being searched and replaced on.
  * @return String without non valid characters.
@@ -56,6 +56,15 @@ export const removeNonChars = (value) => {
     }
     return result;
 }
+
+/*
+ * Remove all non word characters
+ * Example: change . => [replace]
+ * @paramsClojure replace - Value to replace
+ * @params value - The string being searched and replaced on.
+ * @return String without non word characters.
+ */
+export const removeNonWords = (replace ="") => (value) => _replace(value, "[^\w]+", replace);
 
 /*
  * Polyfill to replace function

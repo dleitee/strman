@@ -10,12 +10,15 @@ import {format} from './lib/format';
 export function slugify(string) {
 
     return format(string,
-            [toLowerCase,
-            trim,
-            removeSpaces("-"),
-            replace("&","-and-"),
-            replace("\-\-+","-'"),
-            removeNonChars]
+            [
+                toLowerCase,
+                trim,
+                removeSpaces("-"),
+                replace("&","-and-"),
+                replace("\-\-+","-"),
+                removeNonChars,
+                replace("[^\\w\\-]+", "")
+            ]
         );
 }
 

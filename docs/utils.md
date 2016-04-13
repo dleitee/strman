@@ -65,7 +65,7 @@ let result = replace("black", "white")(title);
 
 ## removeNonChars([value])
 
-Remove all non valid characters 
+Remove all non valid characters
 
 #### Usage
 ```es6
@@ -74,5 +74,18 @@ import {removeNonChars} from 'vitjs'
 let title = "áéíóú";
 let result = removeNonChars(title);
 // result => "aeiou";
+```
+
+## removeNonWords([replace])([value])
+
+Remove all non word characters
+
+#### Usage
+```es6
+import {removeNonWords} from 'vitjs'
+
+let title = ".....a";
+let result = removeNonWords("")(title);
+// result => "a";
 ```
 

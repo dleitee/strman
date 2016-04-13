@@ -2,8 +2,38 @@ import chai from 'chai';
 import {slugify} from '../src/vitjs'
 
 describe('Slugfiy function', () => {
-    it('teste', () => {
-        let test = slugify(' Bar bár');
-        chai.expect(test).to.equal('bar-bar');
+    it('should be foo-bar', () => {
+        let fixtures = [
+            'foo bar',
+            'foo bar.',
+            'foo bar ',
+            ' foo bar',
+            ' foo bar ',
+            'foo-bar',
+            'fóõ bár',
+            'foo     bar',
+            'FOO     bar'
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(slugify(el)).to.equal('foo-bar');
+        });
+    })
+    it('should be foo-and-bar', () => {
+        let fixtures = [
+            'foo&bar',
+            'foo&bar.',
+            'foo&bar ',
+            ' foo&bar',
+            ' foo&bar ',
+            'foo&bar',
+            'fóõ-and---bár',
+            'foo  &    bar',
+            'FOO  &   bar'
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(slugify(el)).to.equal('foo-and-bar');
+        });
     })
 })
