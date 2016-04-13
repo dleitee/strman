@@ -1,5 +1,6 @@
 import chai from 'chai';
-import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append} from '../src/vitjs'
+import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
+    at} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -120,6 +121,30 @@ describe('append function', () => {
     });
     it('should be throw', () => {
         chai.assert.throws(append.bind(this, "", 1), Error);
+        chai.assert.throws(append.bind(this, "", []), Error);
+        chai.assert.throws(append.bind(this, "", true), Error);
+        chai.assert.throws(append.bind(this, "", false), Error);
+        chai.assert.throws(append.bind(this, "", 1.2), Error);
+        chai.assert.throws(append.bind(this, "", {}), Error);
+    });
+});
+
+describe('at function', () => {
+    it('should be f', () => {
+        chai.expect(at("foobar", 0)).to.equal("f");
+        chai.expect(at("ofobar", 1)).to.equal("f");
+        chai.expect(at("oobarf", -1)).to.equal("f");
+        chai.expect(at("oobafr", -2)).to.equal("f");
+
+    });
+    it('should be throw', () => {
+        chai.assert.throws(at.bind(this, 1, 1), Error);
+        chai.assert.throws(append.bind(this, [], 1), Error);
+        chai.assert.throws(append.bind(this, true, 1), Error);
+        chai.assert.throws(append.bind(this, false, 1), Error);
+        chai.assert.throws(append.bind(this, 1.2, 1), Error);
+        chai.assert.throws(append.bind(this, {}, 1), Error);
+        chai.assert.throws(at.bind(this, "", ""), Error);
         chai.assert.throws(append.bind(this, "", []), Error);
         chai.assert.throws(append.bind(this, "", true), Error);
         chai.assert.throws(append.bind(this, "", false), Error);

@@ -127,3 +127,16 @@ let title = "a";
 let result = append(title, "b", "c");
 // result => "abc";
 ```
+
+## at([value], [index])
+
+Get the character at index
+
+#### Usage
+```es6
+import {at} from 'vitjs'
+
+let title = "abc";
+let result = at(title, 1);
+// result => "b";
+```

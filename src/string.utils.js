@@ -104,7 +104,7 @@ export const at = (string, index) => {
     if(!isString(string)){
         throw new Error("Value is not a String.");
     }
-    if(!_isNumber(index) && index >= 0){
+    if(!_isNumber(index)){
         throw new  Error("Index is not a Number.");
     }
     return string.substr(index, 1);
