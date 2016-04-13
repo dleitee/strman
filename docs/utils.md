@@ -23,7 +23,7 @@ let result = isString(number);
 
 ## trim([value])
 
-Checks whether a string
+Remove all spaces on left and right
 
 #### Usage
 ```es6
@@ -31,6 +31,32 @@ import {trim} from 'vitjs'
 
 let title = "     Checks whether a string     ";
 let result = trim(title);
+// result => "Checks whether a string";
+```
+
+## ltrim([value])
+
+Remove all spaces on left
+
+#### Usage
+```es6
+import {ltrim} from 'vitjs'
+
+let title = "     Checks whether a string";
+let result = ltrim(title);
+// result => "Checks whether a string";
+```
+
+## rtrim([value])
+
+Remove all spaces on right
+
+#### Usage
+```es6
+import {rtrim} from 'vitjs'
+
+let title = "Checks whether a string     ";
+let result = rtrim(title);
 // result => "Checks whether a string";
 ```
 
