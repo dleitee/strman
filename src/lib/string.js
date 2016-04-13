@@ -108,6 +108,26 @@ export const at = (string, index) => {
 }
 
 /*
+ * Returns array with strings between [start] and [end]
+ * @param value
+ * @param start
+ * @param end
+ * @return Array
+ */
+export const between = (value, start, end) => {
+  let result = value.split(end);
+  
+  result = result.map((text) => {
+    return text.substr(text.indexOf(start)+start.length);
+  });
+  
+  // TODO: Remove method pop
+  result.pop();
+  
+  return result;
+}
+
+/*
  * Remove all non word characters
  * Example: change . => [replace]
  * @paramsClojure replace - Value to replace
