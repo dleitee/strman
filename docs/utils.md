@@ -115,3 +115,15 @@ let result = removeNonWords("")(title);
 // result => "a";
 ```
 
+## append([value], ...[append])
+
+Append Strings on Value
+
+#### Usage
+```es6
+import {append} from 'vitjs'
+
+let title = "a";
+let result = append(title, "b", "c");
+// result => "abc";
+```

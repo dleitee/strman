@@ -1,4 +1,4 @@
-import {toLowerCase, trim, removeSpaces, replace, removeNonChars} from './lib/string';
+import {toLowerCase, trim, removeSpaces, replace, removeNonChars} from './string.utils';
 import {format} from './lib/format';
 
 /*

@@ -1,7 +1,7 @@
-import {isNil} from './isnil.js';
-import {_isArray} from './isarray.js';
-import {isString} from './string';
-import {reduce} from './reduce.js';
+import {isNil} from './isnil';
+import {_isArray} from './array';
+import {isString} from '../string.utils';
+import {reduce} from './reduce';
 
 export const _format =
     (...fn) =>

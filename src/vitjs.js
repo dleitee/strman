@@ -1,3 +1,3 @@
 export * from './slugify'
 
-export * from './lib/string'
+export * from './string.utils'

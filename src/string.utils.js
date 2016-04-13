@@ -1,4 +1,6 @@
-import {ascii} from "./ascii";
+import {ascii} from "./lib/ascii";
+import {_isNumber} from "./lib/number";
+import {_pop} from "./lib/array";
 
 /*
  * Checks whether a string
@@ -82,6 +84,7 @@ export const append = (value, ...append) => {
     if(!isString(value)){
         throw new Error("Value is not a String.");
     }
+
     append.map((data) => {
         if(!isString(data)){
             throw new Error("Append is not a String.");
@@ -101,7 +104,7 @@ export const at = (string, index) => {
     if(!isString(string)){
         throw new Error("Value is not a String.");
     }
-    if(!isNumber(index) && index >= 0){
+    if(!_isNumber(index) && index >= 0){
         throw new  Error("Index is not a Number.");
     }
     return string.substr(index, 1);
@@ -115,16 +118,30 @@ export const at = (string, index) => {
  * @return Array
  */
 export const between = (value, start, end) => {
-  let result = value.split(end);
-  
-  result = result.map((text) => {
-    return text.substr(text.indexOf(start)+start.length);
-  });
-  
-  // TODO: Remove method pop
-  result.pop();
-  
-  return result;
+
+    let result = null;
+
+    if(!isString(value)){
+        throw new Error("Value is not a String.");
+    }
+
+    if(!isString(start)){
+        throw new Error("Start is not a String.");
+    }
+
+    if(!isString(end)){
+        throw new Error("End is not a String.");
+    }
+
+    result = value.split(end);
+
+    result = result.map((text) => {
+        return text.substr(text.indexOf(start)+start.length);
+    });
+
+    result = _pop(result);
+
+    return result;
 }
 
 /*

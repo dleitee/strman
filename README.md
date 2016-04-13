@@ -42,6 +42,7 @@ let result = slugify(title);
   - [x] replace
   - [x] removeNonChars
   - [x] removeNonWords
+  - [x] append
 - [ ] [String Cases](https://github.com/dleitee/vitjs/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase

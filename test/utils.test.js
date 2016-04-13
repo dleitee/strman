@@ -1,5 +1,5 @@
 import chai from 'chai';
-import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords} from '../src/vitjs'
+import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -109,6 +109,22 @@ describe('removeNonWords function', () => {
         fixtures.forEach(el => {
             chai.expect(removeNonWords()(el)).to.equal("foobar");
         });
+    });
+});
+
+describe('append function', () => {
+    it('should be foobar', () => {
+        chai.expect(append("f", "o", "o", "b", "a", "r")).to.equal("foobar");
+        chai.expect(append("foobar")).to.equal("foobar");
+        chai.expect(append("", "foobar")).to.equal("foobar");
+    });
+    it('should be throw', () => {
+        chai.assert.throws(append.bind(this, "", 1), Error);
+        chai.assert.throws(append.bind(this, "", []), Error);
+        chai.assert.throws(append.bind(this, "", true), Error);
+        chai.assert.throws(append.bind(this, "", false), Error);
+        chai.assert.throws(append.bind(this, "", 1.2), Error);
+        chai.assert.throws(append.bind(this, "", {}), Error);
     });
 });
 
