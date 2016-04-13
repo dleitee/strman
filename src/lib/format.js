@@ -17,7 +17,7 @@ export const _format =
                 }
 
                 if(!isString(acc)){
-                    throw new Error(acc + ' is not a String object!');
+                    throw new Error('Value is not a String object!');
                 }
 
                 return x(acc);

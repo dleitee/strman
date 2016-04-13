@@ -20,7 +20,22 @@ export const toLowerCase = value => value.toLowerCase();
  * @params value - String to trim
  * @return String without boarders spaces
  */
-export const trim = value => value.trim();
+export const trim = value => _ltrim(_rtrim(value));
+
+/*
+ * Remove spaces left
+ * @params value
+ * @return string
+ */
+
+export const ltrim = value => _ltrim(value);
+
+/*
+ * Remove spaces right
+ * @params value
+ * @return string
+ */
+ export const rtrim = value => _rtrim(value);
 
 /*
  * Remove all spaces and replace for value
@@ -64,13 +79,28 @@ export const removeNonChars = (value) => {
  * @params value - The string being searched and replaced on.
  * @return String without non word characters.
  */
-export const removeNonWords = (replace ="") => (value) => _replace(value, "[^\w]+", replace);
+export const removeNonWords = (replace ="") => (value) => _replace(value, "[^\\w]+", replace);
 
 /*
  * Polyfill to replace function
  * @params value - The string being searched and replaced on.
  * @return This function returns a string with the replaced values.
  */
-let _replace = (value, search, newvalue) => value.replace(new RegExp(search, "g"), newvalue);
+let _replace = (value, search, newvalue) =>
+    value.replace(new RegExp(search, "g"), newvalue);
+
+/*
+ * Polyfill to ltrim function
+ * @param value - value to ltrim
+ * @return string
+ */
+let _ltrim = (value) => _replace(value, "^\\s+", '');
+
+/*
+ * Polyfill to rtrim function
+ * @param value - value to rtrim
+ * @return string
+ */
+let _rtrim = (value) => _replace(value, "\\s+$", '');
 
 

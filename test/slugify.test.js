@@ -36,4 +36,19 @@ describe('Slugfiy function', () => {
             chai.expect(slugify(el)).to.equal('foo-and-bar');
         });
     })
+
+    it('should be throw', () => {
+        let fixtures = [
+            1,
+            [],
+            {},
+            1.2,
+            false,
+            true
+        ];
+
+        fixtures.forEach(el => {
+            chai.assert.throws(slugify.bind(this, el), Error);
+        });
+    })
 })

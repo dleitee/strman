@@ -50,7 +50,7 @@ let result = removeSpaces()(title);
 // result => "Checkswhetherastring";
 ```
 
-## removeSpaces([search], [newvalue])([value])
+## replace([search], [newvalue])([value])
 
 Replace [search] value to [newvalue]
 
