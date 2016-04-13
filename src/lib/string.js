@@ -73,6 +73,41 @@ export const removeNonChars = (value) => {
 }
 
 /*
+ * Append Strings on Value
+ * @param value String initial
+ * @param ...append - array with strings to append
+ * @return string
+ */
+export const append = (value, ...append) => {
+    if(!isString(value)){
+        throw new Error("Value is not a String.");
+    }
+    append.map((data) => {
+        if(!isString(data)){
+            throw new Error("Append is not a String.");
+        }
+        return data;
+    });
+    return value + append.join("");
+}
+
+/*
+ * Get the character at index
+ * @param string
+ * @param index
+ * @return char
+ */
+export const at = (string, index) => {
+    if(!isString(string)){
+        throw new Error("Value is not a String.");
+    }
+    if(!isNumber(index) && index >= 0){
+        throw new  Error("Index is not a Number.");
+    }
+    return string.substr(index, 1);
+}
+
+/*
  * Remove all non word characters
  * Example: change . => [replace]
  * @paramsClojure replace - Value to replace
