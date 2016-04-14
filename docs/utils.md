@@ -235,3 +235,17 @@ let substr = "Leite";
 let result = countSubstr(title, substr);
 // result => 1;
 ```
+
+## endsWith([value], [search], [position=null])
+
+Test if [value] ends with [search]
+
+#### Usage
+```es6
+import {endsWith} from 'vitjs'
+
+let value = "Daniel Leite";
+let search = "Leite";
+let result = endsWith(value, search);
+// result => true;
+```

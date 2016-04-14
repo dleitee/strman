@@ -1,6 +1,7 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
-    at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr} from '../src/vitjs'
+    at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
+    endsWith} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -421,5 +422,27 @@ describe('countSubstr function', () => {
 
     it('should be 1 without allowOverlaping', () => {
         chai.expect(countSubstr("aaa", "aa", true, false)).to.equal(1);
+    });
+});
+
+describe('endsWith function', () => {
+    it('should be true', () => {
+        let fixtures = [
+            "foo bar",
+            "bar"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(endsWith(el, "bar")).to.equal(true);
+        });
+
+        let fixtures2 = [
+            "foo barr",
+            "barr"
+        ]
+
+        fixtures2.forEach(el => {
+            chai.expect(endsWith(el, "bar", el.length-1)).to.equal(true);
+        });
     });
 });

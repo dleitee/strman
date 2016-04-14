@@ -232,6 +232,37 @@ export const countSubstr = (value, substr, caseSensitive = true, allowOverlappin
 
 };
 
+/*
+ * Test if [value] ends with [search]
+ * @param value
+ * @param search
+ * @param position = null
+ * @return boolean
+ */
+export const endsWith = (value, search, position = null) => _endsWith(value, search, position);
+
+/*
+ * Polyfill to endsWith function
+ * @param value
+ * @param search
+ * @param position
+ * @return boolean
+ */
+let _endsWith = (value, search, position = null) => {
+
+    let lastIndex = null;
+
+    if (typeof position !== 'number' || !isFinite(position) || Math.floor(position) !== position || position > value.length) {
+        position = value.length;
+    }
+
+    position -= search.length;
+    lastIndex = value.indexOf(search, position);
+
+    return lastIndex !== -1 && lastIndex === position;
+
+};
+
 
 /*
  * Polyfill to countSubstr function
