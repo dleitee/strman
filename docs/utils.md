@@ -249,3 +249,17 @@ let search = "Leite";
 let result = endsWith(value, search);
 // result => true;
 ```
+
+## startsWith([value], [search], [position=0])
+
+Test if [value] starts with [search]
+
+#### Usage
+```es6
+import {startsWith} from 'vitjs'
+
+let value = "Daniel Leite";
+let search = "Daniel";
+let result = startsWith(value, search);
+// result => true;
+```

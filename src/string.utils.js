@@ -242,6 +242,24 @@ export const countSubstr = (value, substr, caseSensitive = true, allowOverlappin
 export const endsWith = (value, search, position = null) => _endsWith(value, search, position);
 
 /*
+ * Test if [value] starts with [search]
+ * @param value
+ * @param search
+ * @param position = null
+ * @return boolean
+ */
+export const startsWith = (value, search, position = 0) => _startsWith(value, search, position);
+
+/*
+ * Polyfill to startsWith function
+ * @param value
+ * @param search
+ * @param position
+ * @return boolean
+ */
+let _startsWith = (value, search, position = 0) => value.substr(position, search.length) === search;
+
+/*
  * Polyfill to endsWith function
  * @param value
  * @param search

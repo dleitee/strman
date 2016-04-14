@@ -1,7 +1,7 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
-    endsWith} from '../src/vitjs'
+    endsWith, startsWith} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -446,3 +446,27 @@ describe('endsWith function', () => {
         });
     });
 });
+
+describe('startsWith function', () => {
+    it('should be true', () => {
+        let fixtures = [
+            "foo bar",
+            "foobar",
+            "foo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(startsWith(el, "foo")).to.equal(true);
+        });
+
+        let fixtures2 = [
+            "afoo barr",
+            "afoo"
+        ]
+
+        fixtures2.forEach(el => {
+            chai.expect(startsWith(el, "foo", 1)).to.equal(true);
+        });
+    });
+});
+
