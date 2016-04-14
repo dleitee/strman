@@ -213,6 +213,52 @@ export const containsAny = (value, needles, caseSensitive = true) => {
 };
 
 /*
+ * Count the number of times substr appears in value
+ * @param value,
+ * @param substr,
+ * @param caseSensitive = true,
+ * @param allowOverlapping = false
+ * @return integer
+ */
+export const countSubstr = (value, substr, caseSensitive = true, allowOverlapping = false) => {
+
+    // TODO: update with polyfill
+    if(!caseSensitive){
+        value = value.toUpperCase();
+        substr = substr.toUpperCase();
+    }
+
+    return _countSubstring(value, substr, allowOverlapping);
+
+};
+
+
+/*
+ * Polyfill to countSubstr function
+ * @param value,
+ * @param substr,
+ * @param position = 0,
+ * @param count = 0,
+ * @param allowOverlapping = false
+ * @return integer
+ */
+let _countSubstring = (value, substr, allowOverlapping = false, position = 0, count = 0) => {
+
+    let _position = value.indexOf(substr, position);
+
+    if(_position === -1){
+        return count;
+    }
+
+    if(!allowOverlapping){
+        _position = _position + substr.length - 1;
+    }
+
+    return _countSubstring(value, substr, allowOverlapping, _position + 1, count + 1);
+
+};
+
+/*
  * Polyfill to contains function
  * @param value
  * @param needle

@@ -221,3 +221,17 @@ let needles = ["Leite", "Daniel", "Oliveira"];
 let result = containsAny(title, needles, true);
 // result => true;
 ```
+
+## countSubstr([value], [substr], [caseSensitive = true], [allowOverlapping = false])
+
+Count the number of times substr appears in value
+
+#### Usage
+```es6
+import {countSubstr} from 'vitjs'
+
+let title = "Daniel Leite";
+let substr = "Leite";
+let result = countSubstr(title, substr);
+// result => 1;
+```

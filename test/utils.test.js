@@ -1,6 +1,6 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
-    at, between, chars, collapseWhitespace, contains, containsAll, containsAny} from '../src/vitjs'
+    at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -385,4 +385,41 @@ describe('containsAny function', () => {
             chai.expect(containsAny(el, ["dleitee"], false)).to.equal(false);
         });
     })
+});
+
+describe('countSubstr function', () => {
+    it('should be 7', () => {
+        let fixtures = [
+            "aaaaaAaaAA",
+            "faaaAAaaaaAA",
+            "aaAAaaaaafA",
+            "AAaaafaaaaAAAA"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(countSubstr(el, "a")).to.equal(7);
+        });
+    });
+
+    it('should be 7 without caseSensitive', () => {
+        let fixtures = [
+            "aaaaaaa",
+            "faaaaaaa",
+            "aaaaaaaf",
+            "aaafaaaa"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(countSubstr(el, "A", false)).to.equal(7);
+        });
+    });
+
+
+    it('should be 2 with allowOverlaping', () => {
+        chai.expect(countSubstr("aaa", "aa", true, true)).to.equal(2);
+    });
+
+    it('should be 1 without allowOverlaping', () => {
+        chai.expect(countSubstr("aaa", "aa", true, false)).to.equal(1);
+    });
 });
