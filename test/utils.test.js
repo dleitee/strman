@@ -1,6 +1,6 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
-    at, between, chars, collapseWhitespace, contains} from '../src/vitjs'
+    at, between, chars, collapseWhitespace, contains, containsAll} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -281,3 +281,56 @@ describe('contains function', () => {
         });
     })
 });
+
+describe('containsAll function', () => {
+    it('should be true, caseSensitive = true', () => {
+        let fixtures = [
+            "foo bar",
+            "bar foo",
+            "foobar"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(containsAll(el, ["foo", "bar"], true)).to.equal(true);
+        });
+    })
+
+    it('should be true, caseSensitive = false', () => {
+        let fixtures = [
+            "foo bar",
+            "bar foo",
+            "foobar"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(containsAll(el, ["FOO", "BAR"], false)).to.equal(true);
+        });
+    })
+
+    it('should be false, caseSensitive = true', () => {
+        let fixtures = [
+            "foo",
+            "bar foo",
+            "foobar",
+            "foo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(containsAll(el, ["FOO", "BAR"], true)).to.equal(false);
+        });
+    })
+
+    it('should be false, caseSensitive = false', () => {
+        let fixtures = [
+            "foo bar",
+            "bar foo",
+            "foobar",
+            "foo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(containsAll(el, ["foo", "bar", "dleitee"], false)).to.equal(false);
+        });
+    })
+});
+

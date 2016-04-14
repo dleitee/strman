@@ -48,6 +48,7 @@ let result = slugify(title);
   - [x] chars
   - [x] collapseWhitespace
   - [x] contains
+  - [x] containsAll
 - [ ] [String Cases](https://github.com/dleitee/vitjs/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase

@@ -193,3 +193,17 @@ let needle = "Leite";
 let result = contains(title, needle, true);
 // result => true;
 ```
+
+## containsAll([value], [needles], [caseSensitive = true])
+
+Verifies that all needles are contained in value
+
+#### Usage
+```es6
+import {containsAll} from 'vitjs'
+
+let title = "Daniel Leite";
+let needles = ["Leite", "Daniel"];
+let result = containsAll(title, needles, true);
+// result => true;
+```

@@ -181,6 +181,22 @@ export const contains = (value, needle, caseSensitive = true) =>
     _contains(value, needle, caseSensitive);
 
 /*
+ * Verifies that all needles are contained in value
+ * @param value
+ * @param needle
+ * @param caseSensitive - default true
+ * @return boolean
+ */
+export const containsAll = (value, needles, caseSensitive = true) => { //jshint ignore:line
+    for(let i = 0; i < needles.length; i++){
+        if(!_contains(value, needles[i], caseSensitive)){
+            return false;
+        }
+    }
+    return true;
+};
+
+/*
  * Polyfill to contains function
  * @param value
  * @param needle
