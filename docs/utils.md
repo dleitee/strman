@@ -207,3 +207,17 @@ let needles = ["Leite", "Daniel"];
 let result = containsAll(title, needles, true);
 // result => true;
 ```
+
+## containsAny([value], [needles], [caseSensitive = true])
+
+Verifies that one or more of needles are contained in value
+
+#### Usage
+```es6
+import {containsAny} from 'vitjs'
+
+let title = "Daniel Leite";
+let needles = ["Leite", "Daniel", "Oliveira"];
+let result = containsAny(title, needles, true);
+// result => true;
+```

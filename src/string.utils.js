@@ -187,13 +187,29 @@ export const contains = (value, needle, caseSensitive = true) =>
  * @param caseSensitive - default true
  * @return boolean
  */
-export const containsAll = (value, needles, caseSensitive = true) => { //jshint ignore:line
+export const containsAll = (value, needles, caseSensitive = true) => {
     for(let i = 0; i < needles.length; i++){
         if(!_contains(value, needles[i], caseSensitive)){
             return false;
         }
     }
     return true;
+};
+
+/*
+ * Verifies that one or more of needles are contained in value
+ * @param value
+ * @param needle
+ * @param caseSensitive - default true
+ * @return boolean
+ */
+export const containsAny = (value, needles, caseSensitive = true) => {
+    for(let i = 0; i < needles.length; i++){
+        if(_contains(value, needles[i], caseSensitive)){
+            return true;
+        }
+    }
+    return false;
 };
 
 /*
