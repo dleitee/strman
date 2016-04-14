@@ -100,15 +100,7 @@ export const append = (value, ...append) => {
  * @param index
  * @return char
  */
-export const at = (string, index) => {
-    if(!isString(string)){
-        throw new Error("Value is not a String.");
-    }
-    if(!_isNumber(index)){
-        throw new  Error("Index is not a Number.");
-    }
-    return string.substr(index, 1);
-}
+export const at = (string, index) => _at(string, index);
 
 /*
  * Returns array with strings between [start] and [end]
@@ -145,6 +137,24 @@ export const between = (value, start, end) => {
 }
 
 /*
+ * Returns an array consisting of the characters in the string.
+ * @params value
+ * @returns Array
+ */
+export const chars = (value) => {
+    let chars = [];
+
+    if(!isString(value)){
+        throw new Error("Value is not a String.");
+    }
+
+    for(let i = 0; i < value.length; i++){
+        chars[i] = _at(value, i);
+    }
+    return chars;
+}
+
+/*
  * Remove all non word characters
  * Example: change . => [replace]
  * @paramsClojure replace - Value to replace
@@ -175,4 +185,12 @@ let _ltrim = (value) => _replace(value, "^\\s+", '');
  */
 let _rtrim = (value) => _replace(value, "\\s+$", '');
 
-
+let _at = (string, index) => {
+    if(!isString(string)){
+        throw new Error("Value is not a String.");
+    }
+    if(!_isNumber(index)){
+        throw new  Error("Index is not a Number.");
+    }
+    return string.substr(index, 1);
+}

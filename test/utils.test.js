@@ -1,6 +1,6 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
-    at, between} from '../src/vitjs'
+    at, between, chars} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -181,4 +181,22 @@ describe('between function', () => {
     });
 });
 
+describe('between function', () => {
+    it('should be ["t", "i", "t", "l", "e"]', () => {
+        let title = "title";
+        chai.expect(chars(title)[0]).to.equal("t");
+        chai.expect(chars(title)[1]).to.equal("i");
+        chai.expect(chars(title)[2]).to.equal("t");
+        chai.expect(chars(title)[3]).to.equal("l");
+        chai.expect(chars(title)[4]).to.equal("e");
+    });
+    it('should be throw', () => {
+        chai.assert.throws(chars.bind(this, 1), Error);
+        chai.assert.throws(chars.bind(this, []), Error);
+        chai.assert.throws(chars.bind(this, {}), Error);
+        chai.assert.throws(chars.bind(this, true), Error);
+        chai.assert.throws(chars.bind(this, false), Error);
+        chai.assert.throws(chars.bind(this, 1.2), Error);
+    });
+});
 

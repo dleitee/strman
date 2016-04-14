@@ -153,3 +153,18 @@ let title = "[abc][def]";
 let result = between(title, "[", "]");
 // result => ["abc", "def"];
 ```
+
+## chars([value])
+
+Returns an array consisting of the characters in the string.
+
+#### Usage
+```es6
+import {chars} from 'vitjs'
+
+let title = "abc";
+let result = chars(title);
+// result => ["a", "b", "c"];
+```
+
+

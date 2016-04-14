@@ -45,6 +45,7 @@ let result = slugify(title);
   - [x] append
   - [x] at
   - [x] between
+  - [x] chars
 - [ ] [String Cases](https://github.com/dleitee/vitjs/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase
