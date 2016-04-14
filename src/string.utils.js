@@ -171,6 +171,33 @@ export const collapseWhitespace = (value) => _rtrim(_ltrim(_replace(value, "\\s\
 export const removeNonWords = (replace ="") => (value) => _replace(value, "[^\\w]+", replace);
 
 /*
+ * Verifies that the needle is contained in value
+ * @param value
+ * @param needle
+ * @param caseSensitive - default true
+ * @return boolean
+ */
+export const contains = (value, needle, caseSensitive = true) =>
+    _contains(value, needle, caseSensitive);
+
+/*
+ * Polyfill to contains function
+ * @param value
+ * @param needle
+ * @param caseSensitive - default true
+ * return boolean
+ */
+let _contains = (value, needle, caseSensitive = true) => {
+    if(caseSensitive){
+        return value.indexOf(needle) > -1;
+    }
+
+    // TODO: update to polyfill
+    return value.toUpperCase().indexOf(needle.toUpperCase()) > -1;
+
+};
+
+/*
  * Polyfill to replace function
  * @params value - The string being searched and replaced on.
  * @return This function returns a string with the replaced values.

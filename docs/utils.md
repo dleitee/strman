@@ -179,3 +179,17 @@ let title = "   a    b   c    ";
 let result = collapseWhitespace(title);
 // result => "a b c";
 ```
+
+## contains([value], [needle], [caseSensitive = true])
+
+Verifies that the needle is contained in value
+
+#### Usage
+```es6
+import {contains} from 'vitjs'
+
+let title = "Daniel Leite";
+let needle = "Leite";
+let result = contains(title, needle, true);
+// result => true;
+```

@@ -1,6 +1,6 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
-    at, between, chars, collapseWhitespace} from '../src/vitjs'
+    at, between, chars, collapseWhitespace, contains} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -211,6 +211,73 @@ describe('collapseWhitespace function', () => {
 
         fixtures.forEach(el => {
             chai.expect(collapseWhitespace(el)).to.equal("foo bar");
+        });
+    })
+});
+
+describe('removeNonWords function', () => {
+    it('should be foobar', () => {
+        let fixtures = [
+            "foo bar",
+            "foo&bar-"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(removeNonWords()(el)).to.equal("foobar");
+        });
+    });
+});
+
+describe('contains function', () => {
+    it('should be true, caseSensitive = true', () => {
+        let fixtures = [
+            "foo bar",
+            "bar foo",
+            "foobar",
+            "foo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(contains(el, "foo", true)).to.equal(true);
+        });
+    })
+
+    it('should be true, caseSensitive = false', () => {
+        let fixtures = [
+            "foo bar",
+            "bar foo",
+            "foobar",
+            "foo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(contains(el, "FOO", false)).to.equal(true);
+        });
+    })
+
+    it('should be false, caseSensitive = true', () => {
+        let fixtures = [
+            "foo bar",
+            "bar foo",
+            "foobar",
+            "foo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(contains(el, "FOO", true)).to.equal(false);
+        });
+    })
+
+    it('should be false, caseSensitive = false', () => {
+        let fixtures = [
+            "foo bar",
+            "bar foo",
+            "foobar",
+            "foo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(contains(el, "dleitee", false)).to.equal(false);
         });
     })
 });
