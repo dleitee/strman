@@ -1,6 +1,6 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
-    at, between, chars} from '../src/vitjs'
+    at, between, chars, collapseWhitespace} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -200,3 +200,17 @@ describe('between function', () => {
     });
 });
 
+describe('collapseWhitespace function', () => {
+    it('should be foo bar', () => {
+        let fixtures = [
+            "foo    bar",
+            "     foo     bar    ",
+            " foo     bar   ",
+            "    foo     bar "
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(collapseWhitespace(el)).to.equal("foo bar");
+        });
+    })
+});

@@ -167,4 +167,15 @@ let result = chars(title);
 // result => ["a", "b", "c"];
 ```
 
+## collapseWhitespace([value])
 
+Replaces consecutive whitespace characters with a single space
+
+#### Usage
+```es6
+import {collapseWhitespace} from 'vitjs'
+
+let title = "   a    b   c    ";
+let result = collapseWhitespace(title);
+// result => "a b c";
+```

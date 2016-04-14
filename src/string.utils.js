@@ -155,6 +155,13 @@ export const chars = (value) => {
 }
 
 /*
+ * Replaces consecutive whitespace characters with a single space
+ * @param string
+ * @return string
+ */
+export const collapseWhitespace = (value) => _rtrim(_ltrim(_replace(value, "\\s\\s+"," ")));
+
+/*
  * Remove all non word characters
  * Example: change . => [replace]
  * @paramsClojure replace - Value to replace
@@ -185,6 +192,12 @@ let _ltrim = (value) => _replace(value, "^\\s+", '');
  */
 let _rtrim = (value) => _replace(value, "\\s+$", '');
 
+/*
+ * Polyfill to at function
+ * @param string
+ * @param int
+ * @return char
+ */
 let _at = (string, index) => {
     if(!isString(string)){
         throw new Error("Value is not a String.");

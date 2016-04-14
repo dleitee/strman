@@ -9,7 +9,7 @@ describe('Slugfiy function', () => {
             'foo bar ',
             ' foo bar',
             ' foo bar ',
-            'foo-bar',
+            'foo------bar',
             'fóõ bár',
             'foo     bar',
             'FOO     bar'
