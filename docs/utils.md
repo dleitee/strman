@@ -140,3 +140,16 @@ let title = "abc";
 let result = at(title, 1);
 // result => "b";
 ```
+
+## between([value], [start], [end])
+
+Returns array with strings between [start] and [end]
+
+#### Usage
+```es6
+import {between} from 'vitjs'
+
+let title = "[abc][def]";
+let result = between(title, "[", "]");
+// result => ["abc", "def"];
+```

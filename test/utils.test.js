@@ -1,6 +1,6 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
-    at} from '../src/vitjs'
+    at, between} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -139,17 +139,45 @@ describe('at function', () => {
     });
     it('should be throw', () => {
         chai.assert.throws(at.bind(this, 1, 1), Error);
-        chai.assert.throws(append.bind(this, [], 1), Error);
-        chai.assert.throws(append.bind(this, true, 1), Error);
-        chai.assert.throws(append.bind(this, false, 1), Error);
-        chai.assert.throws(append.bind(this, 1.2, 1), Error);
-        chai.assert.throws(append.bind(this, {}, 1), Error);
+        chai.assert.throws(at.bind(this, [], 1), Error);
+        chai.assert.throws(at.bind(this, true, 1), Error);
+        chai.assert.throws(at.bind(this, false, 1), Error);
+        chai.assert.throws(at.bind(this, 1.2, 1), Error);
+        chai.assert.throws(at.bind(this, {}, 1), Error);
         chai.assert.throws(at.bind(this, "", ""), Error);
-        chai.assert.throws(append.bind(this, "", []), Error);
-        chai.assert.throws(append.bind(this, "", true), Error);
-        chai.assert.throws(append.bind(this, "", false), Error);
-        chai.assert.throws(append.bind(this, "", 1.2), Error);
-        chai.assert.throws(append.bind(this, "", {}), Error);
+        chai.assert.throws(at.bind(this, "", []), Error);
+        chai.assert.throws(at.bind(this, "", true), Error);
+        chai.assert.throws(at.bind(this, "", false), Error);
+        chai.assert.throws(at.bind(this, "", {}), Error);
+    });
+});
+
+describe('between function', () => {
+    it('should be ["foo"]', () => {
+        chai.expect(between("[foo]", "[", "]")[0]).to.equal("foo");
+        chai.expect(between("<span>foo</span>", "<span>", "</span>")[0]).to.equal("foo");
+        chai.expect(between("<span>bar</span><span>foo</span>", "<span>", "</span>")[0]).to.equal("bar");
+        chai.expect(between("<span>bar</span><span>foo</span>", "<span>", "</span>")[1]).to.equal("foo");
+    });
+    it('should be throw', () => {
+        chai.assert.throws(between.bind(this, "", "", 1), Error);
+        chai.assert.throws(between.bind(this, "", "", []), Error);
+        chai.assert.throws(between.bind(this, "", "", {}), Error);
+        chai.assert.throws(between.bind(this, "", "", true), Error);
+        chai.assert.throws(between.bind(this, "", "", false), Error);
+        chai.assert.throws(between.bind(this, "", "", 1.2), Error);
+        chai.assert.throws(between.bind(this, "", 1, ""), Error);
+        chai.assert.throws(between.bind(this, "", [], ""), Error);
+        chai.assert.throws(between.bind(this, "", {}, ""), Error);
+        chai.assert.throws(between.bind(this, "", true, ""), Error);
+        chai.assert.throws(between.bind(this, "", false, ""), Error);
+        chai.assert.throws(between.bind(this, "", 1.2, ""), Error);
+        chai.assert.throws(between.bind(this, 1, "", ""), Error);
+        chai.assert.throws(between.bind(this, [], "", ""), Error);
+        chai.assert.throws(between.bind(this, {}, "", ""), Error);
+        chai.assert.throws(between.bind(this, true, "", ""), Error);
+        chai.assert.throws(between.bind(this, false, "", ""), Error);
+        chai.assert.throws(between.bind(this, 1.2, "", ""), Error);
     });
 });
 
