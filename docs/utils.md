@@ -304,3 +304,16 @@ let value = "Daniel";
 let result = first(value, 2);
 // result => "Da";
 ```
+
+## last([value], [n])
+
+Return the last n chars of string.
+
+#### Usage
+```es6
+import {last} from 'vitjs'
+
+let value = "Daniel";
+let result = last(value, 2);
+// result => "el";
+```

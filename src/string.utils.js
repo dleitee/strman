@@ -288,6 +288,14 @@ export const ensureRight = (value, substr)  => {
 export const first = (value, n) => value.substr(0, n);
 
 /*
+ * Return the last n chars of string.
+ * @param value
+ * @param n
+ * @return string
+ */
+export const last = (value, n) => value.substr(-1 * n, n);
+
+/*
  * Polyfill to startsWith function
  * @param value
  * @param search

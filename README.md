@@ -56,6 +56,7 @@ let result = slugify(title);
   - [x] ensureLeft
   - [x] ensureRight
   - [x] first
+  - [x] last
 - [ ] [String Cases](https://github.com/dleitee/vitjs/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase
