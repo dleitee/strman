@@ -251,6 +251,20 @@ export const endsWith = (value, search, position = null) => _endsWith(value, sea
 export const startsWith = (value, search, position = 0) => _startsWith(value, search, position);
 
 /*
+ * Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
+ * @param value
+ * @param substr
+ * @return string
+ */
+export const ensureLeft = (value, substr)  => { // jshint ignore: line
+    if(!_startsWith(value, substr)){
+        return substr + "" + value;
+    }
+
+    return value;
+};
+
+/*
  * Polyfill to startsWith function
  * @param value
  * @param search

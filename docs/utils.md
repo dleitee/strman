@@ -263,3 +263,17 @@ let search = "Daniel";
 let result = startsWith(value, search);
 // result => true;
 ```
+
+## ensureLeft([value], [substr])
+
+Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
+
+#### Usage
+```es6
+import {ensureLeft} from 'vitjs'
+
+let value = "Leite";
+let substr = "Daniel ";
+let result = ensureLeft(value, substr);
+// result => "Daniel Leite";
+```
