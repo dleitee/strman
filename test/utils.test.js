@@ -2,7 +2,7 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
-    indexOf, lastIndexOf, insert, length, leftPad}
+    indexOf, lastIndexOf, insert, length, leftPad, rightPad}
     from '../src/strman'
 
 describe('isString function', () => {
@@ -620,6 +620,15 @@ describe('leftPad function', () => {
         chai.expect(leftPad("001", 5, 0)).to.equal("00001");
         chai.expect(leftPad("0001", 5, 0)).to.equal("00001");
         chai.expect(leftPad("00001", 5, 0)).to.equal("00001");
+    });
+});
 
+describe('rightPad function', () => {
+    it('should be 10000', () => {
+        chai.expect(rightPad("1", 5, 0)).to.equal("10000");
+        chai.expect(rightPad("10", 5, 0)).to.equal("10000");
+        chai.expect(rightPad("100", 5, 0)).to.equal("10000");
+        chai.expect(rightPad("1000", 5, 0)).to.equal("10000");
+        chai.expect(rightPad("10000", 5, 0)).to.equal("10000");
     });
 });

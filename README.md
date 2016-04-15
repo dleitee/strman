@@ -64,6 +64,7 @@ let result = slugify(title);
   - [x] insert  
   - [x] length
   - [x] leftPad
+  - [x] rightPad
 - [ ] [String Cases](https://github.com/dleitee/strman/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase

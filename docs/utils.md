@@ -409,3 +409,15 @@ let result = leftPad(value, 5, '_');
 // result => "__foo";
 ```
 
+## rightPad([value], [length], [char])
+
+Returns a new string of a given length such that the ending of the string is padded.
+
+#### Usage
+```es6
+import {rightPad} from 'strman'
+
+let value = "foo";
+let result = rightPad(value, 5, '_');
+// result => "foo__";
+```
