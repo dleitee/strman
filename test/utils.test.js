@@ -1,7 +1,7 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
-    endsWith, startsWith, ensureLeft, ensureRight, first, last} from '../src/vitjs'
+    endsWith, startsWith, ensureLeft, ensureRight, first, last, hasLowerCase} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -518,6 +518,30 @@ describe('last function', () => {
 
         fixtures.forEach(el => {
             chai.expect(last(el, 3)).to.equal("foo");
+        });
+    });
+});
+
+describe('hasLowerCase function', () => {
+    it('should be true', () => {
+        let fixtures = [
+            "",
+            "foo",
+            "foobarfoo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(hasLowerCase(el)).to.equal(true);
+        });
+    });
+    it('should be false', () => {
+        let fixtures = [
+            "fooA",
+            "foobarfoAo"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(hasLowerCase(el)).to.equal(false);
         });
     });
 });

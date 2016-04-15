@@ -296,6 +296,14 @@ export const first = (value, n) => value.substr(0, n);
 export const last = (value, n) => value.substr(-1 * n, n);
 
 /*
+ * Verify if has lowerCase
+ * @param value
+  * @return boolean
+ */
+ // TODO: update to polyfill
+export const hasLowerCase = (value) => value === value.toLowerCase();
+
+/*
  * Polyfill to startsWith function
  * @param value
  * @param search

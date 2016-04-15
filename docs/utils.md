@@ -317,3 +317,16 @@ let value = "Daniel";
 let result = last(value, 2);
 // result => "el";
 ```
+
+## hasLowerCase([value], [n])
+
+Verify if has lowerCase
+
+#### Usage
+```es6
+import {hasLowerCase} from 'vitjs'
+
+let value = "daniel";
+let result = hasLowerCase(value);
+// result => true;
+```
