@@ -1,6 +1,6 @@
 {
   "name": "strman",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Javascript string manipulation library without npm dependences.",
   "main": "index.js",
   "directories": {
