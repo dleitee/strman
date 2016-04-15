@@ -343,3 +343,16 @@ let value = "DANIEL";
 let result = hasUpperCase(value);
 // result => true;
 ```
+
+## indexOf([value], [needle], [offset = 0])
+
+The indexOf() method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
+
+#### Usage
+```es6
+import {indexOf} from 'strman'
+
+let value = "daniel";
+let result = indexOf(value, "niel");
+// result => 2;
+```

@@ -72,7 +72,7 @@ export const removeNonChars = (value) => {
         }
     }
     return result;
-}
+};
 
 /*
  * Append Strings on Value
@@ -92,7 +92,7 @@ export const append = (value, ...append) => {
         return data;
     });
     return value + append.join("");
-}
+};
 
 /*
  * Get the character at index
@@ -134,7 +134,7 @@ export const between = (value, start, end) => {
     result = _pop(result);
 
     return result;
-}
+};
 
 /*
  * Returns an array consisting of the characters in the string.
@@ -152,7 +152,7 @@ export const chars = (value) => {
         chars[i] = _at(value, i);
     }
     return chars;
-}
+};
 
 /*
  * Replaces consecutive whitespace characters with a single space
@@ -310,6 +310,17 @@ export const hasLowerCase = (value) => value === value.toLowerCase();
  */
  // TODO: update to polyfill
 export const hasUpperCase = (value) => value === value.toUpperCase();
+
+/*
+ * The indexOf() method returns the index within the calling String object of the first occurrence
+ * of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
+ *
+ * @param value
+ * @param needle
+ * @param offset
+ * @return integer
+ */
+export const indexOf = (value, needle, offset = 0) =>  value.indexOf(needle, offset);
 
 /*
  * Polyfill to startsWith function

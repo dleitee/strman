@@ -1,7 +1,8 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
-    endsWith, startsWith, ensureLeft, ensureRight, first, last, hasLowerCase, hasUpperCase}
+    endsWith, startsWith, ensureLeft, ensureRight, first, last, hasLowerCase, hasUpperCase,
+    indexOf}
     from '../src/strman'
 
 describe('isString function', () => {
@@ -570,3 +571,16 @@ describe('hasUpperCase function', () => {
         });
     });
 });
+
+describe('indexOf function', () => {
+    it('should be true', () => {
+        let value = "foobar";
+        chai.expect(indexOf(value, "f")).to.equal(0);
+        chai.expect(indexOf(value, "o")).to.equal(1);
+        chai.expect(indexOf(value, "b")).to.equal(3);
+        chai.expect(indexOf(value, "a")).to.equal(4);
+        chai.expect(indexOf(value, "r")).to.equal(5);
+        chai.expect(indexOf(value, "t")).to.equal(-1);
+    });
+});
+
