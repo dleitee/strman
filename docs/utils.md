@@ -291,3 +291,16 @@ let substr = " Leite";
 let result = ensureRight(value, substr);
 // result => "Daniel Leite";
 ```
+
+## first([value], [n])
+
+Return the first n chars of string.
+
+#### Usage
+```es6
+import {first} from 'vitjs'
+
+let value = "Daniel";
+let result = first(value, 2);
+// result => "Da";
+```

@@ -1,7 +1,7 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
-    endsWith, startsWith, ensureLeft, ensureRight} from '../src/vitjs'
+    endsWith, startsWith, ensureLeft, ensureRight, first} from '../src/vitjs'
 
 describe('isString function', () => {
     it('should be false', () => {
@@ -496,4 +496,16 @@ describe('ensureRight function', () => {
     });
 });
 
+describe('first function', () => {
+    it('should be foo', () => {
+        let fixtures = [
+            "foo",
+            "foobar"
+        ]
+
+        fixtures.forEach(el => {
+            chai.expect(first(el, 3)).to.equal("foo");
+        });
+    });
+});
 

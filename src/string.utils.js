@@ -280,6 +280,14 @@ export const ensureRight = (value, substr)  => {
 };
 
 /*
+ * Return the first n chars of string.
+ * @param value
+ * @param n
+ * @return string
+ */
+export const first = (value, n) => value.substr(0, n);
+
+/*
  * Polyfill to startsWith function
  * @param value
  * @param search
