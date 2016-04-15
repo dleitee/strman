@@ -2,7 +2,7 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
-    indexOf, lastIndexOf, insert}
+    indexOf, lastIndexOf, insert, length}
     from '../src/strman'
 
 describe('isString function', () => {
@@ -601,5 +601,14 @@ describe('insert function', () => {
         chai.expect(insert("fbar", "oo ", 1)).to.equal("foo bar");
         chai.expect(insert("foo", " bar", 3)).to.equal("foo bar");
         chai.expect(insert("foo bar", "asadasd", 13)).to.equal("foo bar");
+    });
+});
+
+
+describe('length function', () => {
+    it('should be 3', () => {
+        chai.expect(length("foo")).to.equal(3);
+        chai.expect(length("bar")).to.equal(3);
+        chai.expect(length("dan")).to.equal(3);
     });
 });

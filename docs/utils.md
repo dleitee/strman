@@ -370,16 +370,29 @@ let result = lastIndexOf(value, "l");
 // result => 7;
 ```
 
-## insert([value], [substr], [index])
+## length([value], [substr], [index])
 
-The lastIndexOf() method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
+Inserts [substr] into the [value] at the [index] provided.
 
 #### Usage
 ```es6
-import {lastIndexOf} from 'strman'
+import {insert} from 'strman'
 
-let value = "daniel leite";
-let result = lastIndexOf(value, "l");
-// result => 7;
+let value = "foo";
+let result = insert(value, " bar", 3);
+// result => "foo bar";
+```
+
+## length([value])
+
+Returns the length of the string
+
+#### Usage
+```es6
+import {length} from 'strman'
+
+let value = "foo";
+let result = length(value);
+// result => 3;
 ```
 

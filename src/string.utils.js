@@ -347,6 +347,13 @@ export const insert = (value, substr, index) => {
 };
 
 /*
+ * Returns the length of the string
+ * @param value
+ * @return integer
+ */
+export const length = (value) => value.length;
+
+/*
  * Polyfill to append function
  * @param value
  * @param append
