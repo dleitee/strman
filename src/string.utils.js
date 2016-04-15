@@ -80,19 +80,8 @@ export const removeNonChars = (value) => {
  * @param ...append - array with strings to append
  * @return string
  */
-export const append = (value, ...append) => {
-    if(!isString(value)){
-        throw new Error("Value is not a String.");
-    }
+export const append = (value, ...append) => _append(value, append);
 
-    append.map((data) => {
-        if(!isString(data)){
-            throw new Error("Append is not a String.");
-        }
-        return data;
-    });
-    return value + append.join("");
-};
 
 /*
  * Get the character at index
@@ -301,7 +290,7 @@ export const last = (value, n) => value.substr(-1 * n, n);
  *  @return boolean
  */
  // TODO: update to polyfill
-export const hasLowerCase = (value) => value === value.toLowerCase();
+export const isLowerCase = (value) => value === value.toLowerCase();
 
 /*
  * Verify if has upperCase
@@ -309,7 +298,7 @@ export const hasLowerCase = (value) => value === value.toLowerCase();
  * @return boolean
  */
  // TODO: update to polyfill
-export const hasUpperCase = (value) => value === value.toUpperCase();
+export const isUpperCase = (value) => value === value.toUpperCase();
 
 /*
  * The indexOf() method returns the index within the calling String object of the first occurrence
@@ -333,6 +322,49 @@ export const indexOf = (value, needle, offset = 0) =>  value.indexOf(needle, off
  * @return integer
  */
 export const lastIndexOf = (value, needle, offset = undefined) => value.lastIndexOf(needle, offset);
+
+/*
+ * Inserts [substr] into the [value] at the [index] provided.
+ * @param value
+ * @param substr
+ * @param index
+ * @return string
+ */
+export const insert = (value, substr, index) => {
+    
+    let start = null;
+    let end = null;
+
+    if(index > value.length){
+        return value;
+    }
+
+    start = value.substr(0, index);
+    end = value.substr(index, value.length);
+
+    return _append(start, [substr, end]);
+
+};
+
+/*
+ * Polyfill to append function
+ * @param value
+ * @param append
+ * @return string
+ */
+let _append = (value, append) => {
+    if(!isString(value)){
+        throw new Error("Value is not a String.");
+    }
+
+    append.map((data) => {
+        if(!isString(data)){
+            throw new Error("Append is not a String.");
+        }
+        return data;
+    });
+    return value + append.join("");
+};
 
 /*
  * Polyfill to startsWith function

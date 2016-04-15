@@ -318,9 +318,9 @@ let result = last(value, 2);
 // result => "el";
 ```
 
-## hasLowerCase([value], [n])
+## isLowerCase([value], [n])
 
-Verify if has lowerCase
+Verify if is lowerCase
 
 #### Usage
 ```es6
@@ -331,9 +331,9 @@ let result = hasLowerCase(value);
 // result => true;
 ```
 
-## hasUpperCase([value], [n])
+## isUpperCase([value], [n])
 
-Verify if has upperCase
+Verify if is upperCase
 
 #### Usage
 ```es6
@@ -369,3 +369,17 @@ let value = "daniel leite";
 let result = lastIndexOf(value, "l");
 // result => 7;
 ```
+
+## insert([value], [substr], [index])
+
+The lastIndexOf() method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
+
+#### Usage
+```es6
+import {lastIndexOf} from 'strman'
+
+let value = "daniel leite";
+let result = lastIndexOf(value, "l");
+// result => 7;
+```
+

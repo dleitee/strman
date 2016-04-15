@@ -1,8 +1,8 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
-    endsWith, startsWith, ensureLeft, ensureRight, first, last, hasLowerCase, hasUpperCase,
-    indexOf, lastIndexOf}
+    endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
+    indexOf, lastIndexOf, insert}
     from '../src/strman'
 
 describe('isString function', () => {
@@ -524,7 +524,7 @@ describe('last function', () => {
     });
 });
 
-describe('hasLowerCase function', () => {
+describe('isLowerCase function', () => {
     it('should be true', () => {
         let fixtures = [
             "",
@@ -533,7 +533,7 @@ describe('hasLowerCase function', () => {
         ]
 
         fixtures.forEach(el => {
-            chai.expect(hasLowerCase(el)).to.equal(true);
+            chai.expect(isLowerCase(el)).to.equal(true);
         });
     });
     it('should be false', () => {
@@ -543,12 +543,12 @@ describe('hasLowerCase function', () => {
         ]
 
         fixtures.forEach(el => {
-            chai.expect(hasLowerCase(el)).to.equal(false);
+            chai.expect(isLowerCase(el)).to.equal(false);
         });
     });
 });
 
-describe('hasUpperCase function', () => {
+describe('isUpperCase function', () => {
     it('should be true', () => {
         let fixtures = [
             "",
@@ -557,7 +557,7 @@ describe('hasUpperCase function', () => {
         ]
 
         fixtures.forEach(el => {
-            chai.expect(hasUpperCase(el)).to.equal(true);
+            chai.expect(isUpperCase(el)).to.equal(true);
         });
     });
     it('should be false', () => {
@@ -567,7 +567,7 @@ describe('hasUpperCase function', () => {
         ]
 
         fixtures.forEach(el => {
-            chai.expect(hasUpperCase(el)).to.equal(false);
+            chai.expect(isUpperCase(el)).to.equal(false);
         });
     });
 });
@@ -593,5 +593,13 @@ describe('lastIndexOf function', () => {
         chai.expect(lastIndexOf(value, "a")).to.equal(10);
         chai.expect(lastIndexOf(value, "r")).to.equal(11);
         chai.expect(lastIndexOf(value, "t")).to.equal(-1);
+    });
+});
+
+describe('insert function', () => {
+    it('should be foo bar', () => {
+        chai.expect(insert("fbar", "oo ", 1)).to.equal("foo bar");
+        chai.expect(insert("foo", " bar", 3)).to.equal("foo bar");
+        chai.expect(insert("foo bar", "asadasd", 13)).to.equal("foo bar");
     });
 });
