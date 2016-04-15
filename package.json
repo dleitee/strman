@@ -1,7 +1,7 @@
 {
-  "name": "vitjs",
+  "name": "strman",
   "version": "1.0.0",
-  "description": "A Javascript string manipulation library.",
+  "description": "A Javascript string manipulation library without npm dependences.",
   "main": "index.js",
   "directories": {
     "test": "test"

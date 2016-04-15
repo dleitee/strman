@@ -1,7 +1,7 @@
 # String Utils
 
 ```es6
-import {isString, trim, removeSpaces, replace, removeNonChars} from 'vitjs'
+import {isString, trim, removeSpaces, replace, removeNonChars} from 'strman'
 ```
 
 ## isString([value])
@@ -10,7 +10,7 @@ Checks whether a string
 
 #### Usage
 ```es6
-import {isString} from 'vitjs'
+import {isString} from 'strman'
 
 let title = "Checks whether a string";
 let result = isString(title);
@@ -27,7 +27,7 @@ Remove all spaces on left and right
 
 #### Usage
 ```es6
-import {trim} from 'vitjs'
+import {trim} from 'strman'
 
 let title = "     Checks whether a string     ";
 let result = trim(title);
@@ -40,7 +40,7 @@ Remove all spaces on left
 
 #### Usage
 ```es6
-import {ltrim} from 'vitjs'
+import {ltrim} from 'strman'
 
 let title = "     Checks whether a string";
 let result = ltrim(title);
@@ -53,7 +53,7 @@ Remove all spaces on right
 
 #### Usage
 ```es6
-import {rtrim} from 'vitjs'
+import {rtrim} from 'strman'
 
 let title = "Checks whether a string     ";
 let result = rtrim(title);
@@ -66,7 +66,7 @@ Remove all spaces and replace for value
 
 #### Usage
 ```es6
-import {removeSpaces} from 'vitjs'
+import {removeSpaces} from 'strman'
 
 let title = "Remove all spaces and replace for value";
 let result = removeSpaces("-")(title);
@@ -82,7 +82,7 @@ Replace [search] value to [newvalue]
 
 #### Usage
 ```es6
-import {replace} from 'vitjs'
+import {replace} from 'strman'
 
 let title = "My car is black";
 let result = replace("black", "white")(title);
@@ -95,7 +95,7 @@ Remove all non valid characters
 
 #### Usage
 ```es6
-import {removeNonChars} from 'vitjs'
+import {removeNonChars} from 'strman'
 
 let title = "áéíóú";
 let result = removeNonChars(title);
@@ -108,7 +108,7 @@ Remove all non word characters
 
 #### Usage
 ```es6
-import {removeNonWords} from 'vitjs'
+import {removeNonWords} from 'strman'
 
 let title = ".....a";
 let result = removeNonWords("")(title);
@@ -121,7 +121,7 @@ Append Strings on Value
 
 #### Usage
 ```es6
-import {append} from 'vitjs'
+import {append} from 'strman'
 
 let title = "a";
 let result = append(title, "b", "c");
@@ -134,7 +134,7 @@ Get the character at index
 
 #### Usage
 ```es6
-import {at} from 'vitjs'
+import {at} from 'strman'
 
 let title = "abc";
 let result = at(title, 1);
@@ -147,7 +147,7 @@ Returns array with strings between [start] and [end]
 
 #### Usage
 ```es6
-import {between} from 'vitjs'
+import {between} from 'strman'
 
 let title = "[abc][def]";
 let result = between(title, "[", "]");
@@ -160,7 +160,7 @@ Returns an array consisting of the characters in the string.
 
 #### Usage
 ```es6
-import {chars} from 'vitjs'
+import {chars} from 'strman'
 
 let title = "abc";
 let result = chars(title);
@@ -173,7 +173,7 @@ Replaces consecutive whitespace characters with a single space
 
 #### Usage
 ```es6
-import {collapseWhitespace} from 'vitjs'
+import {collapseWhitespace} from 'strman'
 
 let title = "   a    b   c    ";
 let result = collapseWhitespace(title);
@@ -186,7 +186,7 @@ Verifies that the needle is contained in value
 
 #### Usage
 ```es6
-import {contains} from 'vitjs'
+import {contains} from 'strman'
 
 let title = "Daniel Leite";
 let needle = "Leite";
@@ -200,7 +200,7 @@ Verifies that all needles are contained in value
 
 #### Usage
 ```es6
-import {containsAll} from 'vitjs'
+import {containsAll} from 'strman'
 
 let title = "Daniel Leite";
 let needles = ["Leite", "Daniel"];
@@ -214,7 +214,7 @@ Verifies that one or more of needles are contained in value
 
 #### Usage
 ```es6
-import {containsAny} from 'vitjs'
+import {containsAny} from 'strman'
 
 let title = "Daniel Leite";
 let needles = ["Leite", "Daniel", "Oliveira"];
@@ -228,7 +228,7 @@ Count the number of times substr appears in value
 
 #### Usage
 ```es6
-import {countSubstr} from 'vitjs'
+import {countSubstr} from 'strman'
 
 let title = "Daniel Leite";
 let substr = "Leite";
@@ -242,7 +242,7 @@ Test if [value] ends with [search]
 
 #### Usage
 ```es6
-import {endsWith} from 'vitjs'
+import {endsWith} from 'strman'
 
 let value = "Daniel Leite";
 let search = "Leite";
@@ -256,7 +256,7 @@ Test if [value] starts with [search]
 
 #### Usage
 ```es6
-import {startsWith} from 'vitjs'
+import {startsWith} from 'strman'
 
 let value = "Daniel Leite";
 let search = "Daniel";
@@ -270,7 +270,7 @@ Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
 
 #### Usage
 ```es6
-import {ensureLeft} from 'vitjs'
+import {ensureLeft} from 'strman'
 
 let value = "Leite";
 let substr = "Daniel ";
@@ -284,7 +284,7 @@ Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
 
 #### Usage
 ```es6
-import {ensureRight} from 'vitjs'
+import {ensureRight} from 'strman'
 
 let value = "Daniel";
 let substr = " Leite";
@@ -298,7 +298,7 @@ Return the first n chars of string.
 
 #### Usage
 ```es6
-import {first} from 'vitjs'
+import {first} from 'strman'
 
 let value = "Daniel";
 let result = first(value, 2);
@@ -311,7 +311,7 @@ Return the last n chars of string.
 
 #### Usage
 ```es6
-import {last} from 'vitjs'
+import {last} from 'strman'
 
 let value = "Daniel";
 let result = last(value, 2);
@@ -324,7 +324,7 @@ Verify if has lowerCase
 
 #### Usage
 ```es6
-import {hasLowerCase} from 'vitjs'
+import {hasLowerCase} from 'strman'
 
 let value = "daniel";
 let result = hasLowerCase(value);
@@ -337,7 +337,7 @@ Verify if has upperCase
 
 #### Usage
 ```es6
-import {hasUpperCase} from 'vitjs'
+import {hasUpperCase} from 'strman'
 
 let value = "DANIEL";
 let result = hasUpperCase(value);

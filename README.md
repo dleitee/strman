@@ -1,11 +1,11 @@
-# vitjs
+# strman
 A Javascript string manipulation library.
 
 ## Install
 
-vitjs is available on npm:
+strman is available on npm:
 ```
-npm install vitjs --save
+npm install strman --save
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install vitjs --save
 ### With ES6/import
 
 ```javascript
-import {slugify} from 'vitjs';
+import {slugify} from 'strman';
 
 let title = "A Javascript string manipulation library.";
 let result = slugify(title);
@@ -23,7 +23,7 @@ let result = slugify(title);
 ### With require
 
 ```javascript
-var slugify = require('vitjs').slugify;
+var slugify = require('strman').slugify;
 
 let title = "A Javascript string manipulation library.";
 let result = slugify(title);
@@ -32,8 +32,8 @@ let result = slugify(title);
 
 # Available Functions
 
-- [x] [slugify](https://github.com/dleitee/vitjs/blob/master/docs/slugify.md)
-- [x] [Utils](https://github.com/dleitee/vitjs/blob/master/docs/utils.md)
+- [x] [slugify](https://github.com/dleitee/strman/blob/master/docs/slugify.md)
+- [x] [Utils](https://github.com/dleitee/strman/blob/master/docs/utils.md)
   - [x] isString
   - [x] trim
   - [x] rtrim
@@ -59,7 +59,7 @@ let result = slugify(title);
   - [x] last
   - [x] hasLowerCase
   - [x] hasUpperCase
-- [ ] [String Cases](https://github.com/dleitee/vitjs/blob/master/docs/cases.md)
+- [ ] [String Cases](https://github.com/dleitee/strman/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase
   - [ ] toCammelCase

@@ -1,5 +1,5 @@
 import chai from 'chai';
-import {slugify} from '../src/vitjs'
+import {slugify} from '../src/strman'
 
 describe('Slugfiy function', () => {
     it('should be foo-bar', () => {

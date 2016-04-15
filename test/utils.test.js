@@ -2,7 +2,7 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, hasLowerCase, hasUpperCase}
-    from '../src/vitjs'
+    from '../src/strman'
 
 describe('isString function', () => {
     it('should be false', () => {
