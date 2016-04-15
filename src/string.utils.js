@@ -323,6 +323,18 @@ export const hasUpperCase = (value) => value === value.toUpperCase();
 export const indexOf = (value, needle, offset = 0) =>  value.indexOf(needle, offset);
 
 /*
+ * The lastIndexOf() method returns the index within the calling String object of the last 
+ * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the 
+ * value is not found.
+ *
+ * @param value
+ * @param needle
+ * @param offset
+ * @return integer
+ */
+export const lastIndexOf = (value, needle, offset = undefined) => value.lastIndexOf(needle, offset);
+
+/*
  * Polyfill to startsWith function
  * @param value
  * @param search

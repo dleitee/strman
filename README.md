@@ -60,6 +60,7 @@ let result = slugify(title);
   - [x] hasLowerCase
   - [x] hasUpperCase
   - [x] indexOf
+  - [x] lastIndexOf 
 - [ ] [String Cases](https://github.com/dleitee/strman/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase

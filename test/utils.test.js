@@ -2,7 +2,7 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, hasLowerCase, hasUpperCase,
-    indexOf}
+    indexOf, lastIndexOf}
     from '../src/strman'
 
 describe('isString function', () => {
@@ -584,3 +584,14 @@ describe('indexOf function', () => {
     });
 });
 
+describe('lastIndexOf function', () => {
+    it('should be true', () => {
+        let value = "foobarfoobar";
+        chai.expect(lastIndexOf(value, "f")).to.equal(6);
+        chai.expect(lastIndexOf(value, "o")).to.equal(8);
+        chai.expect(lastIndexOf(value, "b")).to.equal(9);
+        chai.expect(lastIndexOf(value, "a")).to.equal(10);
+        chai.expect(lastIndexOf(value, "r")).to.equal(11);
+        chai.expect(lastIndexOf(value, "t")).to.equal(-1);
+    });
+});
