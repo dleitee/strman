@@ -277,3 +277,17 @@ let substr = "Daniel ";
 let result = ensureLeft(value, substr);
 // result => "Daniel Leite";
 ```
+
+## ensureRight([value], [substr])
+
+Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
+
+#### Usage
+```es6
+import {ensureRight} from 'vitjs'
+
+let value = "Daniel";
+let substr = " Leite";
+let result = ensureRight(value, substr);
+// result => "Daniel Leite";
+```

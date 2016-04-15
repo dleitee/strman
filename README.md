@@ -54,6 +54,7 @@ let result = slugify(title);
   - [x] endsWith
   - [x] startsWith
   - [x] ensureLeft
+  - [x] ensureRight
 - [ ] [String Cases](https://github.com/dleitee/vitjs/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [ ] toUpperCase

@@ -256,9 +256,24 @@ export const startsWith = (value, search, position = 0) => _startsWith(value, se
  * @param substr
  * @return string
  */
-export const ensureLeft = (value, substr)  => { // jshint ignore: line
+export const ensureLeft = (value, substr)  => {
     if(!_startsWith(value, substr)){
         return substr + "" + value;
+    }
+
+    return value;
+};
+
+/*
+ * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
+ * @param value
+ * @param substr
+ * @return string
+ */
+export const ensureRight = (value, substr)  => {
+
+    if(!_endsWith(value, substr)){
+        return value + "" + substr;
     }
 
     return value;
