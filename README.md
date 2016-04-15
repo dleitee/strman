@@ -1,5 +1,5 @@
 # strman
-A Javascript string manipulation library.
+A Javascript string manipulation library without npm dependences.
 
 ## Install
 
