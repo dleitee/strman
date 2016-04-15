@@ -330,3 +330,16 @@ let value = "daniel";
 let result = hasLowerCase(value);
 // result => true;
 ```
+
+## hasUpperCase([value], [n])
+
+Verify if has upperCase
+
+#### Usage
+```es6
+import {hasUpperCase} from 'vitjs'
+
+let value = "DANIEL";
+let result = hasUpperCase(value);
+// result => true;
+```
