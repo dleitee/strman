@@ -2,7 +2,7 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
-    indexOf, lastIndexOf, insert, length}
+    indexOf, lastIndexOf, insert, length, leftPad}
     from '../src/strman'
 
 describe('isString function', () => {
@@ -610,5 +610,16 @@ describe('length function', () => {
         chai.expect(length("foo")).to.equal(3);
         chai.expect(length("bar")).to.equal(3);
         chai.expect(length("dan")).to.equal(3);
+    });
+});
+
+describe('leftPad function', () => {
+    it('should be 00001', () => {
+        chai.expect(leftPad("1", 5, 0)).to.equal("00001");
+        chai.expect(leftPad("01", 5, 0)).to.equal("00001");
+        chai.expect(leftPad("001", 5, 0)).to.equal("00001");
+        chai.expect(leftPad("0001", 5, 0)).to.equal("00001");
+        chai.expect(leftPad("00001", 5, 0)).to.equal("00001");
+
     });
 });

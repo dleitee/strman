@@ -354,6 +354,36 @@ export const insert = (value, substr, index) => {
 export const length = (value) => value.length;
 
 /*
+ * Returns a new string of a given length such that the beginning of the string is padded.
+ * @param value
+ * @param length
+ * @param char
+ * @return string
+ */
+ export const leftPad = (value, length, char = ' ') => {
+    
+    let i = -1;
+    let result = value;
+    char = String(char);
+
+    if(char.length > 1){
+        char = char.substr(0, 1);
+    }
+
+    if(char.length === 0){
+        throw new Error("Char should be length >= 1");
+    }
+
+    length = length - value.length;
+
+    while (length > ++i) {
+        result = _append(char, [result]);
+    }
+
+    return result;
+}
+
+/*
  * Polyfill to append function
  * @param value
  * @param append

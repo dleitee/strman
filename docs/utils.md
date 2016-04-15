@@ -370,7 +370,7 @@ let result = lastIndexOf(value, "l");
 // result => 7;
 ```
 
-## length([value], [substr], [index])
+## insert([value], [substr], [index])
 
 Inserts [substr] into the [value] at the [index] provided.
 
@@ -394,5 +394,18 @@ import {length} from 'strman'
 let value = "foo";
 let result = length(value);
 // result => 3;
+```
+
+## leftPad([value], [length], [char])
+
+Returns a new string of a given length such that the beginning of the string is padded.
+
+#### Usage
+```es6
+import {leftPad} from 'strman'
+
+let value = "foo";
+let result = leftPad(value, 5, '_');
+// result => "__foo";
 ```
 
