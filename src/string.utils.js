@@ -662,3 +662,13 @@ const shuffle = (value) => _shuffle(split(value)).join('');
 
 export {shuffle};
 
+/*
+ * Surrounds a [value] with the given [substr].
+ * @param value
+ * @param substr
+ * @return string
+ */
+const surround = (value, _substr = '') => append(_substr, value, _substr);
+
+export {surround};
+

@@ -3,7 +3,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
     indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft, appendArray,
-    prependArray, removeRight, repeat, reverse, shuffle}
+    prependArray, removeRight, repeat, reverse, shuffle, surround}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -736,6 +736,16 @@ describe('shuffle function', () => {
         chai.expect(length(shuffle('daniel'))).to.equal(6);
         chai.expect(shuffle('')).to.equal('');
         chai.expect(shuffle('b')).to.equal('b');
+    });
+});
+
+describe('surround function', () => {
+    it('should be strings surround', () => {
+        chai.expect(surround('foo', 'bar')).to.equal('barfoobar');
+        chai.expect(surround('daniel', '_')).to.equal('_daniel_');
+        chai.expect(surround('', '>')).to.equal('>>');
+        chai.expect(surround('bar', '')).to.equal('bar');
+        chai.expect(surround('f')).to.equal('f');
     });
 });
 

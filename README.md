@@ -73,6 +73,10 @@ let result = slugify(title);
   - [x] repeat
   - [x] reverse
   - [x] shuffle
+  - [ ] safeTruncate
+  - [ ] slice
+  - [ ] truncate
+  - [x] surround
 
 - [ ] [String Cases](https://github.com/dleitee/strman/blob/master/docs/cases.md)
   - [x] toLowerCase
