@@ -640,3 +640,25 @@ const reverse = (value) => {
 
 export {reverse};
 
+/*
+ * A multibyte str_shuffle() function. It returns a string with its characters in random order.
+ * @param value
+ * @return string
+*/
+const _shuffle =(array) => {
+    let j;
+    let x;
+    let i;
+    for (i = length(array); i; i -= 1) {
+        j = Math.floor(Math.random() * i);
+        x = array[i - 1];
+        array[i - 1] = array[j];
+        array[j] = x;
+    }
+    return array;
+};
+
+const shuffle = (value) => _shuffle(split(value)).join('');
+
+export {shuffle};
+

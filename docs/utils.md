@@ -446,3 +446,5 @@ let result = substr(split, "");
 ## repeat
 
 ## reverse
+
+## shuffle
