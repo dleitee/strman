@@ -2,7 +2,7 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
-    indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend}
+    indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -634,5 +634,19 @@ describe('rightPad function', () => {
         chai.expect(rightPad('100', 5, 0)).to.equal('10000');
         chai.expect(rightPad('1000', 5, 0)).to.equal('10000');
         chai.expect(rightPad('10000', 5, 0)).to.equal('10000');
+    });
+});
+
+
+describe('removeLeft function', () => {
+    it('should be true', () => {
+        let fixtures = [
+            'foobar',
+            'bar'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(removeLeft(el, 'foo')).to.equal('bar');
+        });
     });
 });

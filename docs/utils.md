@@ -434,3 +434,5 @@ let value = "foo";
 let result = substr(split, "");
 // result => ["f", "o", "o"];
 ```
+
+## removeLeft

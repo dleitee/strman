@@ -132,7 +132,7 @@ const between = (value, start, end) => {
     result = split(value, end);
 
     result = result.map((text) => {
-        return substr(text, text.indexOf(start)+start.length);
+        return substr(text, text.indexOf(start)+length(start));
     });
 
     result = _pop(result);
@@ -152,7 +152,7 @@ const chars = (value) => {
 
     validString(value);
 
-    for(let i = 0; i < value.length; i++){
+    for(let i = 0; i < length(value); i++){
         chars[i] = at(value, i);
     }
     return chars;
@@ -207,7 +207,7 @@ export {contains};
  * @return boolean
  */
 const containsAll = (value, needles, caseSensitive = true) => {
-    for(let i = 0; i < needles.length; i++){
+    for(let i = 0; i < length(needles); i++){
         if(!contains(value, needles[i], caseSensitive)){
             return false;
         }
@@ -225,7 +225,7 @@ export {containsAll};
  * @return boolean
  */
 const containsAny = (value, needles, caseSensitive = true) => {
-    for(let i = 0; i < needles.length; i++){
+    for(let i = 0; i < length(needles); i++){
         if(contains(value, needles[i], caseSensitive)){
             return true;
         }
@@ -244,19 +244,19 @@ export {containsAny};
  * @param allowOverlapping = false
  * @return integer
  */
-const _countSubstring = (value, substr, allowOverlapping = false, position = 0, count = 0) => {
+const _countSubstring = (value, _substr, allowOverlapping = false, position = 0, count = 0) => {
 
-    let _position = indexOf(value, substr, position);
+    let _position = indexOf(value, _substr, position);
 
     if(_position === -1){
         return count;
     }
 
     if(!allowOverlapping){
-        _position = _position + substr.length - 1;
+        _position = _position + length(_substr) - 1;
     }
 
-    return _countSubstring(value, substr, allowOverlapping, _position + 1, count + 1);
+    return _countSubstring(value, _substr, allowOverlapping, _position + 1, count + 1);
 
 };
 
@@ -268,14 +268,14 @@ const _countSubstring = (value, substr, allowOverlapping = false, position = 0, 
  * @param allowOverlapping = false
  * @return integer
  */
-const countSubstr = (value, substr, caseSensitive = true, allowOverlapping = false) => {
+const countSubstr = (value, _substr, caseSensitive = true, allowOverlapping = false) => {
 
     if(!caseSensitive){
         value = toUpperCase(value);
-        substr = toUpperCase(substr);
+        _substr = toUpperCase(_substr);
     }
 
-    return _countSubstring(value, substr, allowOverlapping);
+    return _countSubstring(value, _substr, allowOverlapping);
 
 };
 
@@ -293,7 +293,7 @@ const endsWith = (value, search, position = null) => {
     let lastIndex = null;
 
     if (typeof position !== 'number' || !isFinite(position)
-            || Math.floor(position) !== position || position > value.length) {
+            || Math.floor(position) !== position || position > length(value)) {
         position = length(value);
     }
 
@@ -314,7 +314,7 @@ export {endsWith};
  * @return boolean
  */
 const startsWith = (value, search, position = 0) =>
-    substr(value, position, search.length) === search;
+    substr(value, position, length(search)) === search;
 
 export {startsWith};
 
@@ -324,9 +324,9 @@ export {startsWith};
  * @param substr
  * @return string
  */
-const ensureLeft = (value, substr)  => {
-    if(!startsWith(value, substr)){
-        return append(substr, value);
+const ensureLeft = (value, _substr)  => {
+    if(!startsWith(value, _substr)){
+        return append(_substr, value);
     }
 
     return value;
@@ -340,10 +340,10 @@ export  {ensureLeft};
  * @param substr
  * @return string
  */
-const ensureRight = (value, substr)  => {
+const ensureRight = (value, _substr)  => {
 
-    if(!endsWith(value, substr)){
-        return append(value, substr);
+    if(!endsWith(value, _substr)){
+        return append(value, _substr);
     }
 
     return value;
@@ -446,7 +446,7 @@ export {length};
     char = String(char);
 
     if(length(char) > 1){
-        char = char.substr(0, 1);
+        char = substr(char, 0, 1);
     }
 
     validCharLength(char);
@@ -475,7 +475,7 @@ const rightPad = (value, _length, char = ' ') => {
     let result = value;
     char = String(char);
 
-    if(char.length > 1){
+    if(length(char) > 1){
         char = substr(char, 0, 1);
     }
 
@@ -533,4 +533,21 @@ const prepend = (value, ...prepends) => {
 };
 
 export {prepend};
+
+/*
+ * Returns a new string with the [prefix] removed, if present.
+ * @param value
+ * @param prefix
+ * @return string
+*/
+const removeLeft = (value, prefix) => {
+
+    if(startsWith(value, prefix)){
+        return substr(value, length(prefix));
+    }
+
+    return value;
+};
+
+export {removeLeft};
 
