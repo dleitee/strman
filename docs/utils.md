@@ -128,6 +128,19 @@ let result = append(title, "b", "c");
 // result => "abc";
 ```
 
+## prepend([value], ...[prepend])
+
+Prepend Strings on Value
+
+#### Usage
+```es6
+import {prepend} from 'strman'
+
+let title = "a";
+let result = prepend(title, "b", "c");
+// result => "bca";
+```
+
 ## at([value], [index])
 
 Get the character at index

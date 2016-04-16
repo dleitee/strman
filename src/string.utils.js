@@ -86,13 +86,16 @@ export {removeNonChars};
  * @param ...append - array with strings to append
  * @return string
  */
-const append = (value, ...append) => {
+const append = (value, ...appends) => {
 
     validString(value);
+    validArrayString(appends);
 
-    validArrayString(append);
+    if(length(appends) === 0){
+        return value;
+    }
 
-    return value + append.join('');
+    return value + appends.join('');
 };
 
 export {append};
@@ -510,3 +513,24 @@ export {substr};
 const split = (value, separator, limit = undefined) => value.split(separator, limit);
 
 export {split};
+
+/*
+ * Returns a new string starting with [prepends].
+ * @param value
+ * @param ...prepends
+ * @return string
+ */
+const prepend = (value, ...prepends) => {
+
+    validString(value);
+    validArrayString(prepends);
+
+    if(length(prepends) === 0){
+        return value;
+    }
+
+    return prepends.join('') + value;
+};
+
+export {prepend};
+

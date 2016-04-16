@@ -34,14 +34,6 @@ let result = slugify(title);
 
 - [x] [slugify](https://github.com/dleitee/strman/blob/master/docs/slugify.md)
 - [x] [Utils](https://github.com/dleitee/strman/blob/master/docs/utils.md)
-  - [x] isString
-  - [x] trim
-  - [x] rtrim
-  - [x] ltrim
-  - [x] removeSpaces
-  - [x] replace
-  - [x] removeNonChars
-  - [x] removeNonWords
   - [x] append
   - [x] at
   - [x] between
@@ -52,19 +44,28 @@ let result = slugify(title);
   - [x] containsAny
   - [x] countSubstr
   - [x] endsWith
-  - [x] startsWith
   - [x] ensureLeft
   - [x] ensureRight
   - [x] first
-  - [x] last
   - [x] indexOf
-  - [x] lastIndexOf
   - [x] insert
-  - [x] length
+  - [x] isString
+  - [x] last
+  - [x] lastIndexOf
   - [x] leftPad
+  - [x] length
   - [x] rightPad
+  - [x] trim
+  - [x] rtrim
+  - [x] ltrim
+  - [x] removeSpaces
+  - [x] replace
+  - [x] removeNonChars
+  - [x] removeNonWords
+  - [x] startsWith
   - [x] substr
   - [x] split
+
 - [ ] [String Cases](https://github.com/dleitee/strman/blob/master/docs/cases.md)
   - [x] toLowerCase
   - [x] toUpperCase

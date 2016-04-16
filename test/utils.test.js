@@ -2,7 +2,7 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
-    indexOf, lastIndexOf, insert, length, leftPad, rightPad}
+    indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -111,11 +111,28 @@ describe('append function', () => {
     });
     it('should be throw', () => {
         chai.assert.throws(append.bind(this, '', 1), Error);
-        chai.assert.throws(append.bind(this, '', []), Error);
         chai.assert.throws(append.bind(this, '', true), Error);
         chai.assert.throws(append.bind(this, '', false), Error);
         chai.assert.throws(append.bind(this, '', 1.2), Error);
         chai.assert.throws(append.bind(this, '', {}), Error);
+        chai.assert.throws(append.bind(this, '', []), Error);
+    });
+});
+
+describe('prepend function', () => {
+    it('should be foobar', () => {
+        chai.expect(prepend('r', 'f', 'o', 'o', 'b', 'a')).to.equal('foobar');
+        chai.expect(prepend('foobar')).to.equal('foobar');
+        chai.expect(prepend('', 'foobar')).to.equal('foobar');
+        chai.expect(prepend('bar', 'foo')).to.equal('foobar');
+    });
+    it('should be throw', () => {
+        chai.assert.throws(prepend.bind(this, '', 1), Error);
+        chai.assert.throws(prepend.bind(this, '', []), Error);
+        chai.assert.throws(prepend.bind(this, '', true), Error);
+        chai.assert.throws(prepend.bind(this, '', false), Error);
+        chai.assert.throws(prepend.bind(this, '', 1.2), Error);
+        chai.assert.throws(prepend.bind(this, '', {}), Error);
     });
 });
 

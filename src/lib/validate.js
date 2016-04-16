@@ -12,6 +12,7 @@ const validString = value => {
 export {validString};
 
 const validArrayString = array => {
+
     array.map((data) => {
         if(!isString(data)){
             throw new Error('[strman] ' + data + ' is not a String.');
