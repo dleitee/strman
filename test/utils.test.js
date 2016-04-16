@@ -2,7 +2,7 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
-    indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft}
+    indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft, appendArray}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -116,6 +116,21 @@ describe('append function', () => {
         chai.assert.throws(append.bind(this, '', 1.2), Error);
         chai.assert.throws(append.bind(this, '', {}), Error);
         chai.assert.throws(append.bind(this, '', []), Error);
+    });
+});
+
+describe('appendArray function', () => {
+    it('should be foobar', () => {
+        chai.expect(appendArray('f', ['o', 'o', 'b', 'a', 'r'])).to.equal('foobar');
+        chai.expect(appendArray('foobar')).to.equal('foobar');
+        chai.expect(appendArray('', ['foobar'])).to.equal('foobar');
+    });
+    it('should be throw', () => {
+        chai.assert.throws(appendArray.bind(this, '', 1), Error);
+        chai.assert.throws(appendArray.bind(this, '', true), Error);
+        chai.assert.throws(appendArray.bind(this, '', false), Error);
+        chai.assert.throws(appendArray.bind(this, '', 1.2), Error);
+        chai.assert.throws(appendArray.bind(this, '', {}), Error);
     });
 });
 

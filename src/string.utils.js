@@ -100,6 +100,26 @@ const append = (value, ...appends) => {
 
 export {append};
 
+/*
+ * Append Array of Strings on Value
+ * @param value String initial
+ * @param ...append - array with strings to append
+ * @return string
+ */
+const appendArray = (value, appends = []) => {
+
+    validString(value);
+    validArrayString(appends);
+
+    if(length(appends) === 0){
+        return value;
+    }
+
+    return value + appends.join('');
+};
+
+export {appendArray};
+
 
 /*
  * Get the character at index

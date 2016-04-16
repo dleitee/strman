@@ -436,3 +436,5 @@ let result = substr(split, "");
 ```
 
 ## removeLeft
+
+## appendArray
