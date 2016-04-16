@@ -81,3 +81,14 @@ const toSnakeCase = value => {
 };
 
 export {toSnakeCase};
+
+/*
+ * Decamelize kebab-case
+ * @params value
+ * @return string
+ */
+const toKebabCase = value => {
+    return toDecamelize(value, '-');
+};
+
+export {toKebabCase};

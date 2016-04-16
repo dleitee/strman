@@ -84,12 +84,12 @@ let result = slugify(title);
   - [x] isLowerCase
   - [ ] hasLowerCase
   - [x] isUpperCase
-  - [ ] isUpperCase
+  - [ ] hasUpperCase
   - [x] toCammelCase
   - [x] toStudlyCaps
   - [x] toDecamelize
   - [x] toSnakeCase
-  - [ ] toKebabCase
+  - [x] toKebabCase
 
 # LICENSE
 The MIT License (MIT)
