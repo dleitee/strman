@@ -461,7 +461,6 @@ export {length};
  */
  const leftPad = (value, _length, char = ' ') => {
 
-    let i = -1;
     let result = value;
     char = String(char);
 
@@ -473,9 +472,7 @@ export {length};
 
     _length = _length - length(value);
 
-    while (_length > ++i) {
-        result = append(char, result);
-    }
+    result = append(repeat(char, _length), result);
 
     return result;
 };
@@ -491,7 +488,6 @@ export {leftPad};
  */
 const rightPad = (value, _length, char = ' ') => {
 
-    let i = -1;
     let result = value;
     char = String(char);
 
@@ -503,9 +499,7 @@ const rightPad = (value, _length, char = ' ') => {
 
     _length = _length - length(value);
 
-    while (_length > ++i) {
-        result = append(result, char);
-    }
+    result = append(result, repeat(char, _length));
 
     return result;
 };
@@ -610,3 +604,21 @@ const removeRight = (value, suffix) => {
 };
 
 export {removeRight};
+
+/*
+ * Returns a repeated string given a multiplier.
+ * @param value
+ * @param multiplier
+ * @return string
+*/
+
+const repeat = (value, multiplier) => {
+    let i = 0;
+    let result = '';
+    while(multiplier > i++) {
+        result += value;
+    }
+    return result;
+};
+
+export {repeat};

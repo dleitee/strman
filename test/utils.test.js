@@ -3,7 +3,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
     indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft, appendArray,
-    prependArray, removeRight}
+    prependArray, removeRight, repeat}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -709,3 +709,12 @@ describe('removeRight function', () => {
     });
 });
 
+describe('repeat function', () => {
+    it('should be 1 repeated', () => {
+        chai.expect(repeat('1', 1)).to.equal('1');
+        chai.expect(repeat('1', 2)).to.equal('11');
+        chai.expect(repeat('1', 3)).to.equal('111');
+        chai.expect(repeat('1', 4)).to.equal('1111');
+        chai.expect(repeat('1', 5)).to.equal('11111');
+    });
+});

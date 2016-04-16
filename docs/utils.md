@@ -442,3 +442,5 @@ let result = substr(split, "");
 ## appendArray
 
 ## prependArray
+
+## repeat
