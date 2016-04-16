@@ -1,9 +1,9 @@
 import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
-    endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
-    indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft, appendArray,
-    prependArray, removeRight, repeat, reverse, shuffle, surround}
+    endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
+    length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
+    repeat, reverse, shuffle, surround}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -566,54 +566,6 @@ describe('last function', () => {
 
         fixtures.forEach(el => {
             chai.expect(last(el, 3)).to.equal('foo');
-        });
-    });
-});
-
-describe('isLowerCase function', () => {
-    it('should be true', () => {
-        let fixtures = [
-            '',
-            'foo',
-            'foobarfoo'
-        ];
-
-        fixtures.forEach(el => {
-            chai.expect(isLowerCase(el)).to.equal(true);
-        });
-    });
-    it('should be false', () => {
-        let fixtures = [
-            'fooA',
-            'foobarfoAo'
-        ];
-
-        fixtures.forEach(el => {
-            chai.expect(isLowerCase(el)).to.equal(false);
-        });
-    });
-});
-
-describe('isUpperCase function', () => {
-    it('should be true', () => {
-        let fixtures = [
-            '',
-            'FOO',
-            'FOOBARFOO'
-        ];
-
-        fixtures.forEach(el => {
-            chai.expect(isUpperCase(el)).to.equal(true);
-        });
-    });
-    it('should be false', () => {
-        let fixtures = [
-            'FOOa',
-            'FOOBARFOOa'
-        ];
-
-        fixtures.forEach(el => {
-            chai.expect(isUpperCase(el)).to.equal(false);
         });
     });
 });

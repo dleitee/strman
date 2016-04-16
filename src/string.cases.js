@@ -32,3 +32,17 @@ export {isLowerCase};
 const isUpperCase = (value) => value === toUpperCase(value);
 
 export {isUpperCase};
+
+/*
+ * Transform to StudlyCaps
+ * @params value
+ * @return string
+ */
+const toStudlyCaps = value => {
+    let string = value.replace(/[\-_\s]+(.)?/g,
+                            (match, chr) => chr ? toUpperCase(chr) : '');
+    return toUpperCase(string.substr(0, 1)) + string.substr(1);
+};
+
+export {toStudlyCaps};
+
