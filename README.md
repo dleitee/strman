@@ -75,7 +75,7 @@ let result = slugify(title);
   - [x] shuffle
   - [x] safeTruncate
   - [x] slice
-  - [ ] truncate
+  - [x] truncate
   - [x] surround
   - [x] includes
 

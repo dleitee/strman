@@ -456,3 +456,5 @@ let result = substr(split, "");
 ## slice
 
 ## safeTruncate
+
+## truncate

@@ -704,6 +704,11 @@ export {surround};
 const safeTruncate = (value, _length, _append = '') => {
 
     let truncated = '';
+
+    if(_length === 0){
+        return '';
+    }
+
     if (_length >= length(value)) {
         return value;
     }
@@ -727,3 +732,31 @@ const safeTruncate = (value, _length, _append = '') => {
 };
 
 export {safeTruncate};
+
+/*
+ * Truncate the unsecured form string, cutting the independent string of required position.
+* @param value
+ * @param _length
+ * @param _append = ''
+ * @return string
+ */
+const truncate = (value, _length, _append = '') => {
+
+    let truncated = '';
+
+    if(_length === 0){
+        return '';
+    }
+
+    if (_length >= length(value)) {
+        return value;
+    }
+
+    _length -= length(_append) ;
+    truncated = substr(value, 0, _length);
+
+    return append(truncated, _append);
+
+};
+
+export {truncate};
