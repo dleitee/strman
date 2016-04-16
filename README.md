@@ -77,7 +77,7 @@ let result = slugify(title);
   - [ ] slice
   - [ ] truncate
   - [x] surround
-  - [ ] includes
+  - [x] includes
 
 - [ ] [String Cases](https://github.com/dleitee/strman/blob/master/docs/cases.md)
   - [x] toLowerCase
@@ -86,7 +86,7 @@ let result = slugify(title);
   - [ ] hasLowerCase
   - [x] isUpperCase
   - [ ] hasUpperCase
-  - [x] toCammelCase
+  - [x] toCamelCase
   - [x] toStudlyCaps
   - [x] toDecamelize
   - [x] toSnakeCase

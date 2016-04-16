@@ -201,6 +201,17 @@ const removeNonWords = (value, replaced = '') => replace(value, '[^\\w]+', repla
 export {removeNonWords};
 
 /*
+ * Alias for contains
+ * @param value
+ * @param needle
+ * @param caseSensitive - default true
+ * @return boolean
+ */
+const includes = (value, needle, caseSensitive = true) => contains(value, needle, caseSensitive);
+
+export {includes};
+
+/*
  * Verifies that the needle is contained in value
  * @param value
  * @param needle

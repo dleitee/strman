@@ -55,3 +55,19 @@ let value = "DANIEL";
 let result = hasUpperCase(value);
 // result => true;
 ```
+
+
+## toCamelCase
+
+
+## toStudlyCaps
+
+
+## toDecamelize
+
+
+## toSnakeCase
+
+
+## toKebabCase
+
