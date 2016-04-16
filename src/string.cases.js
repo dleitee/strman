@@ -70,3 +70,14 @@ const toDecamelize = (value, chr = '_') => {
 };
 
 export {toDecamelize};
+
+/*
+ * Decamelize snake_case
+ * @params value
+ * @return string
+ */
+const toSnakeCase = value => {
+    return toDecamelize(value, '_');
+};
+
+export {toSnakeCase};

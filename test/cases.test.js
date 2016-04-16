@@ -1,5 +1,6 @@
 import chai from 'chai';
-import {toStudlyCaps, isLowerCase, isUpperCase, toCamelCase} from '../src/string.cases';
+import {toStudlyCaps, isLowerCase, isUpperCase, toCamelCase, toSnakeCase}
+    from '../src/string.cases';
 
 describe('#toStudlyCaps(value)', () => {
     it('should match DeCamelize', () => {
@@ -86,6 +87,26 @@ describe('#toCamelCase(value)', () => {
 
         fixtures.forEach(el => {
             chai.expect(toCamelCase(el)).to.equal('camelCase');
+        });
+    });
+});
+
+describe('#toSnakeCase(value)', () => {
+    it('should match de_camelize', () => {
+        let fixtures = [
+            'deCamelize',
+            'de-Camelize',
+            'de camelize',
+            'de  camelize',
+            'de Camelize',
+            'de-camelize',
+            '-de--camelize',
+            'de_camelize',
+            '     de_camelize'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(toSnakeCase(el)).to.equal('de_camelize');
         });
     });
 });

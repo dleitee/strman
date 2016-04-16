@@ -82,11 +82,13 @@ let result = slugify(title);
   - [x] toLowerCase
   - [x] toUpperCase
   - [x] isLowerCase
+  - [ ] hasLowerCase
   - [x] isUpperCase
+  - [ ] isUpperCase
   - [x] toCammelCase
   - [x] toStudlyCaps
   - [x] toDecamelize
-  - [ ] toSnakeCase
+  - [x] toSnakeCase
   - [ ] toKebabCase
 
 # LICENSE
