@@ -46,3 +46,14 @@ const toStudlyCaps = value => {
 
 export {toStudlyCaps};
 
+/*
+ * Transform to camelCase
+ * @params value
+ * @return string
+ */
+const toCamelCase = value => {
+    let string = toStudlyCaps(value);
+    return toLowerCase(string.substr(0, 1)) + string.substr(1);
+};
+
+export {toCamelCase};
