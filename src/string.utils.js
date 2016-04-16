@@ -622,3 +622,21 @@ const repeat = (value, multiplier) => {
 };
 
 export {repeat};
+
+/*
+ * Returns a reversed string.
+ * @param value
+ * @return string
+*/
+
+const reverse = (value) => {
+    let i = 0;
+    let reversed = '';
+    while(length(value) > i++){
+        reversed = append(reversed, substr(value, -1*i, 1));
+    }
+    return reversed;
+};
+
+export {reverse};
+
