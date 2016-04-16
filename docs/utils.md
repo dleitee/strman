@@ -452,3 +452,5 @@ let result = substr(split, "");
 ## surround
 
 ## includes
+
+## slice

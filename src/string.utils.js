@@ -683,3 +683,15 @@ const surround = (value, _substr = '') => append(_substr, value, _substr);
 
 export {surround};
 
+/*
+ * The slice method extracts a section of a string and returns a new string.
+ * @param value
+ * @param beginSlice
+ * @param endSlice
+ * @return string
+ */
+ const slice = (value, beginSlice, endSlice = undefined) => value.slice(beginSlice, endSlice);
+
+ export {slice};
+
+
