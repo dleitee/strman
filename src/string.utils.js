@@ -167,15 +167,15 @@ export {between};
  * @params value
  * @returns Array
  */
-const chars = (value) => {
-    let chars = [];
+const chars = value => {
+    let _chars = [];
 
     validString(value);
 
     for(let i = 0; i < length(value); i++){
-        chars[i] = at(value, i);
+        _chars[i] = at(value, i);
     }
-    return chars;
+    return _chars;
 };
 
 export {chars};

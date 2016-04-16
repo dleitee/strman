@@ -83,9 +83,7 @@ let result = slugify(title);
   - [x] toLowerCase
   - [x] toUpperCase
   - [x] isLowerCase
-  - [ ] hasLowerCase
   - [x] isUpperCase
-  - [ ] hasUpperCase
   - [x] toCamelCase
   - [x] toStudlyCaps
   - [x] toDecamelize
@@ -93,6 +91,7 @@ let result = slugify(title);
   - [x] toKebabCase
 
 # LICENSE
+
 The MIT License (MIT)
 
 Copyright (c) 2015 Daniel Leite de Oliveira
