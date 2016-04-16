@@ -85,7 +85,7 @@ let result = slugify(title);
   - [x] isUpperCase
   - [x] toCammelCase
   - [x] toStudlyCaps
-  - [ ] toDecamelize
+  - [x] toDecamelize
   - [ ] toSnakeCase
   - [ ] toKebabCase
 

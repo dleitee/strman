@@ -57,3 +57,16 @@ const toCamelCase = value => {
 };
 
 export {toCamelCase};
+
+/*
+ * Decamelize String
+ * @params value
+ * @return string
+ */
+const toDecamelize = (value, chr = '_') => {
+    let camel = toCamelCase(value);
+    let string = camel.replace(/([A-Z])+/g, chr + '$1');
+    return toLowerCase(string);
+};
+
+export {toDecamelize};
