@@ -454,3 +454,5 @@ let result = substr(split, "");
 ## includes
 
 ## slice
+
+## safeTruncate

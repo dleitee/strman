@@ -3,7 +3,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
-    repeat, reverse, shuffle, surround}
+    repeat, reverse, shuffle, surround, safeTruncate}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -701,3 +701,12 @@ describe('surround function', () => {
     });
 });
 
+describe('safeTruncate function', () => {
+    it('should be strings safeTruncated', () => {
+        chai.expect(safeTruncate('foo bar', 3, '.')).to.equal('foo');
+        chai.expect(safeTruncate('foo bar', 2, '.')).to.equal('.');
+        chai.expect(safeTruncate('foo bar', 4, '.')).to.equal('foo.');
+        chai.expect(safeTruncate('foo bar', 7, '.')).to.equal('foo bar');
+        chai.expect(safeTruncate('foo bar', 8, '.')).to.equal('foo bar');
+    });
+});

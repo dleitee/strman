@@ -1,6 +1,8 @@
 require('babel-core/register');
 
-//var vitjs = require('./src/vitjs')
-//var slugfy = vitjs.slugify
+/*
+var strman = require('./src/strman');
+var safe = strman.safeTruncate;
 
-//console.log(slugfy(' Bar bár .'));
+console.log(safe('foo bar', 3, '.'));
+*/

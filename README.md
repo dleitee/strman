@@ -73,7 +73,7 @@ let result = slugify(title);
   - [x] repeat
   - [x] reverse
   - [x] shuffle
-  - [ ] safeTruncate
+  - [x] safeTruncate
   - [x] slice
   - [ ] truncate
   - [x] surround

@@ -152,7 +152,7 @@ const between = (value, start, end) => {
     result = split(value, end);
 
     result = result.map((text) => {
-        return substr(text, text.indexOf(start)+length(start));
+        return substr(text, indexOf(text, start)+length(start));
     });
 
     result = _pop(result);
@@ -694,4 +694,36 @@ export {surround};
 
  export {slice};
 
+/*
+ * Truncate the string securely, not cutting a word in half. It always returns the last full word.
+ * @param value
+ * @param _length
+ * @param _append = ''
+ * @return string
+ */
+const safeTruncate = (value, _length, _append = '') => {
 
+    let truncated = '';
+    if (_length >= length(value)) {
+        return value;
+    }
+
+    if(_length === indexOf(value, ' ', 0)){
+        return substr(value, 0, _length);
+    }
+
+    _length -= length(_append) ;
+    truncated = substr(value, 0, _length);
+
+    let position = indexOf(value, ' ', _length - 1);
+
+    if(position !== _length){
+        let lastPos = lastIndexOf(truncated, ' ', 0);
+        truncated = substr(truncated, 0, lastPos);
+    }
+
+    return append(truncated, _append);
+
+};
+
+export {safeTruncate};
