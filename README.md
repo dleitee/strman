@@ -69,6 +69,7 @@ let result = slugify(title);
   - [x] substr
   - [x] split
   - [x] removeLeft
+  - [x] removeRight
 
 - [ ] [String Cases](https://github.com/dleitee/strman/blob/master/docs/cases.md)
   - [x] toLowerCase

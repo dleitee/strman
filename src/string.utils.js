@@ -592,3 +592,21 @@ const removeLeft = (value, prefix) => {
 
 export {removeLeft};
 
+/*
+ * Returns a new string with the [suffix] removed, if present.
+ * @param value
+ * @param prefix
+ * @return string
+*/
+
+const removeRight = (value, suffix) => {
+    let _length = length(value) - length(suffix);
+
+    if(endsWith(value, suffix)){
+        return substr(value, 0, _length);
+    }
+
+    return value;
+};
+
+export {removeRight};

@@ -3,7 +3,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
     indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft, appendArray,
-    prependArray}
+    prependArray, removeRight}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -692,3 +692,20 @@ describe('removeLeft function', () => {
         });
     });
 });
+
+describe('removeRight function', () => {
+    it('should be true', () => {
+        let fixtures = [
+            'foobar',
+            'foo'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(removeRight(el, 'bar')).to.equal('foo');
+        });
+
+        chai.expect(removeRight('foofoofoobar', 'bar')).to.equal('foofoofoo');
+        chai.expect(removeRight('foofoofoobar', 'foobar')).to.equal('foofoo');
+    });
+});
+

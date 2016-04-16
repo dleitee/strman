@@ -437,6 +437,8 @@ let result = substr(split, "");
 
 ## removeLeft
 
+## removeRight
+
 ## appendArray
 
 ## prependArray
