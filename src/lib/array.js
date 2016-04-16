@@ -2,7 +2,7 @@ export const _isArray = value => {
     return (value !== null &&
            value.length >= 0 &&
            Object.prototype.toString.call(value) === '[object Array]');
-}
+};
 
 export const _pop = array => {
     let newarray = [];
@@ -10,4 +10,4 @@ export const _pop = array => {
         newarray[i] = array[i];
     }
     return newarray;
-}
+};

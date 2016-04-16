@@ -318,32 +318,6 @@ let result = last(value, 2);
 // result => "el";
 ```
 
-## isLowerCase([value], [n])
-
-Verify if is lowerCase
-
-#### Usage
-```es6
-import {hasLowerCase} from 'strman'
-
-let value = "daniel";
-let result = hasLowerCase(value);
-// result => true;
-```
-
-## isUpperCase([value], [n])
-
-Verify if is upperCase
-
-#### Usage
-```es6
-import {hasUpperCase} from 'strman'
-
-let value = "DANIEL";
-let result = hasUpperCase(value);
-// result => true;
-```
-
 ## indexOf([value], [needle], [offset = 0])
 
 The indexOf() method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
@@ -420,4 +394,30 @@ import {rightPad} from 'strman'
 let value = "foo";
 let result = rightPad(value, 5, '_');
 // result => "foo__";
+```
+
+## substr([value], [start], [length])
+
+Alias to substr function.
+
+#### Usage
+```es6
+import {substr} from 'strman'
+
+let value = "foo";
+let result = substr(value, 1);
+// result => "oo";
+```
+
+## split([value], [separator], [limit])
+
+Alias to split function.
+
+#### Usage
+```es6
+import {split} from 'strman'
+
+let value = "foo";
+let result = substr(split, "");
+// result => ["f", "o", "o"];
 ```

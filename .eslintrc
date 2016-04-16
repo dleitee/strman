@@ -1,14 +1,19 @@
 {
-    "env":{
-        "browser": true,
-        "node": true,
-        "es6": true,
-        "mocha": true
+    'env':{
+        'browser': true,
+        'node': true,
+        'es6': true,
+        'mocha': true
     },
-    "globals":{
+    'rules': {
+        'quotes': [2, 'single'],
+        'no-extra-semi': 2,
+        'semi': [2, 'always']
     },
-    "extends": "eslint:recommended",
-    "parserOptions": {,
-        "sourceType": "module",
+    'globals':{
+    },
+    'extends': 'eslint:recommended',
+    'parserOptions': {,
+        'sourceType': 'module',
     },
 }

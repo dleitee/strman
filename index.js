@@ -1,5 +1,4 @@
-require("babel-core/register");
-
+require('babel-core/register');
 
 //var vitjs = require('./src/vitjs')
 //var slugfy = vitjs.slugify

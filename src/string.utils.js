@@ -1,62 +1,66 @@
-import {ascii} from "./lib/ascii";
-import {_isNumber} from "./lib/number";
-import {_pop} from "./lib/array";
+import {ascii} from './lib/ascii';
+import {_pop} from './lib/array';
+import {validString, validArrayString, validNumber, validCharLength} from './lib/validate';
+import {toUpperCase} from './string.cases';
 
 /*
  * Checks whether a string
  * @param value - value to check
  * @return Boolean - true or false
  */
-export const isString = value =>
+const isString = value =>
     Object.prototype.toString.call(value) === '[object String]';
 
-/*
- * Transform to lowercase
- * @params value - String to lowercase
- * @return String
- */
-export const toLowerCase = value => value.toLowerCase();
+export {isString};
 
 /*
  * Remove all spaces on left and right
  * @params value - String to trim
  * @return String without boarders spaces
  */
-export const trim = value => _ltrim(_rtrim(value));
+const trim = value => leftTrim(rightTrim(value));
+
+export {trim};
 
 /*
  * Remove spaces left
  * @params value
  * @return string
  */
+const leftTrim = value => replace(value, '^\\s+', '');
 
-export const ltrim = value => _ltrim(value);
+export {leftTrim};
 
 /*
  * Remove spaces right
  * @params value
  * @return string
  */
- export const rtrim = value => _rtrim(value);
+const rightTrim = value => replace(value, '\\s+$', '');
+
+ export {rightTrim};
 
 /*
  * Remove all spaces and replace for value
- * @paramsClojure replace - Value to replace
+ * @param replace - Value to replace
  * @param value - The string being searched and replaced on.
  * @return String without spaces
  */
-export const removeSpaces = (replace = "") => (value) => _replace(value, "\\s+", replace);
+const removeSpaces = (value, replaced = '') => replace(value, '\\s+', replaced);
+
+export {removeSpaces};
 
 /*
  * Replace [search] value to [newvalue]
- * @paramsClojure search - String to search
- * @paramsClojure newvalue - String to replace
+ * @param search - String to search
+ * @param newvalue - String to replace
  * @params value - The string being searched and replaced on.
  * @return String replaced
  */
-export const replace =
-    (search = "", newvalue = "") =>
-        (value) => _replace(value, search, newvalue);
+const replace = (value, search = '', newvalue = '') =>
+    value.replace(new RegExp(search, 'g'), newvalue);
+
+export {replace};
 
 /*
  * Remove all non valid characters
@@ -64,15 +68,17 @@ export const replace =
  * @params value - The string being searched and replaced on.
  * @return String without non valid characters.
  */
-export const removeNonChars = (value) => {
+const removeNonChars = (value) => {
     let result = value;
     for(let key in ascii){
         for(let char in ascii[key]){
-            result = _replace(result, ascii[key][char], key);
+            result = replace(result, ascii[key][char], key);
         }
     }
     return result;
 };
+
+export {removeNonChars};
 
 /*
  * Append Strings on Value
@@ -80,16 +86,32 @@ export const removeNonChars = (value) => {
  * @param ...append - array with strings to append
  * @return string
  */
-export const append = (value, ...append) => _append(value, append);
+const append = (value, ...append) => {
+
+    validString(value);
+
+    validArrayString(append);
+
+    return value + append.join('');
+};
+
+export {append};
 
 
 /*
  * Get the character at index
- * @param string
+ * @param value
  * @param index
  * @return char
  */
-export const at = (string, index) => _at(string, index);
+const at = (value, index) => {
+    validString(value);
+    validNumber(index);
+
+    return substr(value, index, 1);
+};
+
+export {at};
 
 /*
  * Returns array with strings between [start] and [end]
@@ -98,26 +120,16 @@ export const at = (string, index) => _at(string, index);
  * @param end
  * @return Array
  */
-export const between = (value, start, end) => {
+const between = (value, start, end) => {
 
     let result = null;
 
-    if(!isString(value)){
-        throw new Error("Value is not a String.");
-    }
+    validArrayString([value, start, end]);
 
-    if(!isString(start)){
-        throw new Error("Start is not a String.");
-    }
-
-    if(!isString(end)){
-        throw new Error("End is not a String.");
-    }
-
-    result = value.split(end);
+    result = split(value, end);
 
     result = result.map((text) => {
-        return text.substr(text.indexOf(start)+start.length);
+        return substr(text, text.indexOf(start)+start.length);
     });
 
     result = _pop(result);
@@ -125,30 +137,34 @@ export const between = (value, start, end) => {
     return result;
 };
 
+export {between};
+
 /*
  * Returns an array consisting of the characters in the string.
  * @params value
  * @returns Array
  */
-export const chars = (value) => {
+const chars = (value) => {
     let chars = [];
 
-    if(!isString(value)){
-        throw new Error("Value is not a String.");
-    }
+    validString(value);
 
     for(let i = 0; i < value.length; i++){
-        chars[i] = _at(value, i);
+        chars[i] = at(value, i);
     }
     return chars;
 };
+
+export {chars};
 
 /*
  * Replaces consecutive whitespace characters with a single space
  * @param string
  * @return string
  */
-export const collapseWhitespace = (value) => _rtrim(_ltrim(_replace(value, "\\s\\s+"," ")));
+const collapseWhitespace = (value) => trim(replace(value, '\\s\\s+',' '));
+
+export {collapseWhitespace};
 
 /*
  * Remove all non word characters
@@ -157,7 +173,9 @@ export const collapseWhitespace = (value) => _rtrim(_ltrim(_replace(value, "\\s\
  * @params value - The string being searched and replaced on.
  * @return String without non word characters.
  */
-export const removeNonWords = (replace ="") => (value) => _replace(value, "[^\\w]+", replace);
+const removeNonWords = (value, replaced = '') => replace(value, '[^\\w]+', replaced);
+
+export {removeNonWords};
 
 /*
  * Verifies that the needle is contained in value
@@ -166,8 +184,17 @@ export const removeNonWords = (replace ="") => (value) => _replace(value, "[^\\w
  * @param caseSensitive - default true
  * @return boolean
  */
-export const contains = (value, needle, caseSensitive = true) =>
-    _contains(value, needle, caseSensitive);
+const contains = (value, needle, caseSensitive = true) => {
+
+    if(caseSensitive){
+        return indexOf(value, needle) > -1;
+    }
+
+    return indexOf(toUpperCase(value), toUpperCase(needle)) > -1;
+
+};
+
+export {contains};
 
 /*
  * Verifies that all needles are contained in value
@@ -176,14 +203,16 @@ export const contains = (value, needle, caseSensitive = true) =>
  * @param caseSensitive - default true
  * @return boolean
  */
-export const containsAll = (value, needles, caseSensitive = true) => {
+const containsAll = (value, needles, caseSensitive = true) => {
     for(let i = 0; i < needles.length; i++){
-        if(!_contains(value, needles[i], caseSensitive)){
+        if(!contains(value, needles[i], caseSensitive)){
             return false;
         }
     }
     return true;
 };
+
+export {containsAll};
 
 /*
  * Verifies that one or more of needles are contained in value
@@ -192,279 +221,16 @@ export const containsAll = (value, needles, caseSensitive = true) => {
  * @param caseSensitive - default true
  * @return boolean
  */
-export const containsAny = (value, needles, caseSensitive = true) => {
+const containsAny = (value, needles, caseSensitive = true) => {
     for(let i = 0; i < needles.length; i++){
-        if(_contains(value, needles[i], caseSensitive)){
+        if(contains(value, needles[i], caseSensitive)){
             return true;
         }
     }
     return false;
 };
 
-/*
- * Count the number of times substr appears in value
- * @param value,
- * @param substr,
- * @param caseSensitive = true,
- * @param allowOverlapping = false
- * @return integer
- */
-export const countSubstr = (value, substr, caseSensitive = true, allowOverlapping = false) => {
-
-    // TODO: update with polyfill
-    if(!caseSensitive){
-        value = value.toUpperCase();
-        substr = substr.toUpperCase();
-    }
-
-    return _countSubstring(value, substr, allowOverlapping);
-
-};
-
-/*
- * Test if [value] ends with [search]
- * @param value
- * @param search
- * @param position = null
- * @return boolean
- */
-export const endsWith = (value, search, position = null) => _endsWith(value, search, position);
-
-/*
- * Test if [value] starts with [search]
- * @param value
- * @param search
- * @param position = null
- * @return boolean
- */
-export const startsWith = (value, search, position = 0) => _startsWith(value, search, position);
-
-/*
- * Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
- * @param value
- * @param substr
- * @return string
- */
-export const ensureLeft = (value, substr)  => {
-    if(!_startsWith(value, substr)){
-        return substr + "" + value;
-    }
-
-    return value;
-};
-
-/*
- * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
- * @param value
- * @param substr
- * @return string
- */
-export const ensureRight = (value, substr)  => {
-
-    if(!_endsWith(value, substr)){
-        return value + "" + substr;
-    }
-
-    return value;
-};
-
-/*
- * Return the first n chars of string.
- * @param value
- * @param n
- * @return string
- */
-export const first = (value, n) => value.substr(0, n);
-
-/*
- * Return the last n chars of string.
- * @param value
- * @param n
- * @return string
- */
-export const last = (value, n) => value.substr(-1 * n, n);
-
-/*
- * Verify if has lowerCase
- * @param value
- *  @return boolean
- */
- // TODO: update to polyfill
-export const isLowerCase = (value) => value === value.toLowerCase();
-
-/*
- * Verify if has upperCase
- * @param value
- * @return boolean
- */
- // TODO: update to polyfill
-export const isUpperCase = (value) => value === value.toUpperCase();
-
-/*
- * The indexOf() method returns the index within the calling String object of the first occurrence
- * of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
- *
- * @param value
- * @param needle
- * @param offset
- * @return integer
- */
-export const indexOf = (value, needle, offset = 0) =>  value.indexOf(needle, offset);
-
-/*
- * The lastIndexOf() method returns the index within the calling String object of the last 
- * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the 
- * value is not found.
- *
- * @param value
- * @param needle
- * @param offset
- * @return integer
- */
-export const lastIndexOf = (value, needle, offset = undefined) => value.lastIndexOf(needle, offset);
-
-/*
- * Inserts [substr] into the [value] at the [index] provided.
- * @param value
- * @param substr
- * @param index
- * @return string
- */
-export const insert = (value, substr, index) => {
-    
-    let start = null;
-    let end = null;
-
-    if(index > value.length){
-        return value;
-    }
-
-    start = value.substr(0, index);
-    end = value.substr(index, value.length);
-
-    return _append(start, [substr, end]);
-
-};
-
-/*
- * Returns the length of the string
- * @param value
- * @return integer
- */
-export const length = (value) => value.length;
-
-/*
- * Returns a new string of a given length such that the beginning of the string is padded.
- * @param value
- * @param length
- * @param char
- * @return string
- */
- export const leftPad = (value, length, char = ' ') => {
-    
-    let i = -1;
-    let result = value;
-    char = String(char);
-
-    if(char.length > 1){
-        char = char.substr(0, 1);
-    }
-
-    if(char.length === 0){
-        throw new Error("Char should be length >= 1");
-    }
-
-    length = length - value.length;
-
-    while (length > ++i) {
-        result = _append(char, [result]);
-    }
-
-    return result;
-}
-
-/*
- * Returns a new string of a given length such that the ending of the string is padded.
- * @param value
- * @param length
- * @param char
- * @return string
- */
- export const rightPad = (value, length, char = ' ') => {
-    
-    let i = -1;
-    let result = value;
-    char = String(char);
-
-    if(char.length > 1){
-        char = char.substr(0, 1);
-    }
-
-    if(char.length === 0){
-        throw new Error("Char should be length >= 1");
-    }
-
-    length = length - value.length;
-
-    while (length > ++i) {
-        result = _append(result, [char]);
-    }
-
-    return result;
-}
-
-
-/*
- * Polyfill to append function
- * @param value
- * @param append
- * @return string
- */
-let _append = (value, append) => {
-    if(!isString(value)){
-        throw new Error("Value is not a String.");
-    }
-
-    append.map((data) => {
-        if(!isString(data)){
-            throw new Error("Append is not a String.");
-        }
-        return data;
-    });
-    return value + append.join("");
-};
-
-/*
- * Polyfill to startsWith function
- * @param value
- * @param search
- * @param position
- * @return boolean
- */
-let _startsWith = (value, search, position = 0) => value.substr(position, search.length) === search;
-
-/*
- * Polyfill to endsWith function
- * @param value
- * @param search
- * @param position
- * @return boolean
- */
-let _endsWith = (value, search, position = null) => {
-
-    let lastIndex = null;
-
-    if (typeof position !== 'number' || !isFinite(position) || Math.floor(position) !== position || position > value.length) {
-        position = value.length;
-    }
-
-    position -= search.length;
-    lastIndex = value.indexOf(search, position);
-
-    return lastIndex !== -1 && lastIndex === position;
-
-};
-
+export {containsAny};
 
 /*
  * Polyfill to countSubstr function
@@ -475,9 +241,9 @@ let _endsWith = (value, search, position = null) => {
  * @param allowOverlapping = false
  * @return integer
  */
-let _countSubstring = (value, substr, allowOverlapping = false, position = 0, count = 0) => {
+const _countSubstring = (value, substr, allowOverlapping = false, position = 0, count = 0) => {
 
-    let _position = value.indexOf(substr, position);
+    let _position = indexOf(value, substr, position);
 
     if(_position === -1){
         return count;
@@ -492,56 +258,255 @@ let _countSubstring = (value, substr, allowOverlapping = false, position = 0, co
 };
 
 /*
- * Polyfill to contains function
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * return boolean
+ * Count the number of times substr appears in value
+ * @param value,
+ * @param substr,
+ * @param caseSensitive = true,
+ * @param allowOverlapping = false
+ * @return integer
  */
-let _contains = (value, needle, caseSensitive = true) => {
-    if(caseSensitive){
-        return value.indexOf(needle) > -1;
+const countSubstr = (value, substr, caseSensitive = true, allowOverlapping = false) => {
+
+    if(!caseSensitive){
+        value = toUpperCase(value);
+        substr = toUpperCase(substr);
     }
 
-    // TODO: update to polyfill
-    return value.toUpperCase().indexOf(needle.toUpperCase()) > -1;
+    return _countSubstring(value, substr, allowOverlapping);
 
 };
 
-/*
- * Polyfill to replace function
- * @params value - The string being searched and replaced on.
- * @return This function returns a string with the replaced values.
- */
-let _replace = (value, search, newvalue) =>
-    value.replace(new RegExp(search, "g"), newvalue);
+export {countSubstr};
 
 /*
- * Polyfill to ltrim function
- * @param value - value to ltrim
+ * Test if [value] ends with [search]
+ * @param value
+ * @param search
+ * @param position = null
+ * @return boolean
+ */
+const endsWith = (value, search, position = null) => {
+
+    let lastIndex = null;
+
+    if (typeof position !== 'number' || !isFinite(position)
+            || Math.floor(position) !== position || position > value.length) {
+        position = length(value);
+    }
+
+    position -= length(search);
+    lastIndex = indexOf(value, search, position);
+
+    return lastIndex !== -1 && lastIndex === position;
+
+};
+
+export {endsWith};
+
+/*
+ * Test if [value] starts with [search]
+ * @param value
+ * @param search
+ * @param position = null
+ * @return boolean
+ */
+const startsWith = (value, search, position = 0) =>
+    substr(value, position, search.length) === search;
+
+export {startsWith};
+
+/*
+ * Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
+ * @param value
+ * @param substr
  * @return string
  */
-let _ltrim = (value) => _replace(value, "^\\s+", '');
+const ensureLeft = (value, substr)  => {
+    if(!startsWith(value, substr)){
+        return append(substr, value);
+    }
+
+    return value;
+};
+
+export  {ensureLeft};
 
 /*
- * Polyfill to rtrim function
- * @param value - value to rtrim
+ * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
+ * @param value
+ * @param substr
  * @return string
  */
-let _rtrim = (value) => _replace(value, "\\s+$", '');
+const ensureRight = (value, substr)  => {
+
+    if(!endsWith(value, substr)){
+        return append(value, substr);
+    }
+
+    return value;
+};
+
+export {ensureRight};
 
 /*
- * Polyfill to at function
- * @param string
- * @param int
- * @return char
+ * Return the first n chars of string.
+ * @param value
+ * @param n
+ * @return string
  */
-let _at = (string, index) => {
-    if(!isString(string)){
-        throw new Error("Value is not a String.");
+const first = (value, n) => substr(value, 0, n);
+
+export {first};
+
+/*
+ * Return the last n chars of string.
+ * @param value
+ * @param n
+ * @return string
+ */
+const last = (value, n) => substr(value, -1 * n, n);
+
+export {last};
+
+/*
+ * The indexOf() method returns the index within the calling String object of the first occurrence
+ * of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
+ *
+ * @param value
+ * @param needle
+ * @param offset
+ * @return integer
+ */
+const indexOf = (value, needle, offset = 0) =>  value.indexOf(needle, offset);
+
+export {indexOf};
+
+/*
+ * The lastIndexOf() method returns the index within the calling String object of the last
+ * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the
+ * value is not found.
+ *
+ * @param value
+ * @param needle
+ * @param offset
+ * @return integer
+ */
+const lastIndexOf = (value, needle, offset = undefined) => value.lastIndexOf(needle, offset);
+
+export {lastIndexOf};
+
+/*
+ * Inserts [substr] into the [value] at the [index] provided.
+ * @param value
+ * @param substr
+ * @param index
+ * @return string
+ */
+const insert = (value, _substr, index) => {
+
+    let start = null;
+    let end = null;
+
+    if(index > length(value)){
+        return value;
     }
-    if(!_isNumber(index)){
-        throw new  Error("Index is not a Number.");
+
+    start = substr(value, 0, index);
+    end = substr(value, index, length(value));
+
+    return append(start, _substr, end);
+
+};
+
+export {insert};
+
+/*
+ * Returns the length of the string
+ * @param value
+ * @return integer
+ */
+const length = value => value.length;
+
+export {length};
+
+/*
+ * Returns a new string of a given length such that the beginning of the string is padded.
+ * @param value
+ * @param length
+ * @param char
+ * @return string
+ */
+ const leftPad = (value, _length, char = ' ') => {
+
+    let i = -1;
+    let result = value;
+    char = String(char);
+
+    if(length(char) > 1){
+        char = char.substr(0, 1);
     }
-    return string.substr(index, 1);
-}
+
+    validCharLength(char);
+
+    _length = _length - length(value);
+
+    while (_length > ++i) {
+        result = append(char, result);
+    }
+
+    return result;
+};
+
+export {leftPad};
+
+/*
+ * Returns a new string of a given length such that the ending of the string is padded.
+ * @param value
+ * @param length
+ * @param char
+ * @return string
+ */
+const rightPad = (value, _length, char = ' ') => {
+
+    let i = -1;
+    let result = value;
+    char = String(char);
+
+    if(char.length > 1){
+        char = substr(char, 0, 1);
+    }
+
+    validCharLength(char);
+
+    _length = _length - length(value);
+
+    while (_length > ++i) {
+        result = append(result, char);
+    }
+
+    return result;
+};
+
+export {rightPad};
+
+/*
+ * Alias to substr function
+ * @param value
+ * @param start
+ * @param length = undefined
+ * @return string
+ */
+const substr = (value, start, length = undefined) => value.substr(start, length);
+
+export {substr};
+
+/*
+ * Alias to split function
+ * @param value
+ * @param separator
+ * @param limit = undefined
+ * @return string
+ */
+const split = (value, separator, limit = undefined) => value.split(separator, limit);
+
+export {split};

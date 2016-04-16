@@ -1,24 +1,23 @@
-import {toLowerCase, trim, removeSpaces, replace, removeNonChars} from './string.utils';
-import {format} from './lib/format';
+import {toLowerCase, trim, removeSpaces, replace, removeNonChars} from './strman';
 
 /*
- * Converts a string to a slug.
- * Example: slugify("A Javascript string manipulation library") => "a-javascript-string-manipulation-library"
- * @param string - value for slugfy
- * @return String - returns a slugfy string.
+ * Converts a value to a slug.
+ * Example: slugify('A Javascript string manipulation library') => 'a-javascript-string-manipulation-library'
+ * @param value - value for slugify
+ * @return String - returns a slugify value.
  */
-export function slugify(string) {
+const slugify = (value) => {
 
-    return format(string,
-            [
-                toLowerCase,
-                trim,
-                removeSpaces("-"),
-                replace("&","-and-"),
-                replace("\-\-+","-"),
-                removeNonChars,
-                replace("[^\\w\\-]+", "")
-            ]
-        );
-}
+    let result = value;
+    result = toLowerCase(result);
+    result = trim(result);
+    result = removeSpaces(result, '-');
+    result = replace(result, '&','-and-');
+    result = replace(result, '\-\-+','-');
+    result = removeNonChars(result);
+    result = replace(result, '[^\\w\\-]+', '');
 
+    return result;
+};
+
+export {slugify};
