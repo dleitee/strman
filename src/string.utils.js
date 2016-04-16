@@ -555,6 +555,27 @@ const prepend = (value, ...prepends) => {
 export {prepend};
 
 /*
+ * Returns a new string starting with [prepends].
+ * @param value
+ * @param ...prepends
+ * @return string
+ */
+const prependArray = (value, prepends = []) => {
+
+    validString(value);
+    validArrayString(prepends);
+
+    if(length(prepends) === 0){
+        return value;
+    }
+
+    return prepends.join('') + value;
+};
+
+export {prependArray};
+
+
+/*
  * Returns a new string with the [prefix] removed, if present.
  * @param value
  * @param prefix

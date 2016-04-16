@@ -2,7 +2,8 @@ import chai from 'chai';
 import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, isLowerCase, isUpperCase,
-    indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft, appendArray}
+    indexOf, lastIndexOf, insert, length, leftPad, rightPad, prepend, removeLeft, appendArray,
+    prependArray}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -131,6 +132,11 @@ describe('appendArray function', () => {
         chai.assert.throws(appendArray.bind(this, '', false), Error);
         chai.assert.throws(appendArray.bind(this, '', 1.2), Error);
         chai.assert.throws(appendArray.bind(this, '', {}), Error);
+        chai.assert.throws(appendArray.bind(this, '', [1]), Error);
+        chai.assert.throws(appendArray.bind(this, '', [true]), Error);
+        chai.assert.throws(appendArray.bind(this, '', [false]), Error);
+        chai.assert.throws(appendArray.bind(this, '', [1.2]), Error);
+        chai.assert.throws(appendArray.bind(this, '', [{}]), Error);
     });
 });
 
@@ -148,6 +154,27 @@ describe('prepend function', () => {
         chai.assert.throws(prepend.bind(this, '', false), Error);
         chai.assert.throws(prepend.bind(this, '', 1.2), Error);
         chai.assert.throws(prepend.bind(this, '', {}), Error);
+    });
+});
+
+describe('prependArray function', () => {
+    it('should be foobar', () => {
+        chai.expect(prependArray('r', ['f', 'o', 'o', 'b', 'a'])).to.equal('foobar');
+        chai.expect(prependArray('foobar')).to.equal('foobar');
+        chai.expect(prependArray('', ['foobar'])).to.equal('foobar');
+        chai.expect(prependArray('bar', ['foo'])).to.equal('foobar');
+    });
+    it('should be throw', () => {
+        chai.assert.throws(prependArray.bind(this, '', 1), Error);
+        chai.assert.throws(prependArray.bind(this, '', true), Error);
+        chai.assert.throws(prependArray.bind(this, '', false), Error);
+        chai.assert.throws(prependArray.bind(this, '', 1.2), Error);
+        chai.assert.throws(prependArray.bind(this, '', {}), Error);
+        chai.assert.throws(prependArray.bind(this, '', [1]), Error);
+        chai.assert.throws(prependArray.bind(this, '', [true]), Error);
+        chai.assert.throws(prependArray.bind(this, '', [false]), Error);
+        chai.assert.throws(prependArray.bind(this, '', [1.2]), Error);
+        chai.assert.throws(prependArray.bind(this, '', [{}]), Error);
     });
 });
 

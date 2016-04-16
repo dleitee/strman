@@ -35,6 +35,7 @@ let result = slugify(title);
 - [x] [slugify](https://github.com/dleitee/strman/blob/master/docs/slugify.md)
 - [x] [Utils](https://github.com/dleitee/strman/blob/master/docs/utils.md)
   - [x] append
+  - [x] appendArray
   - [x] at
   - [x] between
   - [x] chars
@@ -58,6 +59,8 @@ let result = slugify(title);
   - [x] trim
   - [x] rtrim
   - [x] ltrim
+  - [x] prepend
+  - [x] prependArray
   - [x] removeSpaces
   - [x] replace
   - [x] removeNonChars
