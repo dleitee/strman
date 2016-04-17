@@ -10,6 +10,11 @@ strman is available on npm:
 npm install strman --save
 ```
 
+or bower:
+```
+bower install strman
+```
+
 ## Usage
 
 ### With ES6/import
@@ -47,8 +52,6 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
 
 # Available Functions
 
-- [x] [slugify](https://github.com/dleitee/strman/blob/master/docs/slugify.md)
-- [x] [Utils](https://github.com/dleitee/strman/blob/master/docs/utils.md)
   - [x] append
   - [x] appendArray
   - [x] at
@@ -63,47 +66,82 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
   - [x] ensureLeft
   - [x] ensureRight
   - [x] first
+  - [x] includes
   - [x] indexOf
   - [x] insert
+  - [x] isLowerCase
   - [x] isString
+  - [x] isUpperCase
   - [x] last
   - [x] lastIndexOf
   - [x] leftPad
   - [x] length
-  - [x] rightPad
-  - [x] trim
-  - [x] rtrim
   - [x] ltrim
   - [x] prepend
   - [x] prependArray
-  - [x] removeSpaces
-  - [x] replace
+  - [x] removeLeft
   - [x] removeNonChars
   - [x] removeNonWords
+  - [x] removeRight
+  - [x] removeSpaces
+  - [x] repeat
+  - [x] replace
+  - [x] reverse
+  - [x] rightPad
+  - [x] rtrim
+  - [x] safeTruncate
+  - [x] shuffle
+  - [x] slice
+  - [x] slugify
+  - [x] split
   - [x] startsWith
   - [x] substr
-  - [x] split
-  - [x] removeLeft
-  - [x] removeRight
-  - [x] repeat
-  - [x] reverse
-  - [x] shuffle
-  - [x] safeTruncate
-  - [x] slice
-  - [x] truncate
   - [x] surround
-  - [x] includes
-
-- [x] [String Cases](https://github.com/dleitee/strman/blob/master/docs/cases.md)
-  - [x] toLowerCase
-  - [x] toUpperCase
-  - [x] isLowerCase
-  - [x] isUpperCase
   - [x] toCamelCase
-  - [x] toStudlyCaps
   - [x] toDecamelize
-  - [x] toSnakeCase
   - [x] toKebabCase
+  - [x] toLowerCase
+  - [x] toSnakeCase
+  - [x] toStudlyCaps
+  - [x] toUpperCase
+  - [x] trim
+  - [x] truncate
+
+## append([value], ...[append])
+
+Method to add [...append] on the end of [value].
+
+```es6
+import {append} from 'strman'
+
+let title = "s";
+let result = append(title, "tr", "m", "an");
+// result => "strman";
+```
+
+## appendArray([value], [append = []])
+
+Method to add [append[]] on the end of [value].
+
+```es6
+import {append} from 'strman'
+
+let title = "s";
+let result = append(title, ["tr", "m", "an"]);
+// result => "strman";
+```
+
+## at([value], [index])
+
+Get the character of the [index].
+
+```es6
+import {at} from 'strman'
+
+let title = "abc";
+let result = at(title, 1);
+// result => "b";
+```
 
 # LICENSE
 
