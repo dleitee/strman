@@ -72,13 +72,13 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
   - [x] [isLowerCase](https://github.com/dleitee/strman#islowercasevalue-n)
   - [x] [isString](https://github.com/dleitee/strman#isstringvalue)
   - [x] [isUpperCase](https://github.com/dleitee/strman#isuppercasevalue-n)
-  - [x] last
-  - [x] lastIndexOf
-  - [x] leftPad
-  - [x] leftTrim
-  - [x] length
-  - [x] prepend
-  - [x] prependArray
+  - [x] [last](https://github.com/dleitee/strman#lastvalue-n)
+  - [x] [lastIndexOf](https://github.com/dleitee/strman#lastindexofvalue-needle-offset--0)
+  - [x] [leftPad](https://github.com/dleitee/strman#leftpadvalue-length-char)
+  - [x] [leftTrim](https://github.com/dleitee/strman#lefttrimvalue)
+  - [x] [length](https://github.com/dleitee/strman#lengthvalue)
+  - [x] [prepend](https://github.com/dleitee/strman#prependvalue-prepend)
+  - [x] [prependArray](https://github.com/dleitee/strman#prependarrayvalue-prepend--)
   - [x] removeLeft
   - [x] removeNonChars
   - [x] removeNonWords
@@ -399,7 +399,6 @@ let result = leftPad(value, 5, '_');
 
 Remove all spaces on left.
 
-#### Usage
 ```es6
 import {leftTrim} from 'strman'
 
@@ -424,7 +423,6 @@ let result = length(value);
 
 Prepend Strings [...prepend] on [value].
 
-#### Usage
 ```es6
 import {prepend} from 'strman'
 
@@ -437,13 +435,133 @@ let result = prepend(title, "b", "c");
 
 Prepend Strings on array [prepend] on [value].
 
-#### Usage
 ```es6
 import {prependArray} from 'strman'
 
 let title = "a";
 let result = prependArray(title, ["b", "c"]);
 // result => "bca";
+```
+
+## removeLeft([value], [prefix])
+
+Returns a new string with the [prefix] removed, if present.
+
+```es6
+import {removeLeft} from 'strman'
+
+let title = "preabc";
+let result = removeLeft(title, "pre");
+// result => "abc";
+```
+
+## removeNonChars([value])
+
+Remove all non valid characters.
+
+```es6
+import {removeNonChars} from 'strman'
+
+let title = "áéíóú";
+let result = removeNonChars(title);
+// result => "aeiou";
+```
+
+## removeNonWords([value], [replace])
+
+Remove all non word characters.
+
+```es6
+import {removeNonWords} from 'strman'
+
+let title = ".....a";
+let result = removeNonWords(title, "");
+// result => "a";
+```
+
+## removeRight([value], [suffix])
+
+Returns a new string with the [suffix] removed, if present.
+
+```es6
+import {removeRight} from 'strman'
+
+let title = "abcpos";
+let result = removeRight(title, "pos");
+// result => "abc";
+```
+
+## removeSpaces([value], [replace])
+
+Remove all spaces and replace for value.
+
+```es6
+import {removeSpaces} from 'strman'
+
+let title = "Remove all spaces and replace for value";
+let result = removeSpaces(title, "-");
+// result => "Checks-whether-a-string";
+
+let result = removeSpaces(title);
+// result => "Checkswhetherastring";
+```
+
+## repeat([value], [multiplier])
+
+Returns a repeated string given a multiplier.
+
+```es6
+import {repeat} from 'strman'
+
+let result = repeat("a", 4);
+// result => "aaaa";
+```
+
+## replace([value], [search], [newvalue])
+
+Replace [search] value to [newvalue]
+
+```es6
+import {replace} from 'strman'
+
+let title = "My car is black";
+let result = replace(title, "black", "white");
+// result => "My car is white";
+```
+
+## reverse([value])
+
+Returns a reversed string.
+
+```es6
+import {reverse} from 'strman'
+
+let result = reverse("abc");
+// result => "cba";
+```
+
+## rightPad([value], [length], [char])
+
+Returns a new string of a given length such that the ending of the string is padded.
+
+```es6
+import {rightPad} from 'strman'
+
+let value = "foo";
+let result = rightPad(value, 5, '_');
+// result => "foo__";
+```
+
+## rightTrim([value])
+
+Remove all spaces on right.
+
+```es6
+import {rightTrim} from 'strman'
+
+let title = "Checks whether a string     ";
+let result = rightTrim(title);
+// result => "Checks whether a string";
 ```
 
 # LICENSE
