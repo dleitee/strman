@@ -55,28 +55,28 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
   - [x] [append](https://github.com/dleitee/strman#appendvalue-append)
   - [x] [appendArray](https://github.com/dleitee/strman#appendarrayvalue-append--)
   - [x] [at](https://github.com/dleitee/strman#atvalue-index)
-  - [x] between
-  - [x] chars
-  - [x] collapseWhitespace
-  - [x] contains
-  - [x] containsAll
-  - [x] containsAny
-  - [x] countSubstr
-  - [x] endsWith
-  - [x] ensureLeft
-  - [x] ensureRight
-  - [x] first
-  - [x] includes
-  - [x] indexOf
-  - [x] insert
-  - [x] isLowerCase
-  - [x] isString
-  - [x] isUpperCase
+  - [x] [between](https://github.com/dleitee/strman#betweenvalue-start-end)
+  - [x] [chars](https://github.com/dleitee/strman#charsvalue)
+  - [x] [collapseWhitespace](https://github.com/dleitee/strman#collapsewhitespacevalue)
+  - [x] [contains](https://github.com/dleitee/strman#containsvalue-needle-casesensitive--true)
+  - [x] [containsAll](https://github.com/dleitee/strman#containsallvalue-needles---casesensitive--true)
+  - [x] [containsAny](https://github.com/dleitee/strman#containsanyvalue-needles---casesensitive--true)
+  - [x] [countSubstr](https://github.com/dleitee/strman#countsubstrvalue-substr-casesensitive--true-allowoverlapping--false)
+  - [x] [endsWith](https://github.com/dleitee/strman#endswithvalue-search-positionnull)
+  - [x] [ensureLeft](https://github.com/dleitee/strman#ensureleftvalue-substr)
+  - [x] [ensureRight](https://github.com/dleitee/strman#ensurerightvalue-substr)
+  - [x] [first](https://github.com/dleitee/strman#firstvalue-n)
+  - [x] [includes](https://github.com/dleitee/strman#includes)
+  - [x] [indexOf](https://github.com/dleitee/strman#indexofvalue-needle-offset--0)
+  - [x] [insert](https://github.com/dleitee/strman#insertvalue-substr-index)
+  - [x] [isLowerCase](https://github.com/dleitee/strman#islowercasevalue-n)
+  - [x] [isString](https://github.com/dleitee/strman#isstringvalue)
+  - [x] [isUpperCase](https://github.com/dleitee/strman#isuppercasevalue-n)
   - [x] last
   - [x] lastIndexOf
   - [x] leftPad
+  - [x] leftTrim
   - [x] length
-  - [x] ltrim
   - [x] prepend
   - [x] prependArray
   - [x] removeLeft
@@ -88,7 +88,7 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
   - [x] replace
   - [x] reverse
   - [x] rightPad
-  - [x] rtrim
+  - [x] rightTrim
   - [x] safeTruncate
   - [x] shuffle
   - [x] slice
@@ -359,6 +359,92 @@ let result = hasUpperCase(value);
 // result => true;
 ```
 
+## last([value], [n])
+
+Return the last n chars of string.
+
+```es6
+import {last} from 'strman'
+
+let value = "Daniel";
+let result = last(value, 2);
+// result => "el";
+```
+
+## lastIndexOf([value], [needle], [offset = 0])
+
+The lastIndexOf method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
+
+```es6
+import {lastIndexOf} from 'strman'
+
+let value = "daniel leite";
+let result = lastIndexOf(value, "l");
+// result => 7;
+```
+
+## leftPad([value], [length], [char])
+
+Returns a new string of a given length such that the beginning of the string is padded.
+
+```es6
+import {leftPad} from 'strman'
+
+let value = "foo";
+let result = leftPad(value, 5, '_');
+// result => "__foo";
+```
+
+## leftTrim([value])
+
+Remove all spaces on left.
+
+#### Usage
+```es6
+import {leftTrim} from 'strman'
+
+let title = "     Checks whether a string";
+let result = leftTrim(title);
+// result => "Checks whether a string";
+```
+
+## length([value])
+
+Returns the length of the string.
+
+```es6
+import {length} from 'strman'
+
+let value = "foo";
+let result = length(value);
+// result => 3;
+```
+
+## prepend([value], ...[prepend])
+
+Prepend Strings [...prepend] on [value].
+
+#### Usage
+```es6
+import {prepend} from 'strman'
+
+let title = "a";
+let result = prepend(title, "b", "c");
+// result => "bca";
+```
+
+## prependArray([value], [prepend = []])
+
+Prepend Strings on array [prepend] on [value].
+
+#### Usage
+```es6
+import {prependArray} from 'strman'
+
+let title = "a";
+let result = prependArray(title, ["b", "c"]);
+// result => "bca";
+```
 
 # LICENSE
 
