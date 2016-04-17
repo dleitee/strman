@@ -79,16 +79,16 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
   - [x] [length](https://github.com/dleitee/strman#lengthvalue)
   - [x] [prepend](https://github.com/dleitee/strman#prependvalue-prepend)
   - [x] [prependArray](https://github.com/dleitee/strman#prependarrayvalue-prepend--)
-  - [x] removeLeft
-  - [x] removeNonChars
-  - [x] removeNonWords
-  - [x] removeRight
-  - [x] removeSpaces
-  - [x] repeat
-  - [x] replace
-  - [x] reverse
-  - [x] rightPad
-  - [x] rightTrim
+  - [x] [removeLeft](https://github.com/dleitee/strman#removeleftvalue-prefix)
+  - [x] [removeNonChars](https://github.com/dleitee/strman#removenoncharsvalue)
+  - [x] [removeNonWords](https://github.com/dleitee/strman#removenonwordsvalue-replace)
+  - [x] [removeRight](https://github.com/dleitee/strman#removerightvalue-suffix)
+  - [x] [removeSpaces](https://github.com/dleitee/strman#removespacesvalue-replace)
+  - [x] [repeat](https://github.com/dleitee/strman#repeatvalue-multiplier)
+  - [x] [replace](https://github.com/dleitee/strman#replacevalue-search-newvalue)
+  - [x] [reverse](https://github.com/dleitee/strman#reversevalue)
+  - [x] [rightPad](https://github.com/dleitee/strman#rightpadvalue-length-char)
+  - [x] [rightTrim](https://github.com/dleitee/strman#righttrimvalue)
   - [x] safeTruncate
   - [x] shuffle
   - [x] slice
@@ -562,6 +562,223 @@ import {rightTrim} from 'strman'
 let title = "Checks whether a string     ";
 let result = rightTrim(title);
 // result => "Checks whether a string";
+```
+
+## safeTruncate([value], [length], [append])
+
+Truncate the string securely, not cutting a word in half. It always returns the last full word.
+
+```es6
+import {safeTruncate} from 'strman'
+
+let title = "Checks whether a string     ";
+let result = safeTruncate(title, 9, "...");
+// result => "Checks...";
+```
+
+## shuffle([value])
+
+It returns a string with its characters in random order.
+
+```es6
+import {shuffle} from 'strman'
+
+let title = "strman";
+let result = shuffle(title);
+// result => "nrtmsa";
+```
+
+## slice([value], [beginSlice], [endSlice])
+
+The slice method extracts a section of a string and returns a new string.
+
+```es6
+import {slice} from 'strman'
+
+let title = "strman";
+let result = slice(title, 1, 3);
+// result => "trm";
+```
+## slugify([String])
+
+Converts a string to a slug.
+
+```es6
+import {slugify} from 'strman'
+
+let title = "Converts a string to a slug.";
+let result = slugify(title);
+// result => "converts-a-string-to-a-slug"
+```
+
+## split([value], [separator], [limit])
+
+Alias to split function.
+
+```es6
+import {split} from 'strman'
+
+let value = "foo";
+let result = substr(split, "");
+// result => ["f", "o", "o"];
+```
+
+## startsWith([value], [search], [position=0])
+
+Test if [value] starts with [search]
+
+```es6
+import {startsWith} from 'strman'
+
+let value = "Daniel Leite";
+let search = "Daniel";
+let result = startsWith(value, search);
+// result => true;
+```
+
+## substr([value], [start], [length])
+
+Alias to substr function.
+
+```es6
+import {substr} from 'strman'
+
+let value = "foo";
+let result = substr(value, 1);
+// result => "oo";
+```
+
+## surround([value], [substr])
+
+Surrounds a [value] with the given [substr].
+
+```es6
+import {surround} from 'strman'
+
+let value = "foo";
+let result = surround(value, "bar");
+// result => "barfoobar";
+```
+
+## toCamelCase([value])
+
+Transform to camelCase.
+
+```es6
+import {toCamelCase} from 'strman'
+
+let value = "camel-case";
+let result = toCamelCase(value);
+// result => "camelCase";
+```
+
+## toCamelCase([value])
+
+Transform to camelCase.
+
+```es6
+import {toCamelCase} from 'strman'
+
+let value = "camel-case";
+let result = toCamelCase(value);
+// result => "camelCase";
+```
+
+## toDecamelize([value], [chr])
+
+Transform to uncamelcase.
+
+```es6
+import {toDecamelize} from 'strman'
+
+let value = "camelCase";
+let result = toDecamelize(value);
+// result => "camel_case";
+```
+
+## toKebabCase([value])
+
+Transform to kebab-case.
+
+```es6
+import {toKebabCase} from 'strman'
+
+let value = "camelCase";
+let result = toKebabCase(value);
+// result => "camel-case";
+```
+
+## toLowerCase([value])
+
+Transform to lowercase.
+
+```es6
+import {toLowerCase} from 'strman'
+
+let value = "camelCase";
+let result = toLowerCase(value);
+// result => "camelcase";
+```
+
+## toSnakeCase([value])
+
+Transform to snake_case.
+
+```es6
+import {toSnakeCase} from 'strman'
+
+let value = "camelCase";
+let result = toSnakeCase(value);
+// result => "camel_case";
+```
+
+## toStudlyCaps([value])
+
+Transform to StudlyCaps.
+
+```es6
+import {toStudlyCaps} from 'strman'
+
+let value = "camelCase";
+let result = toStudlyCaps(value);
+// result => "CamelCase";
+```
+
+## toUpperCase([value])
+
+Transform to UPPERCASE.
+
+```es6
+import {toUpperCase} from 'strman'
+
+let value = "camelCase";
+let result = toUpperCase(value);
+// result => "CAMELCASE";
+```
+
+## trim([value])
+
+Remove all spaces on left and right
+
+#### Usage
+```es6
+import {trim} from 'strman'
+
+let title = "     Checks whether a string     ";
+let result = trim(title);
+// result => "Checks whether a string";
+```
+
+## truncate([value], [length], [append])
+
+Truncate the unsecured form string, cutting the independent string of required position.
+
+```es6
+import {truncate} from 'strman'
+
+let title = "Checks whether a string     ";
+let result = truncate(title, 7, "...");
+// result => "Chec...";
 ```
 
 # LICENSE
