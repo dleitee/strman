@@ -52,9 +52,9 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
 
 # Available Functions
 
-  - [x] append
-  - [x] appendArray
-  - [x] at
+  - [x] [append](https://github.com/dleitee/strman#appendvalue-append)
+  - [x] [appendArray](https://github.com/dleitee/strman#appendarrayvalue-append--)
+  - [x] [at](https://github.com/dleitee/strman#atvalue-index)
   - [x] between
   - [x] chars
   - [x] collapseWhitespace
@@ -142,6 +142,223 @@ let title = "abc";
 let result = at(title, 1);
 // result => "b";
 ```
+
+## between([value], [start], [end])
+
+Returns array with strings between [start] and [end].
+
+```es6
+import {between} from 'strman'
+
+let title = "[abc][def]";
+let result = between(title, "[", "]");
+// result => ["abc", "def"];
+```
+
+## chars([value])
+
+Returns an array consisting of the characters in the string.
+
+```es6
+import {chars} from 'strman'
+
+let title = "abc";
+let result = chars(title);
+// result => ["a", "b", "c"];
+```
+
+## collapseWhitespace([value])
+
+Replaces consecutive whitespace characters with a single space.
+
+```es6
+import {collapseWhitespace} from 'strman'
+
+let title = "   a    b   c    ";
+let result = collapseWhitespace(title);
+// result => "a b c";
+```
+
+## contains([value], [needle], [caseSensitive = true])
+
+Verifies that the needle is contained in value.
+
+```es6
+import {contains} from 'strman'
+
+let title = "Daniel Leite";
+let needle = "Leite";
+let result = contains(title, needle, true);
+// result => true;
+```
+
+## containsAll([value], [needles = []], [caseSensitive = true])
+
+Verifies that all needles are contained in value.
+
+```es6
+import {containsAll} from 'strman'
+
+let title = "Daniel Leite";
+let needles = ["Leite", "Daniel"];
+let result = containsAll(title, needles, true);
+// result => true;
+```
+
+## containsAny([value], [needles = []], [caseSensitive = true])
+
+Verifies that one or more of needles are contained in value.
+
+```es6
+import {containsAny} from 'strman'
+
+let title = "Daniel Leite";
+let needles = ["Leite", "Daniel", "Oliveira"];
+let result = containsAny(title, needles, true);
+// result => true;
+```
+
+## countSubstr([value], [substr], [caseSensitive = true], [allowOverlapping = false])
+
+Count the number of times substr appears in value.
+
+```es6
+import {countSubstr} from 'strman'
+
+let title = "Daniel Leite";
+let substr = "Leite";
+let result = countSubstr(title, substr);
+// result => 1;
+```
+
+## endsWith([value], [search], [position=null])
+
+Test if [value] ends with [search]
+
+```es6
+import {endsWith} from 'strman'
+
+let value = "Daniel Leite";
+let search = "Leite";
+let result = endsWith(value, search);
+// result => true;
+```
+
+## ensureLeft([value], [substr])
+
+Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
+
+```es6
+import {ensureLeft} from 'strman'
+
+let value = "Leite";
+let substr = "Daniel ";
+let result = ensureLeft(value, substr);
+// result => "Daniel Leite";
+```
+
+## ensureRight([value], [substr])
+
+Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
+
+```es6
+import {ensureRight} from 'strman'
+
+let value = "Daniel";
+let substr = " Leite";
+let result = ensureRight(value, substr);
+// result => "Daniel Leite";
+```
+
+## first([value], [n])
+
+Return the first n chars of string.
+
+```es6
+import {first} from 'strman'
+
+let value = "Daniel";
+let result = first(value, 2);
+// result => "Da";
+```
+
+## includes
+
+Verifies that the needle is contained in value.
+
+```es6
+import {includes} from 'strman'
+
+let title = "Daniel Leite";
+let needle = "Leite";
+let result = includes(title, needle, true);
+// result => true;
+```
+
+## indexOf([value], [needle], [offset = 0])
+
+The indexOf method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
+
+```es6
+import {indexOf} from 'strman'
+
+let value = "daniel";
+let result = indexOf(value, "niel");
+// result => 2;
+```
+
+## insert([value], [substr], [index])
+
+Inserts [substr] into the [value] at the [index] provided.
+
+```es6
+import {insert} from 'strman'
+
+let value = "foo";
+let result = insert(value, " bar", 3);
+// result => "foo bar";
+```
+
+## isLowerCase([value], [n])
+
+Verify if is lowerCase.
+
+```es6
+import {hasLowerCase} from 'strman'
+
+let value = "daniel";
+let result = hasLowerCase(value);
+// result => true;
+```
+
+## isString([value])
+
+Checks whether a string
+
+```es6
+import {isString} from 'strman'
+
+let title = "Checks whether a string";
+let result = isString(title);
+// result => true
+
+let number = 1;
+let result = isString(number);
+// result => false
+```
+
+## isUpperCase([value], [n])
+
+Verify if is upperCase.
+
+```es6
+import {hasUpperCase} from 'strman'
+
+let value = "DANIEL";
+let result = hasUpperCase(value);
+// result => true;
+```
+
 
 # LICENSE
 
