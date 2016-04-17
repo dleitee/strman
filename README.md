@@ -89,23 +89,23 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
   - [x] [reverse](https://github.com/dleitee/strman#reversevalue)
   - [x] [rightPad](https://github.com/dleitee/strman#rightpadvalue-length-char)
   - [x] [rightTrim](https://github.com/dleitee/strman#righttrimvalue)
-  - [x] safeTruncate
-  - [x] shuffle
-  - [x] slice
-  - [x] slugify
-  - [x] split
-  - [x] startsWith
-  - [x] substr
-  - [x] surround
-  - [x] toCamelCase
-  - [x] toDecamelize
-  - [x] toKebabCase
-  - [x] toLowerCase
-  - [x] toSnakeCase
-  - [x] toStudlyCaps
-  - [x] toUpperCase
-  - [x] trim
-  - [x] truncate
+  - [x] [safeTruncate](https://github.com/dleitee/strman#safetruncatevalue-length-append)
+  - [x] [shuffle](https://github.com/dleitee/strman#shufflevalue)
+  - [x] [slice](https://github.com/dleitee/strman#slicevalue-beginslice-endslice)
+  - [x] [slugify](https://github.com/dleitee/strman#slugifystring)
+  - [x] [split](https://github.com/dleitee/strman#splitvalue-separator-limit)
+  - [x] [startsWith](https://github.com/dleitee/strman#startswithvalue-search-position0)
+  - [x] [substr](https://github.com/dleitee/strman#substrvalue-start-length)
+  - [x] [surround](https://github.com/dleitee/strman#surroundvalue-substr)
+  - [x] [toCamelCase](https://github.com/dleitee/strman#tocamelcasevalue)
+  - [x] [toDecamelize](https://github.com/dleitee/strman#todecamelizevalue-chr)
+  - [x] [toKebabCase](https://github.com/dleitee/strman#tokebabcasevalue)
+  - [x] [toLowerCase](https://github.com/dleitee/strman#tolowercasevalue)
+  - [x] [toSnakeCase](https://github.com/dleitee/strman#tosnakecasevalue)
+  - [x] [toStudlyCaps](https://github.com/dleitee/strman#tostudlycapsvalue)
+  - [x] [toUpperCase](https://github.com/dleitee/strman#touppercasevalue)
+  - [x] [trim](https://github.com/dleitee/strman#trimvalue)
+  - [x] [truncate](https://github.com/dleitee/strman#truncatevalue-length-append)
 
 ## append([value], ...[append])
 
@@ -658,18 +658,6 @@ import {surround} from 'strman'
 let value = "foo";
 let result = surround(value, "bar");
 // result => "barfoobar";
-```
-
-## toCamelCase([value])
-
-Transform to camelCase.
-
-```es6
-import {toCamelCase} from 'strman'
-
-let value = "camel-case";
-let result = toCamelCase(value);
-// result => "camelCase";
 ```
 
 ## toCamelCase([value])
