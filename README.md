@@ -32,6 +32,19 @@ let result = slugify(title);
 // result => "a-javascript-string-manipulation-library"
 ```
 
+### With Browser
+
+```html
+<script src="./bower_components/strman/dist/strman.js"></script>
+```
+
+```javascript
+var result = _s.isString('strman');
+// result => true
+```
+
+Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
+
 # Available Functions
 
 - [x] [slugify](https://github.com/dleitee/strman/blob/master/docs/slugify.md)
