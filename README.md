@@ -66,7 +66,6 @@ Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
   - [x] [ensureLeft](https://github.com/dleitee/strman#ensureleftvalue-substr)
   - [x] [ensureRight](https://github.com/dleitee/strman#ensurerightvalue-substr)
   - [x] [first](https://github.com/dleitee/strman#firstvalue-n)
-  - [x] [includes](https://github.com/dleitee/strman#includes)
   - [x] [indexOf](https://github.com/dleitee/strman#indexofvalue-needle-offset--0)
   - [x] [insert](https://github.com/dleitee/strman#insertvalue-substr-index)
   - [x] [isLowerCase](https://github.com/dleitee/strman#islowercasevalue-n)
@@ -280,19 +279,6 @@ import {first} from 'strman'
 let value = "Daniel";
 let result = first(value, 2);
 // result => "Da";
-```
-
-## includes
-
-Verifies that the needle is contained in value.
-
-```es6
-import {includes} from 'strman'
-
-let title = "Daniel Leite";
-let needle = "Leite";
-let result = includes(title, needle, true);
-// result => true;
 ```
 
 ## indexOf([value], [needle], [offset = 0])
