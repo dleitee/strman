@@ -1,4 +1,6 @@
-![strman](https://github.com/dleitee/strman/blob/master/strman.png?raw=true)
+<p align="center">
+<img src="https://github.com/dleitee/strman/blob/master/strman.png?raw=true">
+</p>
 
 ![build](https://travis-ci.org/dleitee/strman.svg?branch=master)
 
