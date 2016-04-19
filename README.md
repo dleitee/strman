@@ -1,4 +1,5 @@
-# strman 
+![strman](https://github.com/dleitee/strman/blob/master/strman.png?raw=true)
+
 ![build](https://travis-ci.org/dleitee/strman.svg?branch=master)
 
 A Javascript string manipulation library without npm dependences.
