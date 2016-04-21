@@ -233,7 +233,7 @@ let result = countSubstr(title, substr);
 // result => 1;
 ```
 
-## endsWith([value], [search], [position=null])
+## endsWith([value], [search], [position=null], [caseSensitive=true])
 
 Test if [value] ends with [search]
 
@@ -246,7 +246,7 @@ let result = endsWith(value, search);
 // result => true;
 ```
 
-## ensureLeft([value], [substr])
+## ensureLeft([value], [substr], [caseSensitive=true])
 
 Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
 
@@ -259,7 +259,7 @@ let result = ensureLeft(value, substr);
 // result => "Daniel Leite";
 ```
 
-## ensureRight([value], [substr])
+## ensureRight([value], [substr], [caseSensitive=true])
 
 Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
 
@@ -284,7 +284,7 @@ let result = first(value, 2);
 // result => "Da";
 ```
 
-## indexOf([value], [needle], [offset = 0])
+## indexOf([value], [needle], [offset = 0], [caseSensitive=true])
 
 The indexOf method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
 
@@ -360,7 +360,7 @@ let result = last(value, 2);
 // result => "el";
 ```
 
-## lastIndexOf([value], [needle], [offset = 0])
+## lastIndexOf([value], [needle], [offset = 0], [caseSensitive=true])
 
 The lastIndexOf method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
 
@@ -432,7 +432,7 @@ let result = prependArray(title, ["b", "c"]);
 // result => "bca";
 ```
 
-## removeLeft([value], [prefix])
+## removeLeft([value], [prefix], [caseSensitive=true])
 
 Returns a new string with the [prefix] removed, if present.
 
@@ -468,7 +468,7 @@ let result = removeNonWords(title, "");
 // result => "a";
 ```
 
-## removeRight([value], [suffix])
+## removeRight([value], [suffix], [caseSensitive=true])
 
 Returns a new string with the [suffix] removed, if present.
 
@@ -506,7 +506,7 @@ let result = repeat("a", 4);
 // result => "aaaa";
 ```
 
-## replace([value], [search], [newvalue])
+## replace([value], [search], [newvalue], [caseSensitive=true])
 
 Replace [search] value to [newvalue]
 
@@ -612,7 +612,7 @@ let result = substr(split, "");
 // result => ["f", "o", "o"];
 ```
 
-## startsWith([value], [search], [position=0])
+## startsWith([value], [search], [position=0], [caseSensitive=true])
 
 Test if [value] starts with [search]
 
