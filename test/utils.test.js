@@ -92,6 +92,27 @@ describe('replace function', () => {
     });
 });
 
+describe('replace function caseSensitive', () => {
+    it('should be bar bar', () => {
+        let fixtures = [
+            'FOO bar'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(replace(el, 'foo', 'bar', false)).to.equal('bar bar');
+        });
+    });
+    it('should be bar bar bar', () => {
+        let fixtures = [
+            'FOO bar foo'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(replace(el, 'foo', 'bar', false)).to.equal('bar bar bar');
+        });
+    });
+});
+
 describe('removeNonChars function', () => {
     it('should be foo bar', () => {
         let fixtures = [
@@ -627,6 +648,18 @@ describe('indexOf function', () => {
     });
 });
 
+describe('indexOf function caseSensitive', () => {
+    it('should be true', () => {
+        let value = 'FOOBAR';
+        chai.expect(indexOf(value, 'f', undefined, false)).to.equal(0);
+        chai.expect(indexOf(value, 'o', undefined, false)).to.equal(1);
+        chai.expect(indexOf(value, 'b', undefined, false)).to.equal(3);
+        chai.expect(indexOf(value, 'a', undefined, false)).to.equal(4);
+        chai.expect(indexOf(value, 'r', undefined, false)).to.equal(5);
+        chai.expect(indexOf(value, 't', undefined, false)).to.equal(-1);
+    });
+});
+
 describe('lastIndexOf function', () => {
     it('should be true', () => {
         let value = 'foobarfoobar';
@@ -636,6 +669,18 @@ describe('lastIndexOf function', () => {
         chai.expect(lastIndexOf(value, 'a')).to.equal(10);
         chai.expect(lastIndexOf(value, 'r')).to.equal(11);
         chai.expect(lastIndexOf(value, 't')).to.equal(-1);
+    });
+});
+
+describe('lastIndexOf function caseSensitive', () => {
+    it('should be true', () => {
+        let value = 'foobarfoobar';
+        chai.expect(lastIndexOf(value, 'F', undefined, false)).to.equal(6);
+        chai.expect(lastIndexOf(value, 'O', undefined, false)).to.equal(8);
+        chai.expect(lastIndexOf(value, 'B', undefined, false)).to.equal(9);
+        chai.expect(lastIndexOf(value, 'A', undefined, false)).to.equal(10);
+        chai.expect(lastIndexOf(value, 'R', undefined, false)).to.equal(11);
+        chai.expect(lastIndexOf(value, 'T', undefined, false)).to.equal(-1);
     });
 });
 

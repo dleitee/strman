@@ -57,8 +57,14 @@ export {removeSpaces};
  * @params value - The string being searched and replaced on.
  * @return String replaced
  */
-const replace = (value, search = '', newvalue = '') =>
-    value.replace(new RegExp(search, 'g'), newvalue);
+const replace = (value, search = '', newvalue = '', caseSensitive = true) => {
+    if(caseSensitive){
+        return value.replace(new RegExp(search, 'g'), newvalue);
+    }
+
+    return value.replace(new RegExp(search, 'ig'), newvalue);
+
+};
 
 export {replace};
 
@@ -412,7 +418,13 @@ export {last};
  * @param offset
  * @return integer
  */
-const indexOf = (value, needle, offset = 0) =>  value.indexOf(needle, offset);
+const indexOf = (value, needle, offset = 0, caseSensitive = true) => {
+    if(caseSensitive){
+        return value.indexOf(needle, offset);
+    }
+
+    return toUpperCase(value).indexOf(toUpperCase(needle), offset);
+};
 
 export {indexOf};
 
@@ -426,7 +438,12 @@ export {indexOf};
  * @param offset
  * @return integer
  */
-const lastIndexOf = (value, needle, offset = undefined) => value.lastIndexOf(needle, offset);
+const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) => {
+    if(caseSensitive){
+        return value.lastIndexOf(needle, offset);
+    }
+    return toUpperCase(value).lastIndexOf(toUpperCase(needle), offset);
+};
 
 export {lastIndexOf};
 
@@ -587,9 +604,9 @@ export {prependArray};
  * @param prefix
  * @return string
 */
-const removeLeft = (value, prefix) => {
+const removeLeft = (value, prefix, caseSensitive = true) => {
 
-    if(startsWith(value, prefix)){
+    if(startsWith(value, prefix, 0, caseSensitive)){
         return substr(value, length(prefix));
     }
 
@@ -605,10 +622,10 @@ export {removeLeft};
  * @return string
 */
 
-const removeRight = (value, suffix) => {
+const removeRight = (value, suffix, caseSensitive = true) => {
     let _length = length(value) - length(suffix);
 
-    if(endsWith(value, suffix)){
+    if(endsWith(value, suffix, null, caseSensitive)){
         return substr(value, 0, _length);
     }
 
