@@ -57,8 +57,14 @@ export {removeSpaces};
  * @params value - The string being searched and replaced on.
  * @return String replaced
  */
-const replace = (value, search = '', newvalue = '') =>
-    value.replace(new RegExp(search, 'g'), newvalue);
+const replace = (value, search = '', newvalue = '', caseSensitive = true) => {
+    if(caseSensitive){
+        return value.replace(new RegExp(search, 'g'), newvalue);
+    }
+
+    return value.replace(new RegExp(search, 'ig'), newvalue);
+
+};
 
 export {replace};
 
@@ -308,7 +314,7 @@ export {countSubstr};
  * @param position = null
  * @return boolean
  */
-const endsWith = (value, search, position = null) => {
+const endsWith = (value, search, position = null, caseSensitive = true) => {
 
     let lastIndex = null;
 
@@ -318,7 +324,12 @@ const endsWith = (value, search, position = null) => {
     }
 
     position -= length(search);
-    lastIndex = indexOf(value, search, position);
+
+    if(caseSensitive){
+        lastIndex = indexOf(value, search, position);
+    }else{
+        lastIndex = indexOf(toUpperCase(value), toUpperCase(search), position);
+    }
 
     return lastIndex !== -1 && lastIndex === position;
 
@@ -333,8 +344,15 @@ export {endsWith};
  * @param position = null
  * @return boolean
  */
-const startsWith = (value, search, position = 0) =>
-    substr(value, position, length(search)) === search;
+const startsWith = (value, search, position = 0, caseSensitive = true) => {
+
+    if(caseSensitive){
+        return substr(value, position, length(search)) === search;
+    }
+
+    return substr(toUpperCase(value), position, length(search)) === toUpperCase(search);
+
+};
 
 export {startsWith};
 
@@ -344,8 +362,8 @@ export {startsWith};
  * @param substr
  * @return string
  */
-const ensureLeft = (value, _substr)  => {
-    if(!startsWith(value, _substr)){
+const ensureLeft = (value, _substr, caseSensitive = true)  => {
+    if(!startsWith(value, _substr, 0, caseSensitive)){
         return append(_substr, value);
     }
 
@@ -360,9 +378,9 @@ export  {ensureLeft};
  * @param substr
  * @return string
  */
-const ensureRight = (value, _substr)  => {
+const ensureRight = (value, _substr, caseSensitive = true)  => {
 
-    if(!endsWith(value, _substr)){
+    if(!endsWith(value, _substr, null, caseSensitive)){
         return append(value, _substr);
     }
 
@@ -400,7 +418,13 @@ export {last};
  * @param offset
  * @return integer
  */
-const indexOf = (value, needle, offset = 0) =>  value.indexOf(needle, offset);
+const indexOf = (value, needle, offset = 0, caseSensitive = true) => {
+    if(caseSensitive){
+        return value.indexOf(needle, offset);
+    }
+
+    return toUpperCase(value).indexOf(toUpperCase(needle), offset);
+};
 
 export {indexOf};
 
@@ -414,7 +438,12 @@ export {indexOf};
  * @param offset
  * @return integer
  */
-const lastIndexOf = (value, needle, offset = undefined) => value.lastIndexOf(needle, offset);
+const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) => {
+    if(caseSensitive){
+        return value.lastIndexOf(needle, offset);
+    }
+    return toUpperCase(value).lastIndexOf(toUpperCase(needle), offset);
+};
 
 export {lastIndexOf};
 
@@ -575,9 +604,9 @@ export {prependArray};
  * @param prefix
  * @return string
 */
-const removeLeft = (value, prefix) => {
+const removeLeft = (value, prefix, caseSensitive = true) => {
 
-    if(startsWith(value, prefix)){
+    if(startsWith(value, prefix, 0, caseSensitive)){
         return substr(value, length(prefix));
     }
 
@@ -593,10 +622,10 @@ export {removeLeft};
  * @return string
 */
 
-const removeRight = (value, suffix) => {
+const removeRight = (value, suffix, caseSensitive = true) => {
     let _length = length(value) - length(suffix);
 
-    if(endsWith(value, suffix)){
+    if(endsWith(value, suffix, null, caseSensitive)){
         return substr(value, 0, _length);
     }
 
