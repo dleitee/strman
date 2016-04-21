@@ -308,7 +308,7 @@ export {countSubstr};
  * @param position = null
  * @return boolean
  */
-const endsWith = (value, search, position = null) => {
+const endsWith = (value, search, position = null, caseSensitive = true) => {
 
     let lastIndex = null;
 
@@ -318,7 +318,12 @@ const endsWith = (value, search, position = null) => {
     }
 
     position -= length(search);
-    lastIndex = indexOf(value, search, position);
+
+    if(caseSensitive){
+        lastIndex = indexOf(value, search, position);
+    }else{
+        lastIndex = indexOf(toUpperCase(value), toUpperCase(search), position);
+    }
 
     return lastIndex !== -1 && lastIndex === position;
 
@@ -333,8 +338,15 @@ export {endsWith};
  * @param position = null
  * @return boolean
  */
-const startsWith = (value, search, position = 0) =>
-    substr(value, position, length(search)) === search;
+const startsWith = (value, search, position = 0, caseSensitive = true) => {
+
+    if(caseSensitive){
+        return substr(value, position, length(search)) === search;
+    }
+
+    return substr(toUpperCase(value), position, length(search)) === toUpperCase(search);
+
+};
 
 export {startsWith};
 
@@ -344,8 +356,8 @@ export {startsWith};
  * @param substr
  * @return string
  */
-const ensureLeft = (value, _substr)  => {
-    if(!startsWith(value, _substr)){
+const ensureLeft = (value, _substr, caseSensitive = true)  => {
+    if(!startsWith(value, _substr, 0, caseSensitive)){
         return append(_substr, value);
     }
 
@@ -360,9 +372,9 @@ export  {ensureLeft};
  * @param substr
  * @return string
  */
-const ensureRight = (value, _substr)  => {
+const ensureRight = (value, _substr, caseSensitive = true)  => {
 
-    if(!endsWith(value, _substr)){
+    if(!endsWith(value, _substr, null, caseSensitive)){
         return append(value, _substr);
     }
 

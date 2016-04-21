@@ -495,6 +495,28 @@ describe('endsWith function', () => {
     });
 });
 
+describe('endsWith function caseSensitive', () => {
+    it('should be true', () => {
+        let fixtures = [
+            'foo bar',
+            'bar'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(endsWith(el, 'BAR', null, false)).to.equal(true);
+        });
+
+        let fixtures2 = [
+            'foo barr',
+            'barr'
+        ];
+
+        fixtures2.forEach(el => {
+            chai.expect(endsWith(el, 'BAR', el.length-1, false)).to.equal(true);
+        });
+    });
+});
+
 describe('startsWith function', () => {
     it('should be true', () => {
         let fixtures = [
@@ -514,6 +536,29 @@ describe('startsWith function', () => {
 
         fixtures2.forEach(el => {
             chai.expect(startsWith(el, 'foo', 1)).to.equal(true);
+        });
+    });
+});
+
+describe('startsWith function caseSensitive', () => {
+    it('should be true', () => {
+        let fixtures = [
+            'foo bar',
+            'foobar',
+            'foo'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(startsWith(el, 'FOO', 0, false)).to.equal(true);
+        });
+
+        let fixtures2 = [
+            'afoo barr',
+            'afoo'
+        ];
+
+        fixtures2.forEach(el => {
+            chai.expect(startsWith(el, 'FOO', 1, false)).to.equal(true);
         });
     });
 });
