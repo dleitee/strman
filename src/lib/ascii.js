@@ -1,3 +1,7 @@
+/*
+ * Credits for: @danielstjules
+ * https://github.com/danielstjules/Stringy/blob/master/src/Stringy.php#L1601-L1756
+ */
 export const ascii = {
     '0': ['°', '₀', '۰'],
     '1': ['¹', '₁', '۱'],
