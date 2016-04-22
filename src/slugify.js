@@ -13,9 +13,9 @@ const slugify = (value) => {
     result = trim(result);
     result = removeSpaces(result, '-');
     result = replace(result, '&','-and-');
-    result = replace(result, '\-\-+','-');
     result = removeNonChars(result);
     result = replace(result, '[^\\w\\-]+', '');
+    result = replace(result, '\-\-+','-');
 
     return result;
 };
