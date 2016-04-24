@@ -1,6 +1,6 @@
 import chai from 'chai';
 
-var strman = require('../dist/strman');
+var strman = require('../transpiler/strman');
 var isString = strman.isString;
 
 describe('Usage with require', () => {

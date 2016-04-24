@@ -1,5 +1,5 @@
 import chai from 'chai';
-import {isString} from '../transpiler/strman.js';
+import {isString} from '../transpiler/strman';
 
 describe('isString function', () => {
     it('should be false', () => {
