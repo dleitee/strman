@@ -1,4 +1,4 @@
-import {toLowerCase, trim, removeSpaces, replace, removeNonChars} from './strman';
+import {toLowerCase, trim, removeSpaces, replace, transliterate} from './strman';
 
 /*
  * Converts a value to a slug.
@@ -13,7 +13,7 @@ const slugify = (value) => {
     result = trim(result);
     result = removeSpaces(result, '-');
     result = replace(result, '&','-and-');
-    result = removeNonChars(result);
+    result = transliterate(result);
     result = replace(result, '[^\\w\\-]+', '');
     result = replace(result, '\-\-+','-');
 

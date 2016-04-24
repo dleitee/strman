@@ -449,7 +449,7 @@ let result = removeLeft(title, "pre");
 ```
 
 ## removeNonChars([value])
-
+`@deprecated use transliterate`
 Remove all non valid characters.
 
 ```es6
@@ -735,6 +735,18 @@ import {toUpperCase} from 'strman'
 let value = "camelCase";
 let result = toUpperCase(value);
 // result => "CAMELCASE";
+```
+
+## transliterate([value])
+
+Remove all non valid characters.
+
+```es6
+import {removeNonChars} from 'strman'
+
+let title = "áéíóú";
+let result = removeNonChars(title);
+// result => "aeiou";
 ```
 
 ## trim([value])

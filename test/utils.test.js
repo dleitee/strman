@@ -3,7 +3,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
-    repeat, reverse, shuffle, surround, safeTruncate, truncate}
+    repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -121,6 +121,18 @@ describe('removeNonChars function', () => {
 
         fixtures.forEach(el => {
             chai.expect(removeNonChars(el)).to.equal('foo bar');
+        });
+    });
+});
+
+describe('transliterate function', () => {
+    it('should be foo bar', () => {
+        let fixtures = [
+            'fóõ bár'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(transliterate(el)).to.equal('foo bar');
         });
     });
 });
