@@ -317,10 +317,10 @@ let result = insert(value, " bar", 3);
 Verify if is lowerCase.
 
 ```es6
-import {hasLowerCase} from 'strman'
+import {isLowerCase} from 'strman'
 
 let value = "daniel";
-let result = hasLowerCase(value);
+let result = isLowerCase(value);
 // result => true;
 ```
 
@@ -345,10 +345,10 @@ let result = isString(number);
 Verify if is upperCase.
 
 ```es6
-import {hasUpperCase} from 'strman'
+import {isUpperCase} from 'strman'
 
 let value = "DANIEL";
-let result = hasUpperCase(value);
+let result = isUpperCase(value);
 // result => true;
 ```
 
