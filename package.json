@@ -1,8 +1,8 @@
 {
   "name": "strman",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Javascript string manipulation library without npm dependences.",
-  "main": "dist/strman.js",
+  "main": "transpiler/strman.js",
   "directories": {
     "test": "test"
   },
@@ -36,6 +36,7 @@
     "es6ify": "^1.6.0",
     "eslint": "^2.7.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-uglify": "^1.5.3",
     "mocha": "^2.4.5",
     "vinyl-buffer": "^1.0.0",

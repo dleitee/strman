@@ -5,7 +5,6 @@
 * @author Daniel Leite de Oliveira <dleitee@gmail.com>
 *
 */
-
 import gulp from 'gulp';
 import uglify from 'gulp-uglify';
 import buffer from 'vinyl-buffer';
@@ -14,6 +13,7 @@ import babelify from 'babelify';
 import es6ify from 'es6ify';
 import deglobalify from 'deglobalify';
 import source from 'vinyl-source-stream';
+import babel from 'gulp-babel';
 
 gulp.task('browserify', () => {
   browserify({
@@ -33,8 +33,15 @@ gulp.task('browserify', () => {
   .pipe(source('strman.js'))
   .pipe(buffer())
   .pipe(uglify())
-  .pipe(gulp.dest('dist'))
-  .pipe(gulp.dest('public'));
+  .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['browserify'], () => {});
+gulp.task('babel', () => {
+  gulp.src('./src/**/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('transpiler'));
+});
+
+gulp.task('default', ['browserify', 'babel'], () => {});
