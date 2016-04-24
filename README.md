@@ -18,6 +18,10 @@ or bower:
 bower install strman
 ```
 
+## Credits
+
+ - [Stringy](https://github.com/danielstjules/Stringy)
+
 ## Usage
 
 ### With ES6/import
