@@ -74,7 +74,7 @@ export {replace};
  * @params value - The string being searched and replaced on.
  * @return String without non valid characters.
  */
-const removeNonChars = (value) => {
+const transliterate = (value) => {
     let result = value;
     for(let key in ascii){
         for(let char in ascii[key]){
@@ -83,6 +83,17 @@ const removeNonChars = (value) => {
     }
     return result;
 };
+
+export {transliterate};
+
+/*
+ * @deprecated Since version 1.0.1. Will be deleted in version 1.2.0. Use transliterate instead.
+ * Remove all non valid characters
+ * Example: change á => a or ẽ => e
+ * @params value - The string being searched and replaced on.
+ * @return String without non valid characters.
+ */
+const removeNonChars = transliterate;
 
 export {removeNonChars};
 
