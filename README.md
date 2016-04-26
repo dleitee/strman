@@ -774,6 +774,18 @@ let result = truncate(title, 7, "...");
 // result => "Chec...";
 ```
 
+## removeNullStrings([strings])
+
+remove all null and non string from string array
+
+```es6
+import {removeNullStrings} from 'strman'
+
+let strings = [ 'aa', '', 'bb', null, 'cc', undefined ];
+let result = removeNullStrings(strings);
+// result => "[ 'aa', 'bb', 'cc' ]"
+```
+
 # LICENSE
 
 The MIT License (MIT)

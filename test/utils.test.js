@@ -3,7 +3,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
-    repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate}
+    repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeNullStrings}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -822,5 +822,11 @@ describe('truncate function', () => {
         chai.expect(truncate('foo bar', 4, '.')).to.equal('foo.');
         chai.expect(truncate('foo bar', 7, '.')).to.equal('foo bar');
         chai.expect(truncate('foo bar', 8, '.')).to.equal('foo bar');
+    });
+});
+
+describe('removeNullStrings function', () => {
+    it('should be [ \'aa\', \'bb\', \'cc\' ]', () => {
+        chai.expect(removeNullStrings([ 'aa', '', 'bb', null, 'cc', undefined ])).to.deep.equal([ 'aa', 'bb', 'cc' ]);
     });
 });

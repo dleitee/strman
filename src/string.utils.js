@@ -789,3 +789,13 @@ const truncate = (value, _length, _append = '') => {
 };
 
 export {truncate};
+
+/**
+ * remove null string from string array
+ * @param strings
+ */
+const removeNullStrings = (strings) => {
+    return strings.filter(string => string && string !== '');
+};
+
+export {removeNullStrings};
