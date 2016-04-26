@@ -711,6 +711,13 @@ describe('length function', () => {
         chai.expect(length('bar')).to.equal(3);
         chai.expect(length('dan')).to.equal(3);
     });
+    
+    it('should be 4', () => {
+        chai.expect(length('john')).to.equal(4);
+        chai.expect(length('jean')).to.equal(4);
+        chai.expect('robi'.length).to.equal(4);
+        chai.expect(length('next')).to.equal(4);
+    });
 });
 
 describe('leftPad function', () => {
