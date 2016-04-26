@@ -58,11 +58,9 @@ export {removeSpaces};
  * @return String replaced
  */
 const replace = (value, search = '', newvalue = '', caseSensitive = true) => {
-    if(caseSensitive){
-        return value.replace(new RegExp(search, 'g'), newvalue);
-    }
+    var flags = caseSensitive ? 'g' : 'gi';
 
-    return value.replace(new RegExp(search, 'ig'), newvalue);
+    return value.replace(new RegExp(search, flags), newvalue);
 
 };
 
