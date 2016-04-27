@@ -87,11 +87,9 @@ var replace = function replace(value) {
     var newvalue = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
     var caseSensitive = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
 
-    if (caseSensitive) {
-        return value.replace(new RegExp(search, 'g'), newvalue);
-    }
+    var flags = caseSensitive ? 'g' : 'gi';
 
-    return value.replace(new RegExp(search, 'ig'), newvalue);
+    return value.replace(new RegExp(search, flags), newvalue);
 };
 
 exports.replace = replace;
@@ -294,6 +292,11 @@ exports.contains = contains;
 
 var containsAll = function containsAll(value, needles) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
+
+
+    if (length(needles) === 0) {
+        return false;
+    }
 
     for (var i = 0; i < length(needles); i++) {
         if (!contains(value, needles[i], caseSensitive)) {

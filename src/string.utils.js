@@ -242,6 +242,11 @@ export {contains};
  * @return boolean
  */
 const containsAll = (value, needles, caseSensitive = true) => {
+
+    if(length(needles) === 0){
+        return false;
+    }
+
     for(let i = 0; i < length(needles); i++){
         if(!contains(value, needles[i], caseSensitive)){
             return false;
