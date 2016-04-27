@@ -488,7 +488,13 @@ export {insert};
  * @param value
  * @return integer
  */
-const length = value => value.length;
+const length = value => {
+    let i = 0;
+    while(value[i] !== undefined){
+        i++;
+    }
+    return i;
+};
 
 export {length};
 
