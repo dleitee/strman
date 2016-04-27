@@ -774,15 +774,15 @@ let result = truncate(title, 7, "...");
 // result => "Chec...";
 ```
 
-## removeNullStrings([strings])
+## removeEmptyStrings([strings])
 
-remove all null and non string from string array
+remove all empty or non string from string array
 
 ```es6
-import {removeNullStrings} from 'strman'
+import {removeEmptyStrings} from 'strman'
 
 let strings = [ 'aa', '', 'bb', null, 'cc', undefined ];
-let result = removeNullStrings(strings);
+let result = removeEmptyStrings(strings);
 // result => "[ 'aa', 'bb', 'cc' ]"
 ```
 

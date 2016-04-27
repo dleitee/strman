@@ -791,11 +791,11 @@ const truncate = (value, _length, _append = '') => {
 export {truncate};
 
 /**
- * remove null string from string array
+ * remove empty string from string array
  * @param strings
  */
-const removeNullStrings = (strings) => {
+const removeEmptyStrings = (strings) => {
     return strings.filter(string => string && string !== '');
 };
 
-export {removeNullStrings};
+export {removeEmptyStrings};
