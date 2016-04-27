@@ -774,6 +774,18 @@ let result = truncate(title, 7, "...");
 // result => "Chec...";
 ```
 
+## removeEmptyStrings([strings])
+
+remove all empty or non string from string array
+
+```es6
+import {removeEmptyStrings} from 'strman'
+
+let strings = [ 'aa', '', 'bb', null, 'cc', undefined ];
+let result = removeEmptyStrings(strings);
+// result => "[ 'aa', 'bb', 'cc' ]"
+```
+
 # LICENSE
 
 The MIT License (MIT)

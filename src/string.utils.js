@@ -792,3 +792,13 @@ const truncate = (value, _length, _append = '') => {
 };
 
 export {truncate};
+
+/**
+ * remove empty string from string array
+ * @param strings
+ */
+const removeEmptyStrings = (strings) => {
+    return strings.filter(string => string && string !== '');
+};
+
+export {removeEmptyStrings};
