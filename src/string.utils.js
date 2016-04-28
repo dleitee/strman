@@ -18,7 +18,7 @@ export {isString};
  * @params value - String to trim
  * @return String without boarders spaces
  */
-const trim = value => leftTrim(rightTrim(value));
+const trim = (value, char = ' ') => leftTrim(rightTrim(value, char), char);
 
 export {trim};
 
@@ -27,7 +27,7 @@ export {trim};
  * @params value
  * @return string
  */
-const leftTrim = value => replace(value, '^\\s+', '');
+const leftTrim = (value, char = ' ') => replace(value, `^${char}+`, '');
 
 export {leftTrim};
 
@@ -36,7 +36,7 @@ export {leftTrim};
  * @params value
  * @return string
  */
-const rightTrim = value => replace(value, '\\s+$', '');
+const rightTrim = (value, char = ' ') => replace(value, `${char}+$`, '');
 
  export {rightTrim};
 
@@ -491,7 +491,13 @@ export {insert};
  * @param value
  * @return integer
  */
-const length = value => value.length;
+const length = value => {
+    let i = 0;
+    while(value[i] !== undefined){
+        i++;
+    }
+    return i;
+};
 
 export {length};
 
@@ -796,9 +802,24 @@ export {truncate};
 /**
  * remove empty string from string array
  * @param strings
+ * @return string;
  */
-const removeEmptyStrings = (strings) => {
-    return strings.filter(string => string && string !== '');
-};
+const removeEmptyStrings = (strings) => strings.filter(string => string && string !== '');
 
 export {removeEmptyStrings};
+
+/**
+ * format a string with params
+ * Example:
+ * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
+ * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
+ * @param value
+ * @param ...params
+ * @return string
+ */
+const format = (value, ...params ) =>
+    replace(value, '{(\\d+)}',
+        (match, number) => typeof params[number] !== undefined ? params[number] : match
+    );
+
+export {format};

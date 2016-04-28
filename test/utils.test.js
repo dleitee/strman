@@ -3,7 +3,8 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
-    repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings}
+    repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
+    format}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -38,11 +39,35 @@ describe('trim, ltrim and rtrim function', () => {
             'foo bar',
             'foo bar ',
             ' foo bar',
-            ' foo bar '
+            '  foo bar   '
         ];
 
         fixtures.forEach(el => {
             chai.expect(trim(el)).to.equal('foo bar');
+        });
+    });
+    it('should be foo bar without @', () => {
+        let fixtures = [
+            'foo bar',
+            'foo bar@',
+            '@foo bar',
+            '@@foo bar@@@'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(trim(el, '@')).to.equal('foo bar');
+        });
+    });
+    it('should be foo bar without @ and with #', () => {
+        let fixtures = [
+            '@#foo bar',
+            '#foo bar@',
+            '@#foo bar@',
+            '@@#foo bar@@@'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(trim(el, '@')).to.equal('#foo bar');
         });
     });
 });
@@ -834,6 +859,18 @@ describe('truncate function', () => {
         chai.expect(truncate('foo bar', 4, '.')).to.equal('foo.');
         chai.expect(truncate('foo bar', 7, '.')).to.equal('foo bar');
         chai.expect(truncate('foo bar', 8, '.')).to.equal('foo bar');
+    });
+});
+
+describe('format function', () => {
+    it('should be formated strings', () => {
+        chai.expect(format('foo bar')).to.equal('foo bar');
+        chai.expect(format('{0} bar', 'foo')).to.equal('foo bar');
+        chai.expect(format('foo {0}', 'bar')).to.equal('foo bar');
+        chai.expect(format('foo {0}', 'bar', 'foo')).to.equal('foo bar');
+        chai.expect(format('{0} {1}', 'foo', 'bar')).to.equal('foo bar');
+        chai.expect(format('{1} {0}', 'bar', 'foo')).to.equal('foo bar');
+        chai.expect(format('{1} {0}', 'bar')).to.equal('undefined bar');
     });
 });
 
