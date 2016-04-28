@@ -3,7 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.removeNonChars = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
+exports.format = exports.removeNullStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.removeNonChars = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 var _ascii = require('./lib/ascii');
 
@@ -575,7 +577,11 @@ exports.insert = insert;
  */
 
 var length = function length(value) {
-    return value.length;
+    var i = 0;
+    while (value[i] !== undefined) {
+        i++;
+    }
+    return i;
 };
 
 exports.length = length;
@@ -916,3 +922,39 @@ var truncate = function truncate(value, _length) {
 };
 
 exports.truncate = truncate;
+
+/**
+ * remove null string from string array
+ * @param strings
+ * @return string;
+ */
+
+var removeNullStrings = function removeNullStrings(strings) {
+    return strings.filter(function (string) {
+        return string && string !== '';
+    });
+};
+
+exports.removeNullStrings = removeNullStrings;
+
+/**
+ * format a string with params
+ * Example:
+ * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
+ * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
+ * @param value
+ * @param ...params
+ * @return string
+ */
+
+var format = function format(value) {
+    for (var _len3 = arguments.length, params = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+        params[_key3 - 1] = arguments[_key3];
+    }
+
+    return replace(value, '{(\\d+)}', function (match, number) {
+        return _typeof(params[number]) !== undefined ? params[number] : match;
+    });
+};
+
+exports.format = format;

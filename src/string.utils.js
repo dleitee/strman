@@ -799,9 +799,25 @@ export {truncate};
 /**
  * remove null string from string array
  * @param strings
+ * @return string;
  */
-const removeNullStrings = (strings) => {
-    return strings.filter(string => string && string !== '');
-};
+const removeNullStrings = (strings) => strings.filter(string => string && string !== '');
 
 export {removeNullStrings};
+
+/**
+ * format a string with params
+ * Example:
+ * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
+ * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
+ * @param value
+ * @param ...params
+ * @return string
+ */
+const format = (value, ...params ) =>
+    replace(value, '{(\\d+)}',
+        (match, number) => typeof params[number] !== undefined ? params[number] : match
+    );
+
+export {format};
+
