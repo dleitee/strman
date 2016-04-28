@@ -18,7 +18,7 @@ export {isString};
  * @params value - String to trim
  * @return String without boarders spaces
  */
-const trim = value => leftTrim(rightTrim(value));
+const trim = (value, char = ' ') => leftTrim(rightTrim(value, char), char);
 
 export {trim};
 
@@ -27,7 +27,7 @@ export {trim};
  * @params value
  * @return string
  */
-const leftTrim = value => replace(value, '^\\s+', '');
+const leftTrim = (value, char = ' ') => replace(value, `^${char}+`, '');
 
 export {leftTrim};
 
@@ -36,7 +36,7 @@ export {leftTrim};
  * @params value
  * @return string
  */
-const rightTrim = value => replace(value, '\\s+$', '');
+const rightTrim = (value, char = ' ') => replace(value, `${char}+$`, '');
 
  export {rightTrim};
 

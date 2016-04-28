@@ -39,11 +39,35 @@ describe('trim, ltrim and rtrim function', () => {
             'foo bar',
             'foo bar ',
             ' foo bar',
-            ' foo bar '
+            '  foo bar   '
         ];
 
         fixtures.forEach(el => {
             chai.expect(trim(el)).to.equal('foo bar');
+        });
+    });
+    it('should be foo bar without @', () => {
+        let fixtures = [
+            'foo bar',
+            'foo bar@',
+            '@foo bar',
+            '@@foo bar@@@'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(trim(el, '@')).to.equal('foo bar');
+        });
+    });
+    it('should be foo bar without @ and with #', () => {
+        let fixtures = [
+            '@#foo bar',
+            '#foo bar@',
+            '@#foo bar@',
+            '@@#foo bar@@@'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(trim(el, '@')).to.equal('#foo bar');
         });
     });
 });
