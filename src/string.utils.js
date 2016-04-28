@@ -58,11 +58,9 @@ export {removeSpaces};
  * @return String replaced
  */
 const replace = (value, search = '', newvalue = '', caseSensitive = true) => {
-    if(caseSensitive){
-        return value.replace(new RegExp(search, 'g'), newvalue);
-    }
+    var flags = caseSensitive ? 'g' : 'gi';
 
-    return value.replace(new RegExp(search, 'ig'), newvalue);
+    return value.replace(new RegExp(search, flags), newvalue);
 
 };
 
@@ -244,6 +242,11 @@ export {contains};
  * @return boolean
  */
 const containsAll = (value, needles, caseSensitive = true) => {
+
+    if(length(needles) === 0){
+        return false;
+    }
+
     for(let i = 0; i < length(needles); i++){
         if(!contains(value, needles[i], caseSensitive)){
             return false;
@@ -797,13 +800,13 @@ const truncate = (value, _length, _append = '') => {
 export {truncate};
 
 /**
- * remove null string from string array
+ * remove empty string from string array
  * @param strings
  * @return string;
  */
-const removeNullStrings = (strings) => strings.filter(string => string && string !== '');
+const removeEmptyStrings = (strings) => strings.filter(string => string && string !== '');
 
-export {removeNullStrings};
+export {removeEmptyStrings};
 
 /**
  * format a string with params
@@ -820,4 +823,3 @@ const format = (value, ...params ) =>
     );
 
 export {format};
-

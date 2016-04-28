@@ -3,7 +3,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
-    repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeNullStrings,
+    repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
     format}
     from '../src/strman';
 
@@ -390,6 +390,18 @@ describe('contains function', () => {
 });
 
 describe('containsAll function', () => {
+    it('should be false, caseSensitive = true', () => {
+        let fixtures = [
+            'foo bar',
+            'bar foo',
+            'foobar'
+        ];
+
+        fixtures.forEach(el => {
+            chai.expect(containsAll(el, [], true)).to.equal(false);
+        });
+    });
+
     it('should be true, caseSensitive = true', () => {
         let fixtures = [
             'foo bar',
@@ -862,8 +874,8 @@ describe('format function', () => {
     });
 });
 
-describe('removeNullStrings function', () => {
+describe('removeEmptyStrings function', () => {
     it('should be [ \'aa\', \'bb\', \'cc\' ]', () => {
-        chai.expect(removeNullStrings([ 'aa', '', 'bb', null, 'cc', undefined ])).to.deep.equal([ 'aa', 'bb', 'cc' ]);
+        chai.expect(removeEmptyStrings([ 'aa', '', 'bb', null, 'cc', undefined ])).to.deep.equal([ 'aa', 'bb', 'cc' ]);
     });
 });

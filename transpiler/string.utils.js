@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.format = exports.removeNullStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.removeNonChars = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
+exports.format = exports.removeEmptyStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.removeNonChars = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
@@ -33,7 +33,8 @@ exports.isString = isString;
  */
 
 var trim = function trim(value) {
-    return leftTrim(rightTrim(value));
+    var char = arguments.length <= 1 || arguments[1] === undefined ? ' ' : arguments[1];
+    return leftTrim(rightTrim(value, char), char);
 };
 
 exports.trim = trim;
@@ -45,7 +46,8 @@ exports.trim = trim;
  */
 
 var leftTrim = function leftTrim(value) {
-    return replace(value, '^\\s+', '');
+    var char = arguments.length <= 1 || arguments[1] === undefined ? ' ' : arguments[1];
+    return replace(value, '^' + char + '+', '');
 };
 
 exports.leftTrim = leftTrim;
@@ -57,7 +59,8 @@ exports.leftTrim = leftTrim;
  */
 
 var rightTrim = function rightTrim(value) {
-    return replace(value, '\\s+$', '');
+    var char = arguments.length <= 1 || arguments[1] === undefined ? ' ' : arguments[1];
+    return replace(value, char + '+$', '');
 };
 
 exports.rightTrim = rightTrim;
@@ -89,11 +92,9 @@ var replace = function replace(value) {
     var newvalue = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
     var caseSensitive = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
 
-    if (caseSensitive) {
-        return value.replace(new RegExp(search, 'g'), newvalue);
-    }
+    var flags = caseSensitive ? 'g' : 'gi';
 
-    return value.replace(new RegExp(search, 'ig'), newvalue);
+    return value.replace(new RegExp(search, flags), newvalue);
 };
 
 exports.replace = replace;
@@ -296,6 +297,11 @@ exports.contains = contains;
 
 var containsAll = function containsAll(value, needles) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
+
+
+    if (length(needles) === 0) {
+        return false;
+    }
 
     for (var i = 0; i < length(needles); i++) {
         if (!contains(value, needles[i], caseSensitive)) {
@@ -924,18 +930,18 @@ var truncate = function truncate(value, _length) {
 exports.truncate = truncate;
 
 /**
- * remove null string from string array
+ * remove empty string from string array
  * @param strings
  * @return string;
  */
 
-var removeNullStrings = function removeNullStrings(strings) {
+var removeEmptyStrings = function removeEmptyStrings(strings) {
     return strings.filter(function (string) {
         return string && string !== '';
     });
 };
 
-exports.removeNullStrings = removeNullStrings;
+exports.removeEmptyStrings = removeEmptyStrings;
 
 /**
  * format a string with params
