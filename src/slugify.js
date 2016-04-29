@@ -1,6 +1,6 @@
 import {toLowerCase, trim, removeSpaces, replace, transliterate} from './strman';
 
-/*
+/**
  * Converts a value to a slug.
  * Example: slugify('A Javascript string manipulation library') => 'a-javascript-string-manipulation-library'
  * @param value - value for slugify
