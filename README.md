@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/dleitee/strman.svg?branch=master)](https://travis-ci.org/dleitee/strman)
 
-A Javascript string manipulation library without npm dependences.
+A Javascript string manipulation library without npm dependencies.
 
 ## Install
 
