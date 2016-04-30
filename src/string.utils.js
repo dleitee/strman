@@ -886,3 +886,8 @@ const decEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(10), 5, '0')).join('');
 
 export {decEncode};
+
+const decDecode = (value) =>
+    value.match(/.{1,5}/g).map((data)=>String.fromCharCode(parseInt(data, 10))).join('');
+
+export {decDecode};
