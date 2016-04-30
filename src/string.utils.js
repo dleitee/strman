@@ -862,7 +862,12 @@ const inequal = (stringA, stringB) => stringA !== stringB;
 
 export {inequal};
 
-const strToHex = (value) =>
+const hexEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(16), 4, '0')).join('');
 
-export {strToHex};
+export {hexEncode};
+
+const hexDecode = (value) =>
+    value.match(/.{1,4}/g).map((data)=>String.fromCharCode(parseInt(data, 16))).join('');
+
+export {hexDecode};

@@ -4,7 +4,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
     repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
-    format, compare, equal, inequal, strToHex}
+    format, compare, equal, inequal, hexEncode, hexDecode}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -913,11 +913,21 @@ describe('inequal function', () => {
     });
 });
 
-describe('strToHex function', () => {
+describe('hexEncode function', () => {
     it('should be hexadecimal', () => {
-        chai.expect(strToHex('漢')).to.equal('6f22');
-        chai.expect(strToHex('A')).to.equal('0041');
-        chai.expect(strToHex('Á')).to.equal('00c1');
-        chai.expect(strToHex('AA')).to.equal('00410041');
+        chai.expect(hexEncode('漢')).to.equal('6f22');
+        chai.expect(hexEncode('A')).to.equal('0041');
+        chai.expect(hexEncode('Á')).to.equal('00c1');
+        chai.expect(hexEncode('AA')).to.equal('00410041');
     });
 });
+
+describe('hexDecode function', () => {
+    it('should be string', () => {
+        chai.expect(hexDecode('6f22')).to.equal('漢');
+        chai.expect(hexDecode('0041')).to.equal('A');
+        chai.expect(hexDecode('00c1')).to.equal('Á');
+        chai.expect(hexDecode('00410041')).to.equal('AA');
+    });
+});
+
