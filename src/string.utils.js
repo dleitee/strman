@@ -876,3 +876,8 @@ const binEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(2), 16, '0')).join('');
 
 export {binEncode};
+
+const binDecode = (value) =>
+    value.match(/.{1,16}/g).map((data)=>String.fromCharCode(parseInt(data, 2))).join('');
+
+export {binDecode};
