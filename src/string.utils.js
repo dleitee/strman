@@ -833,7 +833,7 @@ export {format};
  * @return signed integer
  */
 const compare = (stringA, stringB) => {
-    if(stringA === stringB){
+    if(equal(stringA, stringB)){
         return 0;
     }
 
@@ -841,3 +841,13 @@ const compare = (stringA, stringB) => {
 };
 
 export {compare};
+
+/**
+ * Tests if two strings are equal.
+ * @param stringA
+ * @param stringB
+ * @return signed integer*
+ */
+const equal = (stringA, stringB) => stringA === stringB;
+
+export {equal};
