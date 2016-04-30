@@ -851,3 +851,13 @@ export {compare};
 const equal = (stringA, stringB) => stringA === stringB;
 
 export {equal};
+
+/**
+ * Tests if two strings are inequal.
+ * @param stringA
+ * @param stringB
+ * @return signed integer*
+ */
+const inequal = (stringA, stringB) => stringA !== stringB;
+
+export {inequal};

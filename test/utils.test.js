@@ -4,7 +4,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
     repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
-    format, compare, equal}
+    format, compare, equal, inequal}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -902,5 +902,13 @@ describe('equal function', () => {
         chai.expect(equal('a', 'b')).to.equal(false);
         chai.expect(equal('a', 'a')).to.equal(true);
         chai.expect(equal('0', 0)).to.equal(false);
+    });
+});
+
+describe('inequal function', () => {
+    it('should be true or false', () => {
+        chai.expect(inequal('a', 'b')).to.equal(true);
+        chai.expect(inequal('a', 'a')).to.equal(false);
+        chai.expect(inequal('0', 0)).to.equal(true);
     });
 });
