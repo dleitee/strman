@@ -949,17 +949,14 @@ exports.removeEmptyStrings = removeEmptyStrings;
  * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
  * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
  * @param value
- * @param ...params
+ * @param params
  * @return string
  */
 
 var format = function format(value) {
-    for (var _len3 = arguments.length, params = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-        params[_key3 - 1] = arguments[_key3];
-    }
-
-    return replace(value, '{(\\d+)}', function (match, number) {
-        return _typeof(params[number]) !== undefined ? params[number] : match;
+    var params = arguments.length <= 1 || arguments[1] === undefined ? [] : arguments[1];
+    return replace(value, '{(\\w+)}', function (match, index) {
+        return _typeof(params[index]) !== undefined ? params[index] : match;
     });
 };
 

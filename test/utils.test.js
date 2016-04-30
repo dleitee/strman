@@ -865,12 +865,18 @@ describe('truncate function', () => {
 describe('format function', () => {
     it('should be formated strings', () => {
         chai.expect(format('foo bar')).to.equal('foo bar');
-        chai.expect(format('{0} bar', 'foo')).to.equal('foo bar');
-        chai.expect(format('foo {0}', 'bar')).to.equal('foo bar');
-        chai.expect(format('foo {0}', 'bar', 'foo')).to.equal('foo bar');
-        chai.expect(format('{0} {1}', 'foo', 'bar')).to.equal('foo bar');
-        chai.expect(format('{1} {0}', 'bar', 'foo')).to.equal('foo bar');
-        chai.expect(format('{1} {0}', 'bar')).to.equal('undefined bar');
+        chai.expect(format('{0} bar', ['foo'])).to.equal('foo bar');
+        chai.expect(format('foo {0}', ['bar'])).to.equal('foo bar');
+        chai.expect(format('foo {0}', ['bar', 'foo'])).to.equal('foo bar');
+        chai.expect(format('{0} {1}', ['foo', 'bar'])).to.equal('foo bar');
+        chai.expect(format('{1} {0}', ['bar', 'foo'])).to.equal('foo bar');
+        chai.expect(format('{1} {0}', ['bar'])).to.equal('undefined bar');
+        chai.expect(format('{foo} bar', {foo: 'foo'})).to.equal('foo bar');
+        chai.expect(format('{foo} {bar}', {foo: 'foo', bar: 'bar'})).to.equal('foo bar');
+    });
+
+    it('should be undefined', () => {
+        chai.expect(format('foo bar {0}')).to.equal('foo bar undefined');
     });
 });
 

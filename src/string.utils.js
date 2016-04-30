@@ -814,12 +814,12 @@ export {removeEmptyStrings};
  * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
  * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
  * @param value
- * @param ...params
+ * @param params
  * @return string
  */
-const format = (value, ...params ) =>
-    replace(value, '{(\\d+)}',
-        (match, number) => typeof params[number] !== undefined ? params[number] : match
+const format = (value, params = []) =>
+    replace(value, '{(\\w+)}',
+        (match, index) => typeof params[index] !== undefined ? params[index] : match
     );
 
 export {format};
