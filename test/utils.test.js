@@ -4,7 +4,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
     repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
-    format, compare, equal, inequal}
+    format, compare, equal, inequal, strToHex}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -910,5 +910,14 @@ describe('inequal function', () => {
         chai.expect(inequal('a', 'b')).to.equal(true);
         chai.expect(inequal('a', 'a')).to.equal(false);
         chai.expect(inequal('0', 0)).to.equal(true);
+    });
+});
+
+describe('strToHex function', () => {
+    it('should be hexadecimal', () => {
+        chai.expect(strToHex('漢')).to.equal('6f22');
+        chai.expect(strToHex('A')).to.equal('0041');
+        chai.expect(strToHex('Á')).to.equal('00c1');
+        chai.expect(strToHex('AA')).to.equal('00410041');
     });
 });

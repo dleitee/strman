@@ -861,3 +861,8 @@ export {equal};
 const inequal = (stringA, stringB) => stringA !== stringB;
 
 export {inequal};
+
+const strToHex = (value) =>
+    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(16), 4, '0')).join('');
+
+export {strToHex};
