@@ -871,3 +871,8 @@ const hexDecode = (value) =>
     value.match(/.{1,4}/g).map((data)=>String.fromCharCode(parseInt(data, 16))).join('');
 
 export {hexDecode};
+
+const binEncode = (value) =>
+    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(2), 16, '0')).join('');
+
+export {binEncode};
