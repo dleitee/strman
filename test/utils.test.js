@@ -4,7 +4,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
     repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
-    format, compare, equal, inequal, hexEncode, hexDecode, binEncode, binDecode}
+    format, compare, equal, inequal, hexEncode, hexDecode, binEncode, binDecode, decEncode}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -949,3 +949,11 @@ describe('binDecode function', () => {
     });
 });
 
+describe('decEncode function', () => {
+    it('should be binary', () => {
+        chai.expect(decEncode('漢')).to.equal('28450');
+        chai.expect(decEncode('A')).to.equal('00065');
+        chai.expect(decEncode('Á')).to.equal('00193');
+        chai.expect(decEncode('AA')).to.equal('0006500065');
+    });
+});
