@@ -823,3 +823,21 @@ const format = (value, params = []) =>
     );
 
 export {format};
+
+/**
+ * Compares two strings to each other. If they are equivalent, a zero is returned. Otherwise,
+ * most of these routines will return a positive or negative result corresponding to whether stringA
+ * is lexicographically greater than, or less than, respectively, than stringB.
+ * @param stringA
+ * @param stringB
+ * @return signed integer
+ */
+const compare = (stringA, stringB) => {
+    if(stringA === stringB){
+        return 0;
+    }
+
+    return stringA > stringB? 1 : -1;
+};
+
+export {compare};

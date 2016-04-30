@@ -4,7 +4,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
     repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
-    format}
+    format, compare}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -883,5 +883,17 @@ describe('format function', () => {
 describe('removeEmptyStrings function', () => {
     it('should be [ \'aa\', \'bb\', \'cc\' ]', () => {
         chai.expect(removeEmptyStrings([ 'aa', '', 'bb', null, 'cc', undefined ])).to.deep.equal([ 'aa', 'bb', 'cc' ]);
+    });
+});
+
+describe('compare function', () => {
+    it('should be 1, -1, 0', () => {
+        chai.expect(compare('a', 'b')).to.equal(-1);
+        chai.expect(compare('b', 'a')).to.equal(1);
+        chai.expect(compare('a', 'a')).to.equal(0);
+        chai.expect(compare('0', '1')).to.equal(-1);
+        chai.expect(compare('1', '0')).to.equal(1);
+        chai.expect(compare('0', '0')).to.equal(0);
+
     });
 });
