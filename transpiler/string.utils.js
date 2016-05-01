@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.format = exports.removeEmptyStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.removeNonChars = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
+exports.htmlEncode = exports.htmlDecode = exports.base64Decode = exports.base64Encode = exports.urlDecode = exports.urlEncode = exports.decDecode = exports.decEncode = exports.binDecode = exports.binEncode = exports.hexDecode = exports.hexEncode = exports.inequal = exports.equal = exports.compare = exports.format = exports.removeEmptyStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.removeNonChars = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
@@ -14,6 +14,8 @@ var _array = require('./lib/array');
 var _validate = require('./lib/validate');
 
 var _string = require('./string.cases');
+
+var _entities = require('./lib/entities');
 
 /*
  * Checks whether a string
@@ -91,8 +93,11 @@ var replace = function replace(value) {
     var search = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
     var newvalue = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
     var caseSensitive = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
+    var multiline = arguments.length <= 4 || arguments[4] === undefined ? false : arguments[4];
 
     var flags = caseSensitive ? 'g' : 'gi';
+
+    multiline ? flags + 'm' : flags;
 
     return value.replace(new RegExp(search, flags), newvalue);
 };
@@ -961,3 +966,148 @@ var format = function format(value) {
 };
 
 exports.format = format;
+
+/**
+ * Compares two strings to each other. If they are equivalent, a zero is returned. Otherwise,
+ * most of these routines will return a positive or negative result corresponding to whether stringA
+ * is lexicographically greater than, or less than, respectively, than stringB.
+ * @param stringA
+ * @param stringB
+ * @return signed integer
+ */
+
+var compare = function compare(stringA, stringB) {
+    if (equal(stringA, stringB)) {
+        return 0;
+    }
+
+    return stringA > stringB ? 1 : -1;
+};
+
+exports.compare = compare;
+
+/**
+ * Tests if two strings are equal.
+ * @param stringA
+ * @param stringB
+ * @return signed integer*
+ */
+
+var equal = function equal(stringA, stringB) {
+    return stringA === stringB;
+};
+
+exports.equal = equal;
+
+/**
+ * Tests if two strings are inequal.
+ * @param stringA
+ * @param stringB
+ * @return signed integer*
+ */
+
+var inequal = function inequal(stringA, stringB) {
+    return stringA !== stringB;
+};
+
+exports.inequal = inequal;
+
+
+var hexEncode = function hexEncode(value) {
+    return chars(value).map(function (data) {
+        return leftPad(data.charCodeAt(0).toString(16), 4, '0');
+    }).join('');
+};
+
+exports.hexEncode = hexEncode;
+
+
+var hexDecode = function hexDecode(value) {
+    return value.match(/.{1,4}/g).map(function (data) {
+        return String.fromCharCode(parseInt(data, 16));
+    }).join('');
+};
+
+exports.hexDecode = hexDecode;
+
+
+var binEncode = function binEncode(value) {
+    return chars(value).map(function (data) {
+        return leftPad(data.charCodeAt(0).toString(2), 16, '0');
+    }).join('');
+};
+
+exports.binEncode = binEncode;
+
+
+var binDecode = function binDecode(value) {
+    return value.match(/.{1,16}/g).map(function (data) {
+        return String.fromCharCode(parseInt(data, 2));
+    }).join('');
+};
+
+exports.binDecode = binDecode;
+
+
+var decEncode = function decEncode(value) {
+    return chars(value).map(function (data) {
+        return leftPad(data.charCodeAt(0).toString(10), 5, '0');
+    }).join('');
+};
+
+exports.decEncode = decEncode;
+
+
+var decDecode = function decDecode(value) {
+    return value.match(/.{1,5}/g).map(function (data) {
+        return String.fromCharCode(parseInt(data, 10));
+    }).join('');
+};
+
+exports.decDecode = decDecode;
+
+
+var urlEncode = function urlEncode(value) {
+    return encodeURI(value);
+};
+
+exports.urlEncode = urlEncode;
+
+
+var urlDecode = function urlDecode(value) {
+    return decodeURI(value);
+};
+
+exports.urlDecode = urlDecode;
+
+
+var base64Encode = function base64Encode(value) {
+    return new Buffer(value).toString('base64');
+};
+
+exports.base64Encode = base64Encode;
+
+
+var base64Decode = function base64Decode(value) {
+    return new Buffer(value, 'base64').toString();
+};
+
+exports.base64Decode = base64Decode;
+
+
+var htmlDecode = function htmlDecode(value) {
+    return replace(value, '(&\\w+;)', function (match, index) {
+        return _typeof(_entities.entitiesDecode[index]) !== undefined ? _entities.entitiesDecode[index] : match;
+    });
+};
+
+exports.htmlDecode = htmlDecode;
+
+
+var htmlEncode = function htmlEncode(value) {
+    return replace(value, '[\\u00A0-\\u9999<>\\&]', function (match) {
+        return _typeof(_entities.entitiesEncode[match]) !== undefined ? _entities.entitiesEncode[match] : match;
+    }, true, true);
+};
+
+exports.htmlEncode = htmlEncode;

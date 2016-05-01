@@ -5,7 +5,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
     repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
     format, compare, equal, inequal, hexEncode, hexDecode, binEncode, binDecode, decEncode,
-    decDecode, base64Encode, base64Decode}
+    decDecode, base64Encode, base64Decode, htmlDecode, htmlEncode}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -985,5 +985,24 @@ describe('base64Decode function', () => {
         chai.expect(base64Decode('YmFy')).to.equal('bar');
         chai.expect(base64Decode('YsOhciE=')).to.equal('bár!');
         chai.expect(base64Decode('5ryi')).to.equal('漢');
+    });
+});
+
+describe('htmlDecode function', () => {
+    it('should be decoded html', () => {
+        chai.expect(htmlDecode('&aacute;')).to.equal('\u00E1');
+        chai.expect(htmlDecode('&SHcy;')).to.equal('Ш');
+        chai.expect(htmlDecode('&ZHcy;')).to.equal('Ж');
+        chai.expect(htmlDecode('&boxdl;')).to.equal('┐');
+    });
+});
+
+describe('htmlEncode function', () => {
+    it('should be encoded html', () => {
+        chai.expect(htmlEncode('á')).to.equal('&aacute;');
+        chai.expect(htmlEncode('áéíóú')).to.equal('&aacute;&eacute;&iacute;&oacute;&uacute;');
+        chai.expect(htmlEncode('Ш')).to.equal('&SHcy;');
+        chai.expect(htmlEncode('Ж')).to.equal('&ZHcy;');
+        chai.expect(htmlEncode('┐')).to.equal('&boxdl;');
     });
 });

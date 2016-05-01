@@ -2,6 +2,7 @@ import {ascii} from './lib/ascii';
 import {_pop} from './lib/array';
 import {validString, validArrayString, validNumber, validCharLength} from './lib/validate';
 import {toUpperCase} from './string.cases';
+import {entitiesDecode, entitiesEncode} from './lib/entities';
 
 /*
  * Checks whether a string
@@ -57,8 +58,10 @@ export {removeSpaces};
  * @params value - The string being searched and replaced on.
  * @return String replaced
  */
-const replace = (value, search = '', newvalue = '', caseSensitive = true) => {
+const replace = (value, search = '', newvalue = '', caseSensitive = true, multiline = false) => {
     var flags = caseSensitive ? 'g' : 'gi';
+
+    multiline ? flags + 'm' : flags;
 
     return value.replace(new RegExp(search, flags), newvalue);
 
@@ -908,3 +911,17 @@ const base64Decode = (value) => new Buffer(value, 'base64').toString();
 
 export {base64Decode};
 
+const htmlDecode = (value) =>
+    replace(value, '(&\\w+;)',
+        (match, index) =>
+            typeof entitiesDecode[index] !== undefined ? entitiesDecode[index] : match
+        );
+
+export {htmlDecode};
+
+const htmlEncode = (value) => replace(value, '[\\u00A0-\\u9999<>\\&]',
+    (match) =>
+        typeof entitiesEncode[match] !== undefined ? entitiesEncode[match] : match
+    , true, true);
+
+export {htmlEncode};
