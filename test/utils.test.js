@@ -5,7 +5,7 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
     repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
     format, compare, equal, inequal, hexEncode, hexDecode, binEncode, binDecode, decEncode,
-    decDecode}
+    decDecode, base64Encode, base64Decode}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -965,5 +965,25 @@ describe('decDecode function', () => {
         chai.expect(decDecode('00065')).to.equal('A');
         chai.expect(decDecode('00193')).to.equal('Á');
         chai.expect(decDecode('0006500065')).to.equal('AA');
+    });
+});
+
+describe('base64Encode function', () => {
+    it('should be string', () => {
+        chai.expect(base64Encode('Daniel')).to.equal('RGFuaWVs');
+        chai.expect(base64Encode('foo')).to.equal('Zm9v');
+        chai.expect(base64Encode('bar')).to.equal('YmFy');
+        chai.expect(base64Encode('bár!')).to.equal('YsOhciE=');
+        chai.expect(base64Encode('漢')).to.equal('5ryi');
+    });
+});
+
+describe('base64Decode function', () => {
+    it('should be string', () => {
+        chai.expect(base64Decode('RGFuaWVs')).to.equal('Daniel');
+        chai.expect(base64Decode('Zm9v')).to.equal('foo');
+        chai.expect(base64Decode('YmFy')).to.equal('bar');
+        chai.expect(base64Decode('YsOhciE=')).to.equal('bár!');
+        chai.expect(base64Decode('5ryi')).to.equal('漢');
     });
 });

@@ -900,3 +900,11 @@ const urlDecode = (value) => decodeURI(value);
 
 export {urlDecode};
 
+const base64Encode = (value) => new Buffer(value).toString('base64');
+
+export {base64Encode};
+
+const base64Decode = (value) => new Buffer(value, 'base64').toString();
+
+export {base64Decode};
+
