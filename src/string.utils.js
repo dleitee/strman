@@ -891,3 +891,12 @@ const decDecode = (value) =>
     value.match(/.{1,5}/g).map((data)=>String.fromCharCode(parseInt(data, 10))).join('');
 
 export {decDecode};
+
+const urlEncode = (value) => encodeURI(value);
+
+export {urlEncode};
+
+const urlDecode = (value) => decodeURI(value);
+
+export {urlDecode};
+
