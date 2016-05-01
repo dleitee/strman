@@ -2,6 +2,7 @@ import {ascii} from './lib/ascii';
 import {_pop} from './lib/array';
 import {validString, validArrayString, validNumber, validCharLength} from './lib/validate';
 import {toUpperCase} from './string.cases';
+import {entitiesDecode, entitiesEncode} from './lib/entities';
 
 /*
  * Checks whether a string
@@ -57,8 +58,10 @@ export {removeSpaces};
  * @params value - The string being searched and replaced on.
  * @return String replaced
  */
-const replace = (value, search = '', newvalue = '', caseSensitive = true) => {
+const replace = (value, search = '', newvalue = '', caseSensitive = true, multiline = false) => {
     var flags = caseSensitive ? 'g' : 'gi';
+
+    multiline ? flags + 'm' : flags;
 
     return value.replace(new RegExp(search, flags), newvalue);
 
@@ -814,12 +817,111 @@ export {removeEmptyStrings};
  * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
  * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
  * @param value
- * @param ...params
+ * @param params
  * @return string
  */
-const format = (value, ...params ) =>
-    replace(value, '{(\\d+)}',
-        (match, number) => typeof params[number] !== undefined ? params[number] : match
+const format = (value, params = []) =>
+    replace(value, '{(\\w+)}',
+        (match, index) => typeof params[index] !== undefined ? params[index] : match
     );
 
 export {format};
+
+/**
+ * Compares two strings to each other. If they are equivalent, a zero is returned. Otherwise,
+ * most of these routines will return a positive or negative result corresponding to whether stringA
+ * is lexicographically greater than, or less than, respectively, than stringB.
+ * @param stringA
+ * @param stringB
+ * @return signed integer
+ */
+const compare = (stringA, stringB) => {
+    if(equal(stringA, stringB)){
+        return 0;
+    }
+
+    return stringA > stringB? 1 : -1;
+};
+
+export {compare};
+
+/**
+ * Tests if two strings are equal.
+ * @param stringA
+ * @param stringB
+ * @return signed integer*
+ */
+const equal = (stringA, stringB) => stringA === stringB;
+
+export {equal};
+
+/**
+ * Tests if two strings are inequal.
+ * @param stringA
+ * @param stringB
+ * @return signed integer*
+ */
+const inequal = (stringA, stringB) => stringA !== stringB;
+
+export {inequal};
+
+const hexEncode = (value) =>
+    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(16), 4, '0')).join('');
+
+export {hexEncode};
+
+const hexDecode = (value) =>
+    value.match(/.{1,4}/g).map((data)=>String.fromCharCode(parseInt(data, 16))).join('');
+
+export {hexDecode};
+
+const binEncode = (value) =>
+    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(2), 16, '0')).join('');
+
+export {binEncode};
+
+const binDecode = (value) =>
+    value.match(/.{1,16}/g).map((data)=>String.fromCharCode(parseInt(data, 2))).join('');
+
+export {binDecode};
+
+const decEncode = (value) =>
+    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(10), 5, '0')).join('');
+
+export {decEncode};
+
+const decDecode = (value) =>
+    value.match(/.{1,5}/g).map((data)=>String.fromCharCode(parseInt(data, 10))).join('');
+
+export {decDecode};
+
+const urlEncode = (value) => encodeURI(value);
+
+export {urlEncode};
+
+const urlDecode = (value) => decodeURI(value);
+
+export {urlDecode};
+
+const base64Encode = (value) => new Buffer(value).toString('base64');
+
+export {base64Encode};
+
+const base64Decode = (value) => new Buffer(value, 'base64').toString();
+
+export {base64Decode};
+
+const htmlDecode = (value) =>
+    replace(value, '(&\\w+;)',
+        (match, index) =>
+            typeof entitiesDecode[index] !== undefined ? entitiesDecode[index] : match
+        );
+
+export {htmlDecode};
+
+const htmlEncode = (value) => replace(value, '[\\u00A0-\\u9999<>\\&]',
+    (match) =>
+        typeof entitiesEncode[match] !== undefined ? entitiesEncode[match] : match
+    , true, true);
+
+export {htmlEncode};

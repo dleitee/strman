@@ -4,7 +4,8 @@ import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, a
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
     repeat, reverse, shuffle, surround, safeTruncate, transliterate, truncate, removeEmptyStrings,
-    format}
+    format, compare, equal, inequal, hexEncode, hexDecode, binEncode, binDecode, decEncode,
+    decDecode, base64Encode, base64Decode, htmlDecode, htmlEncode}
     from '../src/strman';
 
 describe('isString function', () => {
@@ -865,17 +866,143 @@ describe('truncate function', () => {
 describe('format function', () => {
     it('should be formated strings', () => {
         chai.expect(format('foo bar')).to.equal('foo bar');
-        chai.expect(format('{0} bar', 'foo')).to.equal('foo bar');
-        chai.expect(format('foo {0}', 'bar')).to.equal('foo bar');
-        chai.expect(format('foo {0}', 'bar', 'foo')).to.equal('foo bar');
-        chai.expect(format('{0} {1}', 'foo', 'bar')).to.equal('foo bar');
-        chai.expect(format('{1} {0}', 'bar', 'foo')).to.equal('foo bar');
-        chai.expect(format('{1} {0}', 'bar')).to.equal('undefined bar');
+        chai.expect(format('{0} bar', ['foo'])).to.equal('foo bar');
+        chai.expect(format('foo {0}', ['bar'])).to.equal('foo bar');
+        chai.expect(format('foo {0}', ['bar', 'foo'])).to.equal('foo bar');
+        chai.expect(format('{0} {1}', ['foo', 'bar'])).to.equal('foo bar');
+        chai.expect(format('{1} {0}', ['bar', 'foo'])).to.equal('foo bar');
+        chai.expect(format('{1} {0}', ['bar'])).to.equal('undefined bar');
+        chai.expect(format('{foo} bar', {foo: 'foo'})).to.equal('foo bar');
+        chai.expect(format('{foo} {bar}', {foo: 'foo', bar: 'bar'})).to.equal('foo bar');
+    });
+
+    it('should be undefined', () => {
+        chai.expect(format('foo bar {0}')).to.equal('foo bar undefined');
     });
 });
 
 describe('removeEmptyStrings function', () => {
     it('should be [ \'aa\', \'bb\', \'cc\' ]', () => {
         chai.expect(removeEmptyStrings([ 'aa', '', 'bb', null, 'cc', undefined ])).to.deep.equal([ 'aa', 'bb', 'cc' ]);
+    });
+});
+
+describe('compare function', () => {
+    it('should be 1, -1, 0', () => {
+        chai.expect(compare('a', 'b')).to.equal(-1);
+        chai.expect(compare('b', 'a')).to.equal(1);
+        chai.expect(compare('a', 'a')).to.equal(0);
+        chai.expect(compare('0', '1')).to.equal(-1);
+        chai.expect(compare('1', '0')).to.equal(1);
+        chai.expect(compare('0', '0')).to.equal(0);
+    });
+});
+
+describe('equal function', () => {
+    it('should be true or false', () => {
+        chai.expect(equal('a', 'b')).to.equal(false);
+        chai.expect(equal('a', 'a')).to.equal(true);
+        chai.expect(equal('0', 0)).to.equal(false);
+    });
+});
+
+describe('inequal function', () => {
+    it('should be true or false', () => {
+        chai.expect(inequal('a', 'b')).to.equal(true);
+        chai.expect(inequal('a', 'a')).to.equal(false);
+        chai.expect(inequal('0', 0)).to.equal(true);
+    });
+});
+
+describe('hexEncode function', () => {
+    it('should be hexadecimal', () => {
+        chai.expect(hexEncode('漢')).to.equal('6f22');
+        chai.expect(hexEncode('A')).to.equal('0041');
+        chai.expect(hexEncode('Á')).to.equal('00c1');
+        chai.expect(hexEncode('AA')).to.equal('00410041');
+    });
+});
+
+describe('hexDecode function', () => {
+    it('should be string', () => {
+        chai.expect(hexDecode('6f22')).to.equal('漢');
+        chai.expect(hexDecode('0041')).to.equal('A');
+        chai.expect(hexDecode('00c1')).to.equal('Á');
+        chai.expect(hexDecode('00410041')).to.equal('AA');
+    });
+});
+
+describe('binEncode function', () => {
+    it('should be binary', () => {
+        chai.expect(binEncode('漢')).to.equal('0110111100100010');
+        chai.expect(binEncode('A')).to.equal('0000000001000001');
+        chai.expect(binEncode('Á')).to.equal('0000000011000001');
+        chai.expect(binEncode('AA')).to.equal('00000000010000010000000001000001');
+    });
+});
+
+describe('binDecode function', () => {
+    it('should be string', () => {
+        chai.expect(binDecode('0110111100100010')).to.equal('漢');
+        chai.expect(binDecode('0000000001000001')).to.equal('A');
+        chai.expect(binDecode('0000000011000001')).to.equal('Á');
+        chai.expect(binDecode('00000000010000010000000001000001')).to.equal('AA');
+    });
+});
+
+describe('decEncode function', () => {
+    it('should be binary', () => {
+        chai.expect(decEncode('漢')).to.equal('28450');
+        chai.expect(decEncode('A')).to.equal('00065');
+        chai.expect(decEncode('Á')).to.equal('00193');
+        chai.expect(decEncode('AA')).to.equal('0006500065');
+    });
+});
+
+describe('decDecode function', () => {
+    it('should be string', () => {
+        chai.expect(decDecode('28450')).to.equal('漢');
+        chai.expect(decDecode('00065')).to.equal('A');
+        chai.expect(decDecode('00193')).to.equal('Á');
+        chai.expect(decDecode('0006500065')).to.equal('AA');
+    });
+});
+
+describe('base64Encode function', () => {
+    it('should be string', () => {
+        chai.expect(base64Encode('Daniel')).to.equal('RGFuaWVs');
+        chai.expect(base64Encode('foo')).to.equal('Zm9v');
+        chai.expect(base64Encode('bar')).to.equal('YmFy');
+        chai.expect(base64Encode('bár!')).to.equal('YsOhciE=');
+        chai.expect(base64Encode('漢')).to.equal('5ryi');
+    });
+});
+
+describe('base64Decode function', () => {
+    it('should be string', () => {
+        chai.expect(base64Decode('RGFuaWVs')).to.equal('Daniel');
+        chai.expect(base64Decode('Zm9v')).to.equal('foo');
+        chai.expect(base64Decode('YmFy')).to.equal('bar');
+        chai.expect(base64Decode('YsOhciE=')).to.equal('bár!');
+        chai.expect(base64Decode('5ryi')).to.equal('漢');
+    });
+});
+
+describe('htmlDecode function', () => {
+    it('should be decoded html', () => {
+        chai.expect(htmlDecode('&aacute;')).to.equal('\u00E1');
+        chai.expect(htmlDecode('&SHcy;')).to.equal('Ш');
+        chai.expect(htmlDecode('&ZHcy;')).to.equal('Ж');
+        chai.expect(htmlDecode('&boxdl;')).to.equal('┐');
+    });
+});
+
+describe('htmlEncode function', () => {
+    it('should be encoded html', () => {
+        chai.expect(htmlEncode('á')).to.equal('&aacute;');
+        chai.expect(htmlEncode('áéíóú')).to.equal('&aacute;&eacute;&iacute;&oacute;&uacute;');
+        chai.expect(htmlEncode('Ш')).to.equal('&SHcy;');
+        chai.expect(htmlEncode('Ж')).to.equal('&ZHcy;');
+        chai.expect(htmlEncode('┐')).to.equal('&boxdl;');
     });
 });
