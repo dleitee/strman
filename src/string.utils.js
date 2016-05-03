@@ -742,7 +742,7 @@ export {surround};
  * let title = "A Javascript string manipulation library.";
  * let result = safeTruncate(title, 14, '...');
  * @param {String} value - Value will be truncated securely.
- * @param {Number} _length - Size of the returned string.
+ * @param {Number} _length - Max size of the returned string.
  * @param {String} _append = '' - Value that will be added to the end of the return string. Example: '...'
  * @return {String} - String truncated safely.
  */
@@ -778,12 +778,16 @@ const safeTruncate = (value, _length, _append = '') => {
 
 export {safeTruncate};
 
-/*
+/**
  * Truncate the unsecured form string, cutting the independent string of required position.
-* @param value
- * @param _length
- * @param _append = ''
- * @return string
+ * @playground
+ * var truncate = require('strman').truncate;
+ * let title = "A Javascript string manipulation library.";
+ * let result = truncate(title, 16, '...');
+ * @param {String} value - Value will be truncated unsecurely.
+ * @param {Number} _length - Size of the returned string.
+ * @param {String} _append = '' - Value that will be added to the end of the return string. Example: '...'
+ * @return {String} - String truncated unsafely.
  */
 const truncate = (value, _length, _append = '') => {
 
@@ -806,23 +810,29 @@ const truncate = (value, _length, _append = '') => {
 
 export {truncate};
 
+
 /**
- * remove empty string from string array
- * @param strings
- * @return string;
+ * Remove empty strings from strings array.
+ * @playground
+ * var removeEmptyStrings = require('strman').removeEmptyStrings;
+ * let titles = ["A Javascript string manipulation library.", null, undefined, '', ' '];
+ * let result = removeEmptyStrings(titles);
+ * @param {String[]} strings - Array of strings that will be cleaned.
+ * @return {String[]} - Array of strings without empty strings.
  */
 const removeEmptyStrings = (strings) => strings.filter(string => string && string !== '');
 
 export {removeEmptyStrings};
 
 /**
- * format a string with params
- * Example:
- * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
- * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
- * @param value
- * @param params
- * @return string
+ * Formats a string using parameters.
+ * @playground
+ * var format = require('strman').format;
+ * let select = "SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'";
+ * let result = format(select, "DANIEL", "GMAIL");
+ * @param {String} value - Value that will be formatted.
+ * @param {String} params[] - Array with the parameters described in the string.
+ * @return {String} - Formatted string.
  */
 const format = (value, params = []) =>
     replace(value, '{(\\w+)}',
