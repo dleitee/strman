@@ -754,17 +754,13 @@ const safeTruncate = (value, _length, _append = '') => {
         return value;
     }
 
-    if(_length === indexOf(value, ' ', 0)){
-        return substr(value, 0, _length);
-    }
-
     _length -= length(_append) ;
     truncated = substr(value, 0, _length);
 
     let position = indexOf(value, ' ', _length - 1);
 
     if(position !== _length){
-        let lastPos = lastIndexOf(truncated, ' ', 0);
+        let lastPos = lastIndexOf(truncated, ' ');
         truncated = substr(truncated, 0, lastPos);
     }
 
