@@ -845,11 +845,15 @@ describe('surround function', () => {
 describe('safeTruncate function', () => {
     it('should be strings safeTruncated', () => {
         chai.expect(safeTruncate('foo bar', 0, '.')).to.equal('');
-        chai.expect(safeTruncate('foo bar', 3, '.')).to.equal('foo');
+        chai.expect(safeTruncate('foo bar', 4, '.')).to.equal('foo.');
+        chai.expect(safeTruncate('foo bar', 3, '.')).to.equal('.');
         chai.expect(safeTruncate('foo bar', 2, '.')).to.equal('.');
         chai.expect(safeTruncate('foo bar', 4, '.')).to.equal('foo.');
         chai.expect(safeTruncate('foo bar', 7, '.')).to.equal('foo bar');
         chai.expect(safeTruncate('foo bar', 8, '.')).to.equal('foo bar');
+        chai.expect(safeTruncate('A Javascript string manipulation library.', 16, '...')).to.equal('A Javascript...');
+        chai.expect(safeTruncate('A Javascript string manipulation library.', 15, '...')).to.equal('A Javascript...');
+        chai.expect(safeTruncate('A Javascript string manipulation library.', 14, '...')).to.equal('A...');
     });
 });
 
