@@ -735,12 +735,16 @@ export {surround};
 
  export {slice};
 
-/*
+/**
  * Truncate the string securely, not cutting a word in half. It always returns the last full word.
- * @param value
- * @param _length
- * @param _append = ''
- * @return string
+ * @playground
+ * var safeTruncate = require('strman').safeTruncate;
+ * let title = "A Javascript string manipulation library.";
+ * let result = safeTruncate(title, 14, '...');
+ * @param {String} value - Value will be truncated securely.
+ * @param {Number} _length - Size of the returned string.
+ * @param {String} _append = '' - Value that will be added to the end of the return string. Example: '...'
+ * @return {String} - String truncated safely.
  */
 const safeTruncate = (value, _length, _append = '') => {
 
