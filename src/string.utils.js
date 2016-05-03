@@ -845,9 +845,12 @@ export {format};
  * Compares two strings to each other. If they are equivalent, a zero is returned. Otherwise,
  * most of these routines will return a positive or negative result corresponding to whether stringA
  * is lexicographically greater than, or less than, respectively, than stringB.
- * @param stringA
- * @param stringB
- * @return signed integer
+ * @playground
+ * var compare = require('strman').compare;
+ * let result = compare("foo", "bar");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @return {Number} - +1 if [stringA] > [stringB], -1 if [stringA] < [stringB] and 0 if [stringA] = [stringB]
  */
 const compare = (stringA, stringB) => {
     if(equal(stringA, stringB)){
@@ -861,9 +864,12 @@ export {compare};
 
 /**
  * Tests if two strings are equal.
- * @param stringA
- * @param stringB
- * @return signed integer*
+ * @playground
+ * var equal = require('strman').equal;
+ * let result = equal("foo", "foo");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @return {Boolean} - [stringA] is equal [stringB]
  */
 const equal = (stringA, stringB) => stringA === stringB;
 
@@ -871,9 +877,12 @@ export {equal};
 
 /**
  * Tests if two strings are inequal.
- * @param stringA
- * @param stringB
- * @return signed integer*
+ * @playground
+ * var inequal = require('strman').inequal;
+ * let result = inequal("foo", "foo");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @return {Boolean} - [stringA] is inequal [stringB]
  */
 const inequal = (stringA, stringB) => stringA !== stringB;
 
