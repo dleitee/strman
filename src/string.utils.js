@@ -743,8 +743,8 @@ export {surround};
  * let result = safeTruncate(title, 14, '...');
  * @param {String} value - Value will be truncated securely.
  * @param {Number} _length - Max size of the returned string.
- * @param {String} _append = '' - Value that will be added to the end of the return string. Example: '...'
- * @return {String} - String truncated safely.
+ * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
+ * @returns {String} - String truncated safely.
  */
 const safeTruncate = (value, _length, _append = '') => {
 
@@ -786,8 +786,8 @@ export {safeTruncate};
  * let result = truncate(title, 16, '...');
  * @param {String} value - Value will be truncated unsecurely.
  * @param {Number} _length - Size of the returned string.
- * @param {String} _append = '' - Value that will be added to the end of the return string. Example: '...'
- * @return {String} - String truncated unsafely.
+ * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
+ * @returns {String} - String truncated unsafely.
  */
 const truncate = (value, _length, _append = '') => {
 
@@ -818,7 +818,7 @@ export {truncate};
  * let titles = ["A Javascript string manipulation library.", null, undefined, '', ' '];
  * let result = removeEmptyStrings(titles);
  * @param {String[]} strings - Array of strings that will be cleaned.
- * @return {String[]} - Array of strings without empty strings.
+ * @returns {String[]} - Array of strings without empty strings.
  */
 const removeEmptyStrings = (strings) => strings.filter(string => string && string !== '');
 
@@ -831,8 +831,8 @@ export {removeEmptyStrings};
  * let select = "SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'";
  * let result = format(select, "DANIEL", "GMAIL");
  * @param {String} value - Value that will be formatted.
- * @param {String} params[] - Array with the parameters described in the string.
- * @return {String} - Formatted string.
+ * @param {String[]} params - Array with the parameters described in the string.
+ * @returns {String} - Formatted string.
  */
 const format = (value, params = []) =>
     replace(value, '{(\\w+)}',
@@ -850,7 +850,7 @@ export {format};
  * let result = compare("foo", "bar");
  * @param {String} stringA - String for the comparative
  * @param {String} stringB - String to be compared
- * @return {Number} - +1 if [stringA] > [stringB], -1 if [stringA] < [stringB] and 0 if [stringA] = [stringB]
+ * @returns {Number} - +1 if [stringA] > [stringB], -1 if [stringA] < [stringB] and 0 if [stringA] = [stringB]
  */
 const compare = (stringA, stringB) => {
     if(equal(stringA, stringB)){
@@ -869,7 +869,7 @@ export {compare};
  * let result = equal("foo", "foo");
  * @param {String} stringA - String for the comparative
  * @param {String} stringB - String to be compared
- * @return {Boolean} - [stringA] is equal [stringB]
+ * @returns {Boolean} - [stringA] is equal [stringB]
  */
 const equal = (stringA, stringB) => stringA === stringB;
 
@@ -882,7 +882,7 @@ export {equal};
  * let result = inequal("foo", "foo");
  * @param {String} stringA - String for the comparative
  * @param {String} stringB - String to be compared
- * @return {Boolean} - [stringA] is inequal [stringB]
+ * @returns {Boolean} - [stringA] is inequal [stringB]
  */
 const inequal = (stringA, stringB) => stringA !== stringB;
 
