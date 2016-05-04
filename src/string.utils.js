@@ -770,6 +770,7 @@ export {reverse};
 
 /**
  * A multibyte str_shuffle() function. It returns a string with its characters in random order.
+ * @private
  * @param value
  * @return string
 */
