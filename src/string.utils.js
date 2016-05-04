@@ -987,42 +987,114 @@ const hexDecode = (value) =>
 
 export {hexDecode};
 
+/**
+ * Convert string chars to binary unicode (16 digits)
+ * @playground
+ * var binEncode = require('strman').binEncode;
+ * let result = binEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in binary format.
+ */
 const binEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(2), 16, '0')).join('');
 
 export {binEncode};
-
+/**
+ * Convert binary unicode (16 digits) string to string chars
+ * @playground
+ * var binDecode = require('strman').binDecode;
+ * let result = binDecode("000000000111001100000000011101000000000001110010000000000110110100000000011000010000000001101110");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 const binDecode = (value) =>
     value.match(/.{1,16}/g).map((data)=>String.fromCharCode(parseInt(data, 2))).join('');
 
 export {binDecode};
 
+/**
+ * Convert string chars to decimal unicode (5 digits)
+ * @playground
+ * var decEncode = require('strman').decEncode;
+ * let result = decEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in decimal format.
+ */
 const decEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(10), 5, '0')).join('');
 
 export {decEncode};
 
+/**
+ * Convert binary unicode (16 digits) string to string chars
+ * @playground
+ * var decDecode = require('strman').decDecode;
+ * let result = decDecode("001150011600114001090009700110");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 const decDecode = (value) =>
     value.match(/.{1,5}/g).map((data)=>String.fromCharCode(parseInt(data, 10))).join('');
 
 export {decDecode};
 
+/**
+ * Replaces all characters with the appropriate UTF-8 escape sequences.
+ * @playground
+ * var urlEncode = require('strman').urlEncode;
+ * let result = urlEncode("https://github.com/dleitee/strman/&name=áéíóú");
+ * @param {String} value - The string to be encoded
+ * @returns {String} - Returns a string in which all non-alphanumeric characters except -_. 
+ */
 const urlEncode = (value) => encodeURI(value);
 
 export {urlEncode};
 
+/**
+ * Decodes URL-encoded string
+ * @playground
+ * var urlDecode = require('strman').urlDecode;
+ * let result = urlDecode("https://github.com/dleitee/strman/&name=%C3%A1%C3%A9%C3%AD%C3%B3%C3%BA");
+ * @param {String} value - The string to be decoded
+ * @returns {String} - Returns the decoded string. 
+ */ 
 const urlDecode = (value) => decodeURI(value);
 
 export {urlDecode};
 
+/**
+ * Encodes data with MIME base64.
+ * Base64-encoded data takes about 33% more space than the original data.
+ * @playground
+ * var base64Encode = require('strman').base64Encode;
+ * let result = base64Encode("strman");
+ * @param {String} value - The data to encode.
+ * @returns - The encoded data.
+ */
 const base64Encode = (value) => new Buffer(value).toString('base64');
 
 export {base64Encode};
 
+/**
+ * Decodes data encoded with MIME base64
+ * @playground
+ * var base64Decode = require('strman').base64Decode;
+ * let result = base64Decode("c3RybWFu");
+ * @param {String} value - The data to decode.
+ * @returns - The decoded data.
+ */
 const base64Decode = (value) => new Buffer(value, 'base64').toString();
 
 export {base64Decode};
 
+/**
+ * Convert all HTML entities to applicable characters.
+ * @playground
+ * var htmlDecode = require('strman').htmlDecode;
+ * let result = htmlDecode('&lt;div&gt;');
+ * @params {String} value - value to decode.
+ * @returns - The decoded data.
+ */
 const htmlDecode = (value) =>
     replace(value, '(&\\w+;)',
         (match, index) =>
@@ -1031,6 +1103,14 @@ const htmlDecode = (value) =>
 
 export {htmlDecode};
 
+/**
+ * Convert all applicable characters to HTML entities.
+ * @playground
+ * var htmlEncode = require('strman').htmlEncode;
+ * let result = htmlEncode('<div>');
+ * @params {String} value - value to encode.
+ * @returns - The encoded data.
+ */
 const htmlEncode = (value) => replace(value, '[\\u00A0-\\u9999<>\\&]',
     (match) =>
         typeof entitiesEncode[match] !== undefined ? entitiesEncode[match] : match
