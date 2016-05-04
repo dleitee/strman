@@ -7,11 +7,14 @@ exports.slugify = undefined;
 
 var _strman = require('./strman');
 
-/*
+/**
  * Converts a value to a slug.
- * Example: slugify('A Javascript string manipulation library') => 'a-javascript-string-manipulation-library'
- * @param value - value for slugify
- * @return String - returns a slugify value.
+ * @playground
+ * var slugify = require('strman').slugify;
+ * let title = "A Javascript string manipulation library.";
+ * let result = slugify(title);
+ * @param {String} value The value to slugify
+ * @return {String} The slugified value
  */
 var slugify = function slugify(value) {
 
