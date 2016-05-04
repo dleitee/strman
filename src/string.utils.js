@@ -99,10 +99,15 @@ const removeNonChars = transliterate;
 export {removeNonChars};
 
 /**
- * Append Strings on Value
- * @param value String initial
- * @param ...append - array with strings to append
- * @return string
+ * Append Strings on Value with spreaded arguments
+ * @param {String} value Initial value
+ * @param {String} appends Spreaded array with strings to append
+ * @return {String} The concatenated string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 's'
+ * strman.append(title, 'tr', 'm', 'an') // returns 'strman'
  */
 const append = (value, ...appends) => {
 
@@ -120,9 +125,14 @@ export {append};
 
 /**
  * Append Array of Strings on Value
- * @param value String initial
- * @param ...append - array with strings to append
- * @return string
+ * @param {String} value String initial
+ * @param {String[]} append Array with strings to append
+ * @return {String} The concatenated string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let s = 's'
+ * strman.appendArray(s, ['tr', 'm', 'an']) // returns 'strman'
  */
 const appendArray = (value, appends = []) => {
 
@@ -141,9 +151,14 @@ export {appendArray};
 
 /**
  * Get the character at index
- * @param value
- * @param index
- * @return char
+ * @param {String} value The input string
+ * @param {Number} index The index for which to extract the character
+ * @return {String} The character at position index
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'abc'
+ * strman.at(title, 1) // returns 'b'
  */
 const at = (value, index) => {
     validString(value);
@@ -156,10 +171,15 @@ export {at};
 
 /**
  * Returns array with strings between [start] and [end]
- * @param value
- * @param start
- * @param end
- * @return Array
+ * @param {String} value Input string
+ * @param {String} start The start string to look for
+ * @param {String} end The end string to look for
+ * @return {String[]} An array with all the matches between a pair of `start` and `end`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = '[abc][def]'
+ * strman.between(title, '[', ']') // returns ['abc', 'def']
  */
 const between = (value, start, end) => {
 
@@ -182,8 +202,13 @@ export {between};
 
 /**
  * Returns an array consisting of the characters in the string.
- * @params value
- * @returns Array
+ * @param {String} value The input string
+ * @returns {String[]} The array with the single characters of `value`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'abc'
+ * strman.chars(title) // returns ['a', 'b', 'c']
  */
 const chars = value => {
     let _chars = [];
@@ -200,8 +225,13 @@ export {chars};
 
 /**
  * Replaces consecutive whitespace characters with a single space
- * @param string
- * @return string
+ * @param {String} value The input string
+ * @return {String} The whitespace collapsed string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = '  a  b  c  '
+ * strman.collapseWhitespace(title) // returns 'a b c'
  */
 const collapseWhitespace = (value) => trim(replace(value, '\\s\\s+',' '));
 
@@ -220,10 +250,16 @@ export {removeNonWords};
 
 /**
  * Verifies that the needle is contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String} needle The string which is checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if `needle` is contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needle = 'leite'
+ * strman.contains(title, needle, false) // returns true
  */
 const contains = (value, needle, caseSensitive = true) => {
 
@@ -239,10 +275,16 @@ export {contains};
 
 /**
  * Verifies that all needles are contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String[]} needles An array of strings which are checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching 
+ * @return {Boolean} True if all `needles` are contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needles = ['Leite', 'Daniel']
+ * strman.containsAll(title, needles) // returns true
  */
 const containsAll = (value, needles, caseSensitive = true) => {
 
@@ -262,10 +304,16 @@ export {containsAll};
 
 /**
  * Verifies that one or more of needles are contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String[]} needles An array of string which are checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching 
+ * @return {Boolean} True if at least one of `needles` is contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needles = ['Leite', 'Oliveira']
+ * strman.containsAny(title, needles) // returns true
  */
 const containsAny = (value, needles, caseSensitive = true) => {
     for(let i = 0; i < length(needles); i++){
@@ -280,6 +328,7 @@ export {containsAny};
 
 /**
  * Polyfill to countSubstr function
+ * @private
  * @param value,
  * @param substr,
  * @param position = 0,
@@ -305,11 +354,17 @@ const _countSubstring = (value, _substr, allowOverlapping = false, position = 0,
 
 /**
  * Count the number of times substr appears in value
- * @param value,
- * @param substr,
- * @param caseSensitive = true,
- * @param allowOverlapping = false
- * @return integer
+ * @param {String} value The input string
+ * @param {String} substr The substring to look for
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @param {Boolean} [allowOverlapping=false] Allow overlapping substrings to be counted
+ * @return {Number} The number of matches
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let substr = 'Leite'
+ * strman.counSubstr(title, substr) // returns 1
  */
 const countSubstr = (value, _substr, caseSensitive = true, allowOverlapping = false) => {
 
@@ -325,11 +380,18 @@ const countSubstr = (value, _substr, caseSensitive = true, allowOverlapping = fa
 export {countSubstr};
 
 /**
- * Test if [value] ends with [search]
- * @param value
- * @param search
- * @param position = null
- * @return boolean
+ * Test if `value` ends with `search`
+ * @param {String} value The input string
+ * @param {String} search The string to search for
+ * @param {?Number} [position] The start position/index within `value` to start searching
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if `input` ends with `search`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Daniel Leite'
+ * let search = 'Leite'
+ * strman.endsWith(value, search) // returns true
  */
 const endsWith = (value, search, position = null, caseSensitive = true) => {
 
@@ -374,10 +436,17 @@ const startsWith = (value, search, position = 0, caseSensitive = true) => {
 export {startsWith};
 
 /**
- * Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
- * @param value
- * @param substr
- * @return string
+ * Ensures that the `value` begins with `substr`. If it doesn't, it's prepended.
+ * @param {String} value The input string
+ * @param {String} substr The substr to be ensured to be left
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching for determining if `value` already starts with `substr`
+ * @return {String} The string which is guarenteed to start with `substr`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Leite'
+ * let substr = 'Daniel '
+ * strman.ensureLeft(value, substr) // returns 'Daniel Leite'
  */
 const ensureLeft = (value, _substr, caseSensitive = true)  => {
     if(!startsWith(value, _substr, 0, caseSensitive)){
@@ -391,9 +460,16 @@ export  {ensureLeft};
 
 /**
  * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
- * @param value
- * @param substr
- * @return string
+ * @param {String} value The input string
+ * @param {String} substr The substr to be ensured to be right
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching for determining if `value` already ends with `substr`
+ * @return {String} The string which is guarenteed to start with `substr`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Daniel'
+ * let substr = ' Leite'
+ * strman.ensureRight(value, substr) // returns 'Daniel Leite'
  */
 const ensureRight = (value, _substr, caseSensitive = true)  => {
 
