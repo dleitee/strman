@@ -17,7 +17,7 @@ var _string = require('./string.cases');
 
 var _entities = require('./lib/entities');
 
-/*
+/**
  * Checks whether a string
  * @param value - value to check
  * @return Boolean - true or false
@@ -28,7 +28,7 @@ var isString = function isString(value) {
 
 exports.isString = isString;
 
-/*
+/**
  * Remove all spaces on left and right
  * @params value - String to trim
  * @return String without boarders spaces
@@ -41,7 +41,7 @@ var trim = function trim(value) {
 
 exports.trim = trim;
 
-/*
+/**
  * Remove spaces left
  * @params value
  * @return string
@@ -54,7 +54,7 @@ var leftTrim = function leftTrim(value) {
 
 exports.leftTrim = leftTrim;
 
-/*
+/**
  * Remove spaces right
  * @params value
  * @return string
@@ -67,7 +67,7 @@ var rightTrim = function rightTrim(value) {
 
 exports.rightTrim = rightTrim;
 
-/*
+/**
  * Remove all spaces and replace for value
  * @param replace - Value to replace
  * @param value - The string being searched and replaced on.
@@ -81,7 +81,7 @@ var removeSpaces = function removeSpaces(value) {
 
 exports.removeSpaces = removeSpaces;
 
-/*
+/**
  * Replace [search] value to [newvalue]
  * @param search - String to search
  * @param newvalue - String to replace
@@ -104,7 +104,7 @@ var replace = function replace(value) {
 
 exports.replace = replace;
 
-/*
+/**
  * Remove all non valid characters
  * Example: change á => a or ẽ => e
  * @params value - The string being searched and replaced on.
@@ -123,7 +123,7 @@ var transliterate = function transliterate(value) {
 
 exports.transliterate = transliterate;
 
-/*
+/**
  * @deprecated Since version 1.0.1. Will be deleted in version 1.2.0. Use transliterate instead.
  * Remove all non valid characters
  * Example: change á => a or ẽ => e
@@ -135,7 +135,7 @@ var removeNonChars = transliterate;
 
 exports.removeNonChars = removeNonChars;
 
-/*
+/**
  * Append Strings on Value
  * @param value String initial
  * @param ...append - array with strings to append
@@ -159,7 +159,7 @@ var append = function append(value) {
 
 exports.append = append;
 
-/*
+/**
  * Append Array of Strings on Value
  * @param value String initial
  * @param ...append - array with strings to append
@@ -182,7 +182,7 @@ var appendArray = function appendArray(value) {
 
 exports.appendArray = appendArray;
 
-/*
+/**
  * Get the character at index
  * @param value
  * @param index
@@ -198,7 +198,7 @@ var at = function at(value, index) {
 
 exports.at = at;
 
-/*
+/**
  * Returns array with strings between [start] and [end]
  * @param value
  * @param start
@@ -225,7 +225,7 @@ var between = function between(value, start, end) {
 
 exports.between = between;
 
-/*
+/**
  * Returns an array consisting of the characters in the string.
  * @params value
  * @returns Array
@@ -244,7 +244,7 @@ var chars = function chars(value) {
 
 exports.chars = chars;
 
-/*
+/**
  * Replaces consecutive whitespace characters with a single space
  * @param string
  * @return string
@@ -256,7 +256,7 @@ var collapseWhitespace = function collapseWhitespace(value) {
 
 exports.collapseWhitespace = collapseWhitespace;
 
-/*
+/**
  * Remove all non word characters
  * Example: change . => [replace]
  * @paramsClojure replace - Value to replace
@@ -271,7 +271,7 @@ var removeNonWords = function removeNonWords(value) {
 
 exports.removeNonWords = removeNonWords;
 
-/*
+/**
  * Verifies that the needle is contained in value
  * @param value
  * @param needle
@@ -292,7 +292,7 @@ var contains = function contains(value, needle) {
 
 exports.contains = contains;
 
-/*
+/**
  * Verifies that all needles are contained in value
  * @param value
  * @param needle
@@ -318,7 +318,7 @@ var containsAll = function containsAll(value, needles) {
 
 exports.containsAll = containsAll;
 
-/*
+/**
  * Verifies that one or more of needles are contained in value
  * @param value
  * @param needle
@@ -339,7 +339,7 @@ var containsAny = function containsAny(value, needles) {
 
 exports.containsAny = containsAny;
 
-/*
+/**
  * Polyfill to countSubstr function
  * @param value,
  * @param substr,
@@ -368,7 +368,7 @@ var _countSubstring = function _countSubstring(value, _substr) {
     return _countSubstring(value, _substr, allowOverlapping, _position + 1, count + 1);
 };
 
-/*
+/**
  * Count the number of times substr appears in value
  * @param value,
  * @param substr,
@@ -391,7 +391,7 @@ var countSubstr = function countSubstr(value, _substr) {
 
 exports.countSubstr = countSubstr;
 
-/*
+/**
  * Test if [value] ends with [search]
  * @param value
  * @param search
@@ -423,7 +423,7 @@ var endsWith = function endsWith(value, search) {
 
 exports.endsWith = endsWith;
 
-/*
+/**
  * Test if [value] starts with [search]
  * @param value
  * @param search
@@ -445,7 +445,7 @@ var startsWith = function startsWith(value, search) {
 
 exports.startsWith = startsWith;
 
-/*
+/**
  * Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
  * @param value
  * @param substr
@@ -464,7 +464,7 @@ var ensureLeft = function ensureLeft(value, _substr) {
 
 exports.ensureLeft = ensureLeft;
 
-/*
+/**
  * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
  * @param value
  * @param substr
@@ -484,7 +484,7 @@ var ensureRight = function ensureRight(value, _substr) {
 
 exports.ensureRight = ensureRight;
 
-/*
+/**
  * Return the first n chars of string.
  * @param value
  * @param n
@@ -497,7 +497,7 @@ var first = function first(value, n) {
 
 exports.first = first;
 
-/*
+/**
  * Return the last n chars of string.
  * @param value
  * @param n
@@ -510,7 +510,7 @@ var last = function last(value, n) {
 
 exports.last = last;
 
-/*
+/**
  * The indexOf() method returns the index within the calling String object of the first occurrence
  * of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
  *
@@ -533,7 +533,7 @@ var indexOf = function indexOf(value, needle) {
 
 exports.indexOf = indexOf;
 
-/*
+/**
  * The lastIndexOf() method returns the index within the calling String object of the last
  * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the
  * value is not found.
@@ -556,7 +556,7 @@ var lastIndexOf = function lastIndexOf(value, needle) {
 
 exports.lastIndexOf = lastIndexOf;
 
-/*
+/**
  * Inserts [substr] into the [value] at the [index] provided.
  * @param value
  * @param substr
@@ -581,7 +581,7 @@ var insert = function insert(value, _substr, index) {
 
 exports.insert = insert;
 
-/*
+/**
  * Returns the length of the string
  * @param value
  * @return integer
@@ -597,7 +597,7 @@ var length = function length(value) {
 
 exports.length = length;
 
-/*
+/**
  * Returns a new string of a given length such that the beginning of the string is padded.
  * @param value
  * @param length
@@ -627,7 +627,7 @@ var leftPad = function leftPad(value, _length) {
 
 exports.leftPad = leftPad;
 
-/*
+/**
  * Returns a new string of a given length such that the ending of the string is padded.
  * @param value
  * @param length
@@ -657,7 +657,7 @@ var rightPad = function rightPad(value, _length) {
 
 exports.rightPad = rightPad;
 
-/*
+/**
  * Alias to substr function
  * @param value
  * @param start
@@ -672,7 +672,7 @@ var substr = function substr(value, start) {
 
 exports.substr = substr;
 
-/*
+/**
  * Alias to split function
  * @param value
  * @param separator
@@ -687,7 +687,7 @@ var split = function split(value, separator) {
 
 exports.split = split;
 
-/*
+/**
  * Returns a new string starting with [prepends].
  * @param value
  * @param ...prepends
@@ -711,7 +711,7 @@ var prepend = function prepend(value) {
 
 exports.prepend = prepend;
 
-/*
+/**
  * Returns a new string starting with [prepends].
  * @param value
  * @param ...prepends
@@ -734,7 +734,7 @@ var prependArray = function prependArray(value) {
 
 exports.prependArray = prependArray;
 
-/*
+/**
  * Returns a new string with the [prefix] removed, if present.
  * @param value
  * @param prefix
@@ -754,7 +754,7 @@ var removeLeft = function removeLeft(value, prefix) {
 
 exports.removeLeft = removeLeft;
 
-/*
+/**
  * Returns a new string with the [suffix] removed, if present.
  * @param value
  * @param prefix
@@ -775,7 +775,7 @@ var removeRight = function removeRight(value, suffix) {
 
 exports.removeRight = removeRight;
 
-/*
+/**
  * Returns a repeated string given a multiplier.
  * @param value
  * @param multiplier
@@ -793,7 +793,7 @@ var repeat = function repeat(value, multiplier) {
 
 exports.repeat = repeat;
 
-/*
+/**
  * Returns a reversed string.
  * @param value
  * @return string
@@ -810,7 +810,7 @@ var reverse = function reverse(value) {
 
 exports.reverse = reverse;
 
-/*
+/**
  * A multibyte str_shuffle() function. It returns a string with its characters in random order.
  * @param value
  * @return string
@@ -835,7 +835,7 @@ var shuffle = function shuffle(value) {
 
 exports.shuffle = shuffle;
 
-/*
+/**
  * Surrounds a [value] with the given [substr].
  * @param value
  * @param substr
@@ -845,12 +845,14 @@ exports.shuffle = shuffle;
 var surround = function surround(value) {
     var _substr = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
 
-    return append(_substr, value, _substr);
+    var _substrRight = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+
+    return append(_substr, value, _substrRight === null ? _substr : _substrRight);
 };
 
 exports.surround = surround;
 
-/*
+/**
  * The slice method extracts a section of a string and returns a new string.
  * @param value
  * @param beginSlice
@@ -865,12 +867,16 @@ var slice = function slice(value, beginSlice) {
 
 exports.slice = slice;
 
-/*
+/**
  * Truncate the string securely, not cutting a word in half. It always returns the last full word.
- * @param value
- * @param _length
- * @param _append = ''
- * @return string
+ * @playground
+ * var safeTruncate = require('strman').safeTruncate;
+ * let title = "A Javascript string manipulation library.";
+ * let result = safeTruncate(title, 15, '...');
+ * @param {String} value - Value will be truncated securely.
+ * @param {Number} _length - Max size of the returned string.
+ * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
+ * @returns {String} - String truncated safely.
  */
 
 var safeTruncate = function safeTruncate(value, _length) {
@@ -886,17 +892,13 @@ var safeTruncate = function safeTruncate(value, _length) {
         return value;
     }
 
-    if (_length === indexOf(value, ' ', 0)) {
-        return substr(value, 0, _length);
-    }
-
     _length -= length(_append);
     truncated = substr(value, 0, _length);
 
     var position = indexOf(value, ' ', _length - 1);
 
     if (position !== _length) {
-        var lastPos = lastIndexOf(truncated, ' ', 0);
+        var lastPos = lastIndexOf(truncated, ' ');
         truncated = substr(truncated, 0, lastPos);
     }
 
@@ -905,12 +907,16 @@ var safeTruncate = function safeTruncate(value, _length) {
 
 exports.safeTruncate = safeTruncate;
 
-/*
+/**
  * Truncate the unsecured form string, cutting the independent string of required position.
-* @param value
- * @param _length
- * @param _append = ''
- * @return string
+ * @playground
+ * var truncate = require('strman').truncate;
+ * let title = "A Javascript string manipulation library.";
+ * let result = truncate(title, 16, '...');
+ * @param {String} value - Value will be truncated unsecurely.
+ * @param {Number} _length - Size of the returned string.
+ * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
+ * @returns {String} - String truncated unsafely.
  */
 
 var truncate = function truncate(value, _length) {
@@ -935,9 +941,13 @@ var truncate = function truncate(value, _length) {
 exports.truncate = truncate;
 
 /**
- * remove empty string from string array
- * @param strings
- * @return string;
+ * Remove empty strings from strings array.
+ * @playground
+ * var removeEmptyStrings = require('strman').removeEmptyStrings;
+ * let titles = ["A Javascript string manipulation library.", null, undefined, '', ' '];
+ * let result = removeEmptyStrings(titles);
+ * @param {String[]} strings - Array of strings that will be cleaned.
+ * @returns {String[]} - Array of strings without empty strings.
  */
 
 var removeEmptyStrings = function removeEmptyStrings(strings) {
@@ -949,13 +959,14 @@ var removeEmptyStrings = function removeEmptyStrings(strings) {
 exports.removeEmptyStrings = removeEmptyStrings;
 
 /**
- * format a string with params
- * Example:
- * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
- * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
- * @param value
- * @param params
- * @return string
+ * Formats a string using parameters.
+ * @playground
+ * var format = require('strman').format;
+ * let select = "SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'";
+ * let result = format(select, "DANIEL", "GMAIL");
+ * @param {String} value - Value that will be formatted.
+ * @param {String[]} params - Array with the parameters described in the string.
+ * @returns {String} - Formatted string.
  */
 
 var format = function format(value) {
@@ -971,9 +982,12 @@ exports.format = format;
  * Compares two strings to each other. If they are equivalent, a zero is returned. Otherwise,
  * most of these routines will return a positive or negative result corresponding to whether stringA
  * is lexicographically greater than, or less than, respectively, than stringB.
- * @param stringA
- * @param stringB
- * @return signed integer
+ * @playground
+ * var compare = require('strman').compare;
+ * let result = compare("foo", "bar");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @returns {Number} - +1 if [stringA] > [stringB], -1 if [stringA] < [stringB] and 0 if [stringA] = [stringB]
  */
 
 var compare = function compare(stringA, stringB) {
@@ -988,9 +1002,12 @@ exports.compare = compare;
 
 /**
  * Tests if two strings are equal.
- * @param stringA
- * @param stringB
- * @return signed integer*
+ * @playground
+ * var equal = require('strman').equal;
+ * let result = equal("foo", "foo");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @returns {Boolean} - [stringA] is equal [stringB]
  */
 
 var equal = function equal(stringA, stringB) {
@@ -1001,9 +1018,12 @@ exports.equal = equal;
 
 /**
  * Tests if two strings are inequal.
- * @param stringA
- * @param stringB
- * @return signed integer*
+ * @playground
+ * var inequal = require('strman').inequal;
+ * let result = inequal("foo", "foo");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @returns {Boolean} - [stringA] is inequal [stringB]
  */
 
 var inequal = function inequal(stringA, stringB) {
@@ -1012,6 +1032,14 @@ var inequal = function inequal(stringA, stringB) {
 
 exports.inequal = inequal;
 
+/**
+ * Convert string chars to hexadecimal unicode (4 digits)
+ * @playground
+ * var hexEncode = require('strman').hexEncode;
+ * let result = hexEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in hexadecimal format.
+ */
 
 var hexEncode = function hexEncode(value) {
     return chars(value).map(function (data) {
@@ -1021,6 +1049,14 @@ var hexEncode = function hexEncode(value) {
 
 exports.hexEncode = hexEncode;
 
+/**
+ * Convert hexadecimal unicode (4 digits) string to string chars
+ * @playground
+ * var hexDecode = require('strman').hexDecode;
+ * let result = hexDecode("007300740072006d0061006e");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 
 var hexDecode = function hexDecode(value) {
     return value.match(/.{1,4}/g).map(function (data) {
