@@ -1,4 +1,4 @@
-/*
+/**
  * Transform to lowercase
  * @params value - String to lowercase
  * @return String
@@ -7,7 +7,7 @@ const toLowerCase = value => value.toLowerCase();
 
 export {toLowerCase};
 
-/*
+/**
  * Transform to uppercase
  * @params value - String to uppercase
  * @return String
@@ -16,7 +16,7 @@ const toUpperCase = value => value.toUpperCase();
 
 export {toUpperCase};
 
-/*
+/**
  * Verify if has lowerCase
  * @param value
  * @return boolean
@@ -24,7 +24,7 @@ export {toUpperCase};
 const isLowerCase = (value) => value === toLowerCase(value);
 
 export {isLowerCase};
-/*
+/**
  * Verify if has upperCase
  * @param value
  * @return boolean
@@ -33,7 +33,7 @@ const isUpperCase = (value) => value === toUpperCase(value);
 
 export {isUpperCase};
 
-/*
+/**
  * Transform to StudlyCaps
  * @params value
  * @return string
@@ -46,7 +46,7 @@ const toStudlyCaps = value => {
 
 export {toStudlyCaps};
 
-/*
+/**
  * Transform to camelCase
  * @params value
  * @return string
@@ -58,7 +58,7 @@ const toCamelCase = value => {
 
 export {toCamelCase};
 
-/*
+/**
  * Decamelize String
  * @params value
  * @return string
@@ -71,7 +71,7 @@ const toDecamelize = (value, chr = '_') => {
 
 export {toDecamelize};
 
-/*
+/**
  * Decamelize snake_case
  * @params value
  * @return string
@@ -82,7 +82,7 @@ const toSnakeCase = value => {
 
 export {toSnakeCase};
 
-/*
+/**
  * Decamelize kebab-case
  * @params value
  * @return string

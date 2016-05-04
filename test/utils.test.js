@@ -838,6 +838,7 @@ describe('surround function', () => {
         chai.expect(surround('', '>')).to.equal('>>');
         chai.expect(surround('bar', '')).to.equal('bar');
         chai.expect(surround('f')).to.equal('f');
+        chai.expect(surround('div','<','>')).to.equal('<div>');
     });
 });
 
