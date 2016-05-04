@@ -740,7 +740,7 @@ export {surround};
  * @playground
  * var safeTruncate = require('strman').safeTruncate;
  * let title = "A Javascript string manipulation library.";
- * let result = safeTruncate(title, 14, '...');
+ * let result = safeTruncate(title, 15, '...');
  * @param {String} value - Value will be truncated securely.
  * @param {Number} _length - Max size of the returned string.
  * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
@@ -884,11 +884,27 @@ const inequal = (stringA, stringB) => stringA !== stringB;
 
 export {inequal};
 
+/**
+ * Convert string chars to hexadecimal unicode (4 digits)
+ * @playground
+ * var hexEncode = require('strman').hexEncode;
+ * let result = hexEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in hexadecimal format.
+ */
 const hexEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(16), 4, '0')).join('');
 
 export {hexEncode};
 
+/**
+ * Convert hexadecimal unicode (4 digits) string to string chars
+ * @playground
+ * var hexDecode = require('strman').hexDecode;
+ * let result = hexDecode("007300740072006d0061006e");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 const hexDecode = (value) =>
     value.match(/.{1,4}/g).map((data)=>String.fromCharCode(parseInt(data, 16))).join('');
 
