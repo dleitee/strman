@@ -211,14 +211,8 @@ export {between};
  * strman.chars(title) // returns ['a', 'b', 'c']
  */
 const chars = value => {
-    let _chars = [];
-
     validString(value);
-
-    for(let i = 0; i < length(value); i++){
-        _chars[i] = at(value, i);
-    }
-    return _chars;
+    return value.split('');
 };
 
 export {chars};
