@@ -10,7 +10,7 @@ import {entitiesDecode, entitiesEncode} from './lib/entities';
  * var isString = require('strman').isString;
  * let title = "A Javascript string manipulation library.";
  * let result = isString(title);
- * @param {String} value - value to check.
+ * @param {String} value - The String!.
  * @return {Boolean} - if 'value' isString, return true, else false.
  */
 const isString = value =>
@@ -38,7 +38,7 @@ export {trim};
  * var leftTrim = require('strman').leftTrim;
  * let title = "   strman";
  * let result = leftTrim(title);
- * @params {String} value - String to remove spaces on left.
+ * @param {String} value - The String!.
  * @params {String = ' '} char - if you need remove other char on left boarders.
  * @return {String} - String without left boarders spaces.
  */
@@ -52,7 +52,7 @@ export {leftTrim};
  * var rightTrim = require('strman').rightTrim;
  * let title = "strman     ";
  * let result = rightTrim(title);
- * @params {String} value - String to remove spaces on right.
+ * @param {String} value - The String!.
  * @params {String = ' '} char - if you need remove other char on right boarders.
  * @return {String} - String without right boarders spaces.
  */
@@ -66,7 +66,7 @@ const rightTrim = (value, char = ' ') => replace(value, `${char}+$`, '');
  * var removeSpaces = require('strman').removeSpaces;
  * let title = "  s t r  m  a n     ";
  * let result = removeSpaces(title);
- * @param {String} value - The string being searched and replaced on.
+ * @param {String} value - The String!.
  * @param {String} replaced - Value to replace.
  * @return {String} - String without spaces.
  */
@@ -80,7 +80,7 @@ export {removeSpaces};
  * var replace = require('strman').replace;
  * let title = "superman";
  * let result = replace(title, 'upe', 't');
- * @param {String} value - The string being searched and replaced on.
+ * @param {String} value - The String!.
  * @param {String} search - String to search.
  * @param {String} newvalue - String to replace.
  * @param {Boolean = true} caseSensitive - if you use caseSensitive replace.
@@ -104,7 +104,7 @@ export {replace};
  * var transliterate = require('strman').transliterate;
  * let title = "strmáñ";
  * let result = transliterate(title);
- * @params {String} value - The string being searched and replaced on.
+ * @param {String} value - The String!.
  * @return {String} - String without non valid characters.
  */
 const transliterate = (value) => {
@@ -234,7 +234,7 @@ export {collapseWhitespace};
  * var removeNonWords = require('strman').removeNonWords;
  * let title = "__strman../";
  * let result = removeNonWords(title);
- * @param {String} value - The string being searched and replaced on.
+ * @param {String} value - The String!.
  * @param {String} replaced - Value to replace.
  * @return {String} - String without non word characters.
  */
@@ -384,7 +384,7 @@ export {endsWith};
  * var startsWith = require('strman').startsWith;
  * let title = "strman";
  * let result = startsWith(title, 'str');
- * @param {String} value - The string being searched.
+ * @param {String} value - The String!.
  * @param {String} search - Value to search.
  * @param {Number = 0} position - offset to search.
  * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
