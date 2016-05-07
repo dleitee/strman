@@ -562,7 +562,7 @@ export {length};
  * @playground
  * var leftPad = require('strman').leftPad;
  * let title = "strman";
- * let result = leftPad(title, 5, 0);
+ * let result = leftPad(title, 10, 0);
  * @param {String} value - The String!.
  * @param {Number} _length - Max length of String.
  * @param {Char} char - Char to repeat.
@@ -590,10 +590,14 @@ export {leftPad};
 
 /**
  * Returns a new string of a given length such that the ending of the string is padded.
- * @param value
- * @param length
- * @param char
- * @return string
+ * @playground
+ * var rightPad = require('strman').rightPad;
+ * let title = "strman";
+ * let result = rightPad(title, 10, 0);
+ * @param {String} value - The String!.
+ * @param {Number} _length - Max length of String.
+ * @param {Char} char - Char to repeat.
+ * @return {String} - String pad.
  */
 const rightPad = (value, _length, char = ' ') => {
 
