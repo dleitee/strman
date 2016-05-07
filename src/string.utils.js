@@ -785,7 +785,8 @@ export {shuffle};
  * @param substr
  * @return string
  */
-const surround = (value, _substr = '', _substrRight = null) => append(_substr, value, _substrRight === null ? _substr : _substrRight);
+const surround = (value, _substr = '', _substrRight = null) =>
+    append(_substr, value, _substrRight === null ? _substr : _substrRight);
 
 export {surround};
 
