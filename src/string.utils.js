@@ -72,13 +72,19 @@ const removeSpaces = (value, replaced = '') => replace(value, '\\s+', replaced);
 export {removeSpaces};
 
 /**
- * Replace [search] value to [newvalue]
- * @param search - String to search
- * @param newvalue - String to replace
- * @params value - The string being searched and replaced on.
- * @return String replaced
+ * Replace all ocurrences of 'search' value to 'newvalue'.
+ * @playground
+ * var replace = require('strman').replace;
+ * let title = "superman";
+ * let result = replace(title, 'upe', 't');
+ * @param {String} value - The string being searched and replaced on.
+ * @param {String} search - String to search.
+ * @param {String} newvalue - String to replace.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive replace.
+ * @param {Boolean = true} multiline - if you use multiline replace.
+ * @return {String} - String replaced with 'newvalue'.
  */
-const replace = (value, search = '', newvalue = '', caseSensitive = true, multiline = false) => {
+const replace = (value, search = '', newvalue = '', caseSensitive = true, multiline = true) => {
     var flags = caseSensitive ? 'g' : 'gi';
 
     multiline ? flags + 'm' : flags;
