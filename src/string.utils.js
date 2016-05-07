@@ -32,9 +32,13 @@ const trim = (value, char = ' ') => leftTrim(rightTrim(value, char), char);
 export {trim};
 
 /**
- * Remove spaces left
- * @params value
- * @return string
+ * Remove all spaces on left.
+ * @playground
+ * var leftTrim = require('strman').leftTrim;
+ * let title = "   strman";
+ * let result = leftTrim(title);
+ * @params {String} value - String to remove spaces on left.
+ * @return {String} - String without left boarders spaces.
  */
 const leftTrim = (value, char = ' ') => replace(value, `^${char}+`, '');
 
