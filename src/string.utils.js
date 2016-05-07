@@ -119,17 +119,6 @@ const transliterate = (value) => {
 export {transliterate};
 
 /**
- * @deprecated Since version 1.0.1. Will be deleted in version 1.2.0. Use transliterate instead.
- * Remove all non valid characters
- * Example: change á => a or ẽ => e
- * @params value - The string being searched and replaced on.
- * @return String without non valid characters.
- */
-const removeNonChars = transliterate;
-
-export {removeNonChars};
-
-/**
  * Append Strings on Value
  * @param value String initial
  * @param ...append - array with strings to append
@@ -238,12 +227,14 @@ const collapseWhitespace = (value) => trim(replace(value, '\\s\\s+',' '));
 
 export {collapseWhitespace};
 
-/**
- * Remove all non word characters
- * Example: change . => [replace]
- * @paramsClojure replace - Value to replace
- * @params value - The string being searched and replaced on.
- * @return String without non word characters.
+ /**
+ * Remove all non word characters.
+ * var removeNonWords = require('strman').removeNonWords;
+ * let title = "__strman../";
+ * let result = removeNonWords(title);
+ * @param {String} value - The string being searched and replaced on.
+ * @param {String} replaced - Value to replace.
+ * @return {String} - String without non word characters.
  */
 const removeNonWords = (value, replaced = '') => replace(value, '[^\\w]+', replaced);
 
