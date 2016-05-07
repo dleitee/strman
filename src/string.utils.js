@@ -620,13 +620,17 @@ const rightPad = (value, _length, char = ' ') => {
 export {rightPad};
 
 /**
- * Alias to substr function
- * @param value
- * @param start
- * @param length = undefined
- * @return string
+ * Alias to substr function.
+ * @playground
+ * var substr = require('strman').substr;
+ * let title = "strman";
+ * let result = substr(title, 0, 3);
+ * @param {String} value - The String!.
+ * @param {Number} start - Substring starts.
+ * @param {Number} _length - Substring length.
+ * @return {String} - The Substring!
  */
-const substr = (value, start, length = undefined) => value.substr(start, length);
+const substr = (value, start, _length = undefined) => value.substr(start, _length);
 
 export {substr};
 
