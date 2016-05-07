@@ -539,9 +539,13 @@ const insert = (value, _substr, index) => {
 export {insert};
 
 /**
- * Returns the length of the string
- * @param value
- * @return integer
+ * Returns the length of the string.
+ * @playground
+ * var length = require('strman').length;
+ * let title = "strman";
+ * let result = length(title);
+ * @param {String} value - The String!.
+ * @return {Number} - Length of the string..
  */
 const length = value => {
     let i = 0;
