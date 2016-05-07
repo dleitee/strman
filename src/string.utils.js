@@ -6,8 +6,12 @@ import {entitiesDecode, entitiesEncode} from './lib/entities';
 
 /**
  * Checks whether a string
- * @param value - value to check
- * @return Boolean - true or false
+ * @playground
+ * var isString = require('strman').isString;
+ * let title = "A Javascript string manipulation library.";
+ * let result = isString(title);
+ * @param {String} value - value to check
+ * @return {Boolean} - if 'value' isString, return true, else false.
  */
 const isString = value =>
     Object.prototype.toString.call(value) === '[object String]';
