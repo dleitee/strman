@@ -510,11 +510,15 @@ const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) =>
 export {lastIndexOf};
 
 /**
- * Inserts [substr] into the [value] at the [index] provided.
- * @param value
- * @param substr
- * @param index
- * @return string
+ * Inserts 'substr' into the 'value' at the 'index' provided.
+ * @playground
+ * var insert = require('strman').insert;
+ * let title = "trman";
+ * let result = insert(title, 's', 0);
+ * @param {String} value - The String!.
+ * @param {String} _substr - Value to insert.
+ * @param {Number} index - Index to insert substr.
+ * @return {String} - String with substr added.
  */
 const insert = (value, _substr, index) => {
 
