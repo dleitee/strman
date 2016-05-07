@@ -76,7 +76,7 @@ export {removeSpaces};
 
 /**
  * Replace all ocurrences of 'search' value to 'newvalue'.
- * @playground
+
  * var replace = require('strman').replace;
  * let title = "superman";
  * let result = replace(title, 'upe', 't');
@@ -100,6 +100,7 @@ export {replace};
 
 /**
  * Remove all non valid characters. Example: change á => a or ẽ => e.
+ * @playground
  * var transliterate = require('strman').transliterate;
  * let title = "strmáñ";
  * let result = transliterate(title);
@@ -229,6 +230,7 @@ export {collapseWhitespace};
 
 /**
  * Remove all non word characters.
+ * @playground
  * var removeNonWords = require('strman').removeNonWords;
  * let title = "__strman../";
  * let result = removeNonWords(title);
@@ -378,6 +380,7 @@ export {endsWith};
 
 /**
  * Test if 'value' starts with 'search'
+ * @playground
  * var startsWith = require('strman').startsWith;
  * let title = "strman";
  * let result = startsWith(title, 'str');
@@ -434,6 +437,7 @@ export {ensureRight};
 
  /**
  * Return the first 'n' chars of string.
+ * @playground
  * var first = require('strman').first;
  * let title = "strman";
  * let result = first(title, 3);
@@ -447,6 +451,7 @@ export {first};
 
 /**
  * Return the last 'n' chars of string.
+ * @playground
  * var last = require('strman').last;
  * let title = "strman";
  * let result = last(title, 3);
@@ -461,6 +466,7 @@ export {last};
 /**
  * The indexOf() method returns the index within the calling String of the first occurrence
  * of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
+ * @playground
  * var indexOf = require('strman').indexOf;
  * let title = "strman";
  * let result = indexOf(title, 'man');
@@ -484,6 +490,7 @@ export {indexOf};
  * The lastIndexOf() method returns the index within the calling String object of the last
  * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the
  * value is not found.
+ * @playground
  * var lastIndexOf = require('strman').lastIndexOf;
  * let title = "strman strman";
  * let result = lastIndexOf(title, 'str');
