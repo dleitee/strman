@@ -99,10 +99,12 @@ const replace = (value, search = '', newvalue = '', caseSensitive = true, multil
 export {replace};
 
 /**
- * Remove all non valid characters
- * Example: change á => a or ẽ => e
- * @params value - The string being searched and replaced on.
- * @return String without non valid characters.
+ * Remove all non valid characters. Example: change á => a or ẽ => e.
+ * var transliterate = require('strman').transliterate;
+ * let title = "strmáñ";
+ * let result = transliterate(title);
+ * @params {String} value - The string being searched and replaced on.
+ * @return {String} - String without non valid characters.
  */
 const transliterate = (value) => {
     let result = value;
