@@ -446,10 +446,13 @@ const first = (value, n) => substr(value, 0, n);
 export {first};
 
 /**
- * Return the last n chars of string.
- * @param value
- * @param n
- * @return string
+ * Return the last 'n' chars of string.
+ * var last = require('strman').last;
+ * let title = "strman";
+ * let result = last(title, 3);
+ * @param {String} value - The String!.
+ * @param {String} n - Number of chars to return.
+ * @return {String} - Return 'n' lasts chars.
  */
 const last = (value, n) => substr(value, -1 * n, n);
 
