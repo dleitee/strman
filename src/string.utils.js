@@ -383,7 +383,7 @@ export {endsWith};
  * let result = startsWith(title, 'str');
  * @param {String} value - The string being searched.
  * @param {String} search - Value to search.
- * @param {Number} position - offset to search.
+ * @param {Number = 0} position - offset to search.
  * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
  * @return {Boolean} - If 'value' startsWith 'search' return true, else false.
  */
@@ -459,13 +459,16 @@ const last = (value, n) => substr(value, -1 * n, n);
 export {last};
 
 /**
- * The indexOf() method returns the index within the calling String object of the first occurrence
+ * The indexOf() method returns the index within the calling String of the first occurrence
  * of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
- *
- * @param value
- * @param needle
- * @param offset
- * @return integer
+ * var indexOf = require('strman').indexOf;
+ * let title = "strman";
+ * let result = indexOf(title, 'man');
+ * @param {String} value - The String!.
+ * @param {String} needle - Value to search.
+ * @param {Number = 0} offset - Offset to search.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @return {Number} - Return position of the first occurrence of 'needle'.
  */
 const indexOf = (value, needle, offset = 0, caseSensitive = true) => {
     if(caseSensitive){
