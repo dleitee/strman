@@ -25,6 +25,7 @@ export {isString};
  * let title = "   strman   ";
  * let result = trim(title);
  * @params {String} value - String to remove spaces.
+ * @params {String = ' '} char - if you need remove other char on boarders.
  * @return {String} - String without boarders spaces.
  */
 const trim = (value, char = ' ') => leftTrim(rightTrim(value, char), char);
@@ -38,6 +39,7 @@ export {trim};
  * let title = "   strman";
  * let result = leftTrim(title);
  * @params {String} value - String to remove spaces on left.
+ * @params {String = ' '} char - if you need remove other char on left boarders.
  * @return {String} - String without left boarders spaces.
  */
 const leftTrim = (value, char = ' ') => replace(value, `^${char}+`, '');
@@ -51,6 +53,7 @@ export {leftTrim};
  * let title = "strman     ";
  * let result = rightTrim(title);
  * @params {String} value - String to remove spaces on right.
+ * @params {String = ' '} char - if you need remove other char on right boarders.
  * @return {String} - String without right boarders spaces.
  */
 const rightTrim = (value, char = ' ') => replace(value, `${char}+$`, '');
