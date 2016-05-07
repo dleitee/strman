@@ -5,12 +5,12 @@ import {toUpperCase} from './string.cases';
 import {entitiesDecode, entitiesEncode} from './lib/entities';
 
 /**
- * Checks whether a string
+ * Checks whether a string.
  * @playground
  * var isString = require('strman').isString;
  * let title = "A Javascript string manipulation library.";
  * let result = isString(title);
- * @param {String} value - value to check
+ * @param {String} value - value to check.
  * @return {Boolean} - if 'value' isString, return true, else false.
  */
 const isString = value =>
@@ -19,9 +19,13 @@ const isString = value =>
 export {isString};
 
 /**
- * Remove all spaces on left and right
- * @params value - String to trim
- * @return String without boarders spaces
+ * Remove all spaces on left and right.
+ * @playground
+ * var trim = require('strman').trim;
+ * let title = "   strman   ";
+ * let result = trim(title);
+ * @params {String} value - String to remove spaces.
+ * @return {String} - String without boarders spaces.
  */
 const trim = (value, char = ' ') => leftTrim(rightTrim(value, char), char);
 
