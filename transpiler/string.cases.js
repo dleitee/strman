@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-/*
+/**
  * Transform to lowercase
  * @params value - String to lowercase
  * @return String
@@ -14,7 +14,7 @@ var toLowerCase = function toLowerCase(value) {
 
 exports.toLowerCase = toLowerCase;
 
-/*
+/**
  * Transform to uppercase
  * @params value - String to uppercase
  * @return String
@@ -26,7 +26,7 @@ var toUpperCase = function toUpperCase(value) {
 
 exports.toUpperCase = toUpperCase;
 
-/*
+/**
  * Verify if has lowerCase
  * @param value
  * @return boolean
@@ -37,7 +37,7 @@ var isLowerCase = function isLowerCase(value) {
 };
 
 exports.isLowerCase = isLowerCase;
-/*
+/**
  * Verify if has upperCase
  * @param value
  * @return boolean
@@ -49,7 +49,7 @@ var isUpperCase = function isUpperCase(value) {
 
 exports.isUpperCase = isUpperCase;
 
-/*
+/**
  * Transform to StudlyCaps
  * @params value
  * @return string
@@ -64,7 +64,7 @@ var toStudlyCaps = function toStudlyCaps(value) {
 
 exports.toStudlyCaps = toStudlyCaps;
 
-/*
+/**
  * Transform to camelCase
  * @params value
  * @return string
@@ -77,7 +77,7 @@ var toCamelCase = function toCamelCase(value) {
 
 exports.toCamelCase = toCamelCase;
 
-/*
+/**
  * Decamelize String
  * @params value
  * @return string
@@ -93,7 +93,7 @@ var toDecamelize = function toDecamelize(value) {
 
 exports.toDecamelize = toDecamelize;
 
-/*
+/**
  * Decamelize snake_case
  * @params value
  * @return string
@@ -105,7 +105,7 @@ var toSnakeCase = function toSnakeCase(value) {
 
 exports.toSnakeCase = toSnakeCase;
 
-/*
+/**
  * Decamelize kebab-case
  * @params value
  * @return string

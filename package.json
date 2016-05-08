@@ -17,7 +17,8 @@
     "string",
     "manipulate",
     "str",
-    "manipulation"
+    "manipulation",
+    "strman"
   ],
   "author": "Daniel Leite de Oliveira <dleitee@gmail.com>",
   "license": "MIT",

@@ -120,10 +120,15 @@ const transliterate = (value) => {
 export {transliterate};
 
 /**
- * Append Strings on Value
- * @param value String initial
- * @param ...append - array with strings to append
- * @return string
+ * Append Strings on Value with spreaded arguments
+ * @param {String} value Initial value
+ * @param {String} appends Spreaded array with strings to append
+ * @return {String} The concatenated string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 's'
+ * strman.append(title, 'tr', 'm', 'an') // returns 'strman'
  */
 const append = (value, ...appends) => {
 
@@ -141,9 +146,14 @@ export {append};
 
 /**
  * Append Array of Strings on Value
- * @param value String initial
- * @param ...append - array with strings to append
- * @return string
+ * @param {String} value String initial
+ * @param {String[]} append Array with strings to append
+ * @return {String} The concatenated string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let s = 's'
+ * strman.appendArray(s, ['tr', 'm', 'an']) // returns 'strman'
  */
 const appendArray = (value, appends = []) => {
 
@@ -162,9 +172,14 @@ export {appendArray};
 
 /**
  * Get the character at index
- * @param value
- * @param index
- * @return char
+ * @param {String} value The input string
+ * @param {Number} index The index for which to extract the character
+ * @return {String} The character at position index
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'abc'
+ * strman.at(title, 1) // returns 'b'
  */
 const at = (value, index) => {
     validString(value);
@@ -177,10 +192,15 @@ export {at};
 
 /**
  * Returns array with strings between [start] and [end]
- * @param value
- * @param start
- * @param end
- * @return Array
+ * @param {String} value Input string
+ * @param {String} start The start string to look for
+ * @param {String} end The end string to look for
+ * @return {String[]} An array with all the matches between a pair of `start` and `end`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = '[abc][def]'
+ * strman.between(title, '[', ']') // returns ['abc', 'def']
  */
 const between = (value, start, end) => {
 
@@ -203,26 +223,30 @@ export {between};
 
 /**
  * Returns an array consisting of the characters in the string.
- * @params value
- * @returns Array
+ * @param {String} value The input string
+ * @returns {String[]} The array with the single characters of `value`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'abc'
+ * strman.chars(title) // returns ['a', 'b', 'c']
  */
 const chars = value => {
-    let _chars = [];
-
     validString(value);
-
-    for(let i = 0; i < length(value); i++){
-        _chars[i] = at(value, i);
-    }
-    return _chars;
+    return value.split('');
 };
 
 export {chars};
 
 /**
  * Replaces consecutive whitespace characters with a single space
- * @param string
- * @return string
+ * @param {String} value The input string
+ * @return {String} The whitespace collapsed string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = '  a  b  c  '
+ * strman.collapseWhitespace(title) // returns 'a b c'
  */
 const collapseWhitespace = (value) => trim(replace(value, '\\s\\s+',' '));
 
@@ -244,10 +268,16 @@ export {removeNonWords};
 
 /**
  * Verifies that the needle is contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String} needle The string which is checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if `needle` is contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needle = 'leite'
+ * strman.contains(title, needle, false) // returns true
  */
 const contains = (value, needle, caseSensitive = true) => {
 
@@ -263,10 +293,16 @@ export {contains};
 
 /**
  * Verifies that all needles are contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String[]} needles An array of strings which are checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if all `needles` are contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needles = ['Leite', 'Daniel']
+ * strman.containsAll(title, needles) // returns true
  */
 const containsAll = (value, needles, caseSensitive = true) => {
 
@@ -286,10 +322,16 @@ export {containsAll};
 
 /**
  * Verifies that one or more of needles are contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String[]} needles An array of string which are checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if at least one of `needles` is contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needles = ['Leite', 'Oliveira']
+ * strman.containsAny(title, needles) // returns true
  */
 const containsAny = (value, needles, caseSensitive = true) => {
     for(let i = 0; i < length(needles); i++){
@@ -304,6 +346,7 @@ export {containsAny};
 
 /**
  * Polyfill to countSubstr function
+ * @private
  * @param value,
  * @param substr,
  * @param position = 0,
@@ -329,11 +372,17 @@ const _countSubstring = (value, _substr, allowOverlapping = false, position = 0,
 
 /**
  * Count the number of times substr appears in value
- * @param value,
- * @param substr,
- * @param caseSensitive = true,
- * @param allowOverlapping = false
- * @return integer
+ * @param {String} value The input string
+ * @param {String} substr The substring to look for
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @param {Boolean} [allowOverlapping=false] Allow overlapping substrings to be counted
+ * @return {Number} The number of matches
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let substr = 'Leite'
+ * strman.counSubstr(title, substr) // returns 1
  */
 const countSubstr = (value, _substr, caseSensitive = true, allowOverlapping = false) => {
 
@@ -349,11 +398,18 @@ const countSubstr = (value, _substr, caseSensitive = true, allowOverlapping = fa
 export {countSubstr};
 
 /**
- * Test if [value] ends with [search]
- * @param value
- * @param search
- * @param position = null
- * @return boolean
+ * Test if `value` ends with `search`
+ * @param {String} value The input string
+ * @param {String} search The string to search for
+ * @param {?Number} [position] The start position/index within `value` to start searching
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if `input` ends with `search`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Daniel Leite'
+ * let search = 'Leite'
+ * strman.endsWith(value, search) // returns true
  */
 const endsWith = (value, search, position = null, caseSensitive = true) => {
 
@@ -403,10 +459,17 @@ const startsWith = (value, search, position = 0, caseSensitive = true) => {
 export {startsWith};
 
 /**
- * Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
- * @param value
- * @param substr
- * @return string
+ * Ensures that the `value` begins with `substr`. If it doesn't, it's prepended.
+ * @param {String} value The input string
+ * @param {String} substr The substr to be ensured to be left
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching for determining if `value` already starts with `substr`
+ * @return {String} The string which is guarenteed to start with `substr`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Leite'
+ * let substr = 'Daniel '
+ * strman.ensureLeft(value, substr) // returns 'Daniel Leite'
  */
 const ensureLeft = (value, _substr, caseSensitive = true)  => {
     if(!startsWith(value, _substr, 0, caseSensitive)){
@@ -420,9 +483,16 @@ export  {ensureLeft};
 
 /**
  * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
- * @param value
- * @param substr
- * @return string
+ * @param {String} value The input string
+ * @param {String} substr The substr to be ensured to be right
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching for determining if `value` already ends with `substr`
+ * @return {String} The string which is guarenteed to start with `substr`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Daniel'
+ * let substr = ' Leite'
+ * strman.ensureRight(value, substr) // returns 'Daniel Leite'
  */
 const ensureRight = (value, _substr, caseSensitive = true)  => {
 
@@ -759,6 +829,7 @@ export {reverse};
 
 /**
  * A multibyte str_shuffle() function. It returns a string with its characters in random order.
+ * @private
  * @param value
  * @return string
 */
@@ -803,10 +874,14 @@ export {surround};
 
 /**
  * Truncate the string securely, not cutting a word in half. It always returns the last full word.
- * @param value
- * @param _length
- * @param _append = ''
- * @return string
+ * @playground
+ * var safeTruncate = require('strman').safeTruncate;
+ * let title = "A Javascript string manipulation library.";
+ * let result = safeTruncate(title, 15, '...');
+ * @param {String} value - Value will be truncated securely.
+ * @param {Number} _length - Max size of the returned string.
+ * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
+ * @returns {String} - String truncated safely.
  */
 const safeTruncate = (value, _length, _append = '') => {
 
@@ -838,10 +913,14 @@ export {safeTruncate};
 
 /**
  * Truncate the unsecured form string, cutting the independent string of required position.
- * @param value
- * @param _length
- * @param _append = ''
- * @return string
+ * @playground
+ * var truncate = require('strman').truncate;
+ * let title = "A Javascript string manipulation library.";
+ * let result = truncate(title, 16, '...');
+ * @param {String} value - Value will be truncated unsecurely.
+ * @param {Number} _length - Size of the returned string.
+ * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
+ * @returns {String} - String truncated unsafely.
  */
 const truncate = (value, _length, _append = '') => {
 
@@ -864,23 +943,29 @@ const truncate = (value, _length, _append = '') => {
 
 export {truncate};
 
+
 /**
- * remove empty string from string array
- * @param strings
- * @return string;
+ * Remove empty strings from strings array.
+ * @playground
+ * var removeEmptyStrings = require('strman').removeEmptyStrings;
+ * let titles = ["A Javascript string manipulation library.", null, undefined, '', ' '];
+ * let result = removeEmptyStrings(titles);
+ * @param {String[]} strings - Array of strings that will be cleaned.
+ * @returns {String[]} - Array of strings without empty strings.
  */
 const removeEmptyStrings = (strings) => strings.filter(string => string && string !== '');
 
 export {removeEmptyStrings};
 
 /**
- * format a string with params
- * Example:
- * format("SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'", "DANIEL", "GMAIL")
- * print "SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'"
- * @param value
- * @param params
- * @return string
+ * Formats a string using parameters.
+ * @playground
+ * var format = require('strman').format;
+ * let select = "SELECT * FROM CONTACTS WHERE NAME LIKE '%{0}%' AND EMAIL LIKE '%{1}%'";
+ * let result = format(select, "DANIEL", "GMAIL");
+ * @param {String} value - Value that will be formatted.
+ * @param {String[]} params - Array with the parameters described in the string.
+ * @returns {String} - Formatted string.
  */
 const format = (value, params = []) =>
     replace(value, '{(\\w+)}',
@@ -893,9 +978,12 @@ export {format};
  * Compares two strings to each other. If they are equivalent, a zero is returned. Otherwise,
  * most of these routines will return a positive or negative result corresponding to whether stringA
  * is lexicographically greater than, or less than, respectively, than stringB.
- * @param stringA
- * @param stringB
- * @return signed integer
+ * @playground
+ * var compare = require('strman').compare;
+ * let result = compare("foo", "bar");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @returns {Number} - +1 if [stringA] > [stringB], -1 if [stringA] < [stringB] and 0 if [stringA] = [stringB]
  */
 const compare = (stringA, stringB) => {
     if(equal(stringA, stringB)){
@@ -909,9 +997,12 @@ export {compare};
 
 /**
  * Tests if two strings are equal.
- * @param stringA
- * @param stringB
- * @return signed integer*
+ * @playground
+ * var equal = require('strman').equal;
+ * let result = equal("foo", "foo");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @returns {Boolean} - [stringA] is equal [stringB]
  */
 const equal = (stringA, stringB) => stringA === stringB;
 
@@ -919,60 +1010,151 @@ export {equal};
 
 /**
  * Tests if two strings are inequal.
- * @param stringA
- * @param stringB
- * @return signed integer*
+ * @playground
+ * var inequal = require('strman').inequal;
+ * let result = inequal("foo", "foo");
+ * @param {String} stringA - String for the comparative
+ * @param {String} stringB - String to be compared
+ * @returns {Boolean} - [stringA] is inequal [stringB]
  */
 const inequal = (stringA, stringB) => stringA !== stringB;
 
 export {inequal};
 
+/**
+ * Convert string chars to hexadecimal unicode (4 digits)
+ * @playground
+ * var hexEncode = require('strman').hexEncode;
+ * let result = hexEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in hexadecimal format.
+ */
 const hexEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(16), 4, '0')).join('');
 
 export {hexEncode};
 
+/**
+ * Convert hexadecimal unicode (4 digits) string to string chars
+ * @playground
+ * var hexDecode = require('strman').hexDecode;
+ * let result = hexDecode("007300740072006d0061006e");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 const hexDecode = (value) =>
     value.match(/.{1,4}/g).map((data)=>String.fromCharCode(parseInt(data, 16))).join('');
 
 export {hexDecode};
 
+/**
+ * Convert string chars to binary unicode (16 digits)
+ * @playground
+ * var binEncode = require('strman').binEncode;
+ * let result = binEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in binary format.
+ */
 const binEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(2), 16, '0')).join('');
 
 export {binEncode};
-
+/**
+ * Convert binary unicode (16 digits) string to string chars
+ * @playground
+ * var binDecode = require('strman').binDecode;
+ * let result = binDecode("000000000111001100000000011101000000000001110010000000000110110100000000011000010000000001101110");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 const binDecode = (value) =>
     value.match(/.{1,16}/g).map((data)=>String.fromCharCode(parseInt(data, 2))).join('');
 
 export {binDecode};
 
+/**
+ * Convert string chars to decimal unicode (5 digits)
+ * @playground
+ * var decEncode = require('strman').decEncode;
+ * let result = decEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in decimal format.
+ */
 const decEncode = (value) =>
     chars(value).map((data) => leftPad(data.charCodeAt(0).toString(10), 5, '0')).join('');
 
 export {decEncode};
 
+/**
+ * Convert binary unicode (16 digits) string to string chars
+ * @playground
+ * var decDecode = require('strman').decDecode;
+ * let result = decDecode("001150011600114001090009700110");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 const decDecode = (value) =>
     value.match(/.{1,5}/g).map((data)=>String.fromCharCode(parseInt(data, 10))).join('');
 
 export {decDecode};
 
+/**
+ * Replaces all characters with the appropriate UTF-8 escape sequences.
+ * @playground
+ * var urlEncode = require('strman').urlEncode;
+ * let result = urlEncode("https://github.com/dleitee/strman/&name=áéíóú");
+ * @param {String} value - The string to be encoded
+ * @returns {String} - Returns a string in which all non-alphanumeric characters except -_.
+ */
 const urlEncode = (value) => encodeURI(value);
 
 export {urlEncode};
 
+/**
+ * Decodes URL-encoded string
+ * @playground
+ * var urlDecode = require('strman').urlDecode;
+ * let result = urlDecode("https://github.com/dleitee/strman/&name=%C3%A1%C3%A9%C3%AD%C3%B3%C3%BA");
+ * @param {String} value - The string to be decoded
+ * @returns {String} - Returns the decoded string.
+ */
 const urlDecode = (value) => decodeURI(value);
 
 export {urlDecode};
 
+/**
+ * Encodes data with MIME base64.
+ * Base64-encoded data takes about 33% more space than the original data.
+ * @playground
+ * var base64Encode = require('strman').base64Encode;
+ * let result = base64Encode("strman");
+ * @param {String} value - The data to encode.
+ * @returns - The encoded data.
+ */
 const base64Encode = (value) => new Buffer(value).toString('base64');
 
 export {base64Encode};
 
+/**
+ * Decodes data encoded with MIME base64
+ * @playground
+ * var base64Decode = require('strman').base64Decode;
+ * let result = base64Decode("c3RybWFu");
+ * @param {String} value - The data to decode.
+ * @returns - The decoded data.
+ */
 const base64Decode = (value) => new Buffer(value, 'base64').toString();
 
 export {base64Decode};
 
+/**
+ * Convert all HTML entities to applicable characters.
+ * @playground
+ * var htmlDecode = require('strman').htmlDecode;
+ * let result = htmlDecode('&lt;div&gt;');
+ * @params {String} value - value to decode.
+ * @returns - The decoded data.
+ */
 const htmlDecode = (value) =>
     replace(value, '(&\\w+;)',
         (match, index) =>
@@ -981,6 +1163,14 @@ const htmlDecode = (value) =>
 
 export {htmlDecode};
 
+/**
+ * Convert all applicable characters to HTML entities.
+ * @playground
+ * var htmlEncode = require('strman').htmlEncode;
+ * let result = htmlEncode('<div>');
+ * @params {String} value - value to encode.
+ * @returns - The encoded data.
+ */
 const htmlEncode = (value) => replace(value, '[\\u00A0-\\u9999<>\\&]',
     (match) =>
         typeof entitiesEncode[match] !== undefined ? entitiesEncode[match] : match

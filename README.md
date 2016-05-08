@@ -57,6 +57,10 @@ var result = _s.isString('strman');
 
 Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
 
+# Contributing
+
+Want to contribute? [Follow these recommendations.](https://github.com/dleitee/strman/blob/master/CONTRIBUTING.md)
+
 # Available Functions
 
   - [x] [append](https://github.com/dleitee/strman#appendvalue-append)

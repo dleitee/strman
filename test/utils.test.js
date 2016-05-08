@@ -277,7 +277,7 @@ describe('between function', () => {
     });
 });
 
-describe('between function', () => {
+describe('chars function', () => {
     it('should be ["t", "i", "t", "l", "e"]', () => {
         let title = 'title';
         chai.expect(chars(title)[0]).to.equal('t');
