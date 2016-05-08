@@ -5,9 +5,13 @@ import {toUpperCase} from './string.cases';
 import {entitiesDecode, entitiesEncode} from './lib/entities';
 
 /**
- * Checks whether a string
- * @param value - value to check
- * @return Boolean - true or false
+ * Checks whether a string.
+ * @playground
+ * var isString = require('strman').isString;
+ * let title = "A Javascript string manipulation library.";
+ * let result = isString(title);
+ * @param {String} value - The String!.
+ * @return {Boolean} - if 'value' isString, return true, else false.
  */
 const isString = value =>
     Object.prototype.toString.call(value) === '[object String]';
@@ -15,50 +19,75 @@ const isString = value =>
 export {isString};
 
 /**
- * Remove all spaces on left and right
- * @params value - String to trim
- * @return String without boarders spaces
+ * Remove all spaces on left and right.
+ * @playground
+ * var trim = require('strman').trim;
+ * let title = "   strman   ";
+ * let result = trim(title);
+ * @params {String} value - String to remove spaces.
+ * @params {String = ' '} char - if you need remove other char on boarders.
+ * @return {String} - String without boarders spaces.
  */
 const trim = (value, char = ' ') => leftTrim(rightTrim(value, char), char);
 
 export {trim};
 
 /**
- * Remove spaces left
- * @params value
- * @return string
+ * Remove all spaces on left.
+ * @playground
+ * var leftTrim = require('strman').leftTrim;
+ * let title = "   strman";
+ * let result = leftTrim(title);
+ * @param {String} value - The String!.
+ * @params {String = ' '} char - if you need remove other char on left boarders.
+ * @return {String} - String without left boarders spaces.
  */
 const leftTrim = (value, char = ' ') => replace(value, `^${char}+`, '');
 
 export {leftTrim};
 
 /**
- * Remove spaces right
- * @params value
- * @return string
+ * Remove all spaces on right.
+ * @playground
+ * var rightTrim = require('strman').rightTrim;
+ * let title = "strman     ";
+ * let result = rightTrim(title);
+ * @param {String} value - The String!.
+ * @params {String = ' '} char - if you need remove other char on right boarders.
+ * @return {String} - String without right boarders spaces.
  */
 const rightTrim = (value, char = ' ') => replace(value, `${char}+$`, '');
 
  export {rightTrim};
 
 /**
- * Remove all spaces and replace for value
- * @param replace - Value to replace
- * @param value - The string being searched and replaced on.
- * @return String without spaces
+ * Remove all spaces and replace for value.
+ * @playground
+ * var removeSpaces = require('strman').removeSpaces;
+ * let title = "  s t r  m  a n     ";
+ * let result = removeSpaces(title);
+ * @param {String} value - The String!.
+ * @param {String} replaced - Value to replace.
+ * @return {String} - String without spaces.
  */
 const removeSpaces = (value, replaced = '') => replace(value, '\\s+', replaced);
 
 export {removeSpaces};
 
 /**
- * Replace [search] value to [newvalue]
- * @param search - String to search
- * @param newvalue - String to replace
- * @params value - The string being searched and replaced on.
- * @return String replaced
+ * Replace all ocurrences of 'search' value to 'newvalue'.
+
+ * var replace = require('strman').replace;
+ * let title = "superman";
+ * let result = replace(title, 'upe', 't');
+ * @param {String} value - The String!.
+ * @param {String} search - String to search.
+ * @param {String} newvalue - String to replace.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive replace.
+ * @param {Boolean = true} multiline - if you use multiline replace.
+ * @return {String} - String replaced with 'newvalue'.
  */
-const replace = (value, search = '', newvalue = '', caseSensitive = true, multiline = false) => {
+const replace = (value, search = '', newvalue = '', caseSensitive = true, multiline = true) => {
     var flags = caseSensitive ? 'g' : 'gi';
 
     multiline ? flags + 'm' : flags;
@@ -70,10 +99,13 @@ const replace = (value, search = '', newvalue = '', caseSensitive = true, multil
 export {replace};
 
 /**
- * Remove all non valid characters
- * Example: change á => a or ẽ => e
- * @params value - The string being searched and replaced on.
- * @return String without non valid characters.
+ * Remove all non valid characters. Example: change á => a or ẽ => e.
+ * @playground
+ * var transliterate = require('strman').transliterate;
+ * let title = "strmáñ";
+ * let result = transliterate(title);
+ * @param {String} value - The String!.
+ * @return {String} - String without non valid characters.
  */
 const transliterate = (value) => {
     let result = value;
@@ -86,17 +118,6 @@ const transliterate = (value) => {
 };
 
 export {transliterate};
-
-/**
- * @deprecated Since version 1.0.1. Will be deleted in version 1.2.0. Use transliterate instead.
- * Remove all non valid characters
- * Example: change á => a or ẽ => e
- * @params value - The string being searched and replaced on.
- * @return String without non valid characters.
- */
-const removeNonChars = transliterate;
-
-export {removeNonChars};
 
 /**
  * Append Strings on Value with spreaded arguments
@@ -232,11 +253,14 @@ const collapseWhitespace = (value) => trim(replace(value, '\\s\\s+',' '));
 export {collapseWhitespace};
 
 /**
- * Remove all non word characters
- * Example: change . => [replace]
- * @paramsClojure replace - Value to replace
- * @params value - The string being searched and replaced on.
- * @return String without non word characters.
+ * Remove all non word characters.
+ * @playground
+ * var removeNonWords = require('strman').removeNonWords;
+ * let title = "__strman../";
+ * let result = removeNonWords(title);
+ * @param {String} value - The String!.
+ * @param {String} replaced - Value to replace.
+ * @return {String} - String without non word characters.
  */
 const removeNonWords = (value, replaced = '') => replace(value, '[^\\w]+', replaced);
 
@@ -271,7 +295,7 @@ export {contains};
  * Verifies that all needles are contained in value
  * @param {String} value The input string
  * @param {String[]} needles An array of strings which are checked to be contained within `value`
- * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching 
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
  * @return {Boolean} True if all `needles` are contained
  * @playground
  * var strman = require('strman')
@@ -300,7 +324,7 @@ export {containsAll};
  * Verifies that one or more of needles are contained in value
  * @param {String} value The input string
  * @param {String[]} needles An array of string which are checked to be contained within `value`
- * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching 
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
  * @return {Boolean} True if at least one of `needles` is contained
  * @playground
  * var strman = require('strman')
@@ -411,11 +435,16 @@ const endsWith = (value, search, position = null, caseSensitive = true) => {
 export {endsWith};
 
 /**
- * Test if [value] starts with [search]
- * @param value
- * @param search
- * @param position = null
- * @return boolean
+ * Test if 'value' starts with 'search'
+ * @playground
+ * var startsWith = require('strman').startsWith;
+ * let title = "strman";
+ * let result = startsWith(title, 'str');
+ * @param {String} value - The String!.
+ * @param {String} search - Value to search.
+ * @param {Number = 0} position - offset to search.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @return {Boolean} - If 'value' startsWith 'search' return true, else false.
  */
 const startsWith = (value, search, position = 0, caseSensitive = true) => {
 
@@ -476,34 +505,46 @@ const ensureRight = (value, _substr, caseSensitive = true)  => {
 
 export {ensureRight};
 
-/**
- * Return the first n chars of string.
- * @param value
- * @param n
- * @return string
+ /**
+ * Return the first 'n' chars of string.
+ * @playground
+ * var first = require('strman').first;
+ * let title = "strman";
+ * let result = first(title, 3);
+ * @param {String} value - The String!.
+ * @param {String} n - Number of chars to return.
+ * @return {String} - Return 'n' firsts chars.
  */
 const first = (value, n) => substr(value, 0, n);
 
 export {first};
 
 /**
- * Return the last n chars of string.
- * @param value
- * @param n
- * @return string
+ * Return the last 'n' chars of string.
+ * @playground
+ * var last = require('strman').last;
+ * let title = "strman";
+ * let result = last(title, 3);
+ * @param {String} value - The String!.
+ * @param {String} n - Number of chars to return.
+ * @return {String} - Return 'n' lasts chars.
  */
 const last = (value, n) => substr(value, -1 * n, n);
 
 export {last};
 
 /**
- * The indexOf() method returns the index within the calling String object of the first occurrence
+ * The indexOf() method returns the index within the calling String of the first occurrence
  * of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
- *
- * @param value
- * @param needle
- * @param offset
- * @return integer
+ * @playground
+ * var indexOf = require('strman').indexOf;
+ * let title = "strman";
+ * let result = indexOf(title, 'man');
+ * @param {String} value - The String!.
+ * @param {String} needle - Value to search.
+ * @param {Number = 0} offset - Offset to search.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @return {Number} - Return position of the first occurrence of 'needle'.
  */
 const indexOf = (value, needle, offset = 0, caseSensitive = true) => {
     if(caseSensitive){
@@ -519,11 +560,15 @@ export {indexOf};
  * The lastIndexOf() method returns the index within the calling String object of the last
  * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the
  * value is not found.
- *
- * @param value
- * @param needle
- * @param offset
- * @return integer
+ * @playground
+ * var lastIndexOf = require('strman').lastIndexOf;
+ * let title = "strman strman";
+ * let result = lastIndexOf(title, 'str');
+ * @param {String} value - The String!.
+ * @param {String} needle - Value to search.
+ * @param {Number = undefined} offset - Offset to search.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @return {Number} - Return position of the last occurrence of 'needle'.
  */
 const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) => {
     if(caseSensitive){
@@ -535,11 +580,15 @@ const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) =>
 export {lastIndexOf};
 
 /**
- * Inserts [substr] into the [value] at the [index] provided.
- * @param value
- * @param substr
- * @param index
- * @return string
+ * Inserts 'substr' into the 'value' at the 'index' provided.
+ * @playground
+ * var insert = require('strman').insert;
+ * let title = "trman";
+ * let result = insert(title, 's', 0);
+ * @param {String} value - The String!.
+ * @param {String} _substr - Value to insert.
+ * @param {Number} index - Index to insert substr.
+ * @return {String} - String with substr added.
  */
 const insert = (value, _substr, index) => {
 
@@ -560,9 +609,13 @@ const insert = (value, _substr, index) => {
 export {insert};
 
 /**
- * Returns the length of the string
- * @param value
- * @return integer
+ * Returns the length of the string.
+ * @playground
+ * var length = require('strman').length;
+ * let title = "strman";
+ * let result = length(title);
+ * @param {String} value - The String!.
+ * @return {Number} - Length of the string..
  */
 const length = value => {
     let i = 0;
@@ -576,10 +629,14 @@ export {length};
 
 /**
  * Returns a new string of a given length such that the beginning of the string is padded.
- * @param value
- * @param length
- * @param char
- * @return string
+ * @playground
+ * var leftPad = require('strman').leftPad;
+ * let title = "strman";
+ * let result = leftPad(title, 10, 0);
+ * @param {String} value - The String!.
+ * @param {Number} _length - Max length of String.
+ * @param {Char} char - Char to repeat.
+ * @return {String} - String pad.
  */
  const leftPad = (value, _length, char = ' ') => {
 
@@ -603,10 +660,14 @@ export {leftPad};
 
 /**
  * Returns a new string of a given length such that the ending of the string is padded.
- * @param value
- * @param length
- * @param char
- * @return string
+ * @playground
+ * var rightPad = require('strman').rightPad;
+ * let title = "strman";
+ * let result = rightPad(title, 10, 0);
+ * @param {String} value - The String!.
+ * @param {Number} _length - Max length of String.
+ * @param {Char} char - Char to repeat.
+ * @return {String} - String pad.
  */
 const rightPad = (value, _length, char = ' ') => {
 
@@ -629,13 +690,17 @@ const rightPad = (value, _length, char = ' ') => {
 export {rightPad};
 
 /**
- * Alias to substr function
- * @param value
- * @param start
- * @param length = undefined
- * @return string
+ * Alias to substr function.
+ * @playground
+ * var substr = require('strman').substr;
+ * let title = "strman";
+ * let result = substr(title, 0, 3);
+ * @param {String} value - The String!.
+ * @param {Number} start - Substring starts.
+ * @param {Number} _length - Substring length.
+ * @return {String} - The Substring!
  */
-const substr = (value, start, length = undefined) => value.substr(start, length);
+const substr = (value, start, _length = undefined) => value.substr(start, _length);
 
 export {substr};
 
@@ -791,7 +856,8 @@ export {shuffle};
  * @param substr
  * @return string
  */
-const surround = (value, _substr = '', _substrRight = null) => append(_substr, value, _substrRight === null ? _substr : _substrRight);
+const surround = (value, _substr = '', _substrRight = null) =>
+    append(_substr, value, _substrRight === null ? _substr : _substrRight);
 
 export {surround};
 
@@ -1038,7 +1104,7 @@ export {decDecode};
  * var urlEncode = require('strman').urlEncode;
  * let result = urlEncode("https://github.com/dleitee/strman/&name=áéíóú");
  * @param {String} value - The string to be encoded
- * @returns {String} - Returns a string in which all non-alphanumeric characters except -_. 
+ * @returns {String} - Returns a string in which all non-alphanumeric characters except -_.
  */
 const urlEncode = (value) => encodeURI(value);
 
@@ -1050,8 +1116,8 @@ export {urlEncode};
  * var urlDecode = require('strman').urlDecode;
  * let result = urlDecode("https://github.com/dleitee/strman/&name=%C3%A1%C3%A9%C3%AD%C3%B3%C3%BA");
  * @param {String} value - The string to be decoded
- * @returns {String} - Returns the decoded string. 
- */ 
+ * @returns {String} - Returns the decoded string.
+ */
 const urlDecode = (value) => decodeURI(value);
 
 export {urlDecode};

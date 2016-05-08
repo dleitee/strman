@@ -1,5 +1,5 @@
 import chai from 'chai';
-import {isString, trim, removeSpaces, replace, removeNonChars, removeNonWords, append,
+import {isString, trim, removeSpaces, replace, removeNonWords, append,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
@@ -135,18 +135,6 @@ describe('replace function caseSensitive', () => {
 
         fixtures.forEach(el => {
             chai.expect(replace(el, 'foo', 'bar', false)).to.equal('bar bar bar');
-        });
-    });
-});
-
-describe('removeNonChars function', () => {
-    it('should be foo bar', () => {
-        let fixtures = [
-            'fóõ bár'
-        ];
-
-        fixtures.forEach(el => {
-            chai.expect(removeNonChars(el)).to.equal('foo bar');
         });
     });
 });
