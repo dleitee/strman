@@ -22,10 +22,6 @@ bower install strman
 
 [https://doclets.io/dleitee/strman/master](https://doclets.io/dleitee/strman/master)
 
-## Credits
-
- - [Stringy](https://github.com/danielstjules/Stringy)
-
 ## Usage
 
 ### With ES6/import
@@ -60,6 +56,11 @@ var result = _s.isString('strman');
 ```
 
 Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
+
+## Credits
+
+ - [Stringy](https://github.com/danielstjules/Stringy)
+
 
 # Contributing
 
