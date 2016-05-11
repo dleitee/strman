@@ -18,6 +18,10 @@ or bower:
 bower install strman
 ```
 
+## Documentation
+
+[https://doclets.io/dleitee/strman/master](https://doclets.io/dleitee/strman/master)
+
 ## Credits
 
  - [Stringy](https://github.com/danielstjules/Stringy)
