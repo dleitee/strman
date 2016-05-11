@@ -705,21 +705,29 @@ const substr = (value, start, _length = undefined) => value.substr(start, _lengt
 export {substr};
 
 /**
- * Alias to split function
- * @param value
- * @param separator
- * @param limit = undefined
- * @return string
+ * Alias to split function.
+ * @playground
+ * var split = require('strman').split;
+ * let title = "strman";
+ * let result = split(title, '');
+ * @param {String} value - The String!.
+ * @param {String} separator - Split separator.
+ * @param {Number = undefined} limit - Split limit.
+ * @return {String} - The String splited!
  */
 const split = (value, separator, limit = undefined) => value.split(separator, limit);
 
 export {split};
 
-/**
- * Returns a new string starting with [prepends].
- * @param value
- * @param ...prepends
- * @return string
+ /**
+ * Returns a new string starting with 'prepends'.
+ * @playground
+ * var prepend = require('strman').prepend;
+ * let title = "strman";
+ * let result = prepend(title, '_');
+ * @param {String} value - The String!.
+ * @param {...String} prepends - Strings to prepend.
+ * @return {String} - The String prepended!
  */
 const prepend = (value, ...prepends) => {
 
@@ -735,11 +743,15 @@ const prepend = (value, ...prepends) => {
 
 export {prepend};
 
-/**
- * Returns a new string starting with [prepends].
- * @param value
- * @param ...prepends
- * @return string
+ /**
+ * Returns a new string starting with 'prepends'.
+ * @playground
+ * var prependArray = require('strman').prependArray;
+ * let title = "strman";
+ * let result = prependArray(title, '_');
+ * @param {String} value - The String!.
+ * @param {String[]} prepends - Strings to prepend.
+ * @return {String} - The String prepended!
  */
 const prependArray = (value, prepends = []) => {
 
@@ -755,13 +767,17 @@ const prependArray = (value, prepends = []) => {
 
 export {prependArray};
 
-
-/**
- * Returns a new string with the [prefix] removed, if present.
- * @param value
- * @param prefix
- * @return string
-*/
+ /**
+ * Returns a new string with the 'prefix' removed, if present.
+ * @playground
+ * var removeLeft = require('strman').removeLeft;
+ * let title = "strman";
+ * let result = removeLeft(title, 'str');
+ * @param {String} value - The String!.
+ * @param {String} prefix - String to remove on left.
+ * @param {Boolean = true} caseSensitive - If you need to caseSensitive.
+ * @return {String} - The String without prefix!
+ */
 const removeLeft = (value, prefix, caseSensitive = true) => {
 
     if(startsWith(value, prefix, 0, caseSensitive)){
@@ -774,12 +790,16 @@ const removeLeft = (value, prefix, caseSensitive = true) => {
 export {removeLeft};
 
 /**
- * Returns a new string with the [suffix] removed, if present.
- * @param value
- * @param prefix
- * @return string
-*/
-
+ * Returns a new string with the 'suffix' removed, if present.
+ * @playground
+ * var removeRight = require('strman').removeRight;
+ * let title = "strman";
+ * let result = removeRight(title, 'man');
+ * @param {String} value - The String!.
+ * @param {String} suffix - String to remove on right.
+ * @param {Boolean = true} caseSensitive - If you need to caseSensitive.
+ * @return {String} - The String without suffix!
+ */
 const removeRight = (value, suffix, caseSensitive = true) => {
     let _length = length(value) - length(suffix);
 
@@ -794,11 +814,14 @@ export {removeRight};
 
 /**
  * Returns a repeated string given a multiplier.
- * @param value
- * @param multiplier
- * @return string
-*/
-
+ * @playground
+ * var repeat = require('strman').repeat;
+ * let title = "strman";
+ * let result = repeat(title, 5);
+ * @param {String} value - The String!.
+ * @param {Number} multiplier - Number of repeats.
+ * @return {String} - The String repeated!
+ */
 const repeat = (value, multiplier) => {
     let i = 0;
     let result = '';
@@ -812,10 +835,13 @@ export {repeat};
 
 /**
  * Returns a reversed string.
- * @param value
- * @return string
-*/
-
+ * @playground
+ * var reverse = require('strman').reverse;
+ * let title = "strman";
+ * let result = reverse(title);
+ * @param {String} value - The String!.
+ * @return {String} - The String reversed!
+ */
 const reverse = (value) => {
     let i = 0;
     let reversed = '';
@@ -828,10 +854,10 @@ const reverse = (value) => {
 export {reverse};
 
 /**
- * A multibyte str_shuffle() function. It returns a string with its characters in random order.
+ * It returns a array with its values in random order.
  * @private
- * @param value
- * @return string
+ * @param {Array} value - The array!.
+ * @return {Array} - The Array shuffled!
 */
 const _shuffle =(array) => {
     let j;
@@ -846,15 +872,29 @@ const _shuffle =(array) => {
     return array;
 };
 
+/**
+ * It returns a string with its characters in random order.
+ * @playground
+ * var shuffle = require('strman').shuffle;
+ * let title = "strman";
+ * let result = shuffle(title);
+ * @param {String} value - The String!.
+ * @return {String} - The String shuffled!
+ */
 const shuffle = (value) => _shuffle(split(value)).join('');
 
 export {shuffle};
 
-/**
- * Surrounds a [value] with the given [substr].
- * @param value
- * @param substr
- * @return string
+ /**
+ * Surrounds a 'value' with the given 'substr'.
+ * @playground
+ * var surround = require('strman').surround;
+ * let title = "strman";
+ * let result = surround(title, '<', '>');
+ * @param {String} value - The String!.
+ * @param {String = ''} _substr - The substr to append on left, if substrRight is null, this is appended in right.
+ * @param {String = null} _substrRight - The substr to append on right.
+ * @return {String} - The String with surround substrs!
  */
 const surround = (value, _substr = '', _substrRight = null) =>
     append(_substr, value, _substrRight === null ? _substr : _substrRight);
@@ -862,11 +902,15 @@ const surround = (value, _substr = '', _substrRight = null) =>
 export {surround};
 
 /**
- * The slice method extracts a section of a string and returns a new string.
- * @param value
- * @param beginSlice
- * @param endSlice
- * @return string
+ * Alias to slice method.
+ * @playground
+ * var slice = require('strman').slice;
+ * let title = "strman";
+ * let result = slice(title, 2, 5);
+ * @param {String} value - The String!.
+ * @param {Number} beginSlice - Start of slice.
+ * @param {Number} endSlice - End of slice.
+ * @return {String} - The String sliced!
  */
  const slice = (value, beginSlice, endSlice = undefined) => value.slice(beginSlice, endSlice);
 
