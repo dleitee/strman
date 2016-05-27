@@ -13,8 +13,8 @@ var _strman = require('./strman');
  * var slugify = require('strman').slugify;
  * let title = "A Javascript string manipulation library.";
  * let result = slugify(title);
- * @param {String} value The value to slugify
- * @return {String} The slugified value
+ * @param {String} value - The value to slugify
+ * @return {String} - The slugified value
  */
 var slugify = function slugify(value) {
 

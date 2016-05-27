@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.htmlEncode = exports.htmlDecode = exports.base64Decode = exports.base64Encode = exports.urlDecode = exports.urlEncode = exports.decDecode = exports.decEncode = exports.binDecode = exports.binEncode = exports.hexDecode = exports.hexEncode = exports.inequal = exports.equal = exports.compare = exports.format = exports.removeEmptyStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.removeNonChars = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
+exports.htmlEncode = exports.htmlDecode = exports.base64Decode = exports.base64Encode = exports.urlDecode = exports.urlEncode = exports.decDecode = exports.decEncode = exports.binDecode = exports.binEncode = exports.hexDecode = exports.hexEncode = exports.inequal = exports.equal = exports.compare = exports.format = exports.removeEmptyStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
@@ -18,9 +18,13 @@ var _string = require('./string.cases');
 var _entities = require('./lib/entities');
 
 /**
- * Checks whether a string
- * @param value - value to check
- * @return Boolean - true or false
+ * Checks whether a string.
+ * @playground
+ * var isString = require('strman').isString;
+ * let title = "A Javascript string manipulation library.";
+ * let result = isString(title);
+ * @param {String} value - The String!.
+ * @return {Boolean} - if 'value' isString, return true, else false.
  */
 var isString = function isString(value) {
     return Object.prototype.toString.call(value) === '[object String]';
@@ -29,9 +33,14 @@ var isString = function isString(value) {
 exports.isString = isString;
 
 /**
- * Remove all spaces on left and right
- * @params value - String to trim
- * @return String without boarders spaces
+ * Remove all spaces on left and right.
+ * @playground
+ * var trim = require('strman').trim;
+ * let title = "   strman   ";
+ * let result = trim(title);
+ * @params {String} value - String to remove spaces.
+ * @params {String = ' '} char - if you need remove other char on boarders.
+ * @return {String} - String without boarders spaces.
  */
 
 var trim = function trim(value) {
@@ -42,9 +51,14 @@ var trim = function trim(value) {
 exports.trim = trim;
 
 /**
- * Remove spaces left
- * @params value
- * @return string
+ * Remove all spaces on left.
+ * @playground
+ * var leftTrim = require('strman').leftTrim;
+ * let title = "   strman";
+ * let result = leftTrim(title);
+ * @param {String} value - The String!.
+ * @params {String = ' '} char - if you need remove other char on left boarders.
+ * @return {String} - String without left boarders spaces.
  */
 
 var leftTrim = function leftTrim(value) {
@@ -55,9 +69,14 @@ var leftTrim = function leftTrim(value) {
 exports.leftTrim = leftTrim;
 
 /**
- * Remove spaces right
- * @params value
- * @return string
+ * Remove all spaces on right.
+ * @playground
+ * var rightTrim = require('strman').rightTrim;
+ * let title = "strman     ";
+ * let result = rightTrim(title);
+ * @param {String} value - The String!.
+ * @params {String = ' '} char - if you need remove other char on right boarders.
+ * @return {String} - String without right boarders spaces.
  */
 
 var rightTrim = function rightTrim(value) {
@@ -68,10 +87,14 @@ var rightTrim = function rightTrim(value) {
 exports.rightTrim = rightTrim;
 
 /**
- * Remove all spaces and replace for value
- * @param replace - Value to replace
- * @param value - The string being searched and replaced on.
- * @return String without spaces
+ * Remove all spaces and replace for value.
+ * @playground
+ * var removeSpaces = require('strman').removeSpaces;
+ * let title = "  s t r  m  a n     ";
+ * let result = removeSpaces(title);
+ * @param {String} value - The String!.
+ * @param {String} replaced - Value to replace.
+ * @return {String} - String without spaces.
  */
 
 var removeSpaces = function removeSpaces(value) {
@@ -82,18 +105,24 @@ var removeSpaces = function removeSpaces(value) {
 exports.removeSpaces = removeSpaces;
 
 /**
- * Replace [search] value to [newvalue]
- * @param search - String to search
- * @param newvalue - String to replace
- * @params value - The string being searched and replaced on.
- * @return String replaced
+ * Replace all ocurrences of 'search' value to 'newvalue'.
+
+ * var replace = require('strman').replace;
+ * let title = "superman";
+ * let result = replace(title, 'upe', 't');
+ * @param {String} value - The String!.
+ * @param {String} search - String to search.
+ * @param {String} newvalue - String to replace.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive replace.
+ * @param {Boolean = true} multiline - if you use multiline replace.
+ * @return {String} - String replaced with 'newvalue'.
  */
 
 var replace = function replace(value) {
     var search = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
     var newvalue = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
     var caseSensitive = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
-    var multiline = arguments.length <= 4 || arguments[4] === undefined ? false : arguments[4];
+    var multiline = arguments.length <= 4 || arguments[4] === undefined ? true : arguments[4];
 
     var flags = caseSensitive ? 'g' : 'gi';
 
@@ -105,10 +134,13 @@ var replace = function replace(value) {
 exports.replace = replace;
 
 /**
- * Remove all non valid characters
- * Example: change á => a or ẽ => e
- * @params value - The string being searched and replaced on.
- * @return String without non valid characters.
+ * Remove all non valid characters. Example: change á => a or ẽ => e.
+ * @playground
+ * var transliterate = require('strman').transliterate;
+ * let title = "strmáñ";
+ * let result = transliterate(title);
+ * @param {String} value - The String!.
+ * @return {String} - String without non valid characters.
  */
 
 var transliterate = function transliterate(value) {
@@ -124,22 +156,15 @@ var transliterate = function transliterate(value) {
 exports.transliterate = transliterate;
 
 /**
- * @deprecated Since version 1.0.1. Will be deleted in version 1.2.0. Use transliterate instead.
- * Remove all non valid characters
- * Example: change á => a or ẽ => e
- * @params value - The string being searched and replaced on.
- * @return String without non valid characters.
- */
-
-var removeNonChars = transliterate;
-
-exports.removeNonChars = removeNonChars;
-
-/**
- * Append Strings on Value
- * @param value String initial
- * @param ...append - array with strings to append
- * @return string
+ * Append Strings on Value with spreaded arguments
+ * @param {String} value Initial value
+ * @param {String} appends Spreaded array with strings to append
+ * @return {String} The concatenated string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 's'
+ * strman.append(title, 'tr', 'm', 'an') // returns 'strman'
  */
 
 var append = function append(value) {
@@ -161,9 +186,14 @@ exports.append = append;
 
 /**
  * Append Array of Strings on Value
- * @param value String initial
- * @param ...append - array with strings to append
- * @return string
+ * @param {String} value String initial
+ * @param {String[]} append Array with strings to append
+ * @return {String} The concatenated string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let s = 's'
+ * strman.appendArray(s, ['tr', 'm', 'an']) // returns 'strman'
  */
 
 var appendArray = function appendArray(value) {
@@ -184,9 +214,14 @@ exports.appendArray = appendArray;
 
 /**
  * Get the character at index
- * @param value
- * @param index
- * @return char
+ * @param {String} value The input string
+ * @param {Number} index The index for which to extract the character
+ * @return {String} The character at position index
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'abc'
+ * strman.at(title, 1) // returns 'b'
  */
 
 var at = function at(value, index) {
@@ -200,10 +235,15 @@ exports.at = at;
 
 /**
  * Returns array with strings between [start] and [end]
- * @param value
- * @param start
- * @param end
- * @return Array
+ * @param {String} value Input string
+ * @param {String} start The start string to look for
+ * @param {String} end The end string to look for
+ * @return {String[]} An array with all the matches between a pair of `start` and `end`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = '[abc][def]'
+ * strman.between(title, '[', ']') // returns ['abc', 'def']
  */
 
 var between = function between(value, start, end) {
@@ -227,27 +267,31 @@ exports.between = between;
 
 /**
  * Returns an array consisting of the characters in the string.
- * @params value
- * @returns Array
+ * @param {String} value The input string
+ * @returns {String[]} The array with the single characters of `value`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'abc'
+ * strman.chars(title) // returns ['a', 'b', 'c']
  */
 
 var chars = function chars(value) {
-    var _chars = [];
-
     (0, _validate.validString)(value);
-
-    for (var i = 0; i < length(value); i++) {
-        _chars[i] = at(value, i);
-    }
-    return _chars;
+    return value.split('');
 };
 
 exports.chars = chars;
 
 /**
  * Replaces consecutive whitespace characters with a single space
- * @param string
- * @return string
+ * @param {String} value The input string
+ * @return {String} The whitespace collapsed string
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = '  a  b  c  '
+ * strman.collapseWhitespace(title) // returns 'a b c'
  */
 
 var collapseWhitespace = function collapseWhitespace(value) {
@@ -257,11 +301,14 @@ var collapseWhitespace = function collapseWhitespace(value) {
 exports.collapseWhitespace = collapseWhitespace;
 
 /**
- * Remove all non word characters
- * Example: change . => [replace]
- * @paramsClojure replace - Value to replace
- * @params value - The string being searched and replaced on.
- * @return String without non word characters.
+ * Remove all non word characters.
+ * @playground
+ * var removeNonWords = require('strman').removeNonWords;
+ * let title = "__strman../";
+ * let result = removeNonWords(title);
+ * @param {String} value - The String!.
+ * @param {String} replaced - Value to replace.
+ * @return {String} - String without non word characters.
  */
 
 var removeNonWords = function removeNonWords(value) {
@@ -273,10 +320,16 @@ exports.removeNonWords = removeNonWords;
 
 /**
  * Verifies that the needle is contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String} needle The string which is checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if `needle` is contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needle = 'leite'
+ * strman.contains(title, needle, false) // returns true
  */
 
 var contains = function contains(value, needle) {
@@ -294,10 +347,16 @@ exports.contains = contains;
 
 /**
  * Verifies that all needles are contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String[]} needles An array of strings which are checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if all `needles` are contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needles = ['Leite', 'Daniel']
+ * strman.containsAll(title, needles) // returns true
  */
 
 var containsAll = function containsAll(value, needles) {
@@ -320,10 +379,16 @@ exports.containsAll = containsAll;
 
 /**
  * Verifies that one or more of needles are contained in value
- * @param value
- * @param needle
- * @param caseSensitive - default true
- * @return boolean
+ * @param {String} value The input string
+ * @param {String[]} needles An array of string which are checked to be contained within `value`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if at least one of `needles` is contained
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let needles = ['Leite', 'Oliveira']
+ * strman.containsAny(title, needles) // returns true
  */
 
 var containsAny = function containsAny(value, needles) {
@@ -341,6 +406,7 @@ exports.containsAny = containsAny;
 
 /**
  * Polyfill to countSubstr function
+ * @private
  * @param value,
  * @param substr,
  * @param position = 0,
@@ -370,11 +436,17 @@ var _countSubstring = function _countSubstring(value, _substr) {
 
 /**
  * Count the number of times substr appears in value
- * @param value,
- * @param substr,
- * @param caseSensitive = true,
- * @param allowOverlapping = false
- * @return integer
+ * @param {String} value The input string
+ * @param {String} substr The substring to look for
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @param {Boolean} [allowOverlapping=false] Allow overlapping substrings to be counted
+ * @return {Number} The number of matches
+ * @playground
+ * var strman = require('strman')
+ *
+ * let title = 'Daniel Leite'
+ * let substr = 'Leite'
+ * strman.counSubstr(title, substr) // returns 1
  */
 var countSubstr = function countSubstr(value, _substr) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
@@ -392,11 +464,18 @@ var countSubstr = function countSubstr(value, _substr) {
 exports.countSubstr = countSubstr;
 
 /**
- * Test if [value] ends with [search]
- * @param value
- * @param search
- * @param position = null
- * @return boolean
+ * Test if `value` ends with `search`
+ * @param {String} value The input string
+ * @param {String} search The string to search for
+ * @param {?Number} [position] The start position/index within `value` to start searching
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
+ * @return {Boolean} True if `input` ends with `search`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Daniel Leite'
+ * let search = 'Leite'
+ * strman.endsWith(value, search) // returns true
  */
 
 var endsWith = function endsWith(value, search) {
@@ -424,11 +503,16 @@ var endsWith = function endsWith(value, search) {
 exports.endsWith = endsWith;
 
 /**
- * Test if [value] starts with [search]
- * @param value
- * @param search
- * @param position = null
- * @return boolean
+ * Test if 'value' starts with 'search'
+ * @playground
+ * var startsWith = require('strman').startsWith;
+ * let title = "strman";
+ * let result = startsWith(title, 'str');
+ * @param {String} value - The String!.
+ * @param {String} search - Value to search.
+ * @param {Number = 0} position - offset to search.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @return {Boolean} - If 'value' startsWith 'search' return true, else false.
  */
 
 var startsWith = function startsWith(value, search) {
@@ -446,10 +530,17 @@ var startsWith = function startsWith(value, search) {
 exports.startsWith = startsWith;
 
 /**
- * Ensures that the [value] begins with [substr]. If it doesn't, it's prepended.
- * @param value
- * @param substr
- * @return string
+ * Ensures that the `value` begins with `substr`. If it doesn't, it's prepended.
+ * @param {String} value The input string
+ * @param {String} substr The substr to be ensured to be left
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching for determining if `value` already starts with `substr`
+ * @return {String} The string which is guarenteed to start with `substr`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Leite'
+ * let substr = 'Daniel '
+ * strman.ensureLeft(value, substr) // returns 'Daniel Leite'
  */
 
 var ensureLeft = function ensureLeft(value, _substr) {
@@ -466,9 +557,16 @@ exports.ensureLeft = ensureLeft;
 
 /**
  * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
- * @param value
- * @param substr
- * @return string
+ * @param {String} value The input string
+ * @param {String} substr The substr to be ensured to be right
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching for determining if `value` already ends with `substr`
+ * @return {String} The string which is guarenteed to start with `substr`
+ * @playground
+ * var strman = require('strman')
+ *
+ * let value = 'Daniel'
+ * let substr = ' Leite'
+ * strman.ensureRight(value, substr) // returns 'Daniel Leite'
  */
 
 var ensureRight = function ensureRight(value, _substr) {
@@ -485,11 +583,15 @@ var ensureRight = function ensureRight(value, _substr) {
 exports.ensureRight = ensureRight;
 
 /**
- * Return the first n chars of string.
- * @param value
- * @param n
- * @return string
- */
+* Return the first 'n' chars of string.
+* @playground
+* var first = require('strman').first;
+* let title = "strman";
+* let result = first(title, 3);
+* @param {String} value - The String!.
+* @param {String} n - Number of chars to return.
+* @return {String} - Return 'n' firsts chars.
+*/
 
 var first = function first(value, n) {
     return substr(value, 0, n);
@@ -498,10 +600,14 @@ var first = function first(value, n) {
 exports.first = first;
 
 /**
- * Return the last n chars of string.
- * @param value
- * @param n
- * @return string
+ * Return the last 'n' chars of string.
+ * @playground
+ * var last = require('strman').last;
+ * let title = "strman";
+ * let result = last(title, 3);
+ * @param {String} value - The String!.
+ * @param {String} n - Number of chars to return.
+ * @return {String} - Return 'n' lasts chars.
  */
 
 var last = function last(value, n) {
@@ -511,13 +617,17 @@ var last = function last(value, n) {
 exports.last = last;
 
 /**
- * The indexOf() method returns the index within the calling String object of the first occurrence
+ * The indexOf() method returns the index within the calling String of the first occurrence
  * of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
- *
- * @param value
- * @param needle
- * @param offset
- * @return integer
+ * @playground
+ * var indexOf = require('strman').indexOf;
+ * let title = "strman";
+ * let result = indexOf(title, 'man');
+ * @param {String} value - The String!.
+ * @param {String} needle - Value to search.
+ * @param {Number = 0} offset - Offset to search.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @return {Number} - Return position of the first occurrence of 'needle'.
  */
 
 var indexOf = function indexOf(value, needle) {
@@ -537,11 +647,15 @@ exports.indexOf = indexOf;
  * The lastIndexOf() method returns the index within the calling String object of the last
  * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the
  * value is not found.
- *
- * @param value
- * @param needle
- * @param offset
- * @return integer
+ * @playground
+ * var lastIndexOf = require('strman').lastIndexOf;
+ * let title = "strman strman";
+ * let result = lastIndexOf(title, 'str');
+ * @param {String} value - The String!.
+ * @param {String} needle - Value to search.
+ * @param {Number = undefined} offset - Offset to search.
+ * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @return {Number} - Return position of the last occurrence of 'needle'.
  */
 
 var lastIndexOf = function lastIndexOf(value, needle) {
@@ -557,11 +671,15 @@ var lastIndexOf = function lastIndexOf(value, needle) {
 exports.lastIndexOf = lastIndexOf;
 
 /**
- * Inserts [substr] into the [value] at the [index] provided.
- * @param value
- * @param substr
- * @param index
- * @return string
+ * Inserts 'substr' into the 'value' at the 'index' provided.
+ * @playground
+ * var insert = require('strman').insert;
+ * let title = "trman";
+ * let result = insert(title, 's', 0);
+ * @param {String} value - The String!.
+ * @param {String} _substr - Value to insert.
+ * @param {Number} index - Index to insert substr.
+ * @return {String} - String with substr added.
  */
 
 var insert = function insert(value, _substr, index) {
@@ -582,9 +700,13 @@ var insert = function insert(value, _substr, index) {
 exports.insert = insert;
 
 /**
- * Returns the length of the string
- * @param value
- * @return integer
+ * Returns the length of the string.
+ * @playground
+ * var length = require('strman').length;
+ * let title = "strman";
+ * let result = length(title);
+ * @param {String} value - The String!.
+ * @return {Number} - Length of the string..
  */
 
 var length = function length(value) {
@@ -599,10 +721,14 @@ exports.length = length;
 
 /**
  * Returns a new string of a given length such that the beginning of the string is padded.
- * @param value
- * @param length
- * @param char
- * @return string
+ * @playground
+ * var leftPad = require('strman').leftPad;
+ * let title = "strman";
+ * let result = leftPad(title, 10, 0);
+ * @param {String} value - The String!.
+ * @param {Number} _length - Max length of String.
+ * @param {Char} char - Char to repeat.
+ * @return {String} - String pad.
  */
 
 var leftPad = function leftPad(value, _length) {
@@ -629,10 +755,14 @@ exports.leftPad = leftPad;
 
 /**
  * Returns a new string of a given length such that the ending of the string is padded.
- * @param value
- * @param length
- * @param char
- * @return string
+ * @playground
+ * var rightPad = require('strman').rightPad;
+ * let title = "strman";
+ * let result = rightPad(title, 10, 0);
+ * @param {String} value - The String!.
+ * @param {Number} _length - Max length of String.
+ * @param {Char} char - Char to repeat.
+ * @return {String} - String pad.
  */
 
 var rightPad = function rightPad(value, _length) {
@@ -658,26 +788,35 @@ var rightPad = function rightPad(value, _length) {
 exports.rightPad = rightPad;
 
 /**
- * Alias to substr function
- * @param value
- * @param start
- * @param length = undefined
- * @return string
+ * Alias to substr function.
+ * @playground
+ * var substr = require('strman').substr;
+ * let title = "strman";
+ * let result = substr(title, 0, 3);
+ * @param {String} value - The String!.
+ * @param {Number} start - Substring starts.
+ * @param {Number} _length - Substring length.
+ * @return {String} - The Substring!
  */
 
 var substr = function substr(value, start) {
-    var length = arguments.length <= 2 || arguments[2] === undefined ? undefined : arguments[2];
-    return value.substr(start, length);
+    var _length = arguments.length <= 2 || arguments[2] === undefined ? undefined : arguments[2];
+
+    return value.substr(start, _length);
 };
 
 exports.substr = substr;
 
 /**
- * Alias to split function
- * @param value
- * @param separator
- * @param limit = undefined
- * @return string
+ * Alias to split function.
+ * @playground
+ * var split = require('strman').split;
+ * let title = "strman";
+ * let result = split(title, '');
+ * @param {String} value - The String!.
+ * @param {String} separator - Split separator.
+ * @param {Number = undefined} limit - Split limit.
+ * @return {String} - The String splited!
  */
 
 var split = function split(value, separator) {
@@ -688,11 +827,15 @@ var split = function split(value, separator) {
 exports.split = split;
 
 /**
- * Returns a new string starting with [prepends].
- * @param value
- * @param ...prepends
- * @return string
- */
+* Returns a new string starting with 'prepends'.
+* @playground
+* var prepend = require('strman').prepend;
+* let title = "strman";
+* let result = prepend(title, '_');
+* @param {String} value - The String!.
+* @param {...String} prepends - Strings to prepend.
+* @return {String} - The String prepended!
+*/
 
 var prepend = function prepend(value) {
     for (var _len2 = arguments.length, prepends = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
@@ -712,11 +855,15 @@ var prepend = function prepend(value) {
 exports.prepend = prepend;
 
 /**
- * Returns a new string starting with [prepends].
- * @param value
- * @param ...prepends
- * @return string
- */
+* Returns a new string starting with 'prepends'.
+* @playground
+* var prependArray = require('strman').prependArray;
+* let title = "strman";
+* let result = prependArray(title, '_');
+* @param {String} value - The String!.
+* @param {String[]} prepends - Strings to prepend.
+* @return {String} - The String prepended!
+*/
 
 var prependArray = function prependArray(value) {
     var prepends = arguments.length <= 1 || arguments[1] === undefined ? [] : arguments[1];
@@ -735,10 +882,15 @@ var prependArray = function prependArray(value) {
 exports.prependArray = prependArray;
 
 /**
- * Returns a new string with the [prefix] removed, if present.
- * @param value
- * @param prefix
- * @return string
+* Returns a new string with the 'prefix' removed, if present.
+* @playground
+* var removeLeft = require('strman').removeLeft;
+* let title = "strman";
+* let result = removeLeft(title, 'str');
+* @param {String} value - The String!.
+* @param {String} prefix - String to remove on left.
+* @param {Boolean = true} caseSensitive - If you need to caseSensitive.
+* @return {String} - The String without prefix!
 */
 
 var removeLeft = function removeLeft(value, prefix) {
@@ -755,11 +907,16 @@ var removeLeft = function removeLeft(value, prefix) {
 exports.removeLeft = removeLeft;
 
 /**
- * Returns a new string with the [suffix] removed, if present.
- * @param value
- * @param prefix
- * @return string
-*/
+ * Returns a new string with the 'suffix' removed, if present.
+ * @playground
+ * var removeRight = require('strman').removeRight;
+ * let title = "strman";
+ * let result = removeRight(title, 'man');
+ * @param {String} value - The String!.
+ * @param {String} suffix - String to remove on right.
+ * @param {Boolean = true} caseSensitive - If you need to caseSensitive.
+ * @return {String} - The String without suffix!
+ */
 
 var removeRight = function removeRight(value, suffix) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
@@ -777,10 +934,14 @@ exports.removeRight = removeRight;
 
 /**
  * Returns a repeated string given a multiplier.
- * @param value
- * @param multiplier
- * @return string
-*/
+ * @playground
+ * var repeat = require('strman').repeat;
+ * let title = "strman";
+ * let result = repeat(title, 5);
+ * @param {String} value - The String!.
+ * @param {Number} multiplier - Number of repeats.
+ * @return {String} - The String repeated!
+ */
 
 var repeat = function repeat(value, multiplier) {
     var i = 0;
@@ -795,9 +956,13 @@ exports.repeat = repeat;
 
 /**
  * Returns a reversed string.
- * @param value
- * @return string
-*/
+ * @playground
+ * var reverse = require('strman').reverse;
+ * let title = "strman";
+ * let result = reverse(title);
+ * @param {String} value - The String!.
+ * @return {String} - The String reversed!
+ */
 
 var reverse = function reverse(value) {
     var i = 0;
@@ -811,9 +976,10 @@ var reverse = function reverse(value) {
 exports.reverse = reverse;
 
 /**
- * A multibyte str_shuffle() function. It returns a string with its characters in random order.
- * @param value
- * @return string
+ * It returns a array with its values in random order.
+ * @private
+ * @param {Array} value - The array!.
+ * @return {Array} - The Array shuffled!
 */
 
 var _shuffle = function _shuffle(array) {
@@ -829,6 +995,15 @@ var _shuffle = function _shuffle(array) {
     return array;
 };
 
+/**
+ * It returns a string with its characters in random order.
+ * @playground
+ * var shuffle = require('strman').shuffle;
+ * let title = "strman";
+ * let result = shuffle(title);
+ * @param {String} value - The String!.
+ * @return {String} - The String shuffled!
+ */
 var shuffle = function shuffle(value) {
     return _shuffle(split(value)).join('');
 };
@@ -836,11 +1011,16 @@ var shuffle = function shuffle(value) {
 exports.shuffle = shuffle;
 
 /**
- * Surrounds a [value] with the given [substr].
- * @param value
- * @param substr
- * @return string
- */
+* Surrounds a 'value' with the given 'substr'.
+* @playground
+* var surround = require('strman').surround;
+* let title = "strman";
+* let result = surround(title, '<', '>');
+* @param {String} value - The String!.
+* @param {String = ''} _substr - The substr to append on left, if substrRight is null, this is appended in right.
+* @param {String = null} _substrRight - The substr to append on right.
+* @return {String} - The String with surround substrs!
+*/
 
 var surround = function surround(value) {
     var _substr = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
@@ -853,11 +1033,15 @@ var surround = function surround(value) {
 exports.surround = surround;
 
 /**
- * The slice method extracts a section of a string and returns a new string.
- * @param value
- * @param beginSlice
- * @param endSlice
- * @return string
+ * Alias to slice method.
+ * @playground
+ * var slice = require('strman').slice;
+ * let title = "strman";
+ * let result = slice(title, 2, 5);
+ * @param {String} value - The String!.
+ * @param {Number} beginSlice - Start of slice.
+ * @param {Number} endSlice - End of slice.
+ * @return {String} - The String sliced!
  */
 
 var slice = function slice(value, beginSlice) {
@@ -1066,6 +1250,14 @@ var hexDecode = function hexDecode(value) {
 
 exports.hexDecode = hexDecode;
 
+/**
+ * Convert string chars to binary unicode (16 digits)
+ * @playground
+ * var binEncode = require('strman').binEncode;
+ * let result = binEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in binary format.
+ */
 
 var binEncode = function binEncode(value) {
     return chars(value).map(function (data) {
@@ -1074,7 +1266,14 @@ var binEncode = function binEncode(value) {
 };
 
 exports.binEncode = binEncode;
-
+/**
+ * Convert binary unicode (16 digits) string to string chars
+ * @playground
+ * var binDecode = require('strman').binDecode;
+ * let result = binDecode("000000000111001100000000011101000000000001110010000000000110110100000000011000010000000001101110");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 
 var binDecode = function binDecode(value) {
     return value.match(/.{1,16}/g).map(function (data) {
@@ -1084,6 +1283,14 @@ var binDecode = function binDecode(value) {
 
 exports.binDecode = binDecode;
 
+/**
+ * Convert string chars to decimal unicode (5 digits)
+ * @playground
+ * var decEncode = require('strman').decEncode;
+ * let result = decEncode("strman");
+ * @param {String} value - Value to encode
+ * @returns {String} - String in decimal format.
+ */
 
 var decEncode = function decEncode(value) {
     return chars(value).map(function (data) {
@@ -1093,6 +1300,14 @@ var decEncode = function decEncode(value) {
 
 exports.decEncode = decEncode;
 
+/**
+ * Convert binary unicode (16 digits) string to string chars
+ * @playground
+ * var decDecode = require('strman').decDecode;
+ * let result = decDecode("001150011600114001090009700110");
+ * @param {String} value - Value to decode
+ * @returns {String} - String decoded.
+ */
 
 var decDecode = function decDecode(value) {
     return value.match(/.{1,5}/g).map(function (data) {
@@ -1102,6 +1317,14 @@ var decDecode = function decDecode(value) {
 
 exports.decDecode = decDecode;
 
+/**
+ * Replaces all characters with the appropriate UTF-8 escape sequences.
+ * @playground
+ * var urlEncode = require('strman').urlEncode;
+ * let result = urlEncode("https://github.com/dleitee/strman/&name=áéíóú");
+ * @param {String} value - The string to be encoded
+ * @returns {String} - Returns a string in which all non-alphanumeric characters except -_.
+ */
 
 var urlEncode = function urlEncode(value) {
     return encodeURI(value);
@@ -1109,6 +1332,14 @@ var urlEncode = function urlEncode(value) {
 
 exports.urlEncode = urlEncode;
 
+/**
+ * Decodes URL-encoded string
+ * @playground
+ * var urlDecode = require('strman').urlDecode;
+ * let result = urlDecode("https://github.com/dleitee/strman/&name=%C3%A1%C3%A9%C3%AD%C3%B3%C3%BA");
+ * @param {String} value - The string to be decoded
+ * @returns {String} - Returns the decoded string.
+ */
 
 var urlDecode = function urlDecode(value) {
     return decodeURI(value);
@@ -1116,6 +1347,15 @@ var urlDecode = function urlDecode(value) {
 
 exports.urlDecode = urlDecode;
 
+/**
+ * Encodes data with MIME base64.
+ * Base64-encoded data takes about 33% more space than the original data.
+ * @playground
+ * var base64Encode = require('strman').base64Encode;
+ * let result = base64Encode("strman");
+ * @param {String} value - The data to encode.
+ * @returns - The encoded data.
+ */
 
 var base64Encode = function base64Encode(value) {
     return new Buffer(value).toString('base64');
@@ -1123,6 +1363,14 @@ var base64Encode = function base64Encode(value) {
 
 exports.base64Encode = base64Encode;
 
+/**
+ * Decodes data encoded with MIME base64
+ * @playground
+ * var base64Decode = require('strman').base64Decode;
+ * let result = base64Decode("c3RybWFu");
+ * @param {String} value - The data to decode.
+ * @returns - The decoded data.
+ */
 
 var base64Decode = function base64Decode(value) {
     return new Buffer(value, 'base64').toString();
@@ -1130,6 +1378,14 @@ var base64Decode = function base64Decode(value) {
 
 exports.base64Decode = base64Decode;
 
+/**
+ * Convert all HTML entities to applicable characters.
+ * @playground
+ * var htmlDecode = require('strman').htmlDecode;
+ * let result = htmlDecode('&lt;div&gt;');
+ * @params {String} value - value to decode.
+ * @returns - The decoded data.
+ */
 
 var htmlDecode = function htmlDecode(value) {
     return replace(value, '(&\\w+;)', function (match, index) {
@@ -1139,6 +1395,14 @@ var htmlDecode = function htmlDecode(value) {
 
 exports.htmlDecode = htmlDecode;
 
+/**
+ * Convert all applicable characters to HTML entities.
+ * @playground
+ * var htmlEncode = require('strman').htmlEncode;
+ * let result = htmlEncode('<div>');
+ * @params {String} value - value to encode.
+ * @returns - The encoded data.
+ */
 
 var htmlEncode = function htmlEncode(value) {
     return replace(value, '[\\u00A0-\\u9999<>\\&]', function (match) {

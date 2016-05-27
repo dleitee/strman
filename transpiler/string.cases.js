@@ -4,10 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 /**
- * Transform to lowercase
- * @params value - String to lowercase
- * @return String
- */
+* Transform to lowercase.
+* @playground
+* var toLowerCase = require('strman').toLowerCase;
+* let title = "A Javascript string manipulation library.";
+* let result = toLowerCase(title);
+* @param {String} value - The String!.
+* @return {String} - String in lowercase.
+*/
 var toLowerCase = function toLowerCase(value) {
   return value.toLowerCase();
 };
@@ -15,9 +19,13 @@ var toLowerCase = function toLowerCase(value) {
 exports.toLowerCase = toLowerCase;
 
 /**
- * Transform to uppercase
- * @params value - String to uppercase
- * @return String
+ * Transform to uppercase.
+ * @playground
+ * var toUpperCase = require('strman').toUpperCase;
+ * let title = "A Javascript string manipulation library.";
+ * let result = toUpperCase(title);
+ * @param {String} value - The String!.
+ * @return {String} - String in uppercase.
  */
 
 var toUpperCase = function toUpperCase(value) {
@@ -27,21 +35,30 @@ var toUpperCase = function toUpperCase(value) {
 exports.toUpperCase = toUpperCase;
 
 /**
- * Verify if has lowerCase
- * @param value
- * @return boolean
- */
+* Verify if has lowerCase
+* @playground
+* var isLowerCase = require('strman').isLowerCase;
+* let title = "A Javascript string manipulation library.";
+* let result = isLowerCase(title);
+* @param {String} value - The String!.
+* @return {Boolean} - String is lowercase?.
+*/
 
 var isLowerCase = function isLowerCase(value) {
   return value === toLowerCase(value);
 };
 
 exports.isLowerCase = isLowerCase;
+
 /**
- * Verify if has upperCase
- * @param value
- * @return boolean
- */
+* Verify if has UPPERCASE
+* @playground
+* var isUpperCase = require('strman').isUpperCase;
+* let title = "A Javascript string manipulation library.";
+* let result = isUpperCase(title);
+* @param {String} value - The String!.
+* @return {Boolean} - String is UPPERCASE?.
+*/
 
 var isUpperCase = function isUpperCase(value) {
   return value === toUpperCase(value);
@@ -50,9 +67,13 @@ var isUpperCase = function isUpperCase(value) {
 exports.isUpperCase = isUpperCase;
 
 /**
- * Transform to StudlyCaps
- * @params value
- * @return string
+ * Transform to StudlyCaps.
+ * @playground
+ * var toStudlyCaps = require('strman').toStudlyCaps;
+ * let title = "A Javascript string manipulation library.";
+ * let result = toStudlyCaps(title);
+ * @param {String} value - The String!.
+ * @return {String} - String in StudlyCaps.
  */
 
 var toStudlyCaps = function toStudlyCaps(value) {
@@ -65,9 +86,13 @@ var toStudlyCaps = function toStudlyCaps(value) {
 exports.toStudlyCaps = toStudlyCaps;
 
 /**
- * Transform to camelCase
- * @params value
- * @return string
+ * Transform to camelCase.
+ * @playground
+ * var toCamelCase = require('strman').toCamelCase;
+ * let title = "A Javascript string manipulation library.";
+ * let result = toCamelCase(title);
+ * @param {String} value - The String!.
+ * @return {String} - String in camelCase.
  */
 
 var toCamelCase = function toCamelCase(value) {
@@ -78,10 +103,14 @@ var toCamelCase = function toCamelCase(value) {
 exports.toCamelCase = toCamelCase;
 
 /**
- * Decamelize String
- * @params value
- * @return string
- */
+* Decamelize String
+* @playground
+* var toDecamelize = require('strman').toDecamelize;
+* let title = "A Javascript string manipulation library.";
+* let result = toDecamelize(title);
+* @param {String} value - The String!.
+* @return {String} - String decamelized.
+*/
 
 var toDecamelize = function toDecamelize(value) {
   var chr = arguments.length <= 1 || arguments[1] === undefined ? '_' : arguments[1];
@@ -94,9 +123,13 @@ var toDecamelize = function toDecamelize(value) {
 exports.toDecamelize = toDecamelize;
 
 /**
- * Decamelize snake_case
- * @params value
- * @return string
+ * Transform to snake_case.
+ * @playground
+ * var toSnakeCase = require('strman').toSnakeCase;
+ * let title = "A Javascript string manipulation library.";
+ * let result = toSnakeCase(title);
+ * @param {String} value - The String!.
+ * @return {String} - String in snake_case.
  */
 
 var toSnakeCase = function toSnakeCase(value) {
@@ -106,9 +139,13 @@ var toSnakeCase = function toSnakeCase(value) {
 exports.toSnakeCase = toSnakeCase;
 
 /**
- * Decamelize kebab-case
- * @params value
- * @return string
+ * Transform to kebab-case.
+ * @playground
+ * var toKebabCase = require('strman').toKebabCase;
+ * let title = "A Javascript string manipulation library.";
+ * let result = toKebabCase(title);
+ * @param {String} value - The String!.
+ * @return {String} - String in kebab-case.
  */
 
 var toKebabCase = function toKebabCase(value) {
