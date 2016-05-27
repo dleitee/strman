@@ -1,12 +1,13 @@
 {
   "name": "strman",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A Javascript string manipulation library without npm dependences.",
   "main": "transpiler/strman.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "prepublish": "npm test && gulp",
     "test": "eslint ./src && mocha --compilers js:babel-register"
   },
   "repository": {
