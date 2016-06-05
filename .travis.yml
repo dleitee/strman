@@ -4,3 +4,7 @@ node_js:
 before_script:
   - 'npm install -g gulp'
   - 'npm install'
+script:
+  - npm run test:lint
+  - npm run test:coverage
+  - npm test
