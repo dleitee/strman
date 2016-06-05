@@ -9,4 +9,4 @@ script:
   - npm run test:coverage
   - npm test
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - 'npm run coveralls'
