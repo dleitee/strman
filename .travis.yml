@@ -9,4 +9,4 @@ script:
   - npm run test:coverage
   - npm test
 after_success:
-  - 'npm run coveralls'
+  - 'coveralls'
