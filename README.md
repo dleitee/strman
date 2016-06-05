@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/dleitee/strman.svg?branch=master)](https://travis-ci.org/dleitee/strman)
-[![Coverage Status](https://coveralls.io/repos/dleitee/strman/badge.svg?branch=master)](https://coveralls.io/r/dleitee/strman?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/dleitee/strman/badge.svg?branch=master)](https://coveralls.io/github/dleitee/strman?branch=master)
 
 A Javascript string manipulation library without npm dependencies.
 
