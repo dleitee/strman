@@ -8,3 +8,5 @@ script:
   - npm run test:lint
   - npm run test:coverage
   - npm test
+after_success:
+  - 'npm run coveralls'

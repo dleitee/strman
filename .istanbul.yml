@@ -1,0 +1,8 @@
+verbose: false
+instrumentation:
+  root: ./src
+  excludes: ["**/transpiler/**"]
+  include-all-sources: true
+reporting:
+  reports:
+    - html

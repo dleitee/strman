@@ -10,7 +10,8 @@
     "prepublish": "npm test && gulp",
     "test": "mocha --compilers js:babel-register",
     "test:lint": "eslint ./src",
-    "test:coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha --"
+    "test:coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha --",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
     "deglobalify": "^0.2.0",
     "es6ify": "^1.6.0",
     "eslint": "^2.7.0",
