@@ -1,7 +1,7 @@
 filter:
      excluded_paths:
-         - transpiler/*
-         - dist/*
+         - 'transpiler/*'
+         - 'dist/*'
 checks:
     javascript:
         no_var: true
