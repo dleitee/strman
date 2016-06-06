@@ -2,12 +2,4 @@ filter:
      excluded_paths:
          - 'transpiler/*'
          - 'dist/*'
-checks:
-    javascript:
-        no_var: true
-        no_implicit_undefined_return: true
-        no_ex_assign: true
-        no_else_return: true
-        no_alert: true
-        eqeqeq: true
 
