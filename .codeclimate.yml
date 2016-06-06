@@ -1,0 +1,17 @@
+engines:
+  eslint:
+    enabled: true
+    channel: "eslint-2"
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - javascript
+
+ratings:
+   paths:
+   - "**.js"
+
+exclude_paths:
+    - "transpiler/"
+    - "dist/"
