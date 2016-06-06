@@ -1,5 +1,5 @@
 filter:
      excluded_paths:
-          - "transpiler/*"
-          - "dist/*"
+          - transpiler/*
+          - dist/*
 
