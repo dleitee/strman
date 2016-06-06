@@ -1,5 +1,0 @@
-filter:
-     excluded_paths:
-          - transpiler/*
-          - dist/*
-
