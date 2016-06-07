@@ -741,21 +741,31 @@ describe('length function', () => {
 
 describe('leftPad function', () => {
     it('should be 00001', () => {
+        chai.expect(leftPad('1', 5, '00')).to.equal('00001');
         chai.expect(leftPad('1', 5, 0)).to.equal('00001');
         chai.expect(leftPad('01', 5, 0)).to.equal('00001');
         chai.expect(leftPad('001', 5, 0)).to.equal('00001');
         chai.expect(leftPad('0001', 5, 0)).to.equal('00001');
         chai.expect(leftPad('00001', 5, 0)).to.equal('00001');
     });
+
+    it('should be error', () => {
+        chai.assert.throws(leftPad.bind(this, '1', 10, ''), Error);
+    });
 });
 
 describe('rightPad function', () => {
     it('should be 10000', () => {
+        chai.expect(rightPad('1', 5, '00')).to.equal('10000');
         chai.expect(rightPad('1', 5, 0)).to.equal('10000');
         chai.expect(rightPad('10', 5, 0)).to.equal('10000');
         chai.expect(rightPad('100', 5, 0)).to.equal('10000');
         chai.expect(rightPad('1000', 5, 0)).to.equal('10000');
         chai.expect(rightPad('10000', 5, 0)).to.equal('10000');
+    });
+
+    it('should be error', () => {
+        chai.assert.throws(rightPad.bind(this, '1', 10, ''), Error);
     });
 });
 
