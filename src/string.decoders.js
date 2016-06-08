@@ -1,18 +1,12 @@
 import {entitiesDecode} from './lib/entities';
 import {replace} from './strman';
+import
+    {LENGTH_HEXADECIMAL, LENGTH_BINARY, LENGTH_DECIMAL, BASE_HEXADECIMAL, BASE_BINARY, BASE_DECIMAL}
+    from './lib/numerical.base';
 
-const RADIX_HEXADECIMAL   = 16;
-const LENGTH_HEXADECIMAL = 4;
-
-const RADIX_BINARY        = 2;
-const LENGTH_BINARY      = 16;
-
-const RADIX_DECIMAL       = 10;
-const LENGTH_DECIMAL     = 5;
-
-const decode = (value, length, radix) =>
+const decode = (value, length, base) =>
     value.match(new RegExp(`.{1,${length}}`,'g'))
-        .map((string)=>String.fromCharCode(parseInt(string, radix))).join('');
+        .map((string)=>String.fromCharCode(parseInt(string, base))).join('');
 
 
 /**
@@ -23,7 +17,7 @@ const decode = (value, length, radix) =>
  * @param {String} value - Value to decode
  * @returns {String} - String decoded.
  */
-const hexDecode = (value) => decode(value, LENGTH_HEXADECIMAL, RADIX_HEXADECIMAL);
+const hexDecode = (value) => decode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL);
 
 export {hexDecode};
 
@@ -35,7 +29,7 @@ export {hexDecode};
  * @param {String} value - Value to decode
  * @returns {String} - String decoded.
  */
-const binDecode = (value) => decode(value, LENGTH_BINARY, RADIX_BINARY);
+const binDecode = (value) => decode(value, LENGTH_BINARY, BASE_BINARY);
 
 export {binDecode};
 
@@ -47,7 +41,7 @@ export {binDecode};
  * @param {String} value - Value to decode
  * @returns {String} - String decoded.
  */
-const decDecode = (value) => decode(value, LENGTH_DECIMAL, RADIX_DECIMAL);
+const decDecode = (value) => decode(value, LENGTH_DECIMAL, BASE_DECIMAL);
 
 export {decDecode};
 
