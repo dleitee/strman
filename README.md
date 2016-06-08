@@ -4,6 +4,7 @@
 
 [![Build Status](https://travis-ci.org/dleitee/strman.svg?branch=master)](https://travis-ci.org/dleitee/strman)
 [![Coverage Status](https://coveralls.io/repos/github/dleitee/strman/badge.svg?branch=master)](https://coveralls.io/github/dleitee/strman?branch=master)
+[![Code Climate](https://codeclimate.com/github/dleitee/strman/badges/gpa.svg)](https://codeclimate.com/github/dleitee/strman)
 
 A Javascript string manipulation library without npm dependencies.
 
