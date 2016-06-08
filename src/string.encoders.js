@@ -1,5 +1,11 @@
 import {entitiesEncode} from './lib/entities';
 import {chars, leftPad, replace} from './strman';
+import
+    {LENGTH_HEXADECIMAL, LENGTH_BINARY, LENGTH_DECIMAL, BASE_HEXADECIMAL, BASE_BINARY, BASE_DECIMAL}
+    from './lib/numerical.base';
+
+const encode = (value, length, base) =>
+    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(base), length, '0')).join('');
 
 /**
  * Convert string chars to hexadecimal unicode (4 digits)
@@ -9,8 +15,7 @@ import {chars, leftPad, replace} from './strman';
  * @param {String} value - Value to encode
  * @returns {String} - String in hexadecimal format.
  */
-const hexEncode = (value) =>
-    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(16), 4, '0')).join('');
+const hexEncode = (value) => encode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL);
 
 export {hexEncode};
 
@@ -22,8 +27,7 @@ export {hexEncode};
  * @param {String} value - Value to encode
  * @returns {String} - String in binary format.
  */
-const binEncode = (value) =>
-    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(2), 16, '0')).join('');
+const binEncode = (value) =>  encode(value, LENGTH_BINARY, BASE_BINARY);
 
 export {binEncode};
 
@@ -35,8 +39,7 @@ export {binEncode};
  * @param {String} value - Value to encode
  * @returns {String} - String in decimal format.
  */
-const decEncode = (value) =>
-    chars(value).map((data) => leftPad(data.charCodeAt(0).toString(10), 5, '0')).join('');
+const decEncode = (value) => encode(value, LENGTH_DECIMAL, BASE_DECIMAL);
 
 export {decEncode};
 
@@ -76,7 +79,6 @@ export {base64Encode};
  */
 const htmlEncode = (value) => replace(value, '[\\u00A0-\\u9999<>\\&]',
     (match) =>
-        typeof entitiesEncode[match] !== undefined ? entitiesEncode[match] : match
-    , true, true);
+        typeof entitiesEncode[match] !== undefined ? entitiesEncode[match] : match , true, true);
 
 export {htmlEncode};
