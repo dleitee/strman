@@ -1,6 +1,20 @@
 import {entitiesDecode} from './lib/entities';
 import {replace} from './strman';
 
+const RADIX_HEXADECIMAL   = 16;
+const LENGTH_HEXADECIMAL = 4;
+
+const RADIX_BINARY        = 2;
+const LENGTH_BINARY      = 16;
+
+const RADIX_DECIMAL       = 10;
+const LENGTH_DECIMAL     = 5;
+
+const decode = (value, length, radix) =>
+    value.match(new RegExp(`.{1,${length}}`,'g'))
+        .map((string)=>String.fromCharCode(parseInt(string, radix))).join('');
+
+
 /**
  * Convert hexadecimal unicode (4 digits) string to string chars
  * @playground
@@ -9,8 +23,7 @@ import {replace} from './strman';
  * @param {String} value - Value to decode
  * @returns {String} - String decoded.
  */
-const hexDecode = (value) =>
-    value.match(/.{1,4}/g).map((data)=>String.fromCharCode(parseInt(data, 16))).join('');
+const hexDecode = (value) => decode(value, LENGTH_HEXADECIMAL, RADIX_HEXADECIMAL);
 
 export {hexDecode};
 
@@ -22,8 +35,7 @@ export {hexDecode};
  * @param {String} value - Value to decode
  * @returns {String} - String decoded.
  */
-const binDecode = (value) =>
-    value.match(/.{1,16}/g).map((data)=>String.fromCharCode(parseInt(data, 2))).join('');
+const binDecode = (value) => decode(value, LENGTH_BINARY, RADIX_BINARY);
 
 export {binDecode};
 
@@ -35,8 +47,7 @@ export {binDecode};
  * @param {String} value - Value to decode
  * @returns {String} - String decoded.
  */
-const decDecode = (value) =>
-    value.match(/.{1,5}/g).map((data)=>String.fromCharCode(parseInt(data, 10))).join('');
+const decDecode = (value) => decode(value, LENGTH_DECIMAL, RADIX_DECIMAL);
 
 export {decDecode};
 
