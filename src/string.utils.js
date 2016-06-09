@@ -1,8 +1,7 @@
 import {ascii} from './lib/ascii';
 import {_pop} from './lib/array';
 import {validString, validArrayString, validNumber, validCharLength} from './lib/validate';
-import {toUpperCase} from './string.cases';
-
+import {toCaseSensitive} from './lib/case';
 /**
  * Checks whether a string.
  * @playground
@@ -268,15 +267,8 @@ export {removeNonWords};
  * let needle = 'leite'
  * strman.contains(title, needle, false) // returns true
  */
-const contains = (value, needle, caseSensitive = true) => {
-
-    if(caseSensitive){
-        return indexOf(value, needle) > -1;
-    }
-
-    return indexOf(toUpperCase(value), toUpperCase(needle)) > -1;
-
-};
+const contains = (value, needle, caseSensitive = true) =>
+    indexOf(toCaseSensitive(value, caseSensitive), toCaseSensitive(needle, caseSensitive)) > -1;
 
 export {contains};
 
@@ -373,16 +365,12 @@ const _countSubstring = (value, _substr, allowOverlapping = false, position = 0,
  * let substr = 'Leite'
  * strman.counSubstr(title, substr) // returns 1
  */
-const countSubstr = (value, _substr, caseSensitive = true, allowOverlapping = false) => {
-
-    if(!caseSensitive){
-        value = toUpperCase(value);
-        _substr = toUpperCase(_substr);
-    }
-
-    return _countSubstring(value, _substr, allowOverlapping);
-
-};
+const countSubstr = (value, _substr, caseSensitive = true, allowOverlapping = false) =>
+    _countSubstring(
+        toCaseSensitive(value, caseSensitive),
+        toCaseSensitive(_substr, caseSensitive),
+        allowOverlapping
+    );
 
 export {countSubstr};
 
@@ -411,11 +399,11 @@ const endsWith = (value, search, position = null, caseSensitive = true) => {
 
     position -= length(search);
 
-    if(caseSensitive){
-        lastIndex = indexOf(value, search, position);
-    }else{
-        lastIndex = indexOf(toUpperCase(value), toUpperCase(search), position);
-    }
+    lastIndex = indexOf(
+                    toCaseSensitive(value, caseSensitive),
+                    toCaseSensitive(search, caseSensitive),
+                    position
+                );
 
     return lastIndex !== -1 && lastIndex === position;
 
@@ -435,15 +423,12 @@ export {endsWith};
  * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
  * @return {Boolean} - If 'value' startsWith 'search' return true, else false.
  */
-const startsWith = (value, search, position = 0, caseSensitive = true) => {
-
-    if(caseSensitive){
-        return substr(value, position, length(search)) === search;
-    }
-
-    return substr(toUpperCase(value), position, length(search)) === toUpperCase(search);
-
-};
+const startsWith = (value, search, position = 0, caseSensitive = true) =>
+    substr(
+        toCaseSensitive(value, caseSensitive),
+        position,
+        length(search)
+    ) === toCaseSensitive(search, caseSensitive);
 
 export {startsWith};
 
@@ -535,13 +520,8 @@ export {last};
  * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
  * @return {Number} - Return position of the first occurrence of 'needle'.
  */
-const indexOf = (value, needle, offset = 0, caseSensitive = true) => {
-    if(caseSensitive){
-        return value.indexOf(needle, offset);
-    }
-
-    return toUpperCase(value).indexOf(toUpperCase(needle), offset);
-};
+const indexOf = (value, needle, offset = 0, caseSensitive = true) =>
+    toCaseSensitive(value, caseSensitive).indexOf(toCaseSensitive(needle, caseSensitive), offset);
 
 export {indexOf};
 
@@ -559,12 +539,11 @@ export {indexOf};
  * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
  * @return {Number} - Return position of the last occurrence of 'needle'.
  */
-const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) => {
-    if(caseSensitive){
-        return value.lastIndexOf(needle, offset);
-    }
-    return toUpperCase(value).lastIndexOf(toUpperCase(needle), offset);
-};
+const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) =>
+    toCaseSensitive(value, caseSensitive).lastIndexOf(
+            toCaseSensitive(needle, caseSensitive),
+            offset
+        );
 
 export {lastIndexOf};
 
