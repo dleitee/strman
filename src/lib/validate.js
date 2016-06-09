@@ -2,9 +2,11 @@ import {isString, length} from '../string.utils.js';
 import {_isNumber} from './number';
 import {error} from './throw';
 
+const errorNotATypeMessage = (type, value) => `[strman] ${value} is not a ${type}.`;
+
 const validString = value => {
     if(!isString(value)){
-        throw error('[strman] ' + value + ' is not a String.');
+        throw error(errorNotATypeMessage('String', value));
     }
 
     return true;
@@ -26,7 +28,7 @@ export {validArrayString};
 
 const validNumber = value => {
     if(!_isNumber(value)){
-        throw error('[strman] ' + value + ' is not a Number.');
+        throw error(errorNotATypeMessage('Number', value));
     }
 
     return true;
