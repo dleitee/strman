@@ -129,17 +129,7 @@ export {transliterate};
  * let title = 's'
  * strman.append(title, 'tr', 'm', 'an') // returns 'strman'
  */
-const append = (value, ...appends) => {
-
-    validString(value);
-    validArrayString(appends);
-
-    if(length(appends) === 0){
-        return value;
-    }
-
-    return value + appends.join('');
-};
+const append = (value, ...appends) => appendArray(value, appends);
 
 export {append};
 
