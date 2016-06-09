@@ -718,17 +718,7 @@ export {split};
  * @param {...String} prepends - Strings to prepend.
  * @return {String} - The String prepended!
  */
-const prepend = (value, ...prepends) => {
-
-    validString(value);
-    validArrayString(prepends);
-
-    if(length(prepends) === 0){
-        return value;
-    }
-
-    return prepends.join('') + value;
-};
+const prepend = (value, ...prepends) => prependArray(value, prepends);
 
 export {prepend};
 
