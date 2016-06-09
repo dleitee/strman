@@ -129,17 +129,7 @@ export {transliterate};
  * let title = 's'
  * strman.append(title, 'tr', 'm', 'an') // returns 'strman'
  */
-const append = (value, ...appends) => {
-
-    validString(value);
-    validArrayString(appends);
-
-    if(length(appends) === 0){
-        return value;
-    }
-
-    return value + appends.join('');
-};
+const append = (value, ...appends) => appendArray(value, appends);
 
 export {append};
 
@@ -728,17 +718,7 @@ export {split};
  * @param {...String} prepends - Strings to prepend.
  * @return {String} - The String prepended!
  */
-const prepend = (value, ...prepends) => {
-
-    validString(value);
-    validArrayString(prepends);
-
-    if(length(prepends) === 0){
-        return value;
-    }
-
-    return prepends.join('') + value;
-};
+const prepend = (value, ...prepends) => prependArray(value, prepends);
 
 export {prepend};
 
