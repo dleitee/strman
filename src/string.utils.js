@@ -1,7 +1,7 @@
 import {ascii} from './lib/ascii';
 import {_pop} from './lib/array';
 import {validString, validArrayString, validNumber, validCharLength} from './lib/validate';
-import {toCaseSensitive} from './lib/case'
+import {toCaseSensitive} from './lib/case';
 /**
  * Checks whether a string.
  * @playground
