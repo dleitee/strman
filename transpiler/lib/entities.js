@@ -1,3732 +1,2241 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var entitiesDecode = exports.entitiesDecode = {
-  '&AElig': 'Æ',
-  '&AElig;': 'Æ',
-  '&AMP': '&',
-  '&AMP;': '&',
-  '&Aacute': 'Á',
-  '&Aacute;': 'Á',
-  '&Abreve;': 'Ă',
-  '&Acirc': 'Â',
-  '&Acirc;': 'Â',
-  '&Acy;': 'А',
-  '&Afr;': '𝔄',
-  '&Agrave': 'À',
-  '&Agrave;': 'À',
-  '&Alpha;': 'Α',
-  '&Amacr;': 'Ā',
-  '&And;': '⩓',
-  '&Aogon;': 'Ą',
-  '&Aopf;': '𝔸',
-  '&ApplyFunction;': '⁡',
-  '&Aring': 'Å',
-  '&Aring;': 'Å',
-  '&Ascr;': '𝒜',
-  '&Assign;': '≔',
-  '&Atilde': 'Ã',
-  '&Atilde;': 'Ã',
-  '&Auml': 'Ä',
-  '&Auml;': 'Ä',
-  '&Backslash;': '∖',
-  '&Barv;': '⫧',
-  '&Barwed;': '⌆',
-  '&Bcy;': 'Б',
-  '&Because;': '∵',
-  '&Bernoullis;': 'ℬ',
-  '&Beta;': 'Β',
-  '&Bfr;': '𝔅',
-  '&Bopf;': '𝔹',
-  '&Breve;': '˘',
-  '&Bscr;': 'ℬ',
-  '&Bumpeq;': '≎',
-  '&CHcy;': 'Ч',
-  '&COPY': '©',
-  '&COPY;': '©',
-  '&Cacute;': 'Ć',
-  '&Cap;': '⋒',
-  '&CapitalDifferentialD;': 'ⅅ',
-  '&Cayleys;': 'ℭ',
-  '&Ccaron;': 'Č',
-  '&Ccedil': 'Ç',
-  '&Ccedil;': 'Ç',
-  '&Ccirc;': 'Ĉ',
-  '&Cconint;': '∰',
-  '&Cdot;': 'Ċ',
-  '&Cedilla;': '¸',
-  '&CenterDot;': '·',
-  '&Cfr;': 'ℭ',
-  '&Chi;': 'Χ',
-  '&CircleDot;': '⊙',
-  '&CircleMinus;': '⊖',
-  '&CirclePlus;': '⊕',
-  '&CircleTimes;': '⊗',
-  '&ClockwiseContourIntegral;': '∲',
-  '&CloseCurlyDoubleQuote;': '”',
-  '&CloseCurlyQuote;': '’',
-  '&Colon;': '∷',
-  '&Colone;': '⩴',
-  '&Congruent;': '≡',
-  '&Conint;': '∯',
-  '&ContourIntegral;': '∮',
-  '&Copf;': 'ℂ',
-  '&Coproduct;': '∐',
-  '&CounterClockwiseContourIntegral;': '∳',
-  '&Cross;': '⨯',
-  '&Cscr;': '𝒞',
-  '&Cup;': '⋓',
-  '&CupCap;': '≍',
-  '&DD;': 'ⅅ',
-  '&DDotrahd;': '⤑',
-  '&DJcy;': 'Ђ',
-  '&DScy;': 'Ѕ',
-  '&DZcy;': 'Џ',
-  '&Dagger;': '‡',
-  '&Darr;': '↡',
-  '&Dashv;': '⫤',
-  '&Dcaron;': 'Ď',
-  '&Dcy;': 'Д',
-  '&Del;': '∇',
-  '&Delta;': 'Δ',
-  '&Dfr;': '𝔇',
-  '&DiacriticalAcute;': '´',
-  '&DiacriticalDot;': '˙',
-  '&DiacriticalDoubleAcute;': '˝',
-  '&DiacriticalGrave;': '`',
-  '&DiacriticalTilde;': '˜',
-  '&Diamond;': '⋄',
-  '&DifferentialD;': 'ⅆ',
-  '&Dopf;': '𝔻',
-  '&Dot;': '¨',
-  '&DotDot;': '⃜',
-  '&DotEqual;': '≐',
-  '&DoubleContourIntegral;': '∯',
-  '&DoubleDot;': '¨',
-  '&DoubleDownArrow;': '⇓',
-  '&DoubleLeftArrow;': '⇐',
-  '&DoubleLeftRightArrow;': '⇔',
-  '&DoubleLeftTee;': '⫤',
-  '&DoubleLongLeftArrow;': '⟸',
-  '&DoubleLongLeftRightArrow;': '⟺',
-  '&DoubleLongRightArrow;': '⟹',
-  '&DoubleRightArrow;': '⇒',
-  '&DoubleRightTee;': '⊨',
-  '&DoubleUpArrow;': '⇑',
-  '&DoubleUpDownArrow;': '⇕',
-  '&DoubleVerticalBar;': '∥',
-  '&DownArrow;': '↓',
-  '&DownArrowBar;': '⤓',
-  '&DownArrowUpArrow;': '⇵',
-  '&DownBreve;': '̑',
-  '&DownLeftRightVector;': '⥐',
-  '&DownLeftTeeVector;': '⥞',
-  '&DownLeftVector;': '↽',
-  '&DownLeftVectorBar;': '⥖',
-  '&DownRightTeeVector;': '⥟',
-  '&DownRightVector;': '⇁',
-  '&DownRightVectorBar;': '⥗',
-  '&DownTee;': '⊤',
-  '&DownTeeArrow;': '↧',
-  '&Downarrow;': '⇓',
-  '&Dscr;': '𝒟',
-  '&Dstrok;': 'Đ',
-  '&ENG;': 'Ŋ',
-  '&ETH': 'Ð',
-  '&ETH;': 'Ð',
-  '&Eacute': 'É',
-  '&Eacute;': 'É',
-  '&Ecaron;': 'Ě',
-  '&Ecirc': 'Ê',
-  '&Ecirc;': 'Ê',
-  '&Ecy;': 'Э',
-  '&Edot;': 'Ė',
-  '&Efr;': '𝔈',
-  '&Egrave': 'È',
-  '&Egrave;': 'È',
-  '&Element;': '∈',
-  '&Emacr;': 'Ē',
-  '&EmptySmallSquare;': '◻',
-  '&EmptyVerySmallSquare;': '▫',
-  '&Eogon;': 'Ę',
-  '&Eopf;': '𝔼',
-  '&Epsilon;': 'Ε',
-  '&Equal;': '⩵',
-  '&EqualTilde;': '≂',
-  '&Equilibrium;': '⇌',
-  '&Escr;': 'ℰ',
-  '&Esim;': '⩳',
-  '&Eta;': 'Η',
-  '&Euml': 'Ë',
-  '&Euml;': 'Ë',
-  '&Exists;': '∃',
-  '&ExponentialE;': 'ⅇ',
-  '&Fcy;': 'Ф',
-  '&Ffr;': '𝔉',
-  '&FilledSmallSquare;': '◼',
-  '&FilledVerySmallSquare;': '▪',
-  '&Fopf;': '𝔽',
-  '&ForAll;': '∀',
-  '&Fouriertrf;': 'ℱ',
-  '&Fscr;': 'ℱ',
-  '&GJcy;': 'Ѓ',
-  '&GT': '>',
-  '&GT;': '>',
-  '&Gamma;': 'Γ',
-  '&Gammad;': 'Ϝ',
-  '&Gbreve;': 'Ğ',
-  '&Gcedil;': 'Ģ',
-  '&Gcirc;': 'Ĝ',
-  '&Gcy;': 'Г',
-  '&Gdot;': 'Ġ',
-  '&Gfr;': '𝔊',
-  '&Gg;': '⋙',
-  '&Gopf;': '𝔾',
-  '&GreaterEqual;': '≥',
-  '&GreaterEqualLess;': '⋛',
-  '&GreaterFullEqual;': '≧',
-  '&GreaterGreater;': '⪢',
-  '&GreaterLess;': '≷',
-  '&GreaterSlantEqual;': '⩾',
-  '&GreaterTilde;': '≳',
-  '&Gscr;': '𝒢',
-  '&Gt;': '≫',
-  '&HARDcy;': 'Ъ',
-  '&Hacek;': 'ˇ',
-  '&Hat;': '^',
-  '&Hcirc;': 'Ĥ',
-  '&Hfr;': 'ℌ',
-  '&HilbertSpace;': 'ℋ',
-  '&Hopf;': 'ℍ',
-  '&HorizontalLine;': '─',
-  '&Hscr;': 'ℋ',
-  '&Hstrok;': 'Ħ',
-  '&HumpDownHump;': '≎',
-  '&HumpEqual;': '≏',
-  '&IEcy;': 'Е',
-  '&IJlig;': 'Ĳ',
-  '&IOcy;': 'Ё',
-  '&Iacute': 'Í',
-  '&Iacute;': 'Í',
-  '&Icirc': 'Î',
-  '&Icirc;': 'Î',
-  '&Icy;': 'И',
-  '&Idot;': 'İ',
-  '&Ifr;': 'ℑ',
-  '&Igrave': 'Ì',
-  '&Igrave;': 'Ì',
-  '&Im;': 'ℑ',
-  '&Imacr;': 'Ī',
-  '&ImaginaryI;': 'ⅈ',
-  '&Implies;': '⇒',
-  '&Int;': '∬',
-  '&Integral;': '∫',
-  '&Intersection;': '⋂',
-  '&InvisibleComma;': '⁣',
-  '&InvisibleTimes;': '⁢',
-  '&Iogon;': 'Į',
-  '&Iopf;': '𝕀',
-  '&Iota;': 'Ι',
-  '&Iscr;': 'ℐ',
-  '&Itilde;': 'Ĩ',
-  '&Iukcy;': 'І',
-  '&Iuml': 'Ï',
-  '&Iuml;': 'Ï',
-  '&Jcirc;': 'Ĵ',
-  '&Jcy;': 'Й',
-  '&Jfr;': '𝔍',
-  '&Jopf;': '𝕁',
-  '&Jscr;': '𝒥',
-  '&Jsercy;': 'Ј',
-  '&Jukcy;': 'Є',
-  '&KHcy;': 'Х',
-  '&KJcy;': 'Ќ',
-  '&Kappa;': 'Κ',
-  '&Kcedil;': 'Ķ',
-  '&Kcy;': 'К',
-  '&Kfr;': '𝔎',
-  '&Kopf;': '𝕂',
-  '&Kscr;': '𝒦',
-  '&LJcy;': 'Љ',
-  '&LT': '<',
-  '&LT;': '<',
-  '&Lacute;': 'Ĺ',
-  '&Lambda;': 'Λ',
-  '&Lang;': '⟪',
-  '&Laplacetrf;': 'ℒ',
-  '&Larr;': '↞',
-  '&Lcaron;': 'Ľ',
-  '&Lcedil;': 'Ļ',
-  '&Lcy;': 'Л',
-  '&LeftAngleBracket;': '⟨',
-  '&LeftArrow;': '←',
-  '&LeftArrowBar;': '⇤',
-  '&LeftArrowRightArrow;': '⇆',
-  '&LeftCeiling;': '⌈',
-  '&LeftDoubleBracket;': '⟦',
-  '&LeftDownTeeVector;': '⥡',
-  '&LeftDownVector;': '⇃',
-  '&LeftDownVectorBar;': '⥙',
-  '&LeftFloor;': '⌊',
-  '&LeftRightArrow;': '↔',
-  '&LeftRightVector;': '⥎',
-  '&LeftTee;': '⊣',
-  '&LeftTeeArrow;': '↤',
-  '&LeftTeeVector;': '⥚',
-  '&LeftTriangle;': '⊲',
-  '&LeftTriangleBar;': '⧏',
-  '&LeftTriangleEqual;': '⊴',
-  '&LeftUpDownVector;': '⥑',
-  '&LeftUpTeeVector;': '⥠',
-  '&LeftUpVector;': '↿',
-  '&LeftUpVectorBar;': '⥘',
-  '&LeftVector;': '↼',
-  '&LeftVectorBar;': '⥒',
-  '&Leftarrow;': '⇐',
-  '&Leftrightarrow;': '⇔',
-  '&LessEqualGreater;': '⋚',
-  '&LessFullEqual;': '≦',
-  '&LessGreater;': '≶',
-  '&LessLess;': '⪡',
-  '&LessSlantEqual;': '⩽',
-  '&LessTilde;': '≲',
-  '&Lfr;': '𝔏',
-  '&Ll;': '⋘',
-  '&Lleftarrow;': '⇚',
-  '&Lmidot;': 'Ŀ',
-  '&LongLeftArrow;': '⟵',
-  '&LongLeftRightArrow;': '⟷',
-  '&LongRightArrow;': '⟶',
-  '&Longleftarrow;': '⟸',
-  '&Longleftrightarrow;': '⟺',
-  '&Longrightarrow;': '⟹',
-  '&Lopf;': '𝕃',
-  '&LowerLeftArrow;': '↙',
-  '&LowerRightArrow;': '↘',
-  '&Lscr;': 'ℒ',
-  '&Lsh;': '↰',
-  '&Lstrok;': 'Ł',
-  '&Lt;': '≪',
-  '&Map;': '⤅',
-  '&Mcy;': 'М',
-  '&MediumSpace;': ' ',
-  '&Mellintrf;': 'ℳ',
-  '&Mfr;': '𝔐',
-  '&MinusPlus;': '∓',
-  '&Mopf;': '𝕄',
-  '&Mscr;': 'ℳ',
-  '&Mu;': 'Μ',
-  '&NJcy;': 'Њ',
-  '&Nacute;': 'Ń',
-  '&Ncaron;': 'Ň',
-  '&Ncedil;': 'Ņ',
-  '&Ncy;': 'Н',
-  '&NegativeMediumSpace;': '​',
-  '&NegativeThickSpace;': '​',
-  '&NegativeThinSpace;': '​',
-  '&NegativeVeryThinSpace;': '​',
-  '&NestedGreaterGreater;': '≫',
-  '&NestedLessLess;': '≪',
-  '&NewLine;': '\n',
-  '&Nfr;': '𝔑',
-  '&NoBreak;': '⁠',
-  '&NonBreakingSpace;': ' ',
-  '&Nopf;': 'ℕ',
-  '&Not;': '⫬',
-  '&NotCongruent;': '≢',
-  '&NotCupCap;': '≭',
-  '&NotDoubleVerticalBar;': '∦',
-  '&NotElement;': '∉',
-  '&NotEqual;': '≠',
-  '&NotEqualTilde;': '≂̸',
-  '&NotExists;': '∄',
-  '&NotGreater;': '≯',
-  '&NotGreaterEqual;': '≱',
-  '&NotGreaterFullEqual;': '≧̸',
-  '&NotGreaterGreater;': '≫̸',
-  '&NotGreaterLess;': '≹',
-  '&NotGreaterSlantEqual;': '⩾̸',
-  '&NotGreaterTilde;': '≵',
-  '&NotHumpDownHump;': '≎̸',
-  '&NotHumpEqual;': '≏̸',
-  '&NotLeftTriangle;': '⋪',
-  '&NotLeftTriangleBar;': '⧏̸',
-  '&NotLeftTriangleEqual;': '⋬',
-  '&NotLess;': '≮',
-  '&NotLessEqual;': '≰',
-  '&NotLessGreater;': '≸',
-  '&NotLessLess;': '≪̸',
-  '&NotLessSlantEqual;': '⩽̸',
-  '&NotLessTilde;': '≴',
-  '&NotNestedGreaterGreater;': '⪢̸',
-  '&NotNestedLessLess;': '⪡̸',
-  '&NotPrecedes;': '⊀',
-  '&NotPrecedesEqual;': '⪯̸',
-  '&NotPrecedesSlantEqual;': '⋠',
-  '&NotReverseElement;': '∌',
-  '&NotRightTriangle;': '⋫',
-  '&NotRightTriangleBar;': '⧐̸',
-  '&NotRightTriangleEqual;': '⋭',
-  '&NotSquareSubset;': '⊏̸',
-  '&NotSquareSubsetEqual;': '⋢',
-  '&NotSquareSuperset;': '⊐̸',
-  '&NotSquareSupersetEqual;': '⋣',
-  '&NotSubset;': '⊂⃒',
-  '&NotSubsetEqual;': '⊈',
-  '&NotSucceeds;': '⊁',
-  '&NotSucceedsEqual;': '⪰̸',
-  '&NotSucceedsSlantEqual;': '⋡',
-  '&NotSucceedsTilde;': '≿̸',
-  '&NotSuperset;': '⊃⃒',
-  '&NotSupersetEqual;': '⊉',
-  '&NotTilde;': '≁',
-  '&NotTildeEqual;': '≄',
-  '&NotTildeFullEqual;': '≇',
-  '&NotTildeTilde;': '≉',
-  '&NotVerticalBar;': '∤',
-  '&Nscr;': '𝒩',
-  '&Ntilde': 'Ñ',
-  '&Ntilde;': 'Ñ',
-  '&Nu;': 'Ν',
-  '&OElig;': 'Œ',
-  '&Oacute': 'Ó',
-  '&Oacute;': 'Ó',
-  '&Ocirc': 'Ô',
-  '&Ocirc;': 'Ô',
-  '&Ocy;': 'О',
-  '&Odblac;': 'Ő',
-  '&Ofr;': '𝔒',
-  '&Ograve': 'Ò',
-  '&Ograve;': 'Ò',
-  '&Omacr;': 'Ō',
-  '&Omega;': 'Ω',
-  '&Omicron;': 'Ο',
-  '&Oopf;': '𝕆',
-  '&OpenCurlyDoubleQuote;': '“',
-  '&OpenCurlyQuote;': '‘',
-  '&Or;': '⩔',
-  '&Oscr;': '𝒪',
-  '&Oslash': 'Ø',
-  '&Oslash;': 'Ø',
-  '&Otilde': 'Õ',
-  '&Otilde;': 'Õ',
-  '&Otimes;': '⨷',
-  '&Ouml': 'Ö',
-  '&Ouml;': 'Ö',
-  '&OverBar;': '‾',
-  '&OverBrace;': '⏞',
-  '&OverBracket;': '⎴',
-  '&OverParenthesis;': '⏜',
-  '&PartialD;': '∂',
-  '&Pcy;': 'П',
-  '&Pfr;': '𝔓',
-  '&Phi;': 'Φ',
-  '&Pi;': 'Π',
-  '&PlusMinus;': '±',
-  '&Poincareplane;': 'ℌ',
-  '&Popf;': 'ℙ',
-  '&Pr;': '⪻',
-  '&Precedes;': '≺',
-  '&PrecedesEqual;': '⪯',
-  '&PrecedesSlantEqual;': '≼',
-  '&PrecedesTilde;': '≾',
-  '&Prime;': '″',
-  '&Product;': '∏',
-  '&Proportion;': '∷',
-  '&Proportional;': '∝',
-  '&Pscr;': '𝒫',
-  '&Psi;': 'Ψ',
-  '&QUOT': '"',
-  '&QUOT;': '"',
-  '&Qfr;': '𝔔',
-  '&Qopf;': 'ℚ',
-  '&Qscr;': '𝒬',
-  '&RBarr;': '⤐',
-  '&REG': '®',
-  '&REG;': '®',
-  '&Racute;': 'Ŕ',
-  '&Rang;': '⟫',
-  '&Rarr;': '↠',
-  '&Rarrtl;': '⤖',
-  '&Rcaron;': 'Ř',
-  '&Rcedil;': 'Ŗ',
-  '&Rcy;': 'Р',
-  '&Re;': 'ℜ',
-  '&ReverseElement;': '∋',
-  '&ReverseEquilibrium;': '⇋',
-  '&ReverseUpEquilibrium;': '⥯',
-  '&Rfr;': 'ℜ',
-  '&Rho;': 'Ρ',
-  '&RightAngleBracket;': '⟩',
-  '&RightArrow;': '→',
-  '&RightArrowBar;': '⇥',
-  '&RightArrowLeftArrow;': '⇄',
-  '&RightCeiling;': '⌉',
-  '&RightDoubleBracket;': '⟧',
-  '&RightDownTeeVector;': '⥝',
-  '&RightDownVector;': '⇂',
-  '&RightDownVectorBar;': '⥕',
-  '&RightFloor;': '⌋',
-  '&RightTee;': '⊢',
-  '&RightTeeArrow;': '↦',
-  '&RightTeeVector;': '⥛',
-  '&RightTriangle;': '⊳',
-  '&RightTriangleBar;': '⧐',
-  '&RightTriangleEqual;': '⊵',
-  '&RightUpDownVector;': '⥏',
-  '&RightUpTeeVector;': '⥜',
-  '&RightUpVector;': '↾',
-  '&RightUpVectorBar;': '⥔',
-  '&RightVector;': '⇀',
-  '&RightVectorBar;': '⥓',
-  '&Rightarrow;': '⇒',
-  '&Ropf;': 'ℝ',
-  '&RoundImplies;': '⥰',
-  '&Rrightarrow;': '⇛',
-  '&Rscr;': 'ℛ',
-  '&Rsh;': '↱',
-  '&RuleDelayed;': '⧴',
-  '&SHCHcy;': 'Щ',
-  '&SHcy;': 'Ш',
-  '&SOFTcy;': 'Ь',
-  '&Sacute;': 'Ś',
-  '&Sc;': '⪼',
-  '&Scaron;': 'Š',
-  '&Scedil;': 'Ş',
-  '&Scirc;': 'Ŝ',
-  '&Scy;': 'С',
-  '&Sfr;': '𝔖',
-  '&ShortDownArrow;': '↓',
-  '&ShortLeftArrow;': '←',
-  '&ShortRightArrow;': '→',
-  '&ShortUpArrow;': '↑',
-  '&Sigma;': 'Σ',
-  '&SmallCircle;': '∘',
-  '&Sopf;': '𝕊',
-  '&Sqrt;': '√',
-  '&Square;': '□',
-  '&SquareIntersection;': '⊓',
-  '&SquareSubset;': '⊏',
-  '&SquareSubsetEqual;': '⊑',
-  '&SquareSuperset;': '⊐',
-  '&SquareSupersetEqual;': '⊒',
-  '&SquareUnion;': '⊔',
-  '&Sscr;': '𝒮',
-  '&Star;': '⋆',
-  '&Sub;': '⋐',
-  '&Subset;': '⋐',
-  '&SubsetEqual;': '⊆',
-  '&Succeeds;': '≻',
-  '&SucceedsEqual;': '⪰',
-  '&SucceedsSlantEqual;': '≽',
-  '&SucceedsTilde;': '≿',
-  '&SuchThat;': '∋',
-  '&Sum;': '∑',
-  '&Sup;': '⋑',
-  '&Superset;': '⊃',
-  '&SupersetEqual;': '⊇',
-  '&Supset;': '⋑',
-  '&THORN': 'Þ',
-  '&THORN;': 'Þ',
-  '&TRADE;': '™',
-  '&TSHcy;': 'Ћ',
-  '&TScy;': 'Ц',
-  '&Tab;': '\t',
-  '&Tau;': 'Τ',
-  '&Tcaron;': 'Ť',
-  '&Tcedil;': 'Ţ',
-  '&Tcy;': 'Т',
-  '&Tfr;': '𝔗',
-  '&Therefore;': '∴',
-  '&Theta;': 'Θ',
-  '&ThickSpace;': '  ',
-  '&ThinSpace;': ' ',
-  '&Tilde;': '∼',
-  '&TildeEqual;': '≃',
-  '&TildeFullEqual;': '≅',
-  '&TildeTilde;': '≈',
-  '&Topf;': '𝕋',
-  '&TripleDot;': '⃛',
-  '&Tscr;': '𝒯',
-  '&Tstrok;': 'Ŧ',
-  '&Uacute': 'Ú',
-  '&Uacute;': 'Ú',
-  '&Uarr;': '↟',
-  '&Uarrocir;': '⥉',
-  '&Ubrcy;': 'Ў',
-  '&Ubreve;': 'Ŭ',
-  '&Ucirc': 'Û',
-  '&Ucirc;': 'Û',
-  '&Ucy;': 'У',
-  '&Udblac;': 'Ű',
-  '&Ufr;': '𝔘',
-  '&Ugrave': 'Ù',
-  '&Ugrave;': 'Ù',
-  '&Umacr;': 'Ū',
-  '&UnderBar;': '_',
-  '&UnderBrace;': '⏟',
-  '&UnderBracket;': '⎵',
-  '&UnderParenthesis;': '⏝',
-  '&Union;': '⋃',
-  '&UnionPlus;': '⊎',
-  '&Uogon;': 'Ų',
-  '&Uopf;': '𝕌',
-  '&UpArrow;': '↑',
-  '&UpArrowBar;': '⤒',
-  '&UpArrowDownArrow;': '⇅',
-  '&UpDownArrow;': '↕',
-  '&UpEquilibrium;': '⥮',
-  '&UpTee;': '⊥',
-  '&UpTeeArrow;': '↥',
-  '&Uparrow;': '⇑',
-  '&Updownarrow;': '⇕',
-  '&UpperLeftArrow;': '↖',
-  '&UpperRightArrow;': '↗',
-  '&Upsi;': 'ϒ',
-  '&Upsilon;': 'Υ',
-  '&Uring;': 'Ů',
-  '&Uscr;': '𝒰',
-  '&Utilde;': 'Ũ',
-  '&Uuml': 'Ü',
-  '&Uuml;': 'Ü',
-  '&VDash;': '⊫',
-  '&Vbar;': '⫫',
-  '&Vcy;': 'В',
-  '&Vdash;': '⊩',
-  '&Vdashl;': '⫦',
-  '&Vee;': '⋁',
-  '&Verbar;': '‖',
-  '&Vert;': '‖',
-  '&VerticalBar;': '∣',
-  '&VerticalLine;': '|',
-  '&VerticalSeparator;': '❘',
-  '&VerticalTilde;': '≀',
-  '&VeryThinSpace;': ' ',
-  '&Vfr;': '𝔙',
-  '&Vopf;': '𝕍',
-  '&Vscr;': '𝒱',
-  '&Vvdash;': '⊪',
-  '&Wcirc;': 'Ŵ',
-  '&Wedge;': '⋀',
-  '&Wfr;': '𝔚',
-  '&Wopf;': '𝕎',
-  '&Wscr;': '𝒲',
-  '&Xfr;': '𝔛',
-  '&Xi;': 'Ξ',
-  '&Xopf;': '𝕏',
-  '&Xscr;': '𝒳',
-  '&YAcy;': 'Я',
-  '&YIcy;': 'Ї',
-  '&YUcy;': 'Ю',
-  '&Yacute': 'Ý',
-  '&Yacute;': 'Ý',
-  '&Ycirc;': 'Ŷ',
-  '&Ycy;': 'Ы',
-  '&Yfr;': '𝔜',
-  '&Yopf;': '𝕐',
-  '&Yscr;': '𝒴',
-  '&Yuml;': 'Ÿ',
-  '&ZHcy;': 'Ж',
-  '&Zacute;': 'Ź',
-  '&Zcaron;': 'Ž',
-  '&Zcy;': 'З',
-  '&Zdot;': 'Ż',
-  '&ZeroWidthSpace;': '​',
-  '&Zeta;': 'Ζ',
-  '&Zfr;': 'ℨ',
-  '&Zopf;': 'ℤ',
-  '&Zscr;': '𝒵',
-  '&aacute;': 'á',
-  '&abreve;': 'ă',
-  '&ac;': '∾',
-  '&acE;': '∾̳',
-  '&acd;': '∿',
-  '&acirc': 'â',
-  '&acirc;': 'â',
-  '&acute': '´',
-  '&acute;': '´',
-  '&acy;': 'а',
-  '&aelig': 'æ',
-  '&aelig;': 'æ',
-  '&af;': '⁡',
-  '&afr;': '𝔞',
-  '&agrave': 'à',
-  '&agrave;': 'à',
-  '&alefsym;': 'ℵ',
-  '&aleph;': 'ℵ',
-  '&alpha;': 'α',
-  '&amacr;': 'ā',
-  '&amalg;': '⨿',
-  '&amp': '&',
-  '&amp;': '&',
-  '&and;': '∧',
-  '&andand;': '⩕',
-  '&andd;': '⩜',
-  '&andslope;': '⩘',
-  '&andv;': '⩚',
-  '&ang;': '∠',
-  '&ange;': '⦤',
-  '&angle;': '∠',
-  '&angmsd;': '∡',
-  '&angmsdaa;': '⦨',
-  '&angmsdab;': '⦩',
-  '&angmsdac;': '⦪',
-  '&angmsdad;': '⦫',
-  '&angmsdae;': '⦬',
-  '&angmsdaf;': '⦭',
-  '&angmsdag;': '⦮',
-  '&angmsdah;': '⦯',
-  '&angrt;': '∟',
-  '&angrtvb;': '⊾',
-  '&angrtvbd;': '⦝',
-  '&angsph;': '∢',
-  '&angst;': 'Å',
-  '&angzarr;': '⍼',
-  '&aogon;': 'ą',
-  '&aopf;': '𝕒',
-  '&ap;': '≈',
-  '&apE;': '⩰',
-  '&apacir;': '⩯',
-  '&ape;': '≊',
-  '&apid;': '≋',
-  '&apos;': '\'',
-  '&approx;': '≈',
-  '&approxeq;': '≊',
-  '&aring': 'å',
-  '&aring;': 'å',
-  '&ascr;': '𝒶',
-  '&ast;': '*',
-  '&asymp;': '≈',
-  '&asympeq;': '≍',
-  '&atilde': 'ã',
-  '&atilde;': 'ã',
-  '&auml': 'ä',
-  '&auml;': 'ä',
-  '&awconint;': '∳',
-  '&awint;': '⨑',
-  '&bNot;': '⫭',
-  '&backcong;': '≌',
-  '&backepsilon;': '϶',
-  '&backprime;': '‵',
-  '&backsim;': '∽',
-  '&backsimeq;': '⋍',
-  '&barvee;': '⊽',
-  '&barwed;': '⌅',
-  '&barwedge;': '⌅',
-  '&bbrk;': '⎵',
-  '&bbrktbrk;': '⎶',
-  '&bcong;': '≌',
-  '&bcy;': 'б',
-  '&bdquo;': '„',
-  '&becaus;': '∵',
-  '&because;': '∵',
-  '&bemptyv;': '⦰',
-  '&bepsi;': '϶',
-  '&bernou;': 'ℬ',
-  '&beta;': 'β',
-  '&beth;': 'ℶ',
-  '&between;': '≬',
-  '&bfr;': '𝔟',
-  '&bigcap;': '⋂',
-  '&bigcirc;': '◯',
-  '&bigcup;': '⋃',
-  '&bigodot;': '⨀',
-  '&bigoplus;': '⨁',
-  '&bigotimes;': '⨂',
-  '&bigsqcup;': '⨆',
-  '&bigstar;': '★',
-  '&bigtriangledown;': '▽',
-  '&bigtriangleup;': '△',
-  '&biguplus;': '⨄',
-  '&bigvee;': '⋁',
-  '&bigwedge;': '⋀',
-  '&bkarow;': '⤍',
-  '&blacklozenge;': '⧫',
-  '&blacksquare;': '▪',
-  '&blacktriangle;': '▴',
-  '&blacktriangledown;': '▾',
-  '&blacktriangleleft;': '◂',
-  '&blacktriangleright;': '▸',
-  '&blank;': '␣',
-  '&blk12;': '▒',
-  '&blk14;': '░',
-  '&blk34;': '▓',
-  '&block;': '█',
-  '&bne;': '=⃥',
-  '&bnequiv;': '≡⃥',
-  '&bnot;': '⌐',
-  '&bopf;': '𝕓',
-  '&bot;': '⊥',
-  '&bottom;': '⊥',
-  '&bowtie;': '⋈',
-  '&boxDL;': '╗',
-  '&boxDR;': '╔',
-  '&boxDl;': '╖',
-  '&boxDr;': '╓',
-  '&boxH;': '═',
-  '&boxHD;': '╦',
-  '&boxHU;': '╩',
-  '&boxHd;': '╤',
-  '&boxHu;': '╧',
-  '&boxUL;': '╝',
-  '&boxUR;': '╚',
-  '&boxUl;': '╜',
-  '&boxUr;': '╙',
-  '&boxV;': '║',
-  '&boxVH;': '╬',
-  '&boxVL;': '╣',
-  '&boxVR;': '╠',
-  '&boxVh;': '╫',
-  '&boxVl;': '╢',
-  '&boxVr;': '╟',
-  '&boxbox;': '⧉',
-  '&boxdL;': '╕',
-  '&boxdR;': '╒',
-  '&boxdl;': '┐',
-  '&boxdr;': '┌',
-  '&boxh;': '─',
-  '&boxhD;': '╥',
-  '&boxhU;': '╨',
-  '&boxhd;': '┬',
-  '&boxhu;': '┴',
-  '&boxminus;': '⊟',
-  '&boxplus;': '⊞',
-  '&boxtimes;': '⊠',
-  '&boxuL;': '╛',
-  '&boxuR;': '╘',
-  '&boxul;': '┘',
-  '&boxur;': '└',
-  '&boxv;': '│',
-  '&boxvH;': '╪',
-  '&boxvL;': '╡',
-  '&boxvR;': '╞',
-  '&boxvh;': '┼',
-  '&boxvl;': '┤',
-  '&boxvr;': '├',
-  '&bprime;': '‵',
-  '&breve;': '˘',
-  '&brvbar': '¦',
-  '&brvbar;': '¦',
-  '&bscr;': '𝒷',
-  '&bsemi;': '⁏',
-  '&bsim;': '∽',
-  '&bsime;': '⋍',
-  '&bsol;': '\\',
-  '&bsolb;': '⧅',
-  '&bsolhsub;': '⟈',
-  '&bull;': '•',
-  '&bullet;': '•',
-  '&bump;': '≎',
-  '&bumpE;': '⪮',
-  '&bumpe;': '≏',
-  '&bumpeq;': '≏',
-  '&cacute;': 'ć',
-  '&cap;': '∩',
-  '&capand;': '⩄',
-  '&capbrcup;': '⩉',
-  '&capcap;': '⩋',
-  '&capcup;': '⩇',
-  '&capdot;': '⩀',
-  '&caps;': '∩︀',
-  '&caret;': '⁁',
-  '&caron;': 'ˇ',
-  '&ccaps;': '⩍',
-  '&ccaron;': 'č',
-  '&ccedil': 'ç',
-  '&ccedil;': 'ç',
-  '&ccirc;': 'ĉ',
-  '&ccups;': '⩌',
-  '&ccupssm;': '⩐',
-  '&cdot;': 'ċ',
-  '&cedil': '¸',
-  '&cedil;': '¸',
-  '&cemptyv;': '⦲',
-  '&cent': '¢',
-  '&cent;': '¢',
-  '&centerdot;': '·',
-  '&cfr;': '𝔠',
-  '&chcy;': 'ч',
-  '&check;': '✓',
-  '&checkmark;': '✓',
-  '&chi;': 'χ',
-  '&cir;': '○',
-  '&cirE;': '⧃',
-  '&circ;': 'ˆ',
-  '&circeq;': '≗',
-  '&circlearrowleft;': '↺',
-  '&circlearrowright;': '↻',
-  '&circledR;': '®',
-  '&circledS;': 'Ⓢ',
-  '&circledast;': '⊛',
-  '&circledcirc;': '⊚',
-  '&circleddash;': '⊝',
-  '&cire;': '≗',
-  '&cirfnint;': '⨐',
-  '&cirmid;': '⫯',
-  '&cirscir;': '⧂',
-  '&clubs;': '♣',
-  '&clubsuit;': '♣',
-  '&colon;': ':',
-  '&colone;': '≔',
-  '&coloneq;': '≔',
-  '&comma;': ',',
-  '&commat;': '@',
-  '&comp;': '∁',
-  '&compfn;': '∘',
-  '&complement;': '∁',
-  '&complexes;': 'ℂ',
-  '&cong;': '≅',
-  '&congdot;': '⩭',
-  '&conint;': '∮',
-  '&copf;': '𝕔',
-  '&coprod;': '∐',
-  '&copy': '©',
-  '&copy;': '©',
-  '&copysr;': '℗',
-  '&crarr;': '↵',
-  '&cross;': '✗',
-  '&cscr;': '𝒸',
-  '&csub;': '⫏',
-  '&csube;': '⫑',
-  '&csup;': '⫐',
-  '&csupe;': '⫒',
-  '&ctdot;': '⋯',
-  '&cudarrl;': '⤸',
-  '&cudarrr;': '⤵',
-  '&cuepr;': '⋞',
-  '&cuesc;': '⋟',
-  '&cularr;': '↶',
-  '&cularrp;': '⤽',
-  '&cup;': '∪',
-  '&cupbrcap;': '⩈',
-  '&cupcap;': '⩆',
-  '&cupcup;': '⩊',
-  '&cupdot;': '⊍',
-  '&cupor;': '⩅',
-  '&cups;': '∪︀',
-  '&curarr;': '↷',
-  '&curarrm;': '⤼',
-  '&curlyeqprec;': '⋞',
-  '&curlyeqsucc;': '⋟',
-  '&curlyvee;': '⋎',
-  '&curlywedge;': '⋏',
-  '&curren': '¤',
-  '&curren;': '¤',
-  '&curvearrowleft;': '↶',
-  '&curvearrowright;': '↷',
-  '&cuvee;': '⋎',
-  '&cuwed;': '⋏',
-  '&cwconint;': '∲',
-  '&cwint;': '∱',
-  '&cylcty;': '⌭',
-  '&dArr;': '⇓',
-  '&dHar;': '⥥',
-  '&dagger;': '†',
-  '&daleth;': 'ℸ',
-  '&darr;': '↓',
-  '&dash;': '‐',
-  '&dashv;': '⊣',
-  '&dbkarow;': '⤏',
-  '&dblac;': '˝',
-  '&dcaron;': 'ď',
-  '&dcy;': 'д',
-  '&dd;': 'ⅆ',
-  '&ddagger;': '‡',
-  '&ddarr;': '⇊',
-  '&ddotseq;': '⩷',
-  '&deg': '°',
-  '&deg;': '°',
-  '&delta;': 'δ',
-  '&demptyv;': '⦱',
-  '&dfisht;': '⥿',
-  '&dfr;': '𝔡',
-  '&dharl;': '⇃',
-  '&dharr;': '⇂',
-  '&diam;': '⋄',
-  '&diamond;': '⋄',
-  '&diamondsuit;': '♦',
-  '&diams;': '♦',
-  '&die;': '¨',
-  '&digamma;': 'ϝ',
-  '&disin;': '⋲',
-  '&div;': '÷',
-  '&divide': '÷',
-  '&divide;': '÷',
-  '&divideontimes;': '⋇',
-  '&divonx;': '⋇',
-  '&djcy;': 'ђ',
-  '&dlcorn;': '⌞',
-  '&dlcrop;': '⌍',
-  '&dollar;': '$',
-  '&dopf;': '𝕕',
-  '&dot;': '˙',
-  '&doteq;': '≐',
-  '&doteqdot;': '≑',
-  '&dotminus;': '∸',
-  '&dotplus;': '∔',
-  '&dotsquare;': '⊡',
-  '&doublebarwedge;': '⌆',
-  '&downarrow;': '↓',
-  '&downdownarrows;': '⇊',
-  '&downharpoonleft;': '⇃',
-  '&downharpoonright;': '⇂',
-  '&drbkarow;': '⤐',
-  '&drcorn;': '⌟',
-  '&drcrop;': '⌌',
-  '&dscr;': '𝒹',
-  '&dscy;': 'ѕ',
-  '&dsol;': '⧶',
-  '&dstrok;': 'đ',
-  '&dtdot;': '⋱',
-  '&dtri;': '▿',
-  '&dtrif;': '▾',
-  '&duarr;': '⇵',
-  '&duhar;': '⥯',
-  '&dwangle;': '⦦',
-  '&dzcy;': 'џ',
-  '&dzigrarr;': '⟿',
-  '&eDDot;': '⩷',
-  '&eDot;': '≑',
-  '&eacute;': 'é',
-  '&easter;': '⩮',
-  '&ecaron;': 'ě',
-  '&ecir;': '≖',
-  '&ecirc': 'ê',
-  '&ecirc;': 'ê',
-  '&ecolon;': '≕',
-  '&ecy;': 'э',
-  '&edot;': 'ė',
-  '&ee;': 'ⅇ',
-  '&efDot;': '≒',
-  '&efr;': '𝔢',
-  '&eg;': '⪚',
-  '&egrave': 'è',
-  '&egrave;': 'è',
-  '&egs;': '⪖',
-  '&egsdot;': '⪘',
-  '&el;': '⪙',
-  '&elinters;': '⏧',
-  '&ell;': 'ℓ',
-  '&els;': '⪕',
-  '&elsdot;': '⪗',
-  '&emacr;': 'ē',
-  '&empty;': '∅',
-  '&emptyset;': '∅',
-  '&emptyv;': '∅',
-  '&emsp13;': ' ',
-  '&emsp14;': ' ',
-  '&emsp;': ' ',
-  '&eng;': 'ŋ',
-  '&ensp;': ' ',
-  '&eogon;': 'ę',
-  '&eopf;': '𝕖',
-  '&epar;': '⋕',
-  '&eparsl;': '⧣',
-  '&eplus;': '⩱',
-  '&epsi;': 'ε',
-  '&epsilon;': 'ε',
-  '&epsiv;': 'ϵ',
-  '&eqcirc;': '≖',
-  '&eqcolon;': '≕',
-  '&eqsim;': '≂',
-  '&eqslantgtr;': '⪖',
-  '&eqslantless;': '⪕',
-  '&equals;': '=',
-  '&equest;': '≟',
-  '&equiv;': '≡',
-  '&equivDD;': '⩸',
-  '&eqvparsl;': '⧥',
-  '&erDot;': '≓',
-  '&erarr;': '⥱',
-  '&escr;': 'ℯ',
-  '&esdot;': '≐',
-  '&esim;': '≂',
-  '&eta;': 'η',
-  '&eth': 'ð',
-  '&eth;': 'ð',
-  '&euml': 'ë',
-  '&euml;': 'ë',
-  '&euro;': '€',
-  '&excl;': '!',
-  '&exist;': '∃',
-  '&expectation;': 'ℰ',
-  '&exponentiale;': 'ⅇ',
-  '&fallingdotseq;': '≒',
-  '&fcy;': 'ф',
-  '&female;': '♀',
-  '&ffilig;': 'ﬃ',
-  '&fflig;': 'ﬀ',
-  '&ffllig;': 'ﬄ',
-  '&ffr;': '𝔣',
-  '&filig;': 'ﬁ',
-  '&fjlig;': 'fj',
-  '&flat;': '♭',
-  '&fllig;': 'ﬂ',
-  '&fltns;': '▱',
-  '&fnof;': 'ƒ',
-  '&fopf;': '𝕗',
-  '&forall;': '∀',
-  '&fork;': '⋔',
-  '&forkv;': '⫙',
-  '&fpartint;': '⨍',
-  '&frac12': '½',
-  '&frac12;': '½',
-  '&frac13;': '⅓',
-  '&frac14': '¼',
-  '&frac14;': '¼',
-  '&frac15;': '⅕',
-  '&frac16;': '⅙',
-  '&frac18;': '⅛',
-  '&frac23;': '⅔',
-  '&frac25;': '⅖',
-  '&frac34': '¾',
-  '&frac34;': '¾',
-  '&frac35;': '⅗',
-  '&frac38;': '⅜',
-  '&frac45;': '⅘',
-  '&frac56;': '⅚',
-  '&frac58;': '⅝',
-  '&frac78;': '⅞',
-  '&frasl;': '⁄',
-  '&frown;': '⌢',
-  '&fscr;': '𝒻',
-  '&gE;': '≧',
-  '&gEl;': '⪌',
-  '&gacute;': 'ǵ',
-  '&gamma;': 'γ',
-  '&gammad;': 'ϝ',
-  '&gap;': '⪆',
-  '&gbreve;': 'ğ',
-  '&gcirc;': 'ĝ',
-  '&gcy;': 'г',
-  '&gdot;': 'ġ',
-  '&ge;': '≥',
-  '&gel;': '⋛',
-  '&geq;': '≥',
-  '&geqq;': '≧',
-  '&geqslant;': '⩾',
-  '&ges;': '⩾',
-  '&gescc;': '⪩',
-  '&gesdot;': '⪀',
-  '&gesdoto;': '⪂',
-  '&gesdotol;': '⪄',
-  '&gesl;': '⋛︀',
-  '&gesles;': '⪔',
-  '&gfr;': '𝔤',
-  '&gg;': '≫',
-  '&ggg;': '⋙',
-  '&gimel;': 'ℷ',
-  '&gjcy;': 'ѓ',
-  '&gl;': '≷',
-  '&glE;': '⪒',
-  '&gla;': '⪥',
-  '&glj;': '⪤',
-  '&gnE;': '≩',
-  '&gnap;': '⪊',
-  '&gnapprox;': '⪊',
-  '&gne;': '⪈',
-  '&gneq;': '⪈',
-  '&gneqq;': '≩',
-  '&gnsim;': '⋧',
-  '&gopf;': '𝕘',
-  '&grave;': '`',
-  '&gscr;': 'ℊ',
-  '&gsim;': '≳',
-  '&gsime;': '⪎',
-  '&gsiml;': '⪐',
-  '&gt': '>',
-  '&gt;': '>',
-  '&gtcc;': '⪧',
-  '&gtcir;': '⩺',
-  '&gtdot;': '⋗',
-  '&gtlPar;': '⦕',
-  '&gtquest;': '⩼',
-  '&gtrapprox;': '⪆',
-  '&gtrarr;': '⥸',
-  '&gtrdot;': '⋗',
-  '&gtreqless;': '⋛',
-  '&gtreqqless;': '⪌',
-  '&gtrless;': '≷',
-  '&gtrsim;': '≳',
-  '&gvertneqq;': '≩︀',
-  '&gvnE;': '≩︀',
-  '&hArr;': '⇔',
-  '&hairsp;': ' ',
-  '&half;': '½',
-  '&hamilt;': 'ℋ',
-  '&hardcy;': 'ъ',
-  '&harr;': '↔',
-  '&harrcir;': '⥈',
-  '&harrw;': '↭',
-  '&hbar;': 'ℏ',
-  '&hcirc;': 'ĥ',
-  '&hearts;': '♥',
-  '&heartsuit;': '♥',
-  '&hellip;': '…',
-  '&hercon;': '⊹',
-  '&hfr;': '𝔥',
-  '&hksearow;': '⤥',
-  '&hkswarow;': '⤦',
-  '&hoarr;': '⇿',
-  '&homtht;': '∻',
-  '&hookleftarrow;': '↩',
-  '&hookrightarrow;': '↪',
-  '&hopf;': '𝕙',
-  '&horbar;': '―',
-  '&hscr;': '𝒽',
-  '&hslash;': 'ℏ',
-  '&hstrok;': 'ħ',
-  '&hybull;': '⁃',
-  '&hyphen;': '‐',
-  '&iacute': 'í',
-  '&iacute;': 'í',
-  '&ic;': '⁣',
-  '&icirc': 'î',
-  '&icirc;': 'î',
-  '&icy;': 'и',
-  '&iecy;': 'е',
-  '&iexcl': '¡',
-  '&iexcl;': '¡',
-  '&iff;': '⇔',
-  '&ifr;': '𝔦',
-  '&igrave': 'ì',
-  '&igrave;': 'ì',
-  '&ii;': 'ⅈ',
-  '&iiiint;': '⨌',
-  '&iiint;': '∭',
-  '&iinfin;': '⧜',
-  '&iiota;': '℩',
-  '&ijlig;': 'ĳ',
-  '&imacr;': 'ī',
-  '&image;': 'ℑ',
-  '&imagline;': 'ℐ',
-  '&imagpart;': 'ℑ',
-  '&imath;': 'ı',
-  '&imof;': '⊷',
-  '&imped;': 'Ƶ',
-  '&in;': '∈',
-  '&incare;': '℅',
-  '&infin;': '∞',
-  '&infintie;': '⧝',
-  '&inodot;': 'ı',
-  '&int;': '∫',
-  '&intcal;': '⊺',
-  '&integers;': 'ℤ',
-  '&intercal;': '⊺',
-  '&intlarhk;': '⨗',
-  '&intprod;': '⨼',
-  '&iocy;': 'ё',
-  '&iogon;': 'į',
-  '&iopf;': '𝕚',
-  '&iota;': 'ι',
-  '&iprod;': '⨼',
-  '&iquest': '¿',
-  '&iquest;': '¿',
-  '&iscr;': '𝒾',
-  '&isin;': '∈',
-  '&isinE;': '⋹',
-  '&isindot;': '⋵',
-  '&isins;': '⋴',
-  '&isinsv;': '⋳',
-  '&isinv;': '∈',
-  '&it;': '⁢',
-  '&itilde;': 'ĩ',
-  '&iukcy;': 'і',
-  '&iuml': 'ï',
-  '&iuml;': 'ï',
-  '&jcirc;': 'ĵ',
-  '&jcy;': 'й',
-  '&jfr;': '𝔧',
-  '&jmath;': 'ȷ',
-  '&jopf;': '𝕛',
-  '&jscr;': '𝒿',
-  '&jsercy;': 'ј',
-  '&jukcy;': 'є',
-  '&kappa;': 'κ',
-  '&kappav;': 'ϰ',
-  '&kcedil;': 'ķ',
-  '&kcy;': 'к',
-  '&kfr;': '𝔨',
-  '&kgreen;': 'ĸ',
-  '&khcy;': 'х',
-  '&kjcy;': 'ќ',
-  '&kopf;': '𝕜',
-  '&kscr;': '𝓀',
-  '&lAarr;': '⇚',
-  '&lArr;': '⇐',
-  '&lAtail;': '⤛',
-  '&lBarr;': '⤎',
-  '&lE;': '≦',
-  '&lEg;': '⪋',
-  '&lHar;': '⥢',
-  '&lacute;': 'ĺ',
-  '&laemptyv;': '⦴',
-  '&lagran;': 'ℒ',
-  '&lambda;': 'λ',
-  '&lang;': '⟨',
-  '&langd;': '⦑',
-  '&langle;': '⟨',
-  '&lap;': '⪅',
-  '&laquo': '«',
-  '&laquo;': '«',
-  '&larr;': '←',
-  '&larrb;': '⇤',
-  '&larrbfs;': '⤟',
-  '&larrfs;': '⤝',
-  '&larrhk;': '↩',
-  '&larrlp;': '↫',
-  '&larrpl;': '⤹',
-  '&larrsim;': '⥳',
-  '&larrtl;': '↢',
-  '&lat;': '⪫',
-  '&latail;': '⤙',
-  '&late;': '⪭',
-  '&lates;': '⪭︀',
-  '&lbarr;': '⤌',
-  '&lbbrk;': '❲',
-  '&lbrace;': '{',
-  '&lbrack;': '[',
-  '&lbrke;': '⦋',
-  '&lbrksld;': '⦏',
-  '&lbrkslu;': '⦍',
-  '&lcaron;': 'ľ',
-  '&lcedil;': 'ļ',
-  '&lceil;': '⌈',
-  '&lcub;': '{',
-  '&lcy;': 'л',
-  '&ldca;': '⤶',
-  '&ldquo;': '“',
-  '&ldquor;': '„',
-  '&ldrdhar;': '⥧',
-  '&ldrushar;': '⥋',
-  '&ldsh;': '↲',
-  '&le;': '≤',
-  '&leftarrow;': '←',
-  '&leftarrowtail;': '↢',
-  '&leftharpoondown;': '↽',
-  '&leftharpoonup;': '↼',
-  '&leftleftarrows;': '⇇',
-  '&leftrightarrow;': '↔',
-  '&leftrightarrows;': '⇆',
-  '&leftrightharpoons;': '⇋',
-  '&leftrightsquigarrow;': '↭',
-  '&leftthreetimes;': '⋋',
-  '&leg;': '⋚',
-  '&leq;': '≤',
-  '&leqq;': '≦',
-  '&leqslant;': '⩽',
-  '&les;': '⩽',
-  '&lescc;': '⪨',
-  '&lesdot;': '⩿',
-  '&lesdoto;': '⪁',
-  '&lesdotor;': '⪃',
-  '&lesg;': '⋚︀',
-  '&lesges;': '⪓',
-  '&lessapprox;': '⪅',
-  '&lessdot;': '⋖',
-  '&lesseqgtr;': '⋚',
-  '&lesseqqgtr;': '⪋',
-  '&lessgtr;': '≶',
-  '&lesssim;': '≲',
-  '&lfisht;': '⥼',
-  '&lfloor;': '⌊',
-  '&lfr;': '𝔩',
-  '&lg;': '≶',
-  '&lgE;': '⪑',
-  '&lhard;': '↽',
-  '&lharu;': '↼',
-  '&lharul;': '⥪',
-  '&lhblk;': '▄',
-  '&ljcy;': 'љ',
-  '&ll;': '≪',
-  '&llarr;': '⇇',
-  '&llcorner;': '⌞',
-  '&llhard;': '⥫',
-  '&lltri;': '◺',
-  '&lmidot;': 'ŀ',
-  '&lmoust;': '⎰',
-  '&lmoustache;': '⎰',
-  '&lnE;': '≨',
-  '&lnap;': '⪉',
-  '&lnapprox;': '⪉',
-  '&lne;': '⪇',
-  '&lneq;': '⪇',
-  '&lneqq;': '≨',
-  '&lnsim;': '⋦',
-  '&loang;': '⟬',
-  '&loarr;': '⇽',
-  '&lobrk;': '⟦',
-  '&longleftarrow;': '⟵',
-  '&longleftrightarrow;': '⟷',
-  '&longmapsto;': '⟼',
-  '&longrightarrow;': '⟶',
-  '&looparrowleft;': '↫',
-  '&looparrowright;': '↬',
-  '&lopar;': '⦅',
-  '&lopf;': '𝕝',
-  '&loplus;': '⨭',
-  '&lotimes;': '⨴',
-  '&lowast;': '∗',
-  '&lowbar;': '_',
-  '&loz;': '◊',
-  '&lozenge;': '◊',
-  '&lozf;': '⧫',
-  '&lpar;': '(',
-  '&lparlt;': '⦓',
-  '&lrarr;': '⇆',
-  '&lrcorner;': '⌟',
-  '&lrhar;': '⇋',
-  '&lrhard;': '⥭',
-  '&lrm;': '‎',
-  '&lrtri;': '⊿',
-  '&lsaquo;': '‹',
-  '&lscr;': '𝓁',
-  '&lsh;': '↰',
-  '&lsim;': '≲',
-  '&lsime;': '⪍',
-  '&lsimg;': '⪏',
-  '&lsqb;': '[',
-  '&lsquo;': '‘',
-  '&lsquor;': '‚',
-  '&lstrok;': 'ł',
-  '&lt': '<',
-  '&lt;': '<',
-  '&ltcc;': '⪦',
-  '&ltcir;': '⩹',
-  '&ltdot;': '⋖',
-  '&lthree;': '⋋',
-  '&ltimes;': '⋉',
-  '&ltlarr;': '⥶',
-  '&ltquest;': '⩻',
-  '&ltrPar;': '⦖',
-  '&ltri;': '◃',
-  '&ltrie;': '⊴',
-  '&ltrif;': '◂',
-  '&lurdshar;': '⥊',
-  '&luruhar;': '⥦',
-  '&lvertneqq;': '≨︀',
-  '&lvnE;': '≨︀',
-  '&mDDot;': '∺',
-  '&macr': '¯',
-  '&macr;': '¯',
-  '&male;': '♂',
-  '&malt;': '✠',
-  '&maltese;': '✠',
-  '&map;': '↦',
-  '&mapsto;': '↦',
-  '&mapstodown;': '↧',
-  '&mapstoleft;': '↤',
-  '&mapstoup;': '↥',
-  '&marker;': '▮',
-  '&mcomma;': '⨩',
-  '&mcy;': 'м',
-  '&mdash;': '—',
-  '&measuredangle;': '∡',
-  '&mfr;': '𝔪',
-  '&mho;': '℧',
-  '&micro': 'µ',
-  '&micro;': 'µ',
-  '&mid;': '∣',
-  '&midast;': '*',
-  '&midcir;': '⫰',
-  '&middot': '·',
-  '&middot;': '·',
-  '&minus;': '−',
-  '&minusb;': '⊟',
-  '&minusd;': '∸',
-  '&minusdu;': '⨪',
-  '&mlcp;': '⫛',
-  '&mldr;': '…',
-  '&mnplus;': '∓',
-  '&models;': '⊧',
-  '&mopf;': '𝕞',
-  '&mp;': '∓',
-  '&mscr;': '𝓂',
-  '&mstpos;': '∾',
-  '&mu;': 'μ',
-  '&multimap;': '⊸',
-  '&mumap;': '⊸',
-  '&nGg;': '⋙̸',
-  '&nGt;': '≫⃒',
-  '&nGtv;': '≫̸',
-  '&nLeftarrow;': '⇍',
-  '&nLeftrightarrow;': '⇎',
-  '&nLl;': '⋘̸',
-  '&nLt;': '≪⃒',
-  '&nLtv;': '≪̸',
-  '&nRightarrow;': '⇏',
-  '&nVDash;': '⊯',
-  '&nVdash;': '⊮',
-  '&nabla;': '∇',
-  '&nacute;': 'ń',
-  '&nang;': '∠⃒',
-  '&nap;': '≉',
-  '&napE;': '⩰̸',
-  '&napid;': '≋̸',
-  '&napos;': 'ŉ',
-  '&napprox;': '≉',
-  '&natur;': '♮',
-  '&natural;': '♮',
-  '&naturals;': 'ℕ',
-  '&nbsp': ' ',
-  '&nbsp;': ' ',
-  '&nbump;': '≎̸',
-  '&nbumpe;': '≏̸',
-  '&ncap;': '⩃',
-  '&ncaron;': 'ň',
-  '&ncedil;': 'ņ',
-  '&ncong;': '≇',
-  '&ncongdot;': '⩭̸',
-  '&ncup;': '⩂',
-  '&ncy;': 'н',
-  '&ndash;': '–',
-  '&ne;': '≠',
-  '&neArr;': '⇗',
-  '&nearhk;': '⤤',
-  '&nearr;': '↗',
-  '&nearrow;': '↗',
-  '&nedot;': '≐̸',
-  '&nequiv;': '≢',
-  '&nesear;': '⤨',
-  '&nesim;': '≂̸',
-  '&nexist;': '∄',
-  '&nexists;': '∄',
-  '&nfr;': '𝔫',
-  '&ngE;': '≧̸',
-  '&nge;': '≱',
-  '&ngeq;': '≱',
-  '&ngeqq;': '≧̸',
-  '&ngeqslant;': '⩾̸',
-  '&nges;': '⩾̸',
-  '&ngsim;': '≵',
-  '&ngt;': '≯',
-  '&ngtr;': '≯',
-  '&nhArr;': '⇎',
-  '&nharr;': '↮',
-  '&nhpar;': '⫲',
-  '&ni;': '∋',
-  '&nis;': '⋼',
-  '&nisd;': '⋺',
-  '&niv;': '∋',
-  '&njcy;': 'њ',
-  '&nlArr;': '⇍',
-  '&nlE;': '≦̸',
-  '&nlarr;': '↚',
-  '&nldr;': '‥',
-  '&nle;': '≰',
-  '&nleftarrow;': '↚',
-  '&nleftrightarrow;': '↮',
-  '&nleq;': '≰',
-  '&nleqq;': '≦̸',
-  '&nleqslant;': '⩽̸',
-  '&nles;': '⩽̸',
-  '&nless;': '≮',
-  '&nlsim;': '≴',
-  '&nlt;': '≮',
-  '&nltri;': '⋪',
-  '&nltrie;': '⋬',
-  '&nmid;': '∤',
-  '&nopf;': '𝕟',
-  '&not': '¬',
-  '&not;': '¬',
-  '&notin;': '∉',
-  '&notinE;': '⋹̸',
-  '&notindot;': '⋵̸',
-  '&notinva;': '∉',
-  '&notinvb;': '⋷',
-  '&notinvc;': '⋶',
-  '&notni;': '∌',
-  '&notniva;': '∌',
-  '&notnivb;': '⋾',
-  '&notnivc;': '⋽',
-  '&npar;': '∦',
-  '&nparallel;': '∦',
-  '&nparsl;': '⫽⃥',
-  '&npart;': '∂̸',
-  '&npolint;': '⨔',
-  '&npr;': '⊀',
-  '&nprcue;': '⋠',
-  '&npre;': '⪯̸',
-  '&nprec;': '⊀',
-  '&npreceq;': '⪯̸',
-  '&nrArr;': '⇏',
-  '&nrarr;': '↛',
-  '&nrarrc;': '⤳̸',
-  '&nrarrw;': '↝̸',
-  '&nrightarrow;': '↛',
-  '&nrtri;': '⋫',
-  '&nrtrie;': '⋭',
-  '&nsc;': '⊁',
-  '&nsccue;': '⋡',
-  '&nsce;': '⪰̸',
-  '&nscr;': '𝓃',
-  '&nshortmid;': '∤',
-  '&nshortparallel;': '∦',
-  '&nsim;': '≁',
-  '&nsime;': '≄',
-  '&nsimeq;': '≄',
-  '&nsmid;': '∤',
-  '&nspar;': '∦',
-  '&nsqsube;': '⋢',
-  '&nsqsupe;': '⋣',
-  '&nsub;': '⊄',
-  '&nsubE;': '⫅̸',
-  '&nsube;': '⊈',
-  '&nsubset;': '⊂⃒',
-  '&nsubseteq;': '⊈',
-  '&nsubseteqq;': '⫅̸',
-  '&nsucc;': '⊁',
-  '&nsucceq;': '⪰̸',
-  '&nsup;': '⊅',
-  '&nsupE;': '⫆̸',
-  '&nsupe;': '⊉',
-  '&nsupset;': '⊃⃒',
-  '&nsupseteq;': '⊉',
-  '&nsupseteqq;': '⫆̸',
-  '&ntgl;': '≹',
-  '&ntilde': 'ñ',
-  '&ntilde;': 'ñ',
-  '&ntlg;': '≸',
-  '&ntriangleleft;': '⋪',
-  '&ntrianglelefteq;': '⋬',
-  '&ntriangleright;': '⋫',
-  '&ntrianglerighteq;': '⋭',
-  '&nu;': 'ν',
-  '&num;': '#',
-  '&numero;': '№',
-  '&numsp;': ' ',
-  '&nvDash;': '⊭',
-  '&nvHarr;': '⤄',
-  '&nvap;': '≍⃒',
-  '&nvdash;': '⊬',
-  '&nvge;': '≥⃒',
-  '&nvgt;': '>⃒',
-  '&nvinfin;': '⧞',
-  '&nvlArr;': '⤂',
-  '&nvle;': '≤⃒',
-  '&nvlt;': '<⃒',
-  '&nvltrie;': '⊴⃒',
-  '&nvrArr;': '⤃',
-  '&nvrtrie;': '⊵⃒',
-  '&nvsim;': '∼⃒',
-  '&nwArr;': '⇖',
-  '&nwarhk;': '⤣',
-  '&nwarr;': '↖',
-  '&nwarrow;': '↖',
-  '&nwnear;': '⤧',
-  '&oS;': 'Ⓢ',
-  '&oacute': 'ó',
-  '&oacute;': 'ó',
-  '&oast;': '⊛',
-  '&ocir;': '⊚',
-  '&ocirc': 'ô',
-  '&ocirc;': 'ô',
-  '&ocy;': 'о',
-  '&odash;': '⊝',
-  '&odblac;': 'ő',
-  '&odiv;': '⨸',
-  '&odot;': '⊙',
-  '&odsold;': '⦼',
-  '&oelig;': 'œ',
-  '&ofcir;': '⦿',
-  '&ofr;': '𝔬',
-  '&ogon;': '˛',
-  '&ograve': 'ò',
-  '&ograve;': 'ò',
-  '&ogt;': '⧁',
-  '&ohbar;': '⦵',
-  '&ohm;': 'Ω',
-  '&oint;': '∮',
-  '&olarr;': '↺',
-  '&olcir;': '⦾',
-  '&olcross;': '⦻',
-  '&oline;': '‾',
-  '&olt;': '⧀',
-  '&omacr;': 'ō',
-  '&omega;': 'ω',
-  '&omicron;': 'ο',
-  '&omid;': '⦶',
-  '&ominus;': '⊖',
-  '&oopf;': '𝕠',
-  '&opar;': '⦷',
-  '&operp;': '⦹',
-  '&oplus;': '⊕',
-  '&or;': '∨',
-  '&orarr;': '↻',
-  '&ord;': '⩝',
-  '&order;': 'ℴ',
-  '&orderof;': 'ℴ',
-  '&ordf': 'ª',
-  '&ordf;': 'ª',
-  '&ordm': 'º',
-  '&ordm;': 'º',
-  '&origof;': '⊶',
-  '&oror;': '⩖',
-  '&orslope;': '⩗',
-  '&orv;': '⩛',
-  '&oscr;': 'ℴ',
-  '&oslash': 'ø',
-  '&oslash;': 'ø',
-  '&osol;': '⊘',
-  '&otilde': 'õ',
-  '&otilde;': 'õ',
-  '&otimes;': '⊗',
-  '&otimesas;': '⨶',
-  '&ouml': 'ö',
-  '&ouml;': 'ö',
-  '&ovbar;': '⌽',
-  '&par;': '∥',
-  '&para': '¶',
-  '&para;': '¶',
-  '&parallel;': '∥',
-  '&parsim;': '⫳',
-  '&parsl;': '⫽',
-  '&part;': '∂',
-  '&pcy;': 'п',
-  '&percnt;': '%',
-  '&period;': '.',
-  '&permil;': '‰',
-  '&perp;': '⊥',
-  '&pertenk;': '‱',
-  '&pfr;': '𝔭',
-  '&phi;': 'φ',
-  '&phiv;': 'ϕ',
-  '&phmmat;': 'ℳ',
-  '&phone;': '☎',
-  '&pi;': 'π',
-  '&pitchfork;': '⋔',
-  '&piv;': 'ϖ',
-  '&planck;': 'ℏ',
-  '&planckh;': 'ℎ',
-  '&plankv;': 'ℏ',
-  '&plus;': '+',
-  '&plusacir;': '⨣',
-  '&plusb;': '⊞',
-  '&pluscir;': '⨢',
-  '&plusdo;': '∔',
-  '&plusdu;': '⨥',
-  '&pluse;': '⩲',
-  '&plusmn': '±',
-  '&plusmn;': '±',
-  '&plussim;': '⨦',
-  '&plustwo;': '⨧',
-  '&pm;': '±',
-  '&pointint;': '⨕',
-  '&popf;': '𝕡',
-  '&pound': '£',
-  '&pound;': '£',
-  '&pr;': '≺',
-  '&prE;': '⪳',
-  '&prap;': '⪷',
-  '&prcue;': '≼',
-  '&pre;': '⪯',
-  '&prec;': '≺',
-  '&precapprox;': '⪷',
-  '&preccurlyeq;': '≼',
-  '&preceq;': '⪯',
-  '&precnapprox;': '⪹',
-  '&precneqq;': '⪵',
-  '&precnsim;': '⋨',
-  '&precsim;': '≾',
-  '&prime;': '′',
-  '&primes;': 'ℙ',
-  '&prnE;': '⪵',
-  '&prnap;': '⪹',
-  '&prnsim;': '⋨',
-  '&prod;': '∏',
-  '&profalar;': '⌮',
-  '&profline;': '⌒',
-  '&profsurf;': '⌓',
-  '&prop;': '∝',
-  '&propto;': '∝',
-  '&prsim;': '≾',
-  '&prurel;': '⊰',
-  '&pscr;': '𝓅',
-  '&psi;': 'ψ',
-  '&puncsp;': ' ',
-  '&qfr;': '𝔮',
-  '&qint;': '⨌',
-  '&qopf;': '𝕢',
-  '&qprime;': '⁗',
-  '&qscr;': '𝓆',
-  '&quaternions;': 'ℍ',
-  '&quatint;': '⨖',
-  '&quest;': '?',
-  '&questeq;': '≟',
-  '&quot': '"',
-  '&quot;': '"',
-  '&rAarr;': '⇛',
-  '&rArr;': '⇒',
-  '&rAtail;': '⤜',
-  '&rBarr;': '⤏',
-  '&rHar;': '⥤',
-  '&race;': '∽̱',
-  '&racute;': 'ŕ',
-  '&radic;': '√',
-  '&raemptyv;': '⦳',
-  '&rang;': '⟩',
-  '&rangd;': '⦒',
-  '&range;': '⦥',
-  '&rangle;': '⟩',
-  '&raquo': '»',
-  '&raquo;': '»',
-  '&rarr;': '→',
-  '&rarrap;': '⥵',
-  '&rarrb;': '⇥',
-  '&rarrbfs;': '⤠',
-  '&rarrc;': '⤳',
-  '&rarrfs;': '⤞',
-  '&rarrhk;': '↪',
-  '&rarrlp;': '↬',
-  '&rarrpl;': '⥅',
-  '&rarrsim;': '⥴',
-  '&rarrtl;': '↣',
-  '&rarrw;': '↝',
-  '&ratail;': '⤚',
-  '&ratio;': '∶',
-  '&rationals;': 'ℚ',
-  '&rbarr;': '⤍',
-  '&rbbrk;': '❳',
-  '&rbrace;': '}',
-  '&rbrack;': ']',
-  '&rbrke;': '⦌',
-  '&rbrksld;': '⦎',
-  '&rbrkslu;': '⦐',
-  '&rcaron;': 'ř',
-  '&rcedil;': 'ŗ',
-  '&rceil;': '⌉',
-  '&rcub;': '}',
-  '&rcy;': 'р',
-  '&rdca;': '⤷',
-  '&rdldhar;': '⥩',
-  '&rdquo;': '”',
-  '&rdquor;': '”',
-  '&rdsh;': '↳',
-  '&real;': 'ℜ',
-  '&realine;': 'ℛ',
-  '&realpart;': 'ℜ',
-  '&reals;': 'ℝ',
-  '&rect;': '▭',
-  '&reg': '®',
-  '&reg;': '®',
-  '&rfisht;': '⥽',
-  '&rfloor;': '⌋',
-  '&rfr;': '𝔯',
-  '&rhard;': '⇁',
-  '&rharu;': '⇀',
-  '&rharul;': '⥬',
-  '&rho;': 'ρ',
-  '&rhov;': 'ϱ',
-  '&rightarrow;': '→',
-  '&rightarrowtail;': '↣',
-  '&rightharpoondown;': '⇁',
-  '&rightharpoonup;': '⇀',
-  '&rightleftarrows;': '⇄',
-  '&rightleftharpoons;': '⇌',
-  '&rightrightarrows;': '⇉',
-  '&rightsquigarrow;': '↝',
-  '&rightthreetimes;': '⋌',
-  '&ring;': '˚',
-  '&risingdotseq;': '≓',
-  '&rlarr;': '⇄',
-  '&rlhar;': '⇌',
-  '&rlm;': '‏',
-  '&rmoust;': '⎱',
-  '&rmoustache;': '⎱',
-  '&rnmid;': '⫮',
-  '&roang;': '⟭',
-  '&roarr;': '⇾',
-  '&robrk;': '⟧',
-  '&ropar;': '⦆',
-  '&ropf;': '𝕣',
-  '&roplus;': '⨮',
-  '&rotimes;': '⨵',
-  '&rpar;': ')',
-  '&rpargt;': '⦔',
-  '&rppolint;': '⨒',
-  '&rrarr;': '⇉',
-  '&rsaquo;': '›',
-  '&rscr;': '𝓇',
-  '&rsh;': '↱',
-  '&rsqb;': ']',
-  '&rsquo;': '’',
-  '&rsquor;': '’',
-  '&rthree;': '⋌',
-  '&rtimes;': '⋊',
-  '&rtri;': '▹',
-  '&rtrie;': '⊵',
-  '&rtrif;': '▸',
-  '&rtriltri;': '⧎',
-  '&ruluhar;': '⥨',
-  '&rx;': '℞',
-  '&sacute;': 'ś',
-  '&sbquo;': '‚',
-  '&sc;': '≻',
-  '&scE;': '⪴',
-  '&scap;': '⪸',
-  '&scaron;': 'š',
-  '&sccue;': '≽',
-  '&sce;': '⪰',
-  '&scedil;': 'ş',
-  '&scirc;': 'ŝ',
-  '&scnE;': '⪶',
-  '&scnap;': '⪺',
-  '&scnsim;': '⋩',
-  '&scpolint;': '⨓',
-  '&scsim;': '≿',
-  '&scy;': 'с',
-  '&sdot;': '⋅',
-  '&sdotb;': '⊡',
-  '&sdote;': '⩦',
-  '&seArr;': '⇘',
-  '&searhk;': '⤥',
-  '&searr;': '↘',
-  '&searrow;': '↘',
-  '&sect': '§',
-  '&sect;': '§',
-  '&semi;': ';',
-  '&seswar;': '⤩',
-  '&setminus;': '∖',
-  '&setmn;': '∖',
-  '&sext;': '✶',
-  '&sfr;': '𝔰',
-  '&sfrown;': '⌢',
-  '&sharp;': '♯',
-  '&shchcy;': 'щ',
-  '&shcy;': 'ш',
-  '&shortmid;': '∣',
-  '&shortparallel;': '∥',
-  '&shy': '­',
-  '&shy;': '­',
-  '&sigma;': 'σ',
-  '&sigmaf;': 'ς',
-  '&sigmav;': 'ς',
-  '&sim;': '∼',
-  '&simdot;': '⩪',
-  '&sime;': '≃',
-  '&simeq;': '≃',
-  '&simg;': '⪞',
-  '&simgE;': '⪠',
-  '&siml;': '⪝',
-  '&simlE;': '⪟',
-  '&simne;': '≆',
-  '&simplus;': '⨤',
-  '&simrarr;': '⥲',
-  '&slarr;': '←',
-  '&smallsetminus;': '∖',
-  '&smashp;': '⨳',
-  '&smeparsl;': '⧤',
-  '&smid;': '∣',
-  '&smile;': '⌣',
-  '&smt;': '⪪',
-  '&smte;': '⪬',
-  '&smtes;': '⪬︀',
-  '&softcy;': 'ь',
-  '&sol;': '/',
-  '&solb;': '⧄',
-  '&solbar;': '⌿',
-  '&sopf;': '𝕤',
-  '&spades;': '♠',
-  '&spadesuit;': '♠',
-  '&spar;': '∥',
-  '&sqcap;': '⊓',
-  '&sqcaps;': '⊓︀',
-  '&sqcup;': '⊔',
-  '&sqcups;': '⊔︀',
-  '&sqsub;': '⊏',
-  '&sqsube;': '⊑',
-  '&sqsubset;': '⊏',
-  '&sqsubseteq;': '⊑',
-  '&sqsup;': '⊐',
-  '&sqsupe;': '⊒',
-  '&sqsupset;': '⊐',
-  '&sqsupseteq;': '⊒',
-  '&squ;': '□',
-  '&square;': '□',
-  '&squarf;': '▪',
-  '&squf;': '▪',
-  '&srarr;': '→',
-  '&sscr;': '𝓈',
-  '&ssetmn;': '∖',
-  '&ssmile;': '⌣',
-  '&sstarf;': '⋆',
-  '&star;': '☆',
-  '&starf;': '★',
-  '&straightepsilon;': 'ϵ',
-  '&straightphi;': 'ϕ',
-  '&strns;': '¯',
-  '&sub;': '⊂',
-  '&subE;': '⫅',
-  '&subdot;': '⪽',
-  '&sube;': '⊆',
-  '&subedot;': '⫃',
-  '&submult;': '⫁',
-  '&subnE;': '⫋',
-  '&subne;': '⊊',
-  '&subplus;': '⪿',
-  '&subrarr;': '⥹',
-  '&subset;': '⊂',
-  '&subseteq;': '⊆',
-  '&subseteqq;': '⫅',
-  '&subsetneq;': '⊊',
-  '&subsetneqq;': '⫋',
-  '&subsim;': '⫇',
-  '&subsub;': '⫕',
-  '&subsup;': '⫓',
-  '&succ;': '≻',
-  '&succapprox;': '⪸',
-  '&succcurlyeq;': '≽',
-  '&succeq;': '⪰',
-  '&succnapprox;': '⪺',
-  '&succneqq;': '⪶',
-  '&succnsim;': '⋩',
-  '&succsim;': '≿',
-  '&sum;': '∑',
-  '&sung;': '♪',
-  '&sup1': '¹',
-  '&sup1;': '¹',
-  '&sup2': '²',
-  '&sup2;': '²',
-  '&sup3': '³',
-  '&sup3;': '³',
-  '&sup;': '⊃',
-  '&supE;': '⫆',
-  '&supdot;': '⪾',
-  '&supdsub;': '⫘',
-  '&supe;': '⊇',
-  '&supedot;': '⫄',
-  '&suphsol;': '⟉',
-  '&suphsub;': '⫗',
-  '&suplarr;': '⥻',
-  '&supmult;': '⫂',
-  '&supnE;': '⫌',
-  '&supne;': '⊋',
-  '&supplus;': '⫀',
-  '&supset;': '⊃',
-  '&supseteq;': '⊇',
-  '&supseteqq;': '⫆',
-  '&supsetneq;': '⊋',
-  '&supsetneqq;': '⫌',
-  '&supsim;': '⫈',
-  '&supsub;': '⫔',
-  '&supsup;': '⫖',
-  '&swArr;': '⇙',
-  '&swarhk;': '⤦',
-  '&swarr;': '↙',
-  '&swarrow;': '↙',
-  '&swnwar;': '⤪',
-  '&szlig': 'ß',
-  '&szlig;': 'ß',
-  '&target;': '⌖',
-  '&tau;': 'τ',
-  '&tbrk;': '⎴',
-  '&tcaron;': 'ť',
-  '&tcedil;': 'ţ',
-  '&tcy;': 'т',
-  '&tdot;': '⃛',
-  '&telrec;': '⌕',
-  '&tfr;': '𝔱',
-  '&there4;': '∴',
-  '&therefore;': '∴',
-  '&theta;': 'θ',
-  '&thetasym;': 'ϑ',
-  '&thetav;': 'ϑ',
-  '&thickapprox;': '≈',
-  '&thicksim;': '∼',
-  '&thinsp;': ' ',
-  '&thkap;': '≈',
-  '&thksim;': '∼',
-  '&thorn': 'þ',
-  '&thorn;': 'þ',
-  '&tilde;': '˜',
-  '&times': '×',
-  '&times;': '×',
-  '&timesb;': '⊠',
-  '&timesbar;': '⨱',
-  '&timesd;': '⨰',
-  '&tint;': '∭',
-  '&toea;': '⤨',
-  '&top;': '⊤',
-  '&topbot;': '⌶',
-  '&topcir;': '⫱',
-  '&topf;': '𝕥',
-  '&topfork;': '⫚',
-  '&tosa;': '⤩',
-  '&tprime;': '‴',
-  '&trade;': '™',
-  '&triangle;': '▵',
-  '&triangledown;': '▿',
-  '&triangleleft;': '◃',
-  '&trianglelefteq;': '⊴',
-  '&triangleq;': '≜',
-  '&triangleright;': '▹',
-  '&trianglerighteq;': '⊵',
-  '&tridot;': '◬',
-  '&trie;': '≜',
-  '&triminus;': '⨺',
-  '&triplus;': '⨹',
-  '&trisb;': '⧍',
-  '&tritime;': '⨻',
-  '&trpezium;': '⏢',
-  '&tscr;': '𝓉',
-  '&tscy;': 'ц',
-  '&tshcy;': 'ћ',
-  '&tstrok;': 'ŧ',
-  '&twixt;': '≬',
-  '&twoheadleftarrow;': '↞',
-  '&twoheadrightarrow;': '↠',
-  '&uArr;': '⇑',
-  '&uHar;': '⥣',
-  '&uacute': 'ú',
-  '&uacute;': 'ú',
-  '&uarr;': '↑',
-  '&ubrcy;': 'ў',
-  '&ubreve;': 'ŭ',
-  '&ucirc': 'û',
-  '&ucirc;': 'û',
-  '&ucy;': 'у',
-  '&udarr;': '⇅',
-  '&udblac;': 'ű',
-  '&udhar;': '⥮',
-  '&ufisht;': '⥾',
-  '&ufr;': '𝔲',
-  '&ugrave': 'ù',
-  '&ugrave;': 'ù',
-  '&uharl;': '↿',
-  '&uharr;': '↾',
-  '&uhblk;': '▀',
-  '&ulcorn;': '⌜',
-  '&ulcorner;': '⌜',
-  '&ulcrop;': '⌏',
-  '&ultri;': '◸',
-  '&umacr;': 'ū',
-  '&uml': '¨',
-  '&uml;': '¨',
-  '&uogon;': 'ų',
-  '&uopf;': '𝕦',
-  '&uparrow;': '↑',
-  '&updownarrow;': '↕',
-  '&upharpoonleft;': '↿',
-  '&upharpoonright;': '↾',
-  '&uplus;': '⊎',
-  '&upsi;': 'υ',
-  '&upsih;': 'ϒ',
-  '&upsilon;': 'υ',
-  '&upuparrows;': '⇈',
-  '&urcorn;': '⌝',
-  '&urcorner;': '⌝',
-  '&urcrop;': '⌎',
-  '&uring;': 'ů',
-  '&urtri;': '◹',
-  '&uscr;': '𝓊',
-  '&utdot;': '⋰',
-  '&utilde;': 'ũ',
-  '&utri;': '▵',
-  '&utrif;': '▴',
-  '&uuarr;': '⇈',
-  '&uuml': 'ü',
-  '&uuml;': 'ü',
-  '&uwangle;': '⦧',
-  '&vArr;': '⇕',
-  '&vBar;': '⫨',
-  '&vBarv;': '⫩',
-  '&vDash;': '⊨',
-  '&vangrt;': '⦜',
-  '&varepsilon;': 'ϵ',
-  '&varkappa;': 'ϰ',
-  '&varnothing;': '∅',
-  '&varphi;': 'ϕ',
-  '&varpi;': 'ϖ',
-  '&varpropto;': '∝',
-  '&varr;': '↕',
-  '&varrho;': 'ϱ',
-  '&varsigma;': 'ς',
-  '&varsubsetneq;': '⊊︀',
-  '&varsubsetneqq;': '⫋︀',
-  '&varsupsetneq;': '⊋︀',
-  '&varsupsetneqq;': '⫌︀',
-  '&vartheta;': 'ϑ',
-  '&vartriangleleft;': '⊲',
-  '&vartriangleright;': '⊳',
-  '&vcy;': 'в',
-  '&vdash;': '⊢',
-  '&vee;': '∨',
-  '&veebar;': '⊻',
-  '&veeeq;': '≚',
-  '&vellip;': '⋮',
-  '&verbar;': '|',
-  '&vert;': '|',
-  '&vfr;': '𝔳',
-  '&vltri;': '⊲',
-  '&vnsub;': '⊂⃒',
-  '&vnsup;': '⊃⃒',
-  '&vopf;': '𝕧',
-  '&vprop;': '∝',
-  '&vrtri;': '⊳',
-  '&vscr;': '𝓋',
-  '&vsubnE;': '⫋︀',
-  '&vsubne;': '⊊︀',
-  '&vsupnE;': '⫌︀',
-  '&vsupne;': '⊋︀',
-  '&vzigzag;': '⦚',
-  '&wcirc;': 'ŵ',
-  '&wedbar;': '⩟',
-  '&wedge;': '∧',
-  '&wedgeq;': '≙',
-  '&weierp;': '℘',
-  '&wfr;': '𝔴',
-  '&wopf;': '𝕨',
-  '&wp;': '℘',
-  '&wr;': '≀',
-  '&wreath;': '≀',
-  '&wscr;': '𝓌',
-  '&xcap;': '⋂',
-  '&xcirc;': '◯',
-  '&xcup;': '⋃',
-  '&xdtri;': '▽',
-  '&xfr;': '𝔵',
-  '&xhArr;': '⟺',
-  '&xharr;': '⟷',
-  '&xi;': 'ξ',
-  '&xlArr;': '⟸',
-  '&xlarr;': '⟵',
-  '&xmap;': '⟼',
-  '&xnis;': '⋻',
-  '&xodot;': '⨀',
-  '&xopf;': '𝕩',
-  '&xoplus;': '⨁',
-  '&xotime;': '⨂',
-  '&xrArr;': '⟹',
-  '&xrarr;': '⟶',
-  '&xscr;': '𝓍',
-  '&xsqcup;': '⨆',
-  '&xuplus;': '⨄',
-  '&xutri;': '△',
-  '&xvee;': '⋁',
-  '&xwedge;': '⋀',
-  '&yacute': 'ý',
-  '&yacute;': 'ý',
-  '&yacy;': 'я',
-  '&ycirc;': 'ŷ',
-  '&ycy;': 'ы',
-  '&yen': '¥',
-  '&yen;': '¥',
-  '&yfr;': '𝔶',
-  '&yicy;': 'ї',
-  '&yopf;': '𝕪',
-  '&yscr;': '𝓎',
-  '&yucy;': 'ю',
-  '&yuml': 'ÿ',
-  '&yuml;': 'ÿ',
-  '&zacute;': 'ź',
-  '&zcaron;': 'ž',
-  '&zcy;': 'з',
-  '&zdot;': 'ż',
-  '&zeetrf;': 'ℨ',
-  '&zeta;': 'ζ',
-  '&zfr;': '𝔷',
-  '&zhcy;': 'ж',
-  '&zigrarr;': '⇝',
-  '&zopf;': '𝕫',
-  '&zscr;': '𝓏',
-  '&zwj;': '‍',
-  '&zwnj;': '‌'
-};
+var decode = new Map();
+decode.set('&AElig', 'Æ');
+decode.set('&AElig;', 'Æ');
+decode.set('&AMP', '&');
+decode.set('&AMP;', '&');
+decode.set('&Aacute', 'Á');
+decode.set('&Aacute;', 'Á');
+decode.set('&Abreve;', 'Ă');
+decode.set('&Acirc', 'Â');
+decode.set('&Acirc;', 'Â');
+decode.set('&Acy;', 'А');
+decode.set('&Afr;', '𝔄');
+decode.set('&Agrave', 'À');
+decode.set('&Agrave;', 'À');
+decode.set('&Alpha;', 'Α');
+decode.set('&Amacr;', 'Ā');
+decode.set('&And;', '⩓');
+decode.set('&Aogon;', 'Ą');
+decode.set('&Aopf;', '𝔸');
+decode.set('&ApplyFunction;', '⁡');
+decode.set('&Aring', 'Å');
+decode.set('&Aring;', 'Å');
+decode.set('&Ascr;', '𝒜');
+decode.set('&Assign;', '≔');
+decode.set('&Atilde', 'Ã');
+decode.set('&Atilde;', 'Ã');
+decode.set('&Auml', 'Ä');
+decode.set('&Auml;', 'Ä');
+decode.set('&Backslash;', '∖');
+decode.set('&Barv;', '⫧');
+decode.set('&Barwed;', '⌆');
+decode.set('&Bcy;', 'Б');
+decode.set('&Because;', '∵');
+decode.set('&Bernoullis;', 'ℬ');
+decode.set('&Beta;', 'Β');
+decode.set('&Bfr;', '𝔅');
+decode.set('&Bopf;', '𝔹');
+decode.set('&Breve;', '˘');
+decode.set('&Bscr;', 'ℬ');
+decode.set('&Bumpeq;', '≎');
+decode.set('&CHcy;', 'Ч');
+decode.set('&COPY', '©');
+decode.set('&COPY;', '©');
+decode.set('&Cacute;', 'Ć');
+decode.set('&Cap;', '⋒');
+decode.set('&CapitalDifferentialD;', 'ⅅ');
+decode.set('&Cayleys;', 'ℭ');
+decode.set('&Ccaron;', 'Č');
+decode.set('&Ccedil', 'Ç');
+decode.set('&Ccedil;', 'Ç');
+decode.set('&Ccirc;', 'Ĉ');
+decode.set('&Cconint;', '∰');
+decode.set('&Cdot;', 'Ċ');
+decode.set('&Cedilla;', '¸');
+decode.set('&CenterDot;', '·');
+decode.set('&Cfr;', 'ℭ');
+decode.set('&Chi;', 'Χ');
+decode.set('&CircleDot;', '⊙');
+decode.set('&CircleMinus;', '⊖');
+decode.set('&CirclePlus;', '⊕');
+decode.set('&CircleTimes;', '⊗');
+decode.set('&ClockwiseContourIntegral;', '∲');
+decode.set('&CloseCurlyDoubleQuote;', '”');
+decode.set('&CloseCurlyQuote;', '’');
+decode.set('&Colon;', '∷');
+decode.set('&Colone;', '⩴');
+decode.set('&Congruent;', '≡');
+decode.set('&Conint;', '∯');
+decode.set('&ContourIntegral;', '∮');
+decode.set('&Copf;', 'ℂ');
+decode.set('&Coproduct;', '∐');
+decode.set('&CounterClockwiseContourIntegral;', '∳');
+decode.set('&Cross;', '⨯');
+decode.set('&Cscr;', '𝒞');
+decode.set('&Cup;', '⋓');
+decode.set('&CupCap;', '≍');
+decode.set('&DD;', 'ⅅ');
+decode.set('&DDotrahd;', '⤑');
+decode.set('&DJcy;', 'Ђ');
+decode.set('&DScy;', 'Ѕ');
+decode.set('&DZcy;', 'Џ');
+decode.set('&Dagger;', '‡');
+decode.set('&Darr;', '↡');
+decode.set('&Dashv;', '⫤');
+decode.set('&Dcaron;', 'Ď');
+decode.set('&Dcy;', 'Д');
+decode.set('&Del;', '∇');
+decode.set('&Delta;', 'Δ');
+decode.set('&Dfr;', '𝔇');
+decode.set('&DiacriticalAcute;', '´');
+decode.set('&DiacriticalDot;', '˙');
+decode.set('&DiacriticalDoubleAcute;', '˝');
+decode.set('&DiacriticalGrave;', '`');
+decode.set('&DiacriticalTilde;', '˜');
+decode.set('&Diamond;', '⋄');
+decode.set('&DifferentialD;', 'ⅆ');
+decode.set('&Dopf;', '𝔻');
+decode.set('&Dot;', '¨');
+decode.set('&DotDot;', '⃜');
+decode.set('&DotEqual;', '≐');
+decode.set('&DoubleContourIntegral;', '∯');
+decode.set('&DoubleDot;', '¨');
+decode.set('&DoubleDownArrow;', '⇓');
+decode.set('&DoubleLeftArrow;', '⇐');
+decode.set('&DoubleLeftRightArrow;', '⇔');
+decode.set('&DoubleLeftTee;', '⫤');
+decode.set('&DoubleLongLeftArrow;', '⟸');
+decode.set('&DoubleLongLeftRightArrow;', '⟺');
+decode.set('&DoubleLongRightArrow;', '⟹');
+decode.set('&DoubleRightArrow;', '⇒');
+decode.set('&DoubleRightTee;', '⊨');
+decode.set('&DoubleUpArrow;', '⇑');
+decode.set('&DoubleUpDownArrow;', '⇕');
+decode.set('&DoubleVerticalBar;', '∥');
+decode.set('&DownArrow;', '↓');
+decode.set('&DownArrowBar;', '⤓');
+decode.set('&DownArrowUpArrow;', '⇵');
+decode.set('&DownBreve;', '̑');
+decode.set('&DownLeftRightVector;', '⥐');
+decode.set('&DownLeftTeeVector;', '⥞');
+decode.set('&DownLeftVector;', '↽');
+decode.set('&DownLeftVectorBar;', '⥖');
+decode.set('&DownRightTeeVector;', '⥟');
+decode.set('&DownRightVector;', '⇁');
+decode.set('&DownRightVectorBar;', '⥗');
+decode.set('&DownTee;', '⊤');
+decode.set('&DownTeeArrow;', '↧');
+decode.set('&Downarrow;', '⇓');
+decode.set('&Dscr;', '𝒟');
+decode.set('&Dstrok;', 'Đ');
+decode.set('&ENG;', 'Ŋ');
+decode.set('&ETH', 'Ð');
+decode.set('&ETH;', 'Ð');
+decode.set('&Eacute', 'É');
+decode.set('&Eacute;', 'É');
+decode.set('&Ecaron;', 'Ě');
+decode.set('&Ecirc', 'Ê');
+decode.set('&Ecirc;', 'Ê');
+decode.set('&Ecy;', 'Э');
+decode.set('&Edot;', 'Ė');
+decode.set('&Efr;', '𝔈');
+decode.set('&Egrave', 'È');
+decode.set('&Egrave;', 'È');
+decode.set('&Element;', '∈');
+decode.set('&Emacr;', 'Ē');
+decode.set('&EmptySmallSquare;', '◻');
+decode.set('&EmptyVerySmallSquare;', '▫');
+decode.set('&Eogon;', 'Ę');
+decode.set('&Eopf;', '𝔼');
+decode.set('&Epsilon;', 'Ε');
+decode.set('&Equal;', '⩵');
+decode.set('&EqualTilde;', '≂');
+decode.set('&Equilibrium;', '⇌');
+decode.set('&Escr;', 'ℰ');
+decode.set('&Esim;', '⩳');
+decode.set('&Eta;', 'Η');
+decode.set('&Euml', 'Ë');
+decode.set('&Euml;', 'Ë');
+decode.set('&Exists;', '∃');
+decode.set('&ExponentialE;', 'ⅇ');
+decode.set('&Fcy;', 'Ф');
+decode.set('&Ffr;', '𝔉');
+decode.set('&FilledSmallSquare;', '◼');
+decode.set('&FilledVerySmallSquare;', '▪');
+decode.set('&Fopf;', '𝔽');
+decode.set('&ForAll;', '∀');
+decode.set('&Fouriertrf;', 'ℱ');
+decode.set('&Fscr;', 'ℱ');
+decode.set('&GJcy;', 'Ѓ');
+decode.set('&GT', '>');
+decode.set('&GT;', '>');
+decode.set('&Gamma;', 'Γ');
+decode.set('&Gammad;', 'Ϝ');
+decode.set('&Gbreve;', 'Ğ');
+decode.set('&Gcedil;', 'Ģ');
+decode.set('&Gcirc;', 'Ĝ');
+decode.set('&Gcy;', 'Г');
+decode.set('&Gdot;', 'Ġ');
+decode.set('&Gfr;', '𝔊');
+decode.set('&Gg;', '⋙');
+decode.set('&Gopf;', '𝔾');
+decode.set('&GreaterEqual;', '≥');
+decode.set('&GreaterEqualLess;', '⋛');
+decode.set('&GreaterFullEqual;', '≧');
+decode.set('&GreaterGreater;', '⪢');
+decode.set('&GreaterLess;', '≷');
+decode.set('&GreaterSlantEqual;', '⩾');
+decode.set('&GreaterTilde;', '≳');
+decode.set('&Gscr;', '𝒢');
+decode.set('&Gt;', '≫');
+decode.set('&HARDcy;', 'Ъ');
+decode.set('&Hacek;', 'ˇ');
+decode.set('&Hat;', '^');
+decode.set('&Hcirc;', 'Ĥ');
+decode.set('&Hfr;', 'ℌ');
+decode.set('&HilbertSpace;', 'ℋ');
+decode.set('&Hopf;', 'ℍ');
+decode.set('&HorizontalLine;', '─');
+decode.set('&Hscr;', 'ℋ');
+decode.set('&Hstrok;', 'Ħ');
+decode.set('&HumpDownHump;', '≎');
+decode.set('&HumpEqual;', '≏');
+decode.set('&IEcy;', 'Е');
+decode.set('&IJlig;', 'Ĳ');
+decode.set('&IOcy;', 'Ё');
+decode.set('&Iacute', 'Í');
+decode.set('&Iacute;', 'Í');
+decode.set('&Icirc', 'Î');
+decode.set('&Icirc;', 'Î');
+decode.set('&Icy;', 'И');
+decode.set('&Idot;', 'İ');
+decode.set('&Ifr;', 'ℑ');
+decode.set('&Igrave', 'Ì');
+decode.set('&Igrave;', 'Ì');
+decode.set('&Im;', 'ℑ');
+decode.set('&Imacr;', 'Ī');
+decode.set('&ImaginaryI;', 'ⅈ');
+decode.set('&Implies;', '⇒');
+decode.set('&Int;', '∬');
+decode.set('&Integral;', '∫');
+decode.set('&Intersection;', '⋂');
+decode.set('&InvisibleComma;', '⁣');
+decode.set('&InvisibleTimes;', '⁢');
+decode.set('&Iogon;', 'Į');
+decode.set('&Iopf;', '𝕀');
+decode.set('&Iota;', 'Ι');
+decode.set('&Iscr;', 'ℐ');
+decode.set('&Itilde;', 'Ĩ');
+decode.set('&Iukcy;', 'І');
+decode.set('&Iuml', 'Ï');
+decode.set('&Iuml;', 'Ï');
+decode.set('&Jcirc;', 'Ĵ');
+decode.set('&Jcy;', 'Й');
+decode.set('&Jfr;', '𝔍');
+decode.set('&Jopf;', '𝕁');
+decode.set('&Jscr;', '𝒥');
+decode.set('&Jsercy;', 'Ј');
+decode.set('&Jukcy;', 'Є');
+decode.set('&KHcy;', 'Х');
+decode.set('&KJcy;', 'Ќ');
+decode.set('&Kappa;', 'Κ');
+decode.set('&Kcedil;', 'Ķ');
+decode.set('&Kcy;', 'К');
+decode.set('&Kfr;', '𝔎');
+decode.set('&Kopf;', '𝕂');
+decode.set('&Kscr;', '𝒦');
+decode.set('&LJcy;', 'Љ');
+decode.set('&LT', '<');
+decode.set('&LT;', '<');
+decode.set('&Lacute;', 'Ĺ');
+decode.set('&Lambda;', 'Λ');
+decode.set('&Lang;', '⟪');
+decode.set('&Laplacetrf;', 'ℒ');
+decode.set('&Larr;', '↞');
+decode.set('&Lcaron;', 'Ľ');
+decode.set('&Lcedil;', 'Ļ');
+decode.set('&Lcy;', 'Л');
+decode.set('&LeftAngleBracket;', '⟨');
+decode.set('&LeftArrow;', '←');
+decode.set('&LeftArrowBar;', '⇤');
+decode.set('&LeftArrowRightArrow;', '⇆');
+decode.set('&LeftCeiling;', '⌈');
+decode.set('&LeftDoubleBracket;', '⟦');
+decode.set('&LeftDownTeeVector;', '⥡');
+decode.set('&LeftDownVector;', '⇃');
+decode.set('&LeftDownVectorBar;', '⥙');
+decode.set('&LeftFloor;', '⌊');
+decode.set('&LeftRightArrow;', '↔');
+decode.set('&LeftRightVector;', '⥎');
+decode.set('&LeftTee;', '⊣');
+decode.set('&LeftTeeArrow;', '↤');
+decode.set('&LeftTeeVector;', '⥚');
+decode.set('&LeftTriangle;', '⊲');
+decode.set('&LeftTriangleBar;', '⧏');
+decode.set('&LeftTriangleEqual;', '⊴');
+decode.set('&LeftUpDownVector;', '⥑');
+decode.set('&LeftUpTeeVector;', '⥠');
+decode.set('&LeftUpVector;', '↿');
+decode.set('&LeftUpVectorBar;', '⥘');
+decode.set('&LeftVector;', '↼');
+decode.set('&LeftVectorBar;', '⥒');
+decode.set('&Leftarrow;', '⇐');
+decode.set('&Leftrightarrow;', '⇔');
+decode.set('&LessEqualGreater;', '⋚');
+decode.set('&LessFullEqual;', '≦');
+decode.set('&LessGreater;', '≶');
+decode.set('&LessLess;', '⪡');
+decode.set('&LessSlantEqual;', '⩽');
+decode.set('&LessTilde;', '≲');
+decode.set('&Lfr;', '𝔏');
+decode.set('&Ll;', '⋘');
+decode.set('&Lleftarrow;', '⇚');
+decode.set('&Lmidot;', 'Ŀ');
+decode.set('&LongLeftArrow;', '⟵');
+decode.set('&LongLeftRightArrow;', '⟷');
+decode.set('&LongRightArrow;', '⟶');
+decode.set('&Longleftarrow;', '⟸');
+decode.set('&Longleftrightarrow;', '⟺');
+decode.set('&Longrightarrow;', '⟹');
+decode.set('&Lopf;', '𝕃');
+decode.set('&LowerLeftArrow;', '↙');
+decode.set('&LowerRightArrow;', '↘');
+decode.set('&Lscr;', 'ℒ');
+decode.set('&Lsh;', '↰');
+decode.set('&Lstrok;', 'Ł');
+decode.set('&Lt;', '≪');
+decode.set('&Map;', '⤅');
+decode.set('&Mcy;', 'М');
+decode.set('&MediumSpace;', ' ');
+decode.set('&Mellintrf;', 'ℳ');
+decode.set('&Mfr;', '𝔐');
+decode.set('&MinusPlus;', '∓');
+decode.set('&Mopf;', '𝕄');
+decode.set('&Mscr;', 'ℳ');
+decode.set('&Mu;', 'Μ');
+decode.set('&NJcy;', 'Њ');
+decode.set('&Nacute;', 'Ń');
+decode.set('&Ncaron;', 'Ň');
+decode.set('&Ncedil;', 'Ņ');
+decode.set('&Ncy;', 'Н');
+decode.set('&NegativeMediumSpace;', '​');
+decode.set('&NegativeThickSpace;', '​');
+decode.set('&NegativeThinSpace;', '​');
+decode.set('&NegativeVeryThinSpace;', '​');
+decode.set('&NestedGreaterGreater;', '≫');
+decode.set('&NestedLessLess;', '≪');
+decode.set('&NewLine;', '\n');
+decode.set('&Nfr;', '𝔑');
+decode.set('&NoBreak;', '⁠');
+decode.set('&NonBreakingSpace;', ' ');
+decode.set('&Nopf;', 'ℕ');
+decode.set('&Not;', '⫬');
+decode.set('&NotCongruent;', '≢');
+decode.set('&NotCupCap;', '≭');
+decode.set('&NotDoubleVerticalBar;', '∦');
+decode.set('&NotElement;', '∉');
+decode.set('&NotEqual;', '≠');
+decode.set('&NotEqualTilde;', '≂̸');
+decode.set('&NotExists;', '∄');
+decode.set('&NotGreater;', '≯');
+decode.set('&NotGreaterEqual;', '≱');
+decode.set('&NotGreaterFullEqual;', '≧̸');
+decode.set('&NotGreaterGreater;', '≫̸');
+decode.set('&NotGreaterLess;', '≹');
+decode.set('&NotGreaterSlantEqual;', '⩾̸');
+decode.set('&NotGreaterTilde;', '≵');
+decode.set('&NotHumpDownHump;', '≎̸');
+decode.set('&NotHumpEqual;', '≏̸');
+decode.set('&NotLeftTriangle;', '⋪');
+decode.set('&NotLeftTriangleBar;', '⧏̸');
+decode.set('&NotLeftTriangleEqual;', '⋬');
+decode.set('&NotLess;', '≮');
+decode.set('&NotLessEqual;', '≰');
+decode.set('&NotLessGreater;', '≸');
+decode.set('&NotLessLess;', '≪̸');
+decode.set('&NotLessSlantEqual;', '⩽̸');
+decode.set('&NotLessTilde;', '≴');
+decode.set('&NotNestedGreaterGreater;', '⪢̸');
+decode.set('&NotNestedLessLess;', '⪡̸');
+decode.set('&NotPrecedes;', '⊀');
+decode.set('&NotPrecedesEqual;', '⪯̸');
+decode.set('&NotPrecedesSlantEqual;', '⋠');
+decode.set('&NotReverseElement;', '∌');
+decode.set('&NotRightTriangle;', '⋫');
+decode.set('&NotRightTriangleBar;', '⧐̸');
+decode.set('&NotRightTriangleEqual;', '⋭');
+decode.set('&NotSquareSubset;', '⊏̸');
+decode.set('&NotSquareSubsetEqual;', '⋢');
+decode.set('&NotSquareSuperset;', '⊐̸');
+decode.set('&NotSquareSupersetEqual;', '⋣');
+decode.set('&NotSubset;', '⊂⃒');
+decode.set('&NotSubsetEqual;', '⊈');
+decode.set('&NotSucceeds;', '⊁');
+decode.set('&NotSucceedsEqual;', '⪰̸');
+decode.set('&NotSucceedsSlantEqual;', '⋡');
+decode.set('&NotSucceedsTilde;', '≿̸');
+decode.set('&NotSuperset;', '⊃⃒');
+decode.set('&NotSupersetEqual;', '⊉');
+decode.set('&NotTilde;', '≁');
+decode.set('&NotTildeEqual;', '≄');
+decode.set('&NotTildeFullEqual;', '≇');
+decode.set('&NotTildeTilde;', '≉');
+decode.set('&NotVerticalBar;', '∤');
+decode.set('&Nscr;', '𝒩');
+decode.set('&Ntilde', 'Ñ');
+decode.set('&Ntilde;', 'Ñ');
+decode.set('&Nu;', 'Ν');
+decode.set('&OElig;', 'Œ');
+decode.set('&Oacute', 'Ó');
+decode.set('&Oacute;', 'Ó');
+decode.set('&Ocirc', 'Ô');
+decode.set('&Ocirc;', 'Ô');
+decode.set('&Ocy;', 'О');
+decode.set('&Odblac;', 'Ő');
+decode.set('&Ofr;', '𝔒');
+decode.set('&Ograve', 'Ò');
+decode.set('&Ograve;', 'Ò');
+decode.set('&Omacr;', 'Ō');
+decode.set('&Omega;', 'Ω');
+decode.set('&Omicron;', 'Ο');
+decode.set('&Oopf;', '𝕆');
+decode.set('&OpenCurlyDoubleQuote;', '“');
+decode.set('&OpenCurlyQuote;', '‘');
+decode.set('&Or;', '⩔');
+decode.set('&Oscr;', '𝒪');
+decode.set('&Oslash', 'Ø');
+decode.set('&Oslash;', 'Ø');
+decode.set('&Otilde', 'Õ');
+decode.set('&Otilde;', 'Õ');
+decode.set('&Otimes;', '⨷');
+decode.set('&Ouml', 'Ö');
+decode.set('&Ouml;', 'Ö');
+decode.set('&OverBar;', '‾');
+decode.set('&OverBrace;', '⏞');
+decode.set('&OverBracket;', '⎴');
+decode.set('&OverParenthesis;', '⏜');
+decode.set('&PartialD;', '∂');
+decode.set('&Pcy;', 'П');
+decode.set('&Pfr;', '𝔓');
+decode.set('&Phi;', 'Φ');
+decode.set('&Pi;', 'Π');
+decode.set('&PlusMinus;', '±');
+decode.set('&Poincareplane;', 'ℌ');
+decode.set('&Popf;', 'ℙ');
+decode.set('&Pr;', '⪻');
+decode.set('&Precedes;', '≺');
+decode.set('&PrecedesEqual;', '⪯');
+decode.set('&PrecedesSlantEqual;', '≼');
+decode.set('&PrecedesTilde;', '≾');
+decode.set('&Prime;', '″');
+decode.set('&Product;', '∏');
+decode.set('&Proportion;', '∷');
+decode.set('&Proportional;', '∝');
+decode.set('&Pscr;', '𝒫');
+decode.set('&Psi;', 'Ψ');
+decode.set('&QUOT', '"');
+decode.set('&QUOT;', '"');
+decode.set('&Qfr;', '𝔔');
+decode.set('&Qopf;', 'ℚ');
+decode.set('&Qscr;', '𝒬');
+decode.set('&RBarr;', '⤐');
+decode.set('&REG', '®');
+decode.set('&REG;', '®');
+decode.set('&Racute;', 'Ŕ');
+decode.set('&Rang;', '⟫');
+decode.set('&Rarr;', '↠');
+decode.set('&Rarrtl;', '⤖');
+decode.set('&Rcaron;', 'Ř');
+decode.set('&Rcedil;', 'Ŗ');
+decode.set('&Rcy;', 'Р');
+decode.set('&Re;', 'ℜ');
+decode.set('&ReverseElement;', '∋');
+decode.set('&ReverseEquilibrium;', '⇋');
+decode.set('&ReverseUpEquilibrium;', '⥯');
+decode.set('&Rfr;', 'ℜ');
+decode.set('&Rho;', 'Ρ');
+decode.set('&RightAngleBracket;', '⟩');
+decode.set('&RightArrow;', '→');
+decode.set('&RightArrowBar;', '⇥');
+decode.set('&RightArrowLeftArrow;', '⇄');
+decode.set('&RightCeiling;', '⌉');
+decode.set('&RightDoubleBracket;', '⟧');
+decode.set('&RightDownTeeVector;', '⥝');
+decode.set('&RightDownVector;', '⇂');
+decode.set('&RightDownVectorBar;', '⥕');
+decode.set('&RightFloor;', '⌋');
+decode.set('&RightTee;', '⊢');
+decode.set('&RightTeeArrow;', '↦');
+decode.set('&RightTeeVector;', '⥛');
+decode.set('&RightTriangle;', '⊳');
+decode.set('&RightTriangleBar;', '⧐');
+decode.set('&RightTriangleEqual;', '⊵');
+decode.set('&RightUpDownVector;', '⥏');
+decode.set('&RightUpTeeVector;', '⥜');
+decode.set('&RightUpVector;', '↾');
+decode.set('&RightUpVectorBar;', '⥔');
+decode.set('&RightVector;', '⇀');
+decode.set('&RightVectorBar;', '⥓');
+decode.set('&Rightarrow;', '⇒');
+decode.set('&Ropf;', 'ℝ');
+decode.set('&RoundImplies;', '⥰');
+decode.set('&Rrightarrow;', '⇛');
+decode.set('&Rscr;', 'ℛ');
+decode.set('&Rsh;', '↱');
+decode.set('&RuleDelayed;', '⧴');
+decode.set('&SHCHcy;', 'Щ');
+decode.set('&SHcy;', 'Ш');
+decode.set('&SOFTcy;', 'Ь');
+decode.set('&Sacute;', 'Ś');
+decode.set('&Sc;', '⪼');
+decode.set('&Scaron;', 'Š');
+decode.set('&Scedil;', 'Ş');
+decode.set('&Scirc;', 'Ŝ');
+decode.set('&Scy;', 'С');
+decode.set('&Sfr;', '𝔖');
+decode.set('&ShortDownArrow;', '↓');
+decode.set('&ShortLeftArrow;', '←');
+decode.set('&ShortRightArrow;', '→');
+decode.set('&ShortUpArrow;', '↑');
+decode.set('&Sigma;', 'Σ');
+decode.set('&SmallCircle;', '∘');
+decode.set('&Sopf;', '𝕊');
+decode.set('&Sqrt;', '√');
+decode.set('&Square;', '□');
+decode.set('&SquareIntersection;', '⊓');
+decode.set('&SquareSubset;', '⊏');
+decode.set('&SquareSubsetEqual;', '⊑');
+decode.set('&SquareSuperset;', '⊐');
+decode.set('&SquareSupersetEqual;', '⊒');
+decode.set('&SquareUnion;', '⊔');
+decode.set('&Sscr;', '𝒮');
+decode.set('&Star;', '⋆');
+decode.set('&Sub;', '⋐');
+decode.set('&Subset;', '⋐');
+decode.set('&SubsetEqual;', '⊆');
+decode.set('&Succeeds;', '≻');
+decode.set('&SucceedsEqual;', '⪰');
+decode.set('&SucceedsSlantEqual;', '≽');
+decode.set('&SucceedsTilde;', '≿');
+decode.set('&SuchThat;', '∋');
+decode.set('&Sum;', '∑');
+decode.set('&Sup;', '⋑');
+decode.set('&Superset;', '⊃');
+decode.set('&SupersetEqual;', '⊇');
+decode.set('&Supset;', '⋑');
+decode.set('&THORN', 'Þ');
+decode.set('&THORN;', 'Þ');
+decode.set('&TRADE;', '™');
+decode.set('&TSHcy;', 'Ћ');
+decode.set('&TScy;', 'Ц');
+decode.set('&Tab;', '\t');
+decode.set('&Tau;', 'Τ');
+decode.set('&Tcaron;', 'Ť');
+decode.set('&Tcedil;', 'Ţ');
+decode.set('&Tcy;', 'Т');
+decode.set('&Tfr;', '𝔗');
+decode.set('&Therefore;', '∴');
+decode.set('&Theta;', 'Θ');
+decode.set('&ThickSpace;', '  ');
+decode.set('&ThinSpace;', ' ');
+decode.set('&Tilde;', '∼');
+decode.set('&TildeEqual;', '≃');
+decode.set('&TildeFullEqual;', '≅');
+decode.set('&TildeTilde;', '≈');
+decode.set('&Topf;', '𝕋');
+decode.set('&TripleDot;', '⃛');
+decode.set('&Tscr;', '𝒯');
+decode.set('&Tstrok;', 'Ŧ');
+decode.set('&Uacute', 'Ú');
+decode.set('&Uacute;', 'Ú');
+decode.set('&Uarr;', '↟');
+decode.set('&Uarrocir;', '⥉');
+decode.set('&Ubrcy;', 'Ў');
+decode.set('&Ubreve;', 'Ŭ');
+decode.set('&Ucirc', 'Û');
+decode.set('&Ucirc;', 'Û');
+decode.set('&Ucy;', 'У');
+decode.set('&Udblac;', 'Ű');
+decode.set('&Ufr;', '𝔘');
+decode.set('&Ugrave', 'Ù');
+decode.set('&Ugrave;', 'Ù');
+decode.set('&Umacr;', 'Ū');
+decode.set('&UnderBar;', '_');
+decode.set('&UnderBrace;', '⏟');
+decode.set('&UnderBracket;', '⎵');
+decode.set('&UnderParenthesis;', '⏝');
+decode.set('&Union;', '⋃');
+decode.set('&UnionPlus;', '⊎');
+decode.set('&Uogon;', 'Ų');
+decode.set('&Uopf;', '𝕌');
+decode.set('&UpArrow;', '↑');
+decode.set('&UpArrowBar;', '⤒');
+decode.set('&UpArrowDownArrow;', '⇅');
+decode.set('&UpDownArrow;', '↕');
+decode.set('&UpEquilibrium;', '⥮');
+decode.set('&UpTee;', '⊥');
+decode.set('&UpTeeArrow;', '↥');
+decode.set('&Uparrow;', '⇑');
+decode.set('&Updownarrow;', '⇕');
+decode.set('&UpperLeftArrow;', '↖');
+decode.set('&UpperRightArrow;', '↗');
+decode.set('&Upsi;', 'ϒ');
+decode.set('&Upsilon;', 'Υ');
+decode.set('&Uring;', 'Ů');
+decode.set('&Uscr;', '𝒰');
+decode.set('&Utilde;', 'Ũ');
+decode.set('&Uuml', 'Ü');
+decode.set('&Uuml;', 'Ü');
+decode.set('&VDash;', '⊫');
+decode.set('&Vbar;', '⫫');
+decode.set('&Vcy;', 'В');
+decode.set('&Vdash;', '⊩');
+decode.set('&Vdashl;', '⫦');
+decode.set('&Vee;', '⋁');
+decode.set('&Verbar;', '‖');
+decode.set('&Vert;', '‖');
+decode.set('&VerticalBar;', '∣');
+decode.set('&VerticalLine;', '|');
+decode.set('&VerticalSeparator;', '❘');
+decode.set('&VerticalTilde;', '≀');
+decode.set('&VeryThinSpace;', ' ');
+decode.set('&Vfr;', '𝔙');
+decode.set('&Vopf;', '𝕍');
+decode.set('&Vscr;', '𝒱');
+decode.set('&Vvdash;', '⊪');
+decode.set('&Wcirc;', 'Ŵ');
+decode.set('&Wedge;', '⋀');
+decode.set('&Wfr;', '𝔚');
+decode.set('&Wopf;', '𝕎');
+decode.set('&Wscr;', '𝒲');
+decode.set('&Xfr;', '𝔛');
+decode.set('&Xi;', 'Ξ');
+decode.set('&Xopf;', '𝕏');
+decode.set('&Xscr;', '𝒳');
+decode.set('&YAcy;', 'Я');
+decode.set('&YIcy;', 'Ї');
+decode.set('&YUcy;', 'Ю');
+decode.set('&Yacute', 'Ý');
+decode.set('&Yacute;', 'Ý');
+decode.set('&Ycirc;', 'Ŷ');
+decode.set('&Ycy;', 'Ы');
+decode.set('&Yfr;', '𝔜');
+decode.set('&Yopf;', '𝕐');
+decode.set('&Yscr;', '𝒴');
+decode.set('&Yuml;', 'Ÿ');
+decode.set('&ZHcy;', 'Ж');
+decode.set('&Zacute;', 'Ź');
+decode.set('&Zcaron;', 'Ž');
+decode.set('&Zcy;', 'З');
+decode.set('&Zdot;', 'Ż');
+decode.set('&ZeroWidthSpace;', '​');
+decode.set('&Zeta;', 'Ζ');
+decode.set('&Zfr;', 'ℨ');
+decode.set('&Zopf;', 'ℤ');
+decode.set('&Zscr;', '𝒵');
+decode.set('&aacute;', 'á');
+decode.set('&abreve;', 'ă');
+decode.set('&ac;', '∾');
+decode.set('&acE;', '∾̳');
+decode.set('&acd;', '∿');
+decode.set('&acirc', 'â');
+decode.set('&acirc;', 'â');
+decode.set('&acute', '´');
+decode.set('&acute;', '´');
+decode.set('&acy;', 'а');
+decode.set('&aelig', 'æ');
+decode.set('&aelig;', 'æ');
+decode.set('&af;', '⁡');
+decode.set('&afr;', '𝔞');
+decode.set('&agrave', 'à');
+decode.set('&agrave;', 'à');
+decode.set('&alefsym;', 'ℵ');
+decode.set('&aleph;', 'ℵ');
+decode.set('&alpha;', 'α');
+decode.set('&amacr;', 'ā');
+decode.set('&amalg;', '⨿');
+decode.set('&amp', '&');
+decode.set('&amp;', '&');
+decode.set('&and;', '∧');
+decode.set('&andand;', '⩕');
+decode.set('&andd;', '⩜');
+decode.set('&andslope;', '⩘');
+decode.set('&andv;', '⩚');
+decode.set('&ang;', '∠');
+decode.set('&ange;', '⦤');
+decode.set('&angle;', '∠');
+decode.set('&angmsd;', '∡');
+decode.set('&angmsdaa;', '⦨');
+decode.set('&angmsdab;', '⦩');
+decode.set('&angmsdac;', '⦪');
+decode.set('&angmsdad;', '⦫');
+decode.set('&angmsdae;', '⦬');
+decode.set('&angmsdaf;', '⦭');
+decode.set('&angmsdag;', '⦮');
+decode.set('&angmsdah;', '⦯');
+decode.set('&angrt;', '∟');
+decode.set('&angrtvb;', '⊾');
+decode.set('&angrtvbd;', '⦝');
+decode.set('&angsph;', '∢');
+decode.set('&angst;', 'Å');
+decode.set('&angzarr;', '⍼');
+decode.set('&aogon;', 'ą');
+decode.set('&aopf;', '𝕒');
+decode.set('&ap;', '≈');
+decode.set('&apE;', '⩰');
+decode.set('&apacir;', '⩯');
+decode.set('&ape;', '≊');
+decode.set('&apid;', '≋');
+decode.set('&apos;', '\'');
+decode.set('&approx;', '≈');
+decode.set('&approxeq;', '≊');
+decode.set('&aring', 'å');
+decode.set('&aring;', 'å');
+decode.set('&ascr;', '𝒶');
+decode.set('&ast;', '*');
+decode.set('&asymp;', '≈');
+decode.set('&asympeq;', '≍');
+decode.set('&atilde', 'ã');
+decode.set('&atilde;', 'ã');
+decode.set('&auml', 'ä');
+decode.set('&auml;', 'ä');
+decode.set('&awconint;', '∳');
+decode.set('&awint;', '⨑');
+decode.set('&bNot;', '⫭');
+decode.set('&backcong;', '≌');
+decode.set('&backepsilon;', '϶');
+decode.set('&backprime;', '‵');
+decode.set('&backsim;', '∽');
+decode.set('&backsimeq;', '⋍');
+decode.set('&barvee;', '⊽');
+decode.set('&barwed;', '⌅');
+decode.set('&barwedge;', '⌅');
+decode.set('&bbrk;', '⎵');
+decode.set('&bbrktbrk;', '⎶');
+decode.set('&bcong;', '≌');
+decode.set('&bcy;', 'б');
+decode.set('&bdquo;', '„');
+decode.set('&becaus;', '∵');
+decode.set('&because;', '∵');
+decode.set('&bemptyv;', '⦰');
+decode.set('&bepsi;', '϶');
+decode.set('&bernou;', 'ℬ');
+decode.set('&beta;', 'β');
+decode.set('&beth;', 'ℶ');
+decode.set('&between;', '≬');
+decode.set('&bfr;', '𝔟');
+decode.set('&bigcap;', '⋂');
+decode.set('&bigcirc;', '◯');
+decode.set('&bigcup;', '⋃');
+decode.set('&bigodot;', '⨀');
+decode.set('&bigoplus;', '⨁');
+decode.set('&bigotimes;', '⨂');
+decode.set('&bigsqcup;', '⨆');
+decode.set('&bigstar;', '★');
+decode.set('&bigtriangledown;', '▽');
+decode.set('&bigtriangleup;', '△');
+decode.set('&biguplus;', '⨄');
+decode.set('&bigvee;', '⋁');
+decode.set('&bigwedge;', '⋀');
+decode.set('&bkarow;', '⤍');
+decode.set('&blacklozenge;', '⧫');
+decode.set('&blacksquare;', '▪');
+decode.set('&blacktriangle;', '▴');
+decode.set('&blacktriangledown;', '▾');
+decode.set('&blacktriangleleft;', '◂');
+decode.set('&blacktriangleright;', '▸');
+decode.set('&blank;', '␣');
+decode.set('&blk12;', '▒');
+decode.set('&blk14;', '░');
+decode.set('&blk34;', '▓');
+decode.set('&block;', '█');
+decode.set('&bne;', '=⃥');
+decode.set('&bnequiv;', '≡⃥');
+decode.set('&bnot;', '⌐');
+decode.set('&bopf;', '𝕓');
+decode.set('&bot;', '⊥');
+decode.set('&bottom;', '⊥');
+decode.set('&bowtie;', '⋈');
+decode.set('&boxDL;', '╗');
+decode.set('&boxDR;', '╔');
+decode.set('&boxDl;', '╖');
+decode.set('&boxDr;', '╓');
+decode.set('&boxH;', '═');
+decode.set('&boxHD;', '╦');
+decode.set('&boxHU;', '╩');
+decode.set('&boxHd;', '╤');
+decode.set('&boxHu;', '╧');
+decode.set('&boxUL;', '╝');
+decode.set('&boxUR;', '╚');
+decode.set('&boxUl;', '╜');
+decode.set('&boxUr;', '╙');
+decode.set('&boxV;', '║');
+decode.set('&boxVH;', '╬');
+decode.set('&boxVL;', '╣');
+decode.set('&boxVR;', '╠');
+decode.set('&boxVh;', '╫');
+decode.set('&boxVl;', '╢');
+decode.set('&boxVr;', '╟');
+decode.set('&boxbox;', '⧉');
+decode.set('&boxdL;', '╕');
+decode.set('&boxdR;', '╒');
+decode.set('&boxdl;', '┐');
+decode.set('&boxdr;', '┌');
+decode.set('&boxh;', '─');
+decode.set('&boxhD;', '╥');
+decode.set('&boxhU;', '╨');
+decode.set('&boxhd;', '┬');
+decode.set('&boxhu;', '┴');
+decode.set('&boxminus;', '⊟');
+decode.set('&boxplus;', '⊞');
+decode.set('&boxtimes;', '⊠');
+decode.set('&boxuL;', '╛');
+decode.set('&boxuR;', '╘');
+decode.set('&boxul;', '┘');
+decode.set('&boxur;', '└');
+decode.set('&boxv;', '│');
+decode.set('&boxvH;', '╪');
+decode.set('&boxvL;', '╡');
+decode.set('&boxvR;', '╞');
+decode.set('&boxvh;', '┼');
+decode.set('&boxvl;', '┤');
+decode.set('&boxvr;', '├');
+decode.set('&bprime;', '‵');
+decode.set('&breve;', '˘');
+decode.set('&brvbar', '¦');
+decode.set('&brvbar;', '¦');
+decode.set('&bscr;', '𝒷');
+decode.set('&bsemi;', '⁏');
+decode.set('&bsim;', '∽');
+decode.set('&bsime;', '⋍');
+decode.set('&bsol;', '\\');
+decode.set('&bsolb;', '⧅');
+decode.set('&bsolhsub;', '⟈');
+decode.set('&bull;', '•');
+decode.set('&bullet;', '•');
+decode.set('&bump;', '≎');
+decode.set('&bumpE;', '⪮');
+decode.set('&bumpe;', '≏');
+decode.set('&bumpeq;', '≏');
+decode.set('&cacute;', 'ć');
+decode.set('&cap;', '∩');
+decode.set('&capand;', '⩄');
+decode.set('&capbrcup;', '⩉');
+decode.set('&capcap;', '⩋');
+decode.set('&capcup;', '⩇');
+decode.set('&capdot;', '⩀');
+decode.set('&caps;', '∩︀');
+decode.set('&caret;', '⁁');
+decode.set('&caron;', 'ˇ');
+decode.set('&ccaps;', '⩍');
+decode.set('&ccaron;', 'č');
+decode.set('&ccedil', 'ç');
+decode.set('&ccedil;', 'ç');
+decode.set('&ccirc;', 'ĉ');
+decode.set('&ccups;', '⩌');
+decode.set('&ccupssm;', '⩐');
+decode.set('&cdot;', 'ċ');
+decode.set('&cedil', '¸');
+decode.set('&cedil;', '¸');
+decode.set('&cemptyv;', '⦲');
+decode.set('&cent', '¢');
+decode.set('&cent;', '¢');
+decode.set('&centerdot;', '·');
+decode.set('&cfr;', '𝔠');
+decode.set('&chcy;', 'ч');
+decode.set('&check;', '✓');
+decode.set('&checkmark;', '✓');
+decode.set('&chi;', 'χ');
+decode.set('&cir;', '○');
+decode.set('&cirE;', '⧃');
+decode.set('&circ;', 'ˆ');
+decode.set('&circeq;', '≗');
+decode.set('&circlearrowleft;', '↺');
+decode.set('&circlearrowright;', '↻');
+decode.set('&circledR;', '®');
+decode.set('&circledS;', 'Ⓢ');
+decode.set('&circledast;', '⊛');
+decode.set('&circledcirc;', '⊚');
+decode.set('&circleddash;', '⊝');
+decode.set('&cire;', '≗');
+decode.set('&cirfnint;', '⨐');
+decode.set('&cirmid;', '⫯');
+decode.set('&cirscir;', '⧂');
+decode.set('&clubs;', '♣');
+decode.set('&clubsuit;', '♣');
+decode.set('&colon;', ':');
+decode.set('&colone;', '≔');
+decode.set('&coloneq;', '≔');
+decode.set('&comma;', ',');
+decode.set('&commat;', '@');
+decode.set('&comp;', '∁');
+decode.set('&compfn;', '∘');
+decode.set('&complement;', '∁');
+decode.set('&complexes;', 'ℂ');
+decode.set('&cong;', '≅');
+decode.set('&congdot;', '⩭');
+decode.set('&conint;', '∮');
+decode.set('&copf;', '𝕔');
+decode.set('&coprod;', '∐');
+decode.set('&copy', '©');
+decode.set('&copy;', '©');
+decode.set('&copysr;', '℗');
+decode.set('&crarr;', '↵');
+decode.set('&cross;', '✗');
+decode.set('&cscr;', '𝒸');
+decode.set('&csub;', '⫏');
+decode.set('&csube;', '⫑');
+decode.set('&csup;', '⫐');
+decode.set('&csupe;', '⫒');
+decode.set('&ctdot;', '⋯');
+decode.set('&cudarrl;', '⤸');
+decode.set('&cudarrr;', '⤵');
+decode.set('&cuepr;', '⋞');
+decode.set('&cuesc;', '⋟');
+decode.set('&cularr;', '↶');
+decode.set('&cularrp;', '⤽');
+decode.set('&cup;', '∪');
+decode.set('&cupbrcap;', '⩈');
+decode.set('&cupcap;', '⩆');
+decode.set('&cupcup;', '⩊');
+decode.set('&cupdot;', '⊍');
+decode.set('&cupor;', '⩅');
+decode.set('&cups;', '∪︀');
+decode.set('&curarr;', '↷');
+decode.set('&curarrm;', '⤼');
+decode.set('&curlyeqprec;', '⋞');
+decode.set('&curlyeqsucc;', '⋟');
+decode.set('&curlyvee;', '⋎');
+decode.set('&curlywedge;', '⋏');
+decode.set('&curren', '¤');
+decode.set('&curren;', '¤');
+decode.set('&curvearrowleft;', '↶');
+decode.set('&curvearrowright;', '↷');
+decode.set('&cuvee;', '⋎');
+decode.set('&cuwed;', '⋏');
+decode.set('&cwconint;', '∲');
+decode.set('&cwint;', '∱');
+decode.set('&cylcty;', '⌭');
+decode.set('&dArr;', '⇓');
+decode.set('&dHar;', '⥥');
+decode.set('&dagger;', '†');
+decode.set('&daleth;', 'ℸ');
+decode.set('&darr;', '↓');
+decode.set('&dash;', '‐');
+decode.set('&dashv;', '⊣');
+decode.set('&dbkarow;', '⤏');
+decode.set('&dblac;', '˝');
+decode.set('&dcaron;', 'ď');
+decode.set('&dcy;', 'д');
+decode.set('&dd;', 'ⅆ');
+decode.set('&ddagger;', '‡');
+decode.set('&ddarr;', '⇊');
+decode.set('&ddotseq;', '⩷');
+decode.set('&deg', '°');
+decode.set('&deg;', '°');
+decode.set('&delta;', 'δ');
+decode.set('&demptyv;', '⦱');
+decode.set('&dfisht;', '⥿');
+decode.set('&dfr;', '𝔡');
+decode.set('&dharl;', '⇃');
+decode.set('&dharr;', '⇂');
+decode.set('&diam;', '⋄');
+decode.set('&diamond;', '⋄');
+decode.set('&diamondsuit;', '♦');
+decode.set('&diams;', '♦');
+decode.set('&die;', '¨');
+decode.set('&digamma;', 'ϝ');
+decode.set('&disin;', '⋲');
+decode.set('&div;', '÷');
+decode.set('&divide', '÷');
+decode.set('&divide;', '÷');
+decode.set('&divideontimes;', '⋇');
+decode.set('&divonx;', '⋇');
+decode.set('&djcy;', 'ђ');
+decode.set('&dlcorn;', '⌞');
+decode.set('&dlcrop;', '⌍');
+decode.set('&dollar;', '$');
+decode.set('&dopf;', '𝕕');
+decode.set('&dot;', '˙');
+decode.set('&doteq;', '≐');
+decode.set('&doteqdot;', '≑');
+decode.set('&dotminus;', '∸');
+decode.set('&dotplus;', '∔');
+decode.set('&dotsquare;', '⊡');
+decode.set('&doublebarwedge;', '⌆');
+decode.set('&downarrow;', '↓');
+decode.set('&downdownarrows;', '⇊');
+decode.set('&downharpoonleft;', '⇃');
+decode.set('&downharpoonright;', '⇂');
+decode.set('&drbkarow;', '⤐');
+decode.set('&drcorn;', '⌟');
+decode.set('&drcrop;', '⌌');
+decode.set('&dscr;', '𝒹');
+decode.set('&dscy;', 'ѕ');
+decode.set('&dsol;', '⧶');
+decode.set('&dstrok;', 'đ');
+decode.set('&dtdot;', '⋱');
+decode.set('&dtri;', '▿');
+decode.set('&dtrif;', '▾');
+decode.set('&duarr;', '⇵');
+decode.set('&duhar;', '⥯');
+decode.set('&dwangle;', '⦦');
+decode.set('&dzcy;', 'џ');
+decode.set('&dzigrarr;', '⟿');
+decode.set('&eDDot;', '⩷');
+decode.set('&eDot;', '≑');
+decode.set('&eacute;', 'é');
+decode.set('&easter;', '⩮');
+decode.set('&ecaron;', 'ě');
+decode.set('&ecir;', '≖');
+decode.set('&ecirc', 'ê');
+decode.set('&ecirc;', 'ê');
+decode.set('&ecolon;', '≕');
+decode.set('&ecy;', 'э');
+decode.set('&edot;', 'ė');
+decode.set('&ee;', 'ⅇ');
+decode.set('&efDot;', '≒');
+decode.set('&efr;', '𝔢');
+decode.set('&eg;', '⪚');
+decode.set('&egrave', 'è');
+decode.set('&egrave;', 'è');
+decode.set('&egs;', '⪖');
+decode.set('&egsdot;', '⪘');
+decode.set('&el;', '⪙');
+decode.set('&elinters;', '⏧');
+decode.set('&ell;', 'ℓ');
+decode.set('&els;', '⪕');
+decode.set('&elsdot;', '⪗');
+decode.set('&emacr;', 'ē');
+decode.set('&empty;', '∅');
+decode.set('&emptyset;', '∅');
+decode.set('&emptyv;', '∅');
+decode.set('&emsp13;', ' ');
+decode.set('&emsp14;', ' ');
+decode.set('&emsp;', ' ');
+decode.set('&eng;', 'ŋ');
+decode.set('&ensp;', ' ');
+decode.set('&eogon;', 'ę');
+decode.set('&eopf;', '𝕖');
+decode.set('&epar;', '⋕');
+decode.set('&eparsl;', '⧣');
+decode.set('&eplus;', '⩱');
+decode.set('&epsi;', 'ε');
+decode.set('&epsilon;', 'ε');
+decode.set('&epsiv;', 'ϵ');
+decode.set('&eqcirc;', '≖');
+decode.set('&eqcolon;', '≕');
+decode.set('&eqsim;', '≂');
+decode.set('&eqslantgtr;', '⪖');
+decode.set('&eqslantless;', '⪕');
+decode.set('&equals;', '=');
+decode.set('&equest;', '≟');
+decode.set('&equiv;', '≡');
+decode.set('&equivDD;', '⩸');
+decode.set('&eqvparsl;', '⧥');
+decode.set('&erDot;', '≓');
+decode.set('&erarr;', '⥱');
+decode.set('&escr;', 'ℯ');
+decode.set('&esdot;', '≐');
+decode.set('&esim;', '≂');
+decode.set('&eta;', 'η');
+decode.set('&eth', 'ð');
+decode.set('&eth;', 'ð');
+decode.set('&euml', 'ë');
+decode.set('&euml;', 'ë');
+decode.set('&euro;', '€');
+decode.set('&excl;', '!');
+decode.set('&exist;', '∃');
+decode.set('&expectation;', 'ℰ');
+decode.set('&exponentiale;', 'ⅇ');
+decode.set('&fallingdotseq;', '≒');
+decode.set('&fcy;', 'ф');
+decode.set('&female;', '♀');
+decode.set('&ffilig;', 'ﬃ');
+decode.set('&fflig;', 'ﬀ');
+decode.set('&ffllig;', 'ﬄ');
+decode.set('&ffr;', '𝔣');
+decode.set('&filig;', 'ﬁ');
+decode.set('&fjlig;', 'fj');
+decode.set('&flat;', '♭');
+decode.set('&fllig;', 'ﬂ');
+decode.set('&fltns;', '▱');
+decode.set('&fnof;', 'ƒ');
+decode.set('&fopf;', '𝕗');
+decode.set('&forall;', '∀');
+decode.set('&fork;', '⋔');
+decode.set('&forkv;', '⫙');
+decode.set('&fpartint;', '⨍');
+decode.set('&frac12', '½');
+decode.set('&frac12;', '½');
+decode.set('&frac13;', '⅓');
+decode.set('&frac14', '¼');
+decode.set('&frac14;', '¼');
+decode.set('&frac15;', '⅕');
+decode.set('&frac16;', '⅙');
+decode.set('&frac18;', '⅛');
+decode.set('&frac23;', '⅔');
+decode.set('&frac25;', '⅖');
+decode.set('&frac34', '¾');
+decode.set('&frac34;', '¾');
+decode.set('&frac35;', '⅗');
+decode.set('&frac38;', '⅜');
+decode.set('&frac45;', '⅘');
+decode.set('&frac56;', '⅚');
+decode.set('&frac58;', '⅝');
+decode.set('&frac78;', '⅞');
+decode.set('&frasl;', '⁄');
+decode.set('&frown;', '⌢');
+decode.set('&fscr;', '𝒻');
+decode.set('&gE;', '≧');
+decode.set('&gEl;', '⪌');
+decode.set('&gacute;', 'ǵ');
+decode.set('&gamma;', 'γ');
+decode.set('&gammad;', 'ϝ');
+decode.set('&gap;', '⪆');
+decode.set('&gbreve;', 'ğ');
+decode.set('&gcirc;', 'ĝ');
+decode.set('&gcy;', 'г');
+decode.set('&gdot;', 'ġ');
+decode.set('&ge;', '≥');
+decode.set('&gel;', '⋛');
+decode.set('&geq;', '≥');
+decode.set('&geqq;', '≧');
+decode.set('&geqslant;', '⩾');
+decode.set('&ges;', '⩾');
+decode.set('&gescc;', '⪩');
+decode.set('&gesdot;', '⪀');
+decode.set('&gesdoto;', '⪂');
+decode.set('&gesdotol;', '⪄');
+decode.set('&gesl;', '⋛︀');
+decode.set('&gesles;', '⪔');
+decode.set('&gfr;', '𝔤');
+decode.set('&gg;', '≫');
+decode.set('&ggg;', '⋙');
+decode.set('&gimel;', 'ℷ');
+decode.set('&gjcy;', 'ѓ');
+decode.set('&gl;', '≷');
+decode.set('&glE;', '⪒');
+decode.set('&gla;', '⪥');
+decode.set('&glj;', '⪤');
+decode.set('&gnE;', '≩');
+decode.set('&gnap;', '⪊');
+decode.set('&gnapprox;', '⪊');
+decode.set('&gne;', '⪈');
+decode.set('&gneq;', '⪈');
+decode.set('&gneqq;', '≩');
+decode.set('&gnsim;', '⋧');
+decode.set('&gopf;', '𝕘');
+decode.set('&grave;', '`');
+decode.set('&gscr;', 'ℊ');
+decode.set('&gsim;', '≳');
+decode.set('&gsime;', '⪎');
+decode.set('&gsiml;', '⪐');
+decode.set('&gt', '>');
+decode.set('&gt;', '>');
+decode.set('&gtcc;', '⪧');
+decode.set('&gtcir;', '⩺');
+decode.set('&gtdot;', '⋗');
+decode.set('&gtlPar;', '⦕');
+decode.set('&gtquest;', '⩼');
+decode.set('&gtrapprox;', '⪆');
+decode.set('&gtrarr;', '⥸');
+decode.set('&gtrdot;', '⋗');
+decode.set('&gtreqless;', '⋛');
+decode.set('&gtreqqless;', '⪌');
+decode.set('&gtrless;', '≷');
+decode.set('&gtrsim;', '≳');
+decode.set('&gvertneqq;', '≩︀');
+decode.set('&gvnE;', '≩︀');
+decode.set('&hArr;', '⇔');
+decode.set('&hairsp;', ' ');
+decode.set('&half;', '½');
+decode.set('&hamilt;', 'ℋ');
+decode.set('&hardcy;', 'ъ');
+decode.set('&harr;', '↔');
+decode.set('&harrcir;', '⥈');
+decode.set('&harrw;', '↭');
+decode.set('&hbar;', 'ℏ');
+decode.set('&hcirc;', 'ĥ');
+decode.set('&hearts;', '♥');
+decode.set('&heartsuit;', '♥');
+decode.set('&hellip;', '…');
+decode.set('&hercon;', '⊹');
+decode.set('&hfr;', '𝔥');
+decode.set('&hksearow;', '⤥');
+decode.set('&hkswarow;', '⤦');
+decode.set('&hoarr;', '⇿');
+decode.set('&homtht;', '∻');
+decode.set('&hookleftarrow;', '↩');
+decode.set('&hookrightarrow;', '↪');
+decode.set('&hopf;', '𝕙');
+decode.set('&horbar;', '―');
+decode.set('&hscr;', '𝒽');
+decode.set('&hslash;', 'ℏ');
+decode.set('&hstrok;', 'ħ');
+decode.set('&hybull;', '⁃');
+decode.set('&hyphen;', '‐');
+decode.set('&iacute', 'í');
+decode.set('&iacute;', 'í');
+decode.set('&ic;', '⁣');
+decode.set('&icirc', 'î');
+decode.set('&icirc;', 'î');
+decode.set('&icy;', 'и');
+decode.set('&iecy;', 'е');
+decode.set('&iexcl', '¡');
+decode.set('&iexcl;', '¡');
+decode.set('&iff;', '⇔');
+decode.set('&ifr;', '𝔦');
+decode.set('&igrave', 'ì');
+decode.set('&igrave;', 'ì');
+decode.set('&ii;', 'ⅈ');
+decode.set('&iiiint;', '⨌');
+decode.set('&iiint;', '∭');
+decode.set('&iinfin;', '⧜');
+decode.set('&iiota;', '℩');
+decode.set('&ijlig;', 'ĳ');
+decode.set('&imacr;', 'ī');
+decode.set('&image;', 'ℑ');
+decode.set('&imagline;', 'ℐ');
+decode.set('&imagpart;', 'ℑ');
+decode.set('&imath;', 'ı');
+decode.set('&imof;', '⊷');
+decode.set('&imped;', 'Ƶ');
+decode.set('&in;', '∈');
+decode.set('&incare;', '℅');
+decode.set('&infin;', '∞');
+decode.set('&infintie;', '⧝');
+decode.set('&inodot;', 'ı');
+decode.set('&int;', '∫');
+decode.set('&intcal;', '⊺');
+decode.set('&integers;', 'ℤ');
+decode.set('&intercal;', '⊺');
+decode.set('&intlarhk;', '⨗');
+decode.set('&intprod;', '⨼');
+decode.set('&iocy;', 'ё');
+decode.set('&iogon;', 'į');
+decode.set('&iopf;', '𝕚');
+decode.set('&iota;', 'ι');
+decode.set('&iprod;', '⨼');
+decode.set('&iquest', '¿');
+decode.set('&iquest;', '¿');
+decode.set('&iscr;', '𝒾');
+decode.set('&isin;', '∈');
+decode.set('&isinE;', '⋹');
+decode.set('&isindot;', '⋵');
+decode.set('&isins;', '⋴');
+decode.set('&isinsv;', '⋳');
+decode.set('&isinv;', '∈');
+decode.set('&it;', '⁢');
+decode.set('&itilde;', 'ĩ');
+decode.set('&iukcy;', 'і');
+decode.set('&iuml', 'ï');
+decode.set('&iuml;', 'ï');
+decode.set('&jcirc;', 'ĵ');
+decode.set('&jcy;', 'й');
+decode.set('&jfr;', '𝔧');
+decode.set('&jmath;', 'ȷ');
+decode.set('&jopf;', '𝕛');
+decode.set('&jscr;', '𝒿');
+decode.set('&jsercy;', 'ј');
+decode.set('&jukcy;', 'є');
+decode.set('&kappa;', 'κ');
+decode.set('&kappav;', 'ϰ');
+decode.set('&kcedil;', 'ķ');
+decode.set('&kcy;', 'к');
+decode.set('&kfr;', '𝔨');
+decode.set('&kgreen;', 'ĸ');
+decode.set('&khcy;', 'х');
+decode.set('&kjcy;', 'ќ');
+decode.set('&kopf;', '𝕜');
+decode.set('&kscr;', '𝓀');
+decode.set('&lAarr;', '⇚');
+decode.set('&lArr;', '⇐');
+decode.set('&lAtail;', '⤛');
+decode.set('&lBarr;', '⤎');
+decode.set('&lE;', '≦');
+decode.set('&lEg;', '⪋');
+decode.set('&lHar;', '⥢');
+decode.set('&lacute;', 'ĺ');
+decode.set('&laemptyv;', '⦴');
+decode.set('&lagran;', 'ℒ');
+decode.set('&lambda;', 'λ');
+decode.set('&lang;', '⟨');
+decode.set('&langd;', '⦑');
+decode.set('&langle;', '⟨');
+decode.set('&lap;', '⪅');
+decode.set('&laquo', '«');
+decode.set('&laquo;', '«');
+decode.set('&larr;', '←');
+decode.set('&larrb;', '⇤');
+decode.set('&larrbfs;', '⤟');
+decode.set('&larrfs;', '⤝');
+decode.set('&larrhk;', '↩');
+decode.set('&larrlp;', '↫');
+decode.set('&larrpl;', '⤹');
+decode.set('&larrsim;', '⥳');
+decode.set('&larrtl;', '↢');
+decode.set('&lat;', '⪫');
+decode.set('&latail;', '⤙');
+decode.set('&late;', '⪭');
+decode.set('&lates;', '⪭︀');
+decode.set('&lbarr;', '⤌');
+decode.set('&lbbrk;', '❲');
+decode.set('&lbrace;', '{');
+decode.set('&lbrack;', '[');
+decode.set('&lbrke;', '⦋');
+decode.set('&lbrksld;', '⦏');
+decode.set('&lbrkslu;', '⦍');
+decode.set('&lcaron;', 'ľ');
+decode.set('&lcedil;', 'ļ');
+decode.set('&lceil;', '⌈');
+decode.set('&lcub;', '{');
+decode.set('&lcy;', 'л');
+decode.set('&ldca;', '⤶');
+decode.set('&ldquo;', '“');
+decode.set('&ldquor;', '„');
+decode.set('&ldrdhar;', '⥧');
+decode.set('&ldrushar;', '⥋');
+decode.set('&ldsh;', '↲');
+decode.set('&le;', '≤');
+decode.set('&leftarrow;', '←');
+decode.set('&leftarrowtail;', '↢');
+decode.set('&leftharpoondown;', '↽');
+decode.set('&leftharpoonup;', '↼');
+decode.set('&leftleftarrows;', '⇇');
+decode.set('&leftrightarrow;', '↔');
+decode.set('&leftrightarrows;', '⇆');
+decode.set('&leftrightharpoons;', '⇋');
+decode.set('&leftrightsquigarrow;', '↭');
+decode.set('&leftthreetimes;', '⋋');
+decode.set('&leg;', '⋚');
+decode.set('&leq;', '≤');
+decode.set('&leqq;', '≦');
+decode.set('&leqslant;', '⩽');
+decode.set('&les;', '⩽');
+decode.set('&lescc;', '⪨');
+decode.set('&lesdot;', '⩿');
+decode.set('&lesdoto;', '⪁');
+decode.set('&lesdotor;', '⪃');
+decode.set('&lesg;', '⋚︀');
+decode.set('&lesges;', '⪓');
+decode.set('&lessapprox;', '⪅');
+decode.set('&lessdot;', '⋖');
+decode.set('&lesseqgtr;', '⋚');
+decode.set('&lesseqqgtr;', '⪋');
+decode.set('&lessgtr;', '≶');
+decode.set('&lesssim;', '≲');
+decode.set('&lfisht;', '⥼');
+decode.set('&lfloor;', '⌊');
+decode.set('&lfr;', '𝔩');
+decode.set('&lg;', '≶');
+decode.set('&lgE;', '⪑');
+decode.set('&lhard;', '↽');
+decode.set('&lharu;', '↼');
+decode.set('&lharul;', '⥪');
+decode.set('&lhblk;', '▄');
+decode.set('&ljcy;', 'љ');
+decode.set('&ll;', '≪');
+decode.set('&llarr;', '⇇');
+decode.set('&llcorner;', '⌞');
+decode.set('&llhard;', '⥫');
+decode.set('&lltri;', '◺');
+decode.set('&lmidot;', 'ŀ');
+decode.set('&lmoust;', '⎰');
+decode.set('&lmoustache;', '⎰');
+decode.set('&lnE;', '≨');
+decode.set('&lnap;', '⪉');
+decode.set('&lnapprox;', '⪉');
+decode.set('&lne;', '⪇');
+decode.set('&lneq;', '⪇');
+decode.set('&lneqq;', '≨');
+decode.set('&lnsim;', '⋦');
+decode.set('&loang;', '⟬');
+decode.set('&loarr;', '⇽');
+decode.set('&lobrk;', '⟦');
+decode.set('&longleftarrow;', '⟵');
+decode.set('&longleftrightarrow;', '⟷');
+decode.set('&longmapsto;', '⟼');
+decode.set('&longrightarrow;', '⟶');
+decode.set('&looparrowleft;', '↫');
+decode.set('&looparrowright;', '↬');
+decode.set('&lopar;', '⦅');
+decode.set('&lopf;', '𝕝');
+decode.set('&loplus;', '⨭');
+decode.set('&lotimes;', '⨴');
+decode.set('&lowast;', '∗');
+decode.set('&lowbar;', '_');
+decode.set('&loz;', '◊');
+decode.set('&lozenge;', '◊');
+decode.set('&lozf;', '⧫');
+decode.set('&lpar;', '(');
+decode.set('&lparlt;', '⦓');
+decode.set('&lrarr;', '⇆');
+decode.set('&lrcorner;', '⌟');
+decode.set('&lrhar;', '⇋');
+decode.set('&lrhard;', '⥭');
+decode.set('&lrm;', '‎');
+decode.set('&lrtri;', '⊿');
+decode.set('&lsaquo;', '‹');
+decode.set('&lscr;', '𝓁');
+decode.set('&lsh;', '↰');
+decode.set('&lsim;', '≲');
+decode.set('&lsime;', '⪍');
+decode.set('&lsimg;', '⪏');
+decode.set('&lsqb;', '[');
+decode.set('&lsquo;', '‘');
+decode.set('&lsquor;', '‚');
+decode.set('&lstrok;', 'ł');
+decode.set('&lt', '<');
+decode.set('&lt;', '<');
+decode.set('&ltcc;', '⪦');
+decode.set('&ltcir;', '⩹');
+decode.set('&ltdot;', '⋖');
+decode.set('&lthree;', '⋋');
+decode.set('&ltimes;', '⋉');
+decode.set('&ltlarr;', '⥶');
+decode.set('&ltquest;', '⩻');
+decode.set('&ltrPar;', '⦖');
+decode.set('&ltri;', '◃');
+decode.set('&ltrie;', '⊴');
+decode.set('&ltrif;', '◂');
+decode.set('&lurdshar;', '⥊');
+decode.set('&luruhar;', '⥦');
+decode.set('&lvertneqq;', '≨︀');
+decode.set('&lvnE;', '≨︀');
+decode.set('&mDDot;', '∺');
+decode.set('&macr', '¯');
+decode.set('&macr;', '¯');
+decode.set('&male;', '♂');
+decode.set('&malt;', '✠');
+decode.set('&maltese;', '✠');
+decode.set('&map;', '↦');
+decode.set('&mapsto;', '↦');
+decode.set('&mapstodown;', '↧');
+decode.set('&mapstoleft;', '↤');
+decode.set('&mapstoup;', '↥');
+decode.set('&marker;', '▮');
+decode.set('&mcomma;', '⨩');
+decode.set('&mcy;', 'м');
+decode.set('&mdash;', '—');
+decode.set('&measuredangle;', '∡');
+decode.set('&mfr;', '𝔪');
+decode.set('&mho;', '℧');
+decode.set('&micro', 'µ');
+decode.set('&micro;', 'µ');
+decode.set('&mid;', '∣');
+decode.set('&midast;', '*');
+decode.set('&midcir;', '⫰');
+decode.set('&middot', '·');
+decode.set('&middot;', '·');
+decode.set('&minus;', '−');
+decode.set('&minusb;', '⊟');
+decode.set('&minusd;', '∸');
+decode.set('&minusdu;', '⨪');
+decode.set('&mlcp;', '⫛');
+decode.set('&mldr;', '…');
+decode.set('&mnplus;', '∓');
+decode.set('&models;', '⊧');
+decode.set('&mopf;', '𝕞');
+decode.set('&mp;', '∓');
+decode.set('&mscr;', '𝓂');
+decode.set('&mstpos;', '∾');
+decode.set('&mu;', 'μ');
+decode.set('&multimap;', '⊸');
+decode.set('&mumap;', '⊸');
+decode.set('&nGg;', '⋙̸');
+decode.set('&nGt;', '≫⃒');
+decode.set('&nGtv;', '≫̸');
+decode.set('&nLeftarrow;', '⇍');
+decode.set('&nLeftrightarrow;', '⇎');
+decode.set('&nLl;', '⋘̸');
+decode.set('&nLt;', '≪⃒');
+decode.set('&nLtv;', '≪̸');
+decode.set('&nRightarrow;', '⇏');
+decode.set('&nVDash;', '⊯');
+decode.set('&nVdash;', '⊮');
+decode.set('&nabla;', '∇');
+decode.set('&nacute;', 'ń');
+decode.set('&nang;', '∠⃒');
+decode.set('&nap;', '≉');
+decode.set('&napE;', '⩰̸');
+decode.set('&napid;', '≋̸');
+decode.set('&napos;', 'ŉ');
+decode.set('&napprox;', '≉');
+decode.set('&natur;', '♮');
+decode.set('&natural;', '♮');
+decode.set('&naturals;', 'ℕ');
+decode.set('&nbsp', ' ');
+decode.set('&nbsp;', ' ');
+decode.set('&nbump;', '≎̸');
+decode.set('&nbumpe;', '≏̸');
+decode.set('&ncap;', '⩃');
+decode.set('&ncaron;', 'ň');
+decode.set('&ncedil;', 'ņ');
+decode.set('&ncong;', '≇');
+decode.set('&ncongdot;', '⩭̸');
+decode.set('&ncup;', '⩂');
+decode.set('&ncy;', 'н');
+decode.set('&ndash;', '–');
+decode.set('&ne;', '≠');
+decode.set('&neArr;', '⇗');
+decode.set('&nearhk;', '⤤');
+decode.set('&nearr;', '↗');
+decode.set('&nearrow;', '↗');
+decode.set('&nedot;', '≐̸');
+decode.set('&nequiv;', '≢');
+decode.set('&nesear;', '⤨');
+decode.set('&nesim;', '≂̸');
+decode.set('&nexist;', '∄');
+decode.set('&nexists;', '∄');
+decode.set('&nfr;', '𝔫');
+decode.set('&ngE;', '≧̸');
+decode.set('&nge;', '≱');
+decode.set('&ngeq;', '≱');
+decode.set('&ngeqq;', '≧̸');
+decode.set('&ngeqslant;', '⩾̸');
+decode.set('&nges;', '⩾̸');
+decode.set('&ngsim;', '≵');
+decode.set('&ngt;', '≯');
+decode.set('&ngtr;', '≯');
+decode.set('&nhArr;', '⇎');
+decode.set('&nharr;', '↮');
+decode.set('&nhpar;', '⫲');
+decode.set('&ni;', '∋');
+decode.set('&nis;', '⋼');
+decode.set('&nisd;', '⋺');
+decode.set('&niv;', '∋');
+decode.set('&njcy;', 'њ');
+decode.set('&nlArr;', '⇍');
+decode.set('&nlE;', '≦̸');
+decode.set('&nlarr;', '↚');
+decode.set('&nldr;', '‥');
+decode.set('&nle;', '≰');
+decode.set('&nleftarrow;', '↚');
+decode.set('&nleftrightarrow;', '↮');
+decode.set('&nleq;', '≰');
+decode.set('&nleqq;', '≦̸');
+decode.set('&nleqslant;', '⩽̸');
+decode.set('&nles;', '⩽̸');
+decode.set('&nless;', '≮');
+decode.set('&nlsim;', '≴');
+decode.set('&nlt;', '≮');
+decode.set('&nltri;', '⋪');
+decode.set('&nltrie;', '⋬');
+decode.set('&nmid;', '∤');
+decode.set('&nopf;', '𝕟');
+decode.set('&not', '¬');
+decode.set('&not;', '¬');
+decode.set('&notin;', '∉');
+decode.set('&notinE;', '⋹̸');
+decode.set('&notindot;', '⋵̸');
+decode.set('&notinva;', '∉');
+decode.set('&notinvb;', '⋷');
+decode.set('&notinvc;', '⋶');
+decode.set('&notni;', '∌');
+decode.set('&notniva;', '∌');
+decode.set('&notnivb;', '⋾');
+decode.set('&notnivc;', '⋽');
+decode.set('&npar;', '∦');
+decode.set('&nparallel;', '∦');
+decode.set('&nparsl;', '⫽⃥');
+decode.set('&npart;', '∂̸');
+decode.set('&npolint;', '⨔');
+decode.set('&npr;', '⊀');
+decode.set('&nprcue;', '⋠');
+decode.set('&npre;', '⪯̸');
+decode.set('&nprec;', '⊀');
+decode.set('&npreceq;', '⪯̸');
+decode.set('&nrArr;', '⇏');
+decode.set('&nrarr;', '↛');
+decode.set('&nrarrc;', '⤳̸');
+decode.set('&nrarrw;', '↝̸');
+decode.set('&nrightarrow;', '↛');
+decode.set('&nrtri;', '⋫');
+decode.set('&nrtrie;', '⋭');
+decode.set('&nsc;', '⊁');
+decode.set('&nsccue;', '⋡');
+decode.set('&nsce;', '⪰̸');
+decode.set('&nscr;', '𝓃');
+decode.set('&nshortmid;', '∤');
+decode.set('&nshortparallel;', '∦');
+decode.set('&nsim;', '≁');
+decode.set('&nsime;', '≄');
+decode.set('&nsimeq;', '≄');
+decode.set('&nsmid;', '∤');
+decode.set('&nspar;', '∦');
+decode.set('&nsqsube;', '⋢');
+decode.set('&nsqsupe;', '⋣');
+decode.set('&nsub;', '⊄');
+decode.set('&nsubE;', '⫅̸');
+decode.set('&nsube;', '⊈');
+decode.set('&nsubset;', '⊂⃒');
+decode.set('&nsubseteq;', '⊈');
+decode.set('&nsubseteqq;', '⫅̸');
+decode.set('&nsucc;', '⊁');
+decode.set('&nsucceq;', '⪰̸');
+decode.set('&nsup;', '⊅');
+decode.set('&nsupE;', '⫆̸');
+decode.set('&nsupe;', '⊉');
+decode.set('&nsupset;', '⊃⃒');
+decode.set('&nsupseteq;', '⊉');
+decode.set('&nsupseteqq;', '⫆̸');
+decode.set('&ntgl;', '≹');
+decode.set('&ntilde', 'ñ');
+decode.set('&ntilde;', 'ñ');
+decode.set('&ntlg;', '≸');
+decode.set('&ntriangleleft;', '⋪');
+decode.set('&ntrianglelefteq;', '⋬');
+decode.set('&ntriangleright;', '⋫');
+decode.set('&ntrianglerighteq;', '⋭');
+decode.set('&nu;', 'ν');
+decode.set('&num;', '#');
+decode.set('&numero;', '№');
+decode.set('&numsp;', ' ');
+decode.set('&nvDash;', '⊭');
+decode.set('&nvHarr;', '⤄');
+decode.set('&nvap;', '≍⃒');
+decode.set('&nvdash;', '⊬');
+decode.set('&nvge;', '≥⃒');
+decode.set('&nvgt;', '>⃒');
+decode.set('&nvinfin;', '⧞');
+decode.set('&nvlArr;', '⤂');
+decode.set('&nvle;', '≤⃒');
+decode.set('&nvlt;', '<⃒');
+decode.set('&nvltrie;', '⊴⃒');
+decode.set('&nvrArr;', '⤃');
+decode.set('&nvrtrie;', '⊵⃒');
+decode.set('&nvsim;', '∼⃒');
+decode.set('&nwArr;', '⇖');
+decode.set('&nwarhk;', '⤣');
+decode.set('&nwarr;', '↖');
+decode.set('&nwarrow;', '↖');
+decode.set('&nwnear;', '⤧');
+decode.set('&oS;', 'Ⓢ');
+decode.set('&oacute', 'ó');
+decode.set('&oacute;', 'ó');
+decode.set('&oast;', '⊛');
+decode.set('&ocir;', '⊚');
+decode.set('&ocirc', 'ô');
+decode.set('&ocirc;', 'ô');
+decode.set('&ocy;', 'о');
+decode.set('&odash;', '⊝');
+decode.set('&odblac;', 'ő');
+decode.set('&odiv;', '⨸');
+decode.set('&odot;', '⊙');
+decode.set('&odsold;', '⦼');
+decode.set('&oelig;', 'œ');
+decode.set('&ofcir;', '⦿');
+decode.set('&ofr;', '𝔬');
+decode.set('&ogon;', '˛');
+decode.set('&ograve', 'ò');
+decode.set('&ograve;', 'ò');
+decode.set('&ogt;', '⧁');
+decode.set('&ohbar;', '⦵');
+decode.set('&ohm;', 'Ω');
+decode.set('&oint;', '∮');
+decode.set('&olarr;', '↺');
+decode.set('&olcir;', '⦾');
+decode.set('&olcross;', '⦻');
+decode.set('&oline;', '‾');
+decode.set('&olt;', '⧀');
+decode.set('&omacr;', 'ō');
+decode.set('&omega;', 'ω');
+decode.set('&omicron;', 'ο');
+decode.set('&omid;', '⦶');
+decode.set('&ominus;', '⊖');
+decode.set('&oopf;', '𝕠');
+decode.set('&opar;', '⦷');
+decode.set('&operp;', '⦹');
+decode.set('&oplus;', '⊕');
+decode.set('&or;', '∨');
+decode.set('&orarr;', '↻');
+decode.set('&ord;', '⩝');
+decode.set('&order;', 'ℴ');
+decode.set('&orderof;', 'ℴ');
+decode.set('&ordf', 'ª');
+decode.set('&ordf;', 'ª');
+decode.set('&ordm', 'º');
+decode.set('&ordm;', 'º');
+decode.set('&origof;', '⊶');
+decode.set('&oror;', '⩖');
+decode.set('&orslope;', '⩗');
+decode.set('&orv;', '⩛');
+decode.set('&oscr;', 'ℴ');
+decode.set('&oslash', 'ø');
+decode.set('&oslash;', 'ø');
+decode.set('&osol;', '⊘');
+decode.set('&otilde', 'õ');
+decode.set('&otilde;', 'õ');
+decode.set('&otimes;', '⊗');
+decode.set('&otimesas;', '⨶');
+decode.set('&ouml', 'ö');
+decode.set('&ouml;', 'ö');
+decode.set('&ovbar;', '⌽');
+decode.set('&par;', '∥');
+decode.set('&para', '¶');
+decode.set('&para;', '¶');
+decode.set('&parallel;', '∥');
+decode.set('&parsim;', '⫳');
+decode.set('&parsl;', '⫽');
+decode.set('&part;', '∂');
+decode.set('&pcy;', 'п');
+decode.set('&percnt;', '%');
+decode.set('&period;', '.');
+decode.set('&permil;', '‰');
+decode.set('&perp;', '⊥');
+decode.set('&pertenk;', '‱');
+decode.set('&pfr;', '𝔭');
+decode.set('&phi;', 'φ');
+decode.set('&phiv;', 'ϕ');
+decode.set('&phmmat;', 'ℳ');
+decode.set('&phone;', '☎');
+decode.set('&pi;', 'π');
+decode.set('&pitchfork;', '⋔');
+decode.set('&piv;', 'ϖ');
+decode.set('&planck;', 'ℏ');
+decode.set('&planckh;', 'ℎ');
+decode.set('&plankv;', 'ℏ');
+decode.set('&plus;', '+');
+decode.set('&plusacir;', '⨣');
+decode.set('&plusb;', '⊞');
+decode.set('&pluscir;', '⨢');
+decode.set('&plusdo;', '∔');
+decode.set('&plusdu;', '⨥');
+decode.set('&pluse;', '⩲');
+decode.set('&plusmn', '±');
+decode.set('&plusmn;', '±');
+decode.set('&plussim;', '⨦');
+decode.set('&plustwo;', '⨧');
+decode.set('&pm;', '±');
+decode.set('&pointint;', '⨕');
+decode.set('&popf;', '𝕡');
+decode.set('&pound', '£');
+decode.set('&pound;', '£');
+decode.set('&pr;', '≺');
+decode.set('&prE;', '⪳');
+decode.set('&prap;', '⪷');
+decode.set('&prcue;', '≼');
+decode.set('&pre;', '⪯');
+decode.set('&prec;', '≺');
+decode.set('&precapprox;', '⪷');
+decode.set('&preccurlyeq;', '≼');
+decode.set('&preceq;', '⪯');
+decode.set('&precnapprox;', '⪹');
+decode.set('&precneqq;', '⪵');
+decode.set('&precnsim;', '⋨');
+decode.set('&precsim;', '≾');
+decode.set('&prime;', '′');
+decode.set('&primes;', 'ℙ');
+decode.set('&prnE;', '⪵');
+decode.set('&prnap;', '⪹');
+decode.set('&prnsim;', '⋨');
+decode.set('&prod;', '∏');
+decode.set('&profalar;', '⌮');
+decode.set('&profline;', '⌒');
+decode.set('&profsurf;', '⌓');
+decode.set('&prop;', '∝');
+decode.set('&propto;', '∝');
+decode.set('&prsim;', '≾');
+decode.set('&prurel;', '⊰');
+decode.set('&pscr;', '𝓅');
+decode.set('&psi;', 'ψ');
+decode.set('&puncsp;', ' ');
+decode.set('&qfr;', '𝔮');
+decode.set('&qint;', '⨌');
+decode.set('&qopf;', '𝕢');
+decode.set('&qprime;', '⁗');
+decode.set('&qscr;', '𝓆');
+decode.set('&quaternions;', 'ℍ');
+decode.set('&quatint;', '⨖');
+decode.set('&quest;', '?');
+decode.set('&questeq;', '≟');
+decode.set('&quot', '"');
+decode.set('&quot;', '"');
+decode.set('&rAarr;', '⇛');
+decode.set('&rArr;', '⇒');
+decode.set('&rAtail;', '⤜');
+decode.set('&rBarr;', '⤏');
+decode.set('&rHar;', '⥤');
+decode.set('&race;', '∽̱');
+decode.set('&racute;', 'ŕ');
+decode.set('&radic;', '√');
+decode.set('&raemptyv;', '⦳');
+decode.set('&rang;', '⟩');
+decode.set('&rangd;', '⦒');
+decode.set('&range;', '⦥');
+decode.set('&rangle;', '⟩');
+decode.set('&raquo', '»');
+decode.set('&raquo;', '»');
+decode.set('&rarr;', '→');
+decode.set('&rarrap;', '⥵');
+decode.set('&rarrb;', '⇥');
+decode.set('&rarrbfs;', '⤠');
+decode.set('&rarrc;', '⤳');
+decode.set('&rarrfs;', '⤞');
+decode.set('&rarrhk;', '↪');
+decode.set('&rarrlp;', '↬');
+decode.set('&rarrpl;', '⥅');
+decode.set('&rarrsim;', '⥴');
+decode.set('&rarrtl;', '↣');
+decode.set('&rarrw;', '↝');
+decode.set('&ratail;', '⤚');
+decode.set('&ratio;', '∶');
+decode.set('&rationals;', 'ℚ');
+decode.set('&rbarr;', '⤍');
+decode.set('&rbbrk;', '❳');
+decode.set('&rbrace;', '}');
+decode.set('&rbrack;', ']');
+decode.set('&rbrke;', '⦌');
+decode.set('&rbrksld;', '⦎');
+decode.set('&rbrkslu;', '⦐');
+decode.set('&rcaron;', 'ř');
+decode.set('&rcedil;', 'ŗ');
+decode.set('&rceil;', '⌉');
+decode.set('&rcub;', '}');
+decode.set('&rcy;', 'р');
+decode.set('&rdca;', '⤷');
+decode.set('&rdldhar;', '⥩');
+decode.set('&rdquo;', '”');
+decode.set('&rdquor;', '”');
+decode.set('&rdsh;', '↳');
+decode.set('&real;', 'ℜ');
+decode.set('&realine;', 'ℛ');
+decode.set('&realpart;', 'ℜ');
+decode.set('&reals;', 'ℝ');
+decode.set('&rect;', '▭');
+decode.set('&reg', '®');
+decode.set('&reg;', '®');
+decode.set('&rfisht;', '⥽');
+decode.set('&rfloor;', '⌋');
+decode.set('&rfr;', '𝔯');
+decode.set('&rhard;', '⇁');
+decode.set('&rharu;', '⇀');
+decode.set('&rharul;', '⥬');
+decode.set('&rho;', 'ρ');
+decode.set('&rhov;', 'ϱ');
+decode.set('&rightarrow;', '→');
+decode.set('&rightarrowtail;', '↣');
+decode.set('&rightharpoondown;', '⇁');
+decode.set('&rightharpoonup;', '⇀');
+decode.set('&rightleftarrows;', '⇄');
+decode.set('&rightleftharpoons;', '⇌');
+decode.set('&rightrightarrows;', '⇉');
+decode.set('&rightsquigarrow;', '↝');
+decode.set('&rightthreetimes;', '⋌');
+decode.set('&ring;', '˚');
+decode.set('&risingdotseq;', '≓');
+decode.set('&rlarr;', '⇄');
+decode.set('&rlhar;', '⇌');
+decode.set('&rlm;', '‏');
+decode.set('&rmoust;', '⎱');
+decode.set('&rmoustache;', '⎱');
+decode.set('&rnmid;', '⫮');
+decode.set('&roang;', '⟭');
+decode.set('&roarr;', '⇾');
+decode.set('&robrk;', '⟧');
+decode.set('&ropar;', '⦆');
+decode.set('&ropf;', '𝕣');
+decode.set('&roplus;', '⨮');
+decode.set('&rotimes;', '⨵');
+decode.set('&rpar;', ')');
+decode.set('&rpargt;', '⦔');
+decode.set('&rppolint;', '⨒');
+decode.set('&rrarr;', '⇉');
+decode.set('&rsaquo;', '›');
+decode.set('&rscr;', '𝓇');
+decode.set('&rsh;', '↱');
+decode.set('&rsqb;', ']');
+decode.set('&rsquo;', '’');
+decode.set('&rsquor;', '’');
+decode.set('&rthree;', '⋌');
+decode.set('&rtimes;', '⋊');
+decode.set('&rtri;', '▹');
+decode.set('&rtrie;', '⊵');
+decode.set('&rtrif;', '▸');
+decode.set('&rtriltri;', '⧎');
+decode.set('&ruluhar;', '⥨');
+decode.set('&rx;', '℞');
+decode.set('&sacute;', 'ś');
+decode.set('&sbquo;', '‚');
+decode.set('&sc;', '≻');
+decode.set('&scE;', '⪴');
+decode.set('&scap;', '⪸');
+decode.set('&scaron;', 'š');
+decode.set('&sccue;', '≽');
+decode.set('&sce;', '⪰');
+decode.set('&scedil;', 'ş');
+decode.set('&scirc;', 'ŝ');
+decode.set('&scnE;', '⪶');
+decode.set('&scnap;', '⪺');
+decode.set('&scnsim;', '⋩');
+decode.set('&scpolint;', '⨓');
+decode.set('&scsim;', '≿');
+decode.set('&scy;', 'с');
+decode.set('&sdot;', '⋅');
+decode.set('&sdotb;', '⊡');
+decode.set('&sdote;', '⩦');
+decode.set('&seArr;', '⇘');
+decode.set('&searhk;', '⤥');
+decode.set('&searr;', '↘');
+decode.set('&searrow;', '↘');
+decode.set('&sect', '§');
+decode.set('&sect;', '§');
+decode.set('&semi;', ';');
+decode.set('&seswar;', '⤩');
+decode.set('&setminus;', '∖');
+decode.set('&setmn;', '∖');
+decode.set('&sext;', '✶');
+decode.set('&sfr;', '𝔰');
+decode.set('&sfrown;', '⌢');
+decode.set('&sharp;', '♯');
+decode.set('&shchcy;', 'щ');
+decode.set('&shcy;', 'ш');
+decode.set('&shortmid;', '∣');
+decode.set('&shortparallel;', '∥');
+decode.set('&shy', '­');
+decode.set('&shy;', '­');
+decode.set('&sigma;', 'σ');
+decode.set('&sigmaf;', 'ς');
+decode.set('&sigmav;', 'ς');
+decode.set('&sim;', '∼');
+decode.set('&simdot;', '⩪');
+decode.set('&sime;', '≃');
+decode.set('&simeq;', '≃');
+decode.set('&simg;', '⪞');
+decode.set('&simgE;', '⪠');
+decode.set('&siml;', '⪝');
+decode.set('&simlE;', '⪟');
+decode.set('&simne;', '≆');
+decode.set('&simplus;', '⨤');
+decode.set('&simrarr;', '⥲');
+decode.set('&slarr;', '←');
+decode.set('&smallsetminus;', '∖');
+decode.set('&smashp;', '⨳');
+decode.set('&smeparsl;', '⧤');
+decode.set('&smid;', '∣');
+decode.set('&smile;', '⌣');
+decode.set('&smt;', '⪪');
+decode.set('&smte;', '⪬');
+decode.set('&smtes;', '⪬︀');
+decode.set('&softcy;', 'ь');
+decode.set('&sol;', '/');
+decode.set('&solb;', '⧄');
+decode.set('&solbar;', '⌿');
+decode.set('&sopf;', '𝕤');
+decode.set('&spades;', '♠');
+decode.set('&spadesuit;', '♠');
+decode.set('&spar;', '∥');
+decode.set('&sqcap;', '⊓');
+decode.set('&sqcaps;', '⊓︀');
+decode.set('&sqcup;', '⊔');
+decode.set('&sqcups;', '⊔︀');
+decode.set('&sqsub;', '⊏');
+decode.set('&sqsube;', '⊑');
+decode.set('&sqsubset;', '⊏');
+decode.set('&sqsubseteq;', '⊑');
+decode.set('&sqsup;', '⊐');
+decode.set('&sqsupe;', '⊒');
+decode.set('&sqsupset;', '⊐');
+decode.set('&sqsupseteq;', '⊒');
+decode.set('&squ;', '□');
+decode.set('&square;', '□');
+decode.set('&squarf;', '▪');
+decode.set('&squf;', '▪');
+decode.set('&srarr;', '→');
+decode.set('&sscr;', '𝓈');
+decode.set('&ssetmn;', '∖');
+decode.set('&ssmile;', '⌣');
+decode.set('&sstarf;', '⋆');
+decode.set('&star;', '☆');
+decode.set('&starf;', '★');
+decode.set('&straightepsilon;', 'ϵ');
+decode.set('&straightphi;', 'ϕ');
+decode.set('&strns;', '¯');
+decode.set('&sub;', '⊂');
+decode.set('&subE;', '⫅');
+decode.set('&subdot;', '⪽');
+decode.set('&sube;', '⊆');
+decode.set('&subedot;', '⫃');
+decode.set('&submult;', '⫁');
+decode.set('&subnE;', '⫋');
+decode.set('&subne;', '⊊');
+decode.set('&subplus;', '⪿');
+decode.set('&subrarr;', '⥹');
+decode.set('&subset;', '⊂');
+decode.set('&subseteq;', '⊆');
+decode.set('&subseteqq;', '⫅');
+decode.set('&subsetneq;', '⊊');
+decode.set('&subsetneqq;', '⫋');
+decode.set('&subsim;', '⫇');
+decode.set('&subsub;', '⫕');
+decode.set('&subsup;', '⫓');
+decode.set('&succ;', '≻');
+decode.set('&succapprox;', '⪸');
+decode.set('&succcurlyeq;', '≽');
+decode.set('&succeq;', '⪰');
+decode.set('&succnapprox;', '⪺');
+decode.set('&succneqq;', '⪶');
+decode.set('&succnsim;', '⋩');
+decode.set('&succsim;', '≿');
+decode.set('&sum;', '∑');
+decode.set('&sung;', '♪');
+decode.set('&sup1', '¹');
+decode.set('&sup1;', '¹');
+decode.set('&sup2', '²');
+decode.set('&sup2;', '²');
+decode.set('&sup3', '³');
+decode.set('&sup3;', '³');
+decode.set('&sup;', '⊃');
+decode.set('&supE;', '⫆');
+decode.set('&supdot;', '⪾');
+decode.set('&supdsub;', '⫘');
+decode.set('&supe;', '⊇');
+decode.set('&supedot;', '⫄');
+decode.set('&suphsol;', '⟉');
+decode.set('&suphsub;', '⫗');
+decode.set('&suplarr;', '⥻');
+decode.set('&supmult;', '⫂');
+decode.set('&supnE;', '⫌');
+decode.set('&supne;', '⊋');
+decode.set('&supplus;', '⫀');
+decode.set('&supset;', '⊃');
+decode.set('&supseteq;', '⊇');
+decode.set('&supseteqq;', '⫆');
+decode.set('&supsetneq;', '⊋');
+decode.set('&supsetneqq;', '⫌');
+decode.set('&supsim;', '⫈');
+decode.set('&supsub;', '⫔');
+decode.set('&supsup;', '⫖');
+decode.set('&swArr;', '⇙');
+decode.set('&swarhk;', '⤦');
+decode.set('&swarr;', '↙');
+decode.set('&swarrow;', '↙');
+decode.set('&swnwar;', '⤪');
+decode.set('&szlig', 'ß');
+decode.set('&szlig;', 'ß');
+decode.set('&target;', '⌖');
+decode.set('&tau;', 'τ');
+decode.set('&tbrk;', '⎴');
+decode.set('&tcaron;', 'ť');
+decode.set('&tcedil;', 'ţ');
+decode.set('&tcy;', 'т');
+decode.set('&tdot;', '⃛');
+decode.set('&telrec;', '⌕');
+decode.set('&tfr;', '𝔱');
+decode.set('&there4;', '∴');
+decode.set('&therefore;', '∴');
+decode.set('&theta;', 'θ');
+decode.set('&thetasym;', 'ϑ');
+decode.set('&thetav;', 'ϑ');
+decode.set('&thickapprox;', '≈');
+decode.set('&thicksim;', '∼');
+decode.set('&thinsp;', ' ');
+decode.set('&thkap;', '≈');
+decode.set('&thksim;', '∼');
+decode.set('&thorn', 'þ');
+decode.set('&thorn;', 'þ');
+decode.set('&tilde;', '˜');
+decode.set('&times', '×');
+decode.set('&times;', '×');
+decode.set('&timesb;', '⊠');
+decode.set('&timesbar;', '⨱');
+decode.set('&timesd;', '⨰');
+decode.set('&tint;', '∭');
+decode.set('&toea;', '⤨');
+decode.set('&top;', '⊤');
+decode.set('&topbot;', '⌶');
+decode.set('&topcir;', '⫱');
+decode.set('&topf;', '𝕥');
+decode.set('&topfork;', '⫚');
+decode.set('&tosa;', '⤩');
+decode.set('&tprime;', '‴');
+decode.set('&trade;', '™');
+decode.set('&triangle;', '▵');
+decode.set('&triangledown;', '▿');
+decode.set('&triangleleft;', '◃');
+decode.set('&trianglelefteq;', '⊴');
+decode.set('&triangleq;', '≜');
+decode.set('&triangleright;', '▹');
+decode.set('&trianglerighteq;', '⊵');
+decode.set('&tridot;', '◬');
+decode.set('&trie;', '≜');
+decode.set('&triminus;', '⨺');
+decode.set('&triplus;', '⨹');
+decode.set('&trisb;', '⧍');
+decode.set('&tritime;', '⨻');
+decode.set('&trpezium;', '⏢');
+decode.set('&tscr;', '𝓉');
+decode.set('&tscy;', 'ц');
+decode.set('&tshcy;', 'ћ');
+decode.set('&tstrok;', 'ŧ');
+decode.set('&twixt;', '≬');
+decode.set('&twoheadleftarrow;', '↞');
+decode.set('&twoheadrightarrow;', '↠');
+decode.set('&uArr;', '⇑');
+decode.set('&uHar;', '⥣');
+decode.set('&uacute', 'ú');
+decode.set('&uacute;', 'ú');
+decode.set('&uarr;', '↑');
+decode.set('&ubrcy;', 'ў');
+decode.set('&ubreve;', 'ŭ');
+decode.set('&ucirc', 'û');
+decode.set('&ucirc;', 'û');
+decode.set('&ucy;', 'у');
+decode.set('&udarr;', '⇅');
+decode.set('&udblac;', 'ű');
+decode.set('&udhar;', '⥮');
+decode.set('&ufisht;', '⥾');
+decode.set('&ufr;', '𝔲');
+decode.set('&ugrave', 'ù');
+decode.set('&ugrave;', 'ù');
+decode.set('&uharl;', '↿');
+decode.set('&uharr;', '↾');
+decode.set('&uhblk;', '▀');
+decode.set('&ulcorn;', '⌜');
+decode.set('&ulcorner;', '⌜');
+decode.set('&ulcrop;', '⌏');
+decode.set('&ultri;', '◸');
+decode.set('&umacr;', 'ū');
+decode.set('&uml', '¨');
+decode.set('&uml;', '¨');
+decode.set('&uogon;', 'ų');
+decode.set('&uopf;', '𝕦');
+decode.set('&uparrow;', '↑');
+decode.set('&updownarrow;', '↕');
+decode.set('&upharpoonleft;', '↿');
+decode.set('&upharpoonright;', '↾');
+decode.set('&uplus;', '⊎');
+decode.set('&upsi;', 'υ');
+decode.set('&upsih;', 'ϒ');
+decode.set('&upsilon;', 'υ');
+decode.set('&upuparrows;', '⇈');
+decode.set('&urcorn;', '⌝');
+decode.set('&urcorner;', '⌝');
+decode.set('&urcrop;', '⌎');
+decode.set('&uring;', 'ů');
+decode.set('&urtri;', '◹');
+decode.set('&uscr;', '𝓊');
+decode.set('&utdot;', '⋰');
+decode.set('&utilde;', 'ũ');
+decode.set('&utri;', '▵');
+decode.set('&utrif;', '▴');
+decode.set('&uuarr;', '⇈');
+decode.set('&uuml', 'ü');
+decode.set('&uuml;', 'ü');
+decode.set('&uwangle;', '⦧');
+decode.set('&vArr;', '⇕');
+decode.set('&vBar;', '⫨');
+decode.set('&vBarv;', '⫩');
+decode.set('&vDash;', '⊨');
+decode.set('&vangrt;', '⦜');
+decode.set('&varepsilon;', 'ϵ');
+decode.set('&varkappa;', 'ϰ');
+decode.set('&varnothing;', '∅');
+decode.set('&varphi;', 'ϕ');
+decode.set('&varpi;', 'ϖ');
+decode.set('&varpropto;', '∝');
+decode.set('&varr;', '↕');
+decode.set('&varrho;', 'ϱ');
+decode.set('&varsigma;', 'ς');
+decode.set('&varsubsetneq;', '⊊︀');
+decode.set('&varsubsetneqq;', '⫋︀');
+decode.set('&varsupsetneq;', '⊋︀');
+decode.set('&varsupsetneqq;', '⫌︀');
+decode.set('&vartheta;', 'ϑ');
+decode.set('&vartriangleleft;', '⊲');
+decode.set('&vartriangleright;', '⊳');
+decode.set('&vcy;', 'в');
+decode.set('&vdash;', '⊢');
+decode.set('&vee;', '∨');
+decode.set('&veebar;', '⊻');
+decode.set('&veeeq;', '≚');
+decode.set('&vellip;', '⋮');
+decode.set('&verbar;', '|');
+decode.set('&vert;', '|');
+decode.set('&vfr;', '𝔳');
+decode.set('&vltri;', '⊲');
+decode.set('&vnsub;', '⊂⃒');
+decode.set('&vnsup;', '⊃⃒');
+decode.set('&vopf;', '𝕧');
+decode.set('&vprop;', '∝');
+decode.set('&vrtri;', '⊳');
+decode.set('&vscr;', '𝓋');
+decode.set('&vsubnE;', '⫋︀');
+decode.set('&vsubne;', '⊊︀');
+decode.set('&vsupnE;', '⫌︀');
+decode.set('&vsupne;', '⊋︀');
+decode.set('&vzigzag;', '⦚');
+decode.set('&wcirc;', 'ŵ');
+decode.set('&wedbar;', '⩟');
+decode.set('&wedge;', '∧');
+decode.set('&wedgeq;', '≙');
+decode.set('&weierp;', '℘');
+decode.set('&wfr;', '𝔴');
+decode.set('&wopf;', '𝕨');
+decode.set('&wp;', '℘');
+decode.set('&wr;', '≀');
+decode.set('&wreath;', '≀');
+decode.set('&wscr;', '𝓌');
+decode.set('&xcap;', '⋂');
+decode.set('&xcirc;', '◯');
+decode.set('&xcup;', '⋃');
+decode.set('&xdtri;', '▽');
+decode.set('&xfr;', '𝔵');
+decode.set('&xhArr;', '⟺');
+decode.set('&xharr;', '⟷');
+decode.set('&xi;', 'ξ');
+decode.set('&xlArr;', '⟸');
+decode.set('&xlarr;', '⟵');
+decode.set('&xmap;', '⟼');
+decode.set('&xnis;', '⋻');
+decode.set('&xodot;', '⨀');
+decode.set('&xopf;', '𝕩');
+decode.set('&xoplus;', '⨁');
+decode.set('&xotime;', '⨂');
+decode.set('&xrArr;', '⟹');
+decode.set('&xrarr;', '⟶');
+decode.set('&xscr;', '𝓍');
+decode.set('&xsqcup;', '⨆');
+decode.set('&xuplus;', '⨄');
+decode.set('&xutri;', '△');
+decode.set('&xvee;', '⋁');
+decode.set('&xwedge;', '⋀');
+decode.set('&yacute', 'ý');
+decode.set('&yacute;', 'ý');
+decode.set('&yacy;', 'я');
+decode.set('&ycirc;', 'ŷ');
+decode.set('&ycy;', 'ы');
+decode.set('&yen', '¥');
+decode.set('&yen;', '¥');
+decode.set('&yfr;', '𝔶');
+decode.set('&yicy;', 'ї');
+decode.set('&yopf;', '𝕪');
+decode.set('&yscr;', '𝓎');
+decode.set('&yucy;', 'ю');
+decode.set('&yuml', 'ÿ');
+decode.set('&yuml;', 'ÿ');
+decode.set('&zacute;', 'ź');
+decode.set('&zcaron;', 'ž');
+decode.set('&zcy;', 'з');
+decode.set('&zdot;', 'ż');
+decode.set('&zeetrf;', 'ℨ');
+decode.set('&zeta;', 'ζ');
+decode.set('&zfr;', '𝔷');
+decode.set('&zhcy;', 'ж');
+decode.set('&zigrarr;', '⇝');
+decode.set('&zopf;', '𝕫');
+decode.set('&zscr;', '𝓏');
+decode.set('&zwj;', '‍');
+decode.set('&zwnj;', '‌');
 
-var entitiesEncode = exports.entitiesEncode = {
-  'Æ': '&AElig;',
-  '&': '&AMP;',
-  'Á': '&Aacute;',
-  'Ă': '&Abreve;',
-  'Â': '&Acirc;',
-  'А': '&Acy;',
-  '𝔄': '&Afr;',
-  'À': '&Agrave;',
-  'Α': '&Alpha;',
-  'Ā': '&Amacr;',
-  '⩓': '&And;',
-  'Ą': '&Aogon;',
-  '𝔸': '&Aopf;',
-  '⁡': '&ApplyFunction;',
-  'Å': '&Aring;',
-  '𝒜': '&Ascr;',
-  '≔': '&Assign;',
-  'Ã': '&Atilde;',
-  'Ä': '&Auml;',
-  '∖': '&Backslash;',
-  '⫧': '&Barv;',
-  '⌆': '&Barwed;',
-  'Б': '&Bcy;',
-  '∵': '&Because;',
-  'ℬ': '&Bernoullis;',
-  'Β': '&Beta;',
-  '𝔅': '&Bfr;',
-  '𝔹': '&Bopf;',
-  '˘': '&Breve;',
-  '≎': '&Bumpeq;',
-  'Ч': '&CHcy;',
-  '©': '&COPY;',
-  'Ć': '&Cacute;',
-  '⋒': '&Cap;',
-  'ⅅ': '&CapitalDifferentialD;',
-  'ℭ': '&Cayleys;',
-  'Č': '&Ccaron;',
-  'Ç': '&Ccedil;',
-  'Ĉ': '&Ccirc;',
-  '∰': '&Cconint;',
-  'Ċ': '&Cdot;',
-  '¸': '&Cedilla;',
-  '·': '&CenterDot;',
-  'Χ': '&Chi;',
-  '⊙': '&CircleDot;',
-  '⊖': '&CircleMinus;',
-  '⊕': '&CirclePlus;',
-  '⊗': '&CircleTimes;',
-  '∲': '&ClockwiseContourIntegral;',
-  '”': '&CloseCurlyDoubleQuote;',
-  '’': '&CloseCurlyQuote;',
-  '∷': '&Colon;',
-  '⩴': '&Colone;',
-  '≡': '&Congruent;',
-  '∯': '&Conint;',
-  '∮': '&ContourIntegral;',
-  'ℂ': '&Copf;',
-  '∐': '&Coproduct;',
-  '∳': '&CounterClockwiseContourIntegral;',
-  '⨯': '&Cross;',
-  '𝒞': '&Cscr;',
-  '⋓': '&Cup;',
-  '≍': '&CupCap;',
-  '⤑': '&DDotrahd;',
-  'Ђ': '&DJcy;',
-  'Ѕ': '&DScy;',
-  'Џ': '&DZcy;',
-  '‡': '&Dagger;',
-  '↡': '&Darr;',
-  '⫤': '&Dashv;',
-  'Ď': '&Dcaron;',
-  'Д': '&Dcy;',
-  '∇': '&Del;',
-  'Δ': '&Delta;',
-  '𝔇': '&Dfr;',
-  '´': '&DiacriticalAcute;',
-  '˙': '&DiacriticalDot;',
-  '˝': '&DiacriticalDoubleAcute;',
-  '`': '&DiacriticalGrave;',
-  '˜': '&DiacriticalTilde;',
-  '⋄': '&Diamond;',
-  'ⅆ': '&DifferentialD;',
-  '𝔻': '&Dopf;',
-  '¨': '&Dot;',
-  '⃜': '&DotDot;',
-  '≐': '&DotEqual;',
-  '⇓': '&DoubleDownArrow;',
-  '⇐': '&DoubleLeftArrow;',
-  '⇔': '&DoubleLeftRightArrow;',
-  '⟸': '&DoubleLongLeftArrow;',
-  '⟺': '&DoubleLongLeftRightArrow;',
-  '⟹': '&DoubleLongRightArrow;',
-  '⇒': '&DoubleRightArrow;',
-  '⊨': '&DoubleRightTee;',
-  '⇑': '&DoubleUpArrow;',
-  '⇕': '&DoubleUpDownArrow;',
-  '∥': '&DoubleVerticalBar;',
-  '↓': '&DownArrow;',
-  '⤓': '&DownArrowBar;',
-  '⇵': '&DownArrowUpArrow;',
-  '̑': '&DownBreve;',
-  '⥐': '&DownLeftRightVector;',
-  '⥞': '&DownLeftTeeVector;',
-  '↽': '&DownLeftVector;',
-  '⥖': '&DownLeftVectorBar;',
-  '⥟': '&DownRightTeeVector;',
-  '⇁': '&DownRightVector;',
-  '⥗': '&DownRightVectorBar;',
-  '⊤': '&DownTee;',
-  '↧': '&DownTeeArrow;',
-  '𝒟': '&Dscr;',
-  'Đ': '&Dstrok;',
-  'Ŋ': '&ENG;',
-  'Ð': '&ETH;',
-  'É': '&Eacute;',
-  'Ě': '&Ecaron;',
-  'Ê': '&Ecirc;',
-  'Э': '&Ecy;',
-  'Ė': '&Edot;',
-  '𝔈': '&Efr;',
-  'È': '&Egrave;',
-  '∈': '&Element;',
-  'Ē': '&Emacr;',
-  '◻': '&EmptySmallSquare;',
-  '▫': '&EmptyVerySmallSquare;',
-  'Ę': '&Eogon;',
-  '𝔼': '&Eopf;',
-  'Ε': '&Epsilon;',
-  '⩵': '&Equal;',
-  '≂': '&EqualTilde;',
-  '⇌': '&Equilibrium;',
-  'ℰ': '&Escr;',
-  '⩳': '&Esim;',
-  'Η': '&Eta;',
-  'Ë': '&Euml;',
-  '∃': '&Exists;',
-  'ⅇ': '&ExponentialE;',
-  'Ф': '&Fcy;',
-  '𝔉': '&Ffr;',
-  '◼': '&FilledSmallSquare;',
-  '▪': '&FilledVerySmallSquare;',
-  '𝔽': '&Fopf;',
-  '∀': '&ForAll;',
-  'ℱ': '&Fouriertrf;',
-  'Ѓ': '&GJcy;',
-  '>': '&GT;',
-  'Γ': '&Gamma;',
-  'Ϝ': '&Gammad;',
-  'Ğ': '&Gbreve;',
-  'Ģ': '&Gcedil;',
-  'Ĝ': '&Gcirc;',
-  'Г': '&Gcy;',
-  'Ġ': '&Gdot;',
-  '𝔊': '&Gfr;',
-  '⋙': '&Gg;',
-  '𝔾': '&Gopf;',
-  '≥': '&GreaterEqual;',
-  '⋛': '&GreaterEqualLess;',
-  '≧': '&GreaterFullEqual;',
-  '⪢': '&GreaterGreater;',
-  '≷': '&GreaterLess;',
-  '⩾': '&GreaterSlantEqual;',
-  '≳': '&GreaterTilde;',
-  '𝒢': '&Gscr;',
-  '≫': '&Gt;',
-  'Ъ': '&HARDcy;',
-  'ˇ': '&Hacek;',
-  '^': '&Hat;',
-  'Ĥ': '&Hcirc;',
-  'ℌ': '&Hfr;',
-  'ℋ': '&HilbertSpace;',
-  'ℍ': '&Hopf;',
-  '─': '&HorizontalLine;',
-  'Ħ': '&Hstrok;',
-  '≏': '&HumpEqual;',
-  'Е': '&IEcy;',
-  'Ĳ': '&IJlig;',
-  'Ё': '&IOcy;',
-  'Í': '&Iacute;',
-  'Î': '&Icirc;',
-  'И': '&Icy;',
-  'İ': '&Idot;',
-  'ℑ': '&Ifr;',
-  'Ì': '&Igrave;',
-  'Ī': '&Imacr;',
-  'ⅈ': '&ImaginaryI;',
-  '∬': '&Int;',
-  '∫': '&Integral;',
-  '⋂': '&Intersection;',
-  '⁣': '&InvisibleComma;',
-  '⁢': '&InvisibleTimes;',
-  'Į': '&Iogon;',
-  '𝕀': '&Iopf;',
-  'Ι': '&Iota;',
-  'ℐ': '&Iscr;',
-  'Ĩ': '&Itilde;',
-  'І': '&Iukcy;',
-  'Ï': '&Iuml;',
-  'Ĵ': '&Jcirc;',
-  'Й': '&Jcy;',
-  '𝔍': '&Jfr;',
-  '𝕁': '&Jopf;',
-  '𝒥': '&Jscr;',
-  'Ј': '&Jsercy;',
-  'Є': '&Jukcy;',
-  'Х': '&KHcy;',
-  'Ќ': '&KJcy;',
-  'Κ': '&Kappa;',
-  'Ķ': '&Kcedil;',
-  'К': '&Kcy;',
-  '𝔎': '&Kfr;',
-  '𝕂': '&Kopf;',
-  '𝒦': '&Kscr;',
-  'Љ': '&LJcy;',
-  '<': '&LT;',
-  'Ĺ': '&Lacute;',
-  'Λ': '&Lambda;',
-  '⟪': '&Lang;',
-  'ℒ': '&Laplacetrf;',
-  '↞': '&Larr;',
-  'Ľ': '&Lcaron;',
-  'Ļ': '&Lcedil;',
-  'Л': '&Lcy;',
-  '⟨': '&LeftAngleBracket;',
-  '←': '&LeftArrow;',
-  '⇤': '&LeftArrowBar;',
-  '⇆': '&LeftArrowRightArrow;',
-  '⌈': '&LeftCeiling;',
-  '⟦': '&LeftDoubleBracket;',
-  '⥡': '&LeftDownTeeVector;',
-  '⇃': '&LeftDownVector;',
-  '⥙': '&LeftDownVectorBar;',
-  '⌊': '&LeftFloor;',
-  '↔': '&LeftRightArrow;',
-  '⥎': '&LeftRightVector;',
-  '⊣': '&LeftTee;',
-  '↤': '&LeftTeeArrow;',
-  '⥚': '&LeftTeeVector;',
-  '⊲': '&LeftTriangle;',
-  '⧏': '&LeftTriangleBar;',
-  '⊴': '&LeftTriangleEqual;',
-  '⥑': '&LeftUpDownVector;',
-  '⥠': '&LeftUpTeeVector;',
-  '↿': '&LeftUpVector;',
-  '⥘': '&LeftUpVectorBar;',
-  '↼': '&LeftVector;',
-  '⥒': '&LeftVectorBar;',
-  '⋚': '&LessEqualGreater;',
-  '≦': '&LessFullEqual;',
-  '≶': '&LessGreater;',
-  '⪡': '&LessLess;',
-  '⩽': '&LessSlantEqual;',
-  '≲': '&LessTilde;',
-  '𝔏': '&Lfr;',
-  '⋘': '&Ll;',
-  '⇚': '&Lleftarrow;',
-  'Ŀ': '&Lmidot;',
-  '⟵': '&LongLeftArrow;',
-  '⟷': '&LongLeftRightArrow;',
-  '⟶': '&LongRightArrow;',
-  '𝕃': '&Lopf;',
-  '↙': '&LowerLeftArrow;',
-  '↘': '&LowerRightArrow;',
-  '↰': '&Lsh;',
-  'Ł': '&Lstrok;',
-  '≪': '&Lt;',
-  '⤅': '&Map;',
-  'М': '&Mcy;',
-  ' ': '&MediumSpace;',
-  'ℳ': '&Mellintrf;',
-  '𝔐': '&Mfr;',
-  '∓': '&MinusPlus;',
-  '𝕄': '&Mopf;',
-  'Μ': '&Mu;',
-  'Њ': '&NJcy;',
-  'Ń': '&Nacute;',
-  'Ň': '&Ncaron;',
-  'Ņ': '&Ncedil;',
-  'Н': '&Ncy;',
-  '​': '&NegativeMediumSpace;',
-  '\n': '&NewLine;',
-  '𝔑': '&Nfr;',
-  '⁠': '&NoBreak;',
-  ' ': '&NonBreakingSpace;',
-  'ℕ': '&Nopf;',
-  '⫬': '&Not;',
-  '≢': '&NotCongruent;',
-  '≭': '&NotCupCap;',
-  '∦': '&NotDoubleVerticalBar;',
-  '∉': '&NotElement;',
-  '≠': '&NotEqual;',
-  '≂̸': '&NotEqualTilde;',
-  '∄': '&NotExists;',
-  '≯': '&NotGreater;',
-  '≱': '&NotGreaterEqual;',
-  '≧̸': '&NotGreaterFullEqual;',
-  '≫̸': '&NotGreaterGreater;',
-  '≹': '&NotGreaterLess;',
-  '⩾̸': '&NotGreaterSlantEqual;',
-  '≵': '&NotGreaterTilde;',
-  '≎̸': '&NotHumpDownHump;',
-  '≏̸': '&NotHumpEqual;',
-  '⋪': '&NotLeftTriangle;',
-  '⧏̸': '&NotLeftTriangleBar;',
-  '⋬': '&NotLeftTriangleEqual;',
-  '≮': '&NotLess;',
-  '≰': '&NotLessEqual;',
-  '≸': '&NotLessGreater;',
-  '≪̸': '&NotLessLess;',
-  '⩽̸': '&NotLessSlantEqual;',
-  '≴': '&NotLessTilde;',
-  '⪢̸': '&NotNestedGreaterGreater;',
-  '⪡̸': '&NotNestedLessLess;',
-  '⊀': '&NotPrecedes;',
-  '⪯̸': '&NotPrecedesEqual;',
-  '⋠': '&NotPrecedesSlantEqual;',
-  '∌': '&NotReverseElement;',
-  '⋫': '&NotRightTriangle;',
-  '⧐̸': '&NotRightTriangleBar;',
-  '⋭': '&NotRightTriangleEqual;',
-  '⊏̸': '&NotSquareSubset;',
-  '⋢': '&NotSquareSubsetEqual;',
-  '⊐̸': '&NotSquareSuperset;',
-  '⋣': '&NotSquareSupersetEqual;',
-  '⊂⃒': '&NotSubset;',
-  '⊈': '&NotSubsetEqual;',
-  '⊁': '&NotSucceeds;',
-  '⪰̸': '&NotSucceedsEqual;',
-  '⋡': '&NotSucceedsSlantEqual;',
-  '≿̸': '&NotSucceedsTilde;',
-  '⊃⃒': '&NotSuperset;',
-  '⊉': '&NotSupersetEqual;',
-  '≁': '&NotTilde;',
-  '≄': '&NotTildeEqual;',
-  '≇': '&NotTildeFullEqual;',
-  '≉': '&NotTildeTilde;',
-  '∤': '&NotVerticalBar;',
-  '𝒩': '&Nscr;',
-  'Ñ': '&Ntilde;',
-  'Ν': '&Nu;',
-  'Œ': '&OElig;',
-  'Ó': '&Oacute;',
-  'Ô': '&Ocirc;',
-  'О': '&Ocy;',
-  'Ő': '&Odblac;',
-  '𝔒': '&Ofr;',
-  'Ò': '&Ograve;',
-  'Ō': '&Omacr;',
-  'Ω': '&Omega;',
-  'Ο': '&Omicron;',
-  '𝕆': '&Oopf;',
-  '“': '&OpenCurlyDoubleQuote;',
-  '‘': '&OpenCurlyQuote;',
-  '⩔': '&Or;',
-  '𝒪': '&Oscr;',
-  'Ø': '&Oslash;',
-  'Õ': '&Otilde;',
-  '⨷': '&Otimes;',
-  'Ö': '&Ouml;',
-  '‾': '&OverBar;',
-  '⏞': '&OverBrace;',
-  '⎴': '&OverBracket;',
-  '⏜': '&OverParenthesis;',
-  '∂': '&PartialD;',
-  'П': '&Pcy;',
-  '𝔓': '&Pfr;',
-  'Φ': '&Phi;',
-  'Π': '&Pi;',
-  '±': '&PlusMinus;',
-  'ℙ': '&Popf;',
-  '⪻': '&Pr;',
-  '≺': '&Precedes;',
-  '⪯': '&PrecedesEqual;',
-  '≼': '&PrecedesSlantEqual;',
-  '≾': '&PrecedesTilde;',
-  '″': '&Prime;',
-  '∏': '&Product;',
-  '∝': '&Proportional;',
-  '𝒫': '&Pscr;',
-  'Ψ': '&Psi;',
-  '"': '&QUOT;',
-  '𝔔': '&Qfr;',
-  'ℚ': '&Qopf;',
-  '𝒬': '&Qscr;',
-  '⤐': '&RBarr;',
-  '®': '&REG;',
-  'Ŕ': '&Racute;',
-  '⟫': '&Rang;',
-  '↠': '&Rarr;',
-  '⤖': '&Rarrtl;',
-  'Ř': '&Rcaron;',
-  'Ŗ': '&Rcedil;',
-  'Р': '&Rcy;',
-  'ℜ': '&Re;',
-  '∋': '&ReverseElement;',
-  '⇋': '&ReverseEquilibrium;',
-  '⥯': '&ReverseUpEquilibrium;',
-  'Ρ': '&Rho;',
-  '⟩': '&RightAngleBracket;',
-  '→': '&RightArrow;',
-  '⇥': '&RightArrowBar;',
-  '⇄': '&RightArrowLeftArrow;',
-  '⌉': '&RightCeiling;',
-  '⟧': '&RightDoubleBracket;',
-  '⥝': '&RightDownTeeVector;',
-  '⇂': '&RightDownVector;',
-  '⥕': '&RightDownVectorBar;',
-  '⌋': '&RightFloor;',
-  '⊢': '&RightTee;',
-  '↦': '&RightTeeArrow;',
-  '⥛': '&RightTeeVector;',
-  '⊳': '&RightTriangle;',
-  '⧐': '&RightTriangleBar;',
-  '⊵': '&RightTriangleEqual;',
-  '⥏': '&RightUpDownVector;',
-  '⥜': '&RightUpTeeVector;',
-  '↾': '&RightUpVector;',
-  '⥔': '&RightUpVectorBar;',
-  '⇀': '&RightVector;',
-  '⥓': '&RightVectorBar;',
-  'ℝ': '&Ropf;',
-  '⥰': '&RoundImplies;',
-  '⇛': '&Rrightarrow;',
-  'ℛ': '&Rscr;',
-  '↱': '&Rsh;',
-  '⧴': '&RuleDelayed;',
-  'Щ': '&SHCHcy;',
-  'Ш': '&SHcy;',
-  'Ь': '&SOFTcy;',
-  'Ś': '&Sacute;',
-  '⪼': '&Sc;',
-  'Š': '&Scaron;',
-  'Ş': '&Scedil;',
-  'Ŝ': '&Scirc;',
-  'С': '&Scy;',
-  '𝔖': '&Sfr;',
-  '↑': '&ShortUpArrow;',
-  'Σ': '&Sigma;',
-  '∘': '&SmallCircle;',
-  '𝕊': '&Sopf;',
-  '√': '&Sqrt;',
-  '□': '&Square;',
-  '⊓': '&SquareIntersection;',
-  '⊏': '&SquareSubset;',
-  '⊑': '&SquareSubsetEqual;',
-  '⊐': '&SquareSuperset;',
-  '⊒': '&SquareSupersetEqual;',
-  '⊔': '&SquareUnion;',
-  '𝒮': '&Sscr;',
-  '⋆': '&Star;',
-  '⋐': '&Sub;',
-  '⊆': '&SubsetEqual;',
-  '≻': '&Succeeds;',
-  '⪰': '&SucceedsEqual;',
-  '≽': '&SucceedsSlantEqual;',
-  '≿': '&SucceedsTilde;',
-  '∑': '&Sum;',
-  '⋑': '&Sup;',
-  '⊃': '&Superset;',
-  '⊇': '&SupersetEqual;',
-  'Þ': '&THORN;',
-  '™': '&TRADE;',
-  'Ћ': '&TSHcy;',
-  'Ц': '&TScy;',
-  '\t': '&Tab;',
-  'Τ': '&Tau;',
-  'Ť': '&Tcaron;',
-  'Ţ': '&Tcedil;',
-  'Т': '&Tcy;',
-  '𝔗': '&Tfr;',
-  '∴': '&Therefore;',
-  'Θ': '&Theta;',
-  '  ': '&ThickSpace;',
-  ' ': '&ThinSpace;',
-  '∼': '&Tilde;',
-  '≃': '&TildeEqual;',
-  '≅': '&TildeFullEqual;',
-  '≈': '&TildeTilde;',
-  '𝕋': '&Topf;',
-  '⃛': '&TripleDot;',
-  '𝒯': '&Tscr;',
-  'Ŧ': '&Tstrok;',
-  'Ú': '&Uacute;',
-  '↟': '&Uarr;',
-  '⥉': '&Uarrocir;',
-  'Ў': '&Ubrcy;',
-  'Ŭ': '&Ubreve;',
-  'Û': '&Ucirc;',
-  'У': '&Ucy;',
-  'Ű': '&Udblac;',
-  '𝔘': '&Ufr;',
-  'Ù': '&Ugrave;',
-  'Ū': '&Umacr;',
-  '_': '&UnderBar;',
-  '⏟': '&UnderBrace;',
-  '⎵': '&UnderBracket;',
-  '⏝': '&UnderParenthesis;',
-  '⋃': '&Union;',
-  '⊎': '&UnionPlus;',
-  'Ų': '&Uogon;',
-  '𝕌': '&Uopf;',
-  '⤒': '&UpArrowBar;',
-  '⇅': '&UpArrowDownArrow;',
-  '↕': '&UpDownArrow;',
-  '⥮': '&UpEquilibrium;',
-  '⊥': '&UpTee;',
-  '↥': '&UpTeeArrow;',
-  '↖': '&UpperLeftArrow;',
-  '↗': '&UpperRightArrow;',
-  'ϒ': '&Upsi;',
-  'Υ': '&Upsilon;',
-  'Ů': '&Uring;',
-  '𝒰': '&Uscr;',
-  'Ũ': '&Utilde;',
-  'Ü': '&Uuml;',
-  '⊫': '&VDash;',
-  '⫫': '&Vbar;',
-  'В': '&Vcy;',
-  '⊩': '&Vdash;',
-  '⫦': '&Vdashl;',
-  '⋁': '&Vee;',
-  '‖': '&Verbar;',
-  '∣': '&VerticalBar;',
-  '|': '&VerticalLine;',
-  '❘': '&VerticalSeparator;',
-  '≀': '&VerticalTilde;',
-  ' ': '&VeryThinSpace;',
-  '𝔙': '&Vfr;',
-  '𝕍': '&Vopf;',
-  '𝒱': '&Vscr;',
-  '⊪': '&Vvdash;',
-  'Ŵ': '&Wcirc;',
-  '⋀': '&Wedge;',
-  '𝔚': '&Wfr;',
-  '𝕎': '&Wopf;',
-  '𝒲': '&Wscr;',
-  '𝔛': '&Xfr;',
-  'Ξ': '&Xi;',
-  '𝕏': '&Xopf;',
-  '𝒳': '&Xscr;',
-  'Я': '&YAcy;',
-  'Ї': '&YIcy;',
-  'Ю': '&YUcy;',
-  'Ý': '&Yacute;',
-  'Ŷ': '&Ycirc;',
-  'Ы': '&Ycy;',
-  '𝔜': '&Yfr;',
-  '𝕐': '&Yopf;',
-  '𝒴': '&Yscr;',
-  'Ÿ': '&Yuml;',
-  'Ж': '&ZHcy;',
-  'Ź': '&Zacute;',
-  'Ž': '&Zcaron;',
-  'З': '&Zcy;',
-  'Ż': '&Zdot;',
-  'Ζ': '&Zeta;',
-  'ℨ': '&Zfr;',
-  'ℤ': '&Zopf;',
-  '𝒵': '&Zscr;',
-  'á': '&aacute;',
-  'ă': '&abreve;',
-  '∾': '&ac;',
-  '∾̳': '&acE;',
-  '∿': '&acd;',
-  'â': '&acirc;',
-  'а': '&acy;',
-  'æ': '&aelig;',
-  '𝔞': '&afr;',
-  'à': '&agrave;',
-  'ℵ': '&alefsym;',
-  'α': '&alpha;',
-  'ā': '&amacr;',
-  '⨿': '&amalg;',
-  '∧': '&and;',
-  '⩕': '&andand;',
-  '⩜': '&andd;',
-  '⩘': '&andslope;',
-  '⩚': '&andv;',
-  '∠': '&ang;',
-  '⦤': '&ange;',
-  '∡': '&angmsd;',
-  '⦨': '&angmsdaa;',
-  '⦩': '&angmsdab;',
-  '⦪': '&angmsdac;',
-  '⦫': '&angmsdad;',
-  '⦬': '&angmsdae;',
-  '⦭': '&angmsdaf;',
-  '⦮': '&angmsdag;',
-  '⦯': '&angmsdah;',
-  '∟': '&angrt;',
-  '⊾': '&angrtvb;',
-  '⦝': '&angrtvbd;',
-  '∢': '&angsph;',
-  '⍼': '&angzarr;',
-  'ą': '&aogon;',
-  '𝕒': '&aopf;',
-  '⩰': '&apE;',
-  '⩯': '&apacir;',
-  '≊': '&ape;',
-  '≋': '&apid;',
-  '\'': '&apos;',
-  'å': '&aring;',
-  '𝒶': '&ascr;',
-  '*': '&ast;',
-  'ã': '&atilde;',
-  'ä': '&auml;',
-  '⨑': '&awint;',
-  '⫭': '&bNot;',
-  '≌': '&backcong;',
-  '϶': '&backepsilon;',
-  '‵': '&backprime;',
-  '∽': '&backsim;',
-  '⋍': '&backsimeq;',
-  '⊽': '&barvee;',
-  '⌅': '&barwed;',
-  '⎶': '&bbrktbrk;',
-  'б': '&bcy;',
-  '„': '&bdquo;',
-  '⦰': '&bemptyv;',
-  'β': '&beta;',
-  'ℶ': '&beth;',
-  '≬': '&between;',
-  '𝔟': '&bfr;',
-  '◯': '&bigcirc;',
-  '⨀': '&bigodot;',
-  '⨁': '&bigoplus;',
-  '⨂': '&bigotimes;',
-  '⨆': '&bigsqcup;',
-  '★': '&bigstar;',
-  '▽': '&bigtriangledown;',
-  '△': '&bigtriangleup;',
-  '⨄': '&biguplus;',
-  '⤍': '&bkarow;',
-  '⧫': '&blacklozenge;',
-  '▴': '&blacktriangle;',
-  '▾': '&blacktriangledown;',
-  '◂': '&blacktriangleleft;',
-  '▸': '&blacktriangleright;',
-  '␣': '&blank;',
-  '▒': '&blk12;',
-  '░': '&blk14;',
-  '▓': '&blk34;',
-  '█': '&block;',
-  '=⃥': '&bne;',
-  '≡⃥': '&bnequiv;',
-  '⌐': '&bnot;',
-  '𝕓': '&bopf;',
-  '⋈': '&bowtie;',
-  '╗': '&boxDL;',
-  '╔': '&boxDR;',
-  '╖': '&boxDl;',
-  '╓': '&boxDr;',
-  '═': '&boxH;',
-  '╦': '&boxHD;',
-  '╩': '&boxHU;',
-  '╤': '&boxHd;',
-  '╧': '&boxHu;',
-  '╝': '&boxUL;',
-  '╚': '&boxUR;',
-  '╜': '&boxUl;',
-  '╙': '&boxUr;',
-  '║': '&boxV;',
-  '╬': '&boxVH;',
-  '╣': '&boxVL;',
-  '╠': '&boxVR;',
-  '╫': '&boxVh;',
-  '╢': '&boxVl;',
-  '╟': '&boxVr;',
-  '⧉': '&boxbox;',
-  '╕': '&boxdL;',
-  '╒': '&boxdR;',
-  '┐': '&boxdl;',
-  '┌': '&boxdr;',
-  '╥': '&boxhD;',
-  '╨': '&boxhU;',
-  '┬': '&boxhd;',
-  '┴': '&boxhu;',
-  '⊟': '&boxminus;',
-  '⊞': '&boxplus;',
-  '⊠': '&boxtimes;',
-  '╛': '&boxuL;',
-  '╘': '&boxuR;',
-  '┘': '&boxul;',
-  '└': '&boxur;',
-  '│': '&boxv;',
-  '╪': '&boxvH;',
-  '╡': '&boxvL;',
-  '╞': '&boxvR;',
-  '┼': '&boxvh;',
-  '┤': '&boxvl;',
-  '├': '&boxvr;',
-  '¦': '&brvbar;',
-  '𝒷': '&bscr;',
-  '⁏': '&bsemi;',
-  '\\': '&bsol;',
-  '⧅': '&bsolb;',
-  '⟈': '&bsolhsub;',
-  '•': '&bull;',
-  '⪮': '&bumpE;',
-  'ć': '&cacute;',
-  '∩': '&cap;',
-  '⩄': '&capand;',
-  '⩉': '&capbrcup;',
-  '⩋': '&capcap;',
-  '⩇': '&capcup;',
-  '⩀': '&capdot;',
-  '∩︀': '&caps;',
-  '⁁': '&caret;',
-  '⩍': '&ccaps;',
-  'č': '&ccaron;',
-  'ç': '&ccedil;',
-  'ĉ': '&ccirc;',
-  '⩌': '&ccups;',
-  '⩐': '&ccupssm;',
-  'ċ': '&cdot;',
-  '⦲': '&cemptyv;',
-  '¢': '&cent;',
-  '𝔠': '&cfr;',
-  'ч': '&chcy;',
-  '✓': '&check;',
-  'χ': '&chi;',
-  '○': '&cir;',
-  '⧃': '&cirE;',
-  'ˆ': '&circ;',
-  '≗': '&circeq;',
-  '↺': '&circlearrowleft;',
-  '↻': '&circlearrowright;',
-  'Ⓢ': '&circledS;',
-  '⊛': '&circledast;',
-  '⊚': '&circledcirc;',
-  '⊝': '&circleddash;',
-  '⨐': '&cirfnint;',
-  '⫯': '&cirmid;',
-  '⧂': '&cirscir;',
-  '♣': '&clubs;',
-  ':': '&colon;',
-  ',': '&comma;',
-  '@': '&commat;',
-  '∁': '&comp;',
-  '⩭': '&congdot;',
-  '𝕔': '&copf;',
-  '℗': '&copysr;',
-  '↵': '&crarr;',
-  '✗': '&cross;',
-  '𝒸': '&cscr;',
-  '⫏': '&csub;',
-  '⫑': '&csube;',
-  '⫐': '&csup;',
-  '⫒': '&csupe;',
-  '⋯': '&ctdot;',
-  '⤸': '&cudarrl;',
-  '⤵': '&cudarrr;',
-  '⋞': '&cuepr;',
-  '⋟': '&cuesc;',
-  '↶': '&cularr;',
-  '⤽': '&cularrp;',
-  '∪': '&cup;',
-  '⩈': '&cupbrcap;',
-  '⩆': '&cupcap;',
-  '⩊': '&cupcup;',
-  '⊍': '&cupdot;',
-  '⩅': '&cupor;',
-  '∪︀': '&cups;',
-  '↷': '&curarr;',
-  '⤼': '&curarrm;',
-  '⋎': '&curlyvee;',
-  '⋏': '&curlywedge;',
-  '¤': '&curren;',
-  '∱': '&cwint;',
-  '⌭': '&cylcty;',
-  '⥥': '&dHar;',
-  '†': '&dagger;',
-  'ℸ': '&daleth;',
-  '‐': '&dash;',
-  '⤏': '&dbkarow;',
-  'ď': '&dcaron;',
-  'д': '&dcy;',
-  '⇊': '&ddarr;',
-  '⩷': '&ddotseq;',
-  '°': '&deg;',
-  'δ': '&delta;',
-  '⦱': '&demptyv;',
-  '⥿': '&dfisht;',
-  '𝔡': '&dfr;',
-  '♦': '&diamondsuit;',
-  'ϝ': '&digamma;',
-  '⋲': '&disin;',
-  '÷': '&div;',
-  '⋇': '&divideontimes;',
-  'ђ': '&djcy;',
-  '⌞': '&dlcorn;',
-  '⌍': '&dlcrop;',
-  '$': '&dollar;',
-  '𝕕': '&dopf;',
-  '≑': '&doteqdot;',
-  '∸': '&dotminus;',
-  '∔': '&dotplus;',
-  '⊡': '&dotsquare;',
-  '⌟': '&drcorn;',
-  '⌌': '&drcrop;',
-  '𝒹': '&dscr;',
-  'ѕ': '&dscy;',
-  '⧶': '&dsol;',
-  'đ': '&dstrok;',
-  '⋱': '&dtdot;',
-  '⦦': '&dwangle;',
-  'џ': '&dzcy;',
-  '⩮': '&easter;',
-  'ě': '&ecaron;',
-  '≖': '&ecir;',
-  '≕': '&ecolon;',
-  'э': '&ecy;',
-  '≒': '&efDot;',
-  '𝔢': '&efr;',
-  '⪚': '&eg;',
-  '⪖': '&egs;',
-  '⪘': '&egsdot;',
-  '⪙': '&el;',
-  '⏧': '&elinters;',
-  'ℓ': '&ell;',
-  '⪕': '&els;',
-  '⪗': '&elsdot;',
-  'ē': '&emacr;',
-  ' ': '&emsp13;',
-  ' ': '&emsp14;',
-  ' ': '&emsp;',
-  'ŋ': '&eng;',
-  ' ': '&ensp;',
-  'ę': '&eogon;',
-  '𝕖': '&eopf;',
-  '⋕': '&epar;',
-  '⧣': '&eparsl;',
-  '⩱': '&eplus;',
-  'ε': '&epsi;',
-  'ϵ': '&epsiv;',
-  '=': '&equals;',
-  '≟': '&equest;',
-  '⩸': '&equivDD;',
-  '⧥': '&eqvparsl;',
-  '≓': '&erDot;',
-  '⥱': '&erarr;',
-  'ℯ': '&escr;',
-  'η': '&eta;',
-  'ð': '&eth;',
-  'ë': '&euml;',
-  '€': '&euro;',
-  '!': '&excl;',
-  'ф': '&fcy;',
-  '♀': '&female;',
-  'ﬃ': '&ffilig;',
-  'ﬀ': '&fflig;',
-  'ﬄ': '&ffllig;',
-  '𝔣': '&ffr;',
-  'ﬁ': '&filig;',
-  'fj': '&fjlig;',
-  '♭': '&flat;',
-  'ﬂ': '&fllig;',
-  '▱': '&fltns;',
-  'ƒ': '&fnof;',
-  '𝕗': '&fopf;',
-  '⋔': '&fork;',
-  '⫙': '&forkv;',
-  '⨍': '&fpartint;',
-  '½': '&frac12;',
-  '⅓': '&frac13;',
-  '¼': '&frac14;',
-  '⅕': '&frac15;',
-  '⅙': '&frac16;',
-  '⅛': '&frac18;',
-  '⅔': '&frac23;',
-  '⅖': '&frac25;',
-  '¾': '&frac34;',
-  '⅗': '&frac35;',
-  '⅜': '&frac38;',
-  '⅘': '&frac45;',
-  '⅚': '&frac56;',
-  '⅝': '&frac58;',
-  '⅞': '&frac78;',
-  '⁄': '&frasl;',
-  '⌢': '&frown;',
-  '𝒻': '&fscr;',
-  'é': '&eacute;',
-  '⪌': '&gEl;',
-  'ǵ': '&gacute;',
-  'γ': '&gamma;',
-  '⪆': '&gap;',
-  'ğ': '&gbreve;',
-  'ĝ': '&gcirc;',
-  'г': '&gcy;',
-  'ġ': '&gdot;',
-  '⪩': '&gescc;',
-  '⪀': '&gesdot;',
-  '⪂': '&gesdoto;',
-  '⪄': '&gesdotol;',
-  '⋛︀': '&gesl;',
-  '⪔': '&gesles;',
-  '𝔤': '&gfr;',
-  'ℷ': '&gimel;',
-  'ѓ': '&gjcy;',
-  '⪒': '&glE;',
-  '⪥': '&gla;',
-  '⪤': '&glj;',
-  '≩': '&gnE;',
-  '⪊': '&gnap;',
-  '⪈': '&gne;',
-  '⋧': '&gnsim;',
-  '𝕘': '&gopf;',
-  'ℊ': '&gscr;',
-  '⪎': '&gsime;',
-  '⪐': '&gsiml;',
-  '⪧': '&gtcc;',
-  '⩺': '&gtcir;',
-  '⋗': '&gtdot;',
-  '⦕': '&gtlPar;',
-  '⩼': '&gtquest;',
-  '⥸': '&gtrarr;',
-  '≩︀': '&gvertneqq;',
-  'ъ': '&hardcy;',
-  '⥈': '&harrcir;',
-  '↭': '&harrw;',
-  'ℏ': '&hbar;',
-  'ĥ': '&hcirc;',
-  '♥': '&hearts;',
-  '…': '&hellip;',
-  '⊹': '&hercon;',
-  '𝔥': '&hfr;',
-  '⤥': '&hksearow;',
-  '⤦': '&hkswarow;',
-  '⇿': '&hoarr;',
-  '∻': '&homtht;',
-  '↩': '&hookleftarrow;',
-  '↪': '&hookrightarrow;',
-  '𝕙': '&hopf;',
-  '―': '&horbar;',
-  '𝒽': '&hscr;',
-  'ħ': '&hstrok;',
-  '⁃': '&hybull;',
-  'í': '&iacute;',
-  'î': '&icirc;',
-  'и': '&icy;',
-  'е': '&iecy;',
-  '¡': '&iexcl;',
-  '𝔦': '&ifr;',
-  'ì': '&igrave;',
-  '⨌': '&iiiint;',
-  '∭': '&iiint;',
-  '⧜': '&iinfin;',
-  '℩': '&iiota;',
-  'ĳ': '&ijlig;',
-  'ī': '&imacr;',
-  'ı': '&imath;',
-  '⊷': '&imof;',
-  'Ƶ': '&imped;',
-  '℅': '&incare;',
-  '∞': '&infin;',
-  '⧝': '&infintie;',
-  '⊺': '&intcal;',
-  '⨗': '&intlarhk;',
-  '⨼': '&intprod;',
-  'ё': '&iocy;',
-  'į': '&iogon;',
-  '𝕚': '&iopf;',
-  'ι': '&iota;',
-  '¿': '&iquest;',
-  '𝒾': '&iscr;',
-  '⋹': '&isinE;',
-  '⋵': '&isindot;',
-  '⋴': '&isins;',
-  '⋳': '&isinsv;',
-  'ĩ': '&itilde;',
-  'і': '&iukcy;',
-  'ï': '&iuml;',
-  'ĵ': '&jcirc;',
-  'й': '&jcy;',
-  '𝔧': '&jfr;',
-  'ȷ': '&jmath;',
-  '𝕛': '&jopf;',
-  '𝒿': '&jscr;',
-  'ј': '&jsercy;',
-  'є': '&jukcy;',
-  'κ': '&kappa;',
-  'ϰ': '&kappav;',
-  'ķ': '&kcedil;',
-  'к': '&kcy;',
-  '𝔨': '&kfr;',
-  'ĸ': '&kgreen;',
-  'х': '&khcy;',
-  'ќ': '&kjcy;',
-  '𝕜': '&kopf;',
-  '𝓀': '&kscr;',
-  '⤛': '&lAtail;',
-  '⤎': '&lBarr;',
-  '⪋': '&lEg;',
-  '⥢': '&lHar;',
-  'ĺ': '&lacute;',
-  '⦴': '&laemptyv;',
-  'λ': '&lambda;',
-  '⦑': '&langd;',
-  '⪅': '&lap;',
-  '«': '&laquo;',
-  '⤟': '&larrbfs;',
-  '⤝': '&larrfs;',
-  '↫': '&larrlp;',
-  '⤹': '&larrpl;',
-  '⥳': '&larrsim;',
-  '↢': '&larrtl;',
-  '⪫': '&lat;',
-  '⤙': '&latail;',
-  '⪭': '&late;',
-  '⪭︀': '&lates;',
-  '⤌': '&lbarr;',
-  '❲': '&lbbrk;',
-  '{': '&lbrace;',
-  '[': '&lbrack;',
-  '⦋': '&lbrke;',
-  '⦏': '&lbrksld;',
-  '⦍': '&lbrkslu;',
-  'ľ': '&lcaron;',
-  'ļ': '&lcedil;',
-  'л': '&lcy;',
-  '⤶': '&ldca;',
-  '⥧': '&ldrdhar;',
-  '⥋': '&ldrushar;',
-  '↲': '&ldsh;',
-  '≤': '&le;',
-  '⇇': '&leftleftarrows;',
-  '⋋': '&leftthreetimes;',
-  '⪨': '&lescc;',
-  '⩿': '&lesdot;',
-  '⪁': '&lesdoto;',
-  '⪃': '&lesdotor;',
-  '⋚︀': '&lesg;',
-  '⪓': '&lesges;',
-  '⋖': '&lessdot;',
-  '⥼': '&lfisht;',
-  '𝔩': '&lfr;',
-  '⪑': '&lgE;',
-  '⥪': '&lharul;',
-  '▄': '&lhblk;',
-  'љ': '&ljcy;',
-  '⥫': '&llhard;',
-  '◺': '&lltri;',
-  'ŀ': '&lmidot;',
-  '⎰': '&lmoust;',
-  '≨': '&lnE;',
-  '⪉': '&lnap;',
-  '⪇': '&lne;',
-  '⋦': '&lnsim;',
-  '⟬': '&loang;',
-  '⇽': '&loarr;',
-  '↬': '&looparrowright;',
-  '⦅': '&lopar;',
-  '𝕝': '&lopf;',
-  '⨭': '&loplus;',
-  '⨴': '&lotimes;',
-  '∗': '&lowast;',
-  '◊': '&loz;',
-  '(': '&lpar;',
-  '⦓': '&lparlt;',
-  '⥭': '&lrhard;',
-  '‎': '&lrm;',
-  '⊿': '&lrtri;',
-  '‹': '&lsaquo;',
-  '𝓁': '&lscr;',
-  '⪍': '&lsime;',
-  '⪏': '&lsimg;',
-  '‚': '&lsquor;',
-  'ł': '&lstrok;',
-  '⪦': '&ltcc;',
-  '⩹': '&ltcir;',
-  '⋉': '&ltimes;',
-  '⥶': '&ltlarr;',
-  '⩻': '&ltquest;',
-  '⦖': '&ltrPar;',
-  '◃': '&ltri;',
-  '⥊': '&lurdshar;',
-  '⥦': '&luruhar;',
-  '≨︀': '&lvertneqq;',
-  '∺': '&mDDot;',
-  '¯': '&macr;',
-  '♂': '&male;',
-  '✠': '&malt;',
-  '▮': '&marker;',
-  '⨩': '&mcomma;',
-  'м': '&mcy;',
-  '—': '&mdash;',
-  '𝔪': '&mfr;',
-  '℧': '&mho;',
-  'µ': '&micro;',
-  '⫰': '&midcir;',
-  '−': '&minus;',
-  '⨪': '&minusdu;',
-  '⫛': '&mlcp;',
-  '⊧': '&models;',
-  '𝕞': '&mopf;',
-  '𝓂': '&mscr;',
-  'μ': '&mu;',
-  '⊸': '&multimap;',
-  '⋙̸': '&nGg;',
-  '≫⃒': '&nGt;',
-  '⇍': '&nLeftarrow;',
-  '⇎': '&nLeftrightarrow;',
-  '⋘̸': '&nLl;',
-  '≪⃒': '&nLt;',
-  '⇏': '&nRightarrow;',
-  '⊯': '&nVDash;',
-  '⊮': '&nVdash;',
-  'ń': '&nacute;',
-  '∠⃒': '&nang;',
-  '⩰̸': '&napE;',
-  '≋̸': '&napid;',
-  'ŉ': '&napos;',
-  '♮': '&natur;',
-  '⩃': '&ncap;',
-  'ň': '&ncaron;',
-  'ņ': '&ncedil;',
-  '⩭̸': '&ncongdot;',
-  '⩂': '&ncup;',
-  'н': '&ncy;',
-  '–': '&ndash;',
-  '⇗': '&neArr;',
-  '⤤': '&nearhk;',
-  '≐̸': '&nedot;',
-  '⤨': '&nesear;',
-  '𝔫': '&nfr;',
-  '↮': '&nharr;',
-  '⫲': '&nhpar;',
-  '⋼': '&nis;',
-  '⋺': '&nisd;',
-  'њ': '&njcy;',
-  '≦̸': '&nlE;',
-  '↚': '&nlarr;',
-  '‥': '&nldr;',
-  '𝕟': '&nopf;',
-  '¬': '&not;',
-  '⋹̸': '&notinE;',
-  '⋵̸': '&notindot;',
-  '⋷': '&notinvb;',
-  '⋶': '&notinvc;',
-  '⋾': '&notnivb;',
-  '⋽': '&notnivc;',
-  '⫽⃥': '&nparsl;',
-  '∂̸': '&npart;',
-  '⨔': '&npolint;',
-  '↛': '&nrarr;',
-  '⤳̸': '&nrarrc;',
-  '↝̸': '&nrarrw;',
-  '𝓃': '&nscr;',
-  '⊄': '&nsub;',
-  '⫅̸': '&nsubE;',
-  '⊅': '&nsup;',
-  '⫆̸': '&nsupE;',
-  'ν': '&nu;',
-  '#': '&num;',
-  '№': '&numero;',
-  ' ': '&numsp;',
-  '⊭': '&nvDash;',
-  '⤄': '&nvHarr;',
-  '≍⃒': '&nvap;',
-  '⊬': '&nvdash;',
-  '≥⃒': '&nvge;',
-  '>⃒': '&nvgt;',
-  '⧞': '&nvinfin;',
-  '⤂': '&nvlArr;',
-  '≤⃒': '&nvle;',
-  '<⃒': '&nvlt;',
-  '⊴⃒': '&nvltrie;',
-  '⤃': '&nvrArr;',
-  '⊵⃒': '&nvrtrie;',
-  '∼⃒': '&nvsim;',
-  '⇖': '&nwArr;',
-  '⤣': '&nwarhk;',
-  '⤧': '&nwnear;',
-  'ó': '&oacute;',
-  'ô': '&ocirc;',
-  'о': '&ocy;',
-  'ő': '&odblac;',
-  '⨸': '&odiv;',
-  '⦼': '&odsold;',
-  'œ': '&oelig;',
-  '⦿': '&ofcir;',
-  '𝔬': '&ofr;',
-  '˛': '&ogon;',
-  'ò': '&ograve;',
-  '⧁': '&ogt;',
-  '⦵': '&ohbar;',
-  '⦾': '&olcir;',
-  '⦻': '&olcross;',
-  '⧀': '&olt;',
-  'ō': '&omacr;',
-  'ω': '&omega;',
-  'ο': '&omicron;',
-  '⦶': '&omid;',
-  '𝕠': '&oopf;',
-  '⦷': '&opar;',
-  '⦹': '&operp;',
-  '∨': '&or;',
-  '⩝': '&ord;',
-  'ℴ': '&order;',
-  'ª': '&ordf;',
-  'º': '&ordm;',
-  '⊶': '&origof;',
-  '⩖': '&oror;',
-  '⩗': '&orslope;',
-  '⊘': '&osol;',
-  '⨶': '&otimesas;',
-  '⫳': '&parsim;',
-  'п': '&pcy;',
-  '%': '&percnt;',
-  '.': '&period;',
-  '‱': '&pertenk;',
-  '𝔭': '&pfr;',
-  'φ': '&phi;',
-  '☎': '&phone;',
-  '+': '&plus;',
-  '⨥': '&plusdu;',
-  '⩲': '&pluse;',
-  '⨦': '&plussim;',
-  '⨧': '&plustwo;',
-  '⨕': '&pointint;',
-  '𝕡': '&popf;',
-  '£': '&pound;',
-  '⪳': '&prE;',
-  '⪷': '&prap;',
-  '⪹': '&precnapprox;',
-  '⪵': '&precneqq;',
-  '⋨': '&precnsim;',
-  '′': '&prime;',
-  '⌮': '&profalar;',
-  '⌒': '&profline;',
-  '⌓': '&profsurf;',
-  '⊰': '&prurel;',
-  '𝓅': '&pscr;',
-  'ψ': '&psi;',
-  ' ': '&puncsp;',
-  '𝔮': '&qfr;',
-  '𝕢': '&qopf;',
-  '⁗': '&qprime;',
-  '𝓆': '&qscr;',
-  '⨖': '&quatint;',
-  '?': '&quest;',
-  '⤜': '&rAtail;',
-  '⥤': '&rHar;',
-  '∽̱': '&race;',
-  'ŕ': '&racute;',
-  '⦳': '&raemptyv;',
-  '⦒': '&rangd;',
-  '⦥': '&range;',
-  '»': '&raquo;',
-  '⥵': '&rarrap;',
-  '⤠': '&rarrbfs;',
-  '⤳': '&rarrc;',
-  '⤞': '&rarrfs;',
-  '⥅': '&rarrpl;',
-  '⥴': '&rarrsim;',
-  '↣': '&rarrtl;',
-  '↝': '&rarrw;',
-  '⤚': '&ratail;',
-  '∶': '&ratio;',
-  '❳': '&rbbrk;',
-  '}': '&rbrace;',
-  ']': '&rbrack;',
-  '⦌': '&rbrke;',
-  '⦎': '&rbrksld;',
-  '⦐': '&rbrkslu;',
-  'ř': '&rcaron;',
-  'ŗ': '&rcedil;',
-  'р': '&rcy;',
-  '⤷': '&rdca;',
-  '⥩': '&rdldhar;',
-  '↳': '&rdsh;',
-  '▭': '&rect;',
-  '⥽': '&rfisht;',
-  '𝔯': '&rfr;',
-  '⥬': '&rharul;',
-  'ρ': '&rho;',
-  'ϱ': '&rhov;',
-  '⇉': '&rightrightarrows;',
-  '⋌': '&rightthreetimes;',
-  '˚': '&ring;',
-  '‏': '&rlm;',
-  '⎱': '&rmoust;',
-  '⫮': '&rnmid;',
-  '⟭': '&roang;',
-  '⇾': '&roarr;',
-  '⦆': '&ropar;',
-  '𝕣': '&ropf;',
-  '⨮': '&roplus;',
-  '⟼': '&longmapsto;',
-  '⨵': '&rotimes;',
-  ')': '&rpar;',
-  '⦔': '&rpargt;',
-  '⨒': '&rppolint;',
-  '›': '&rsaquo;',
-  '𝓇': '&rscr;',
-  '⋊': '&rtimes;',
-  '▹': '&rtri;',
-  '⧎': '&rtriltri;',
-  '⥨': '&ruluhar;',
-  '℞': '&rx;',
-  'ś': '&sacute;',
-  '⪴': '&scE;',
-  '⪸': '&scap;',
-  'š': '&scaron;',
-  'ş': '&scedil;',
-  'ŝ': '&scirc;',
-  '⪶': '&scnE;',
-  '⪺': '&scnap;',
-  '⋩': '&scnsim;',
-  '⨓': '&scpolint;',
-  'с': '&scy;',
-  '⋅': '&sdot;',
-  '⩦': '&sdote;',
-  '⇘': '&seArr;',
-  '§': '&sect;',
-  ';': '&semi;',
-  '⤩': '&seswar;',
-  '✶': '&sext;',
-  '𝔰': '&sfr;',
-  '♯': '&sharp;',
-  'щ': '&shchcy;',
-  'ш': '&shcy;',
-  '­': '&shy;',
-  'σ': '&sigma;',
-  'ς': '&sigmaf;',
-  '⩪': '&simdot;',
-  '⪞': '&simg;',
-  '⪠': '&simgE;',
-  '⪝': '&siml;',
-  '⪟': '&simlE;',
-  '≆': '&simne;',
-  '⨤': '&simplus;',
-  '⥲': '&simrarr;',
-  '⨳': '&smashp;',
-  '⧤': '&smeparsl;',
-  '⌣': '&smile;',
-  '⪪': '&smt;',
-  '⪬': '&smte;',
-  '⪬︀': '&smtes;',
-  'ь': '&softcy;',
-  '/': '&sol;',
-  '⧄': '&solb;',
-  '⌿': '&solbar;',
-  '𝕤': '&sopf;',
-  '♠': '&spades;',
-  '⊓︀': '&sqcaps;',
-  '⊔︀': '&sqcups;',
-  '𝓈': '&sscr;',
-  '☆': '&star;',
-  'ϕ': '&straightphi;',
-  '⊂': '&sub;',
-  '⫅': '&subE;',
-  '⪽': '&subdot;',
-  '⫃': '&subedot;',
-  '⫁': '&submult;',
-  '⫋': '&subnE;',
-  '⊊': '&subne;',
-  '⪿': '&subplus;',
-  '⥹': '&subrarr;',
-  '⫇': '&subsim;',
-  '⫕': '&subsub;',
-  '⫓': '&subsup;',
-  '♪': '&sung;',
-  '¹': '&sup1;',
-  '²': '&sup2;',
-  '³': '&sup3;',
-  '⫆': '&supE;',
-  '⪾': '&supdot;',
-  '⫘': '&supdsub;',
-  '⫄': '&supedot;',
-  '⟉': '&suphsol;',
-  '⫗': '&suphsub;',
-  '⥻': '&suplarr;',
-  '⫂': '&supmult;',
-  '⫌': '&supnE;',
-  '⊋': '&supne;',
-  '⫀': '&supplus;',
-  '⫈': '&supsim;',
-  '⫔': '&supsub;',
-  '⫖': '&supsup;',
-  '⇙': '&swArr;',
-  '⤪': '&swnwar;',
-  'ß': '&szlig;',
-  '⌖': '&target;',
-  'τ': '&tau;',
-  'ť': '&tcaron;',
-  'ţ': '&tcedil;',
-  'т': '&tcy;',
-  '⌕': '&telrec;',
-  '𝔱': '&tfr;',
-  'θ': '&theta;',
-  'ϑ': '&thetasym;',
-  'þ': '&thorn;',
-  '×': '&times;',
-  '⨱': '&timesbar;',
-  '⨰': '&timesd;',
-  '⌶': '&topbot;',
-  '⫱': '&topcir;',
-  '𝕥': '&topf;',
-  '⫚': '&topfork;',
-  '‴': '&tprime;',
-  '▵': '&triangle;',
-  '▿': '&triangledown;',
-  '≜': '&triangleq;',
-  '◬': '&tridot;',
-  '⨺': '&triminus;',
-  '⨹': '&triplus;',
-  '⧍': '&trisb;',
-  '⨻': '&tritime;',
-  '⏢': '&trpezium;',
-  '𝓉': '&tscr;',
-  'ц': '&tscy;',
-  'ћ': '&tshcy;',
-  'ŧ': '&tstrok;',
-  '⥣': '&uHar;',
-  'ú': '&uacute;',
-  'ў': '&ubrcy;',
-  'ŭ': '&ubreve;',
-  'û': '&ucirc;',
-  'у': '&ucy;',
-  'ű': '&udblac;',
-  '⥾': '&ufisht;',
-  '𝔲': '&ufr;',
-  'ù': '&ugrave;',
-  '▀': '&uhblk;',
-  '⌜': '&ulcorn;',
-  '⌏': '&ulcrop;',
-  '◸': '&ultri;',
-  'ū': '&umacr;',
-  'ų': '&uogon;',
-  '𝕦': '&uopf;',
-  'υ': '&upsi;',
-  '⇈': '&upuparrows;',
-  '⌝': '&urcorn;',
-  '⌎': '&urcrop;',
-  'ů': '&uring;',
-  '◹': '&urtri;',
-  '𝓊': '&uscr;',
-  '⋰': '&utdot;',
-  'ũ': '&utilde;',
-  'ü': '&uuml;',
-  '⦧': '&uwangle;',
-  '⫨': '&vBar;',
-  '⫩': '&vBarv;',
-  '⦜': '&vangrt;',
-  '∅': '&varnothing;',
-  '⊊︀': '&varsubsetneq;',
-  '⫋︀': '&varsubsetneqq;',
-  '⊋︀': '&varsupsetneq;',
-  '⫌︀': '&varsupsetneqq;',
-  'в': '&vcy;',
-  '⊻': '&veebar;',
-  '≚': '&veeeq;',
-  '⋮': '&vellip;',
-  '𝔳': '&vfr;',
-  '𝕧': '&vopf;',
-  '𝓋': '&vscr;',
-  '⦚': '&vzigzag;',
-  'ŵ': '&wcirc;',
-  '⩟': '&wedbar;',
-  '≙': '&wedgeq;',
-  '℘': '&weierp;',
-  '𝔴': '&wfr;',
-  '𝕨': '&wopf;',
-  '𝓌': '&wscr;',
-  '𝔵': '&xfr;',
-  'ξ': '&xi;',
-  '⋻': '&xnis;',
-  '𝕩': '&xopf;',
-  '𝓍': '&xscr;',
-  'ý': '&yacute;',
-  'я': '&yacy;',
-  'ŷ': '&ycirc;',
-  'ы': '&ycy;',
-  '¥': '&yen;',
-  '𝔶': '&yfr;',
-  'ї': '&yicy;',
-  '𝕪': '&yopf;',
-  '𝓎': '&yscr;',
-  'ю': '&yucy;',
-  'ÿ': '&yuml;',
-  'ź': '&zacute;',
-  'ž': '&zcaron;',
-  'з': '&zcy;',
-  'ż': '&zdot;',
-  'ζ': '&zeta;',
-  '𝔷': '&zfr;',
-  'ж': '&zhcy;',
-  '⇝': '&zigrarr;',
-  '𝕫': '&zopf;',
-  '𝓏': '&zscr;',
-  '‍': '&zwj;',
-  '‌': '&zwnj;'
-};
+exports.entitiesDecode = decode;
+
+var encode = new Map();
+decode.forEach(function (value, key) {
+    encode.set(value, key);
+});
+
+exports.entitiesEncode = encode;
