@@ -39,3 +39,27 @@ Object.keys(_string2).forEach(function (key) {
     }
   });
 });
+
+var _string3 = require('./string.decoders');
+
+Object.keys(_string3).forEach(function (key) {
+  if (key === "default") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _string3[key];
+    }
+  });
+});
+
+var _string4 = require('./string.encoders');
+
+Object.keys(_string4).forEach(function (key) {
+  if (key === "default") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _string4[key];
+    }
+  });
+});

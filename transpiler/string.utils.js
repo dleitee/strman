@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.htmlEncode = exports.htmlDecode = exports.base64Decode = exports.base64Encode = exports.urlDecode = exports.urlEncode = exports.decDecode = exports.decEncode = exports.binDecode = exports.binEncode = exports.hexDecode = exports.hexEncode = exports.inequal = exports.equal = exports.compare = exports.format = exports.removeEmptyStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
+exports.inequal = exports.equal = exports.compare = exports.format = exports.removeEmptyStrings = exports.truncate = exports.safeTruncate = exports.slice = exports.surround = exports.shuffle = exports.reverse = exports.repeat = exports.removeRight = exports.removeLeft = exports.prependArray = exports.prepend = exports.split = exports.substr = exports.rightPad = exports.leftPad = exports.length = exports.insert = exports.lastIndexOf = exports.indexOf = exports.last = exports.first = exports.ensureRight = exports.ensureLeft = exports.startsWith = exports.endsWith = exports.countSubstr = exports.containsAny = exports.containsAll = exports.contains = exports.removeNonWords = exports.collapseWhitespace = exports.chars = exports.between = exports.at = exports.appendArray = exports.append = exports.transliterate = exports.replace = exports.removeSpaces = exports.rightTrim = exports.leftTrim = exports.trim = exports.isString = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
@@ -13,9 +13,7 @@ var _array = require('./lib/array');
 
 var _validate = require('./lib/validate');
 
-var _string = require('./string.cases');
-
-var _entities = require('./lib/entities');
+var _case = require('./lib/case');
 
 /**
  * Checks whether a string.
@@ -172,14 +170,7 @@ var append = function append(value) {
         appends[_key - 1] = arguments[_key];
     }
 
-    (0, _validate.validString)(value);
-    (0, _validate.validArrayString)(appends);
-
-    if (length(appends) === 0) {
-        return value;
-    }
-
-    return value + appends.join('');
+    return appendArray(value, appends);
 };
 
 exports.append = append;
@@ -334,13 +325,7 @@ exports.removeNonWords = removeNonWords;
 
 var contains = function contains(value, needle) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
-
-
-    if (caseSensitive) {
-        return indexOf(value, needle) > -1;
-    }
-
-    return indexOf((0, _string.toUpperCase)(value), (0, _string.toUpperCase)(needle)) > -1;
+    return indexOf((0, _case.toCaseSensitive)(value, caseSensitive), (0, _case.toCaseSensitive)(needle, caseSensitive)) > -1;
 };
 
 exports.contains = contains;
@@ -451,14 +436,7 @@ var _countSubstring = function _countSubstring(value, _substr) {
 var countSubstr = function countSubstr(value, _substr) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
     var allowOverlapping = arguments.length <= 3 || arguments[3] === undefined ? false : arguments[3];
-
-
-    if (!caseSensitive) {
-        value = (0, _string.toUpperCase)(value);
-        _substr = (0, _string.toUpperCase)(_substr);
-    }
-
-    return _countSubstring(value, _substr, allowOverlapping);
+    return _countSubstring((0, _case.toCaseSensitive)(value, caseSensitive), (0, _case.toCaseSensitive)(_substr, caseSensitive), allowOverlapping);
 };
 
 exports.countSubstr = countSubstr;
@@ -491,11 +469,7 @@ var endsWith = function endsWith(value, search) {
 
     position -= length(search);
 
-    if (caseSensitive) {
-        lastIndex = indexOf(value, search, position);
-    } else {
-        lastIndex = indexOf((0, _string.toUpperCase)(value), (0, _string.toUpperCase)(search), position);
-    }
+    lastIndex = indexOf((0, _case.toCaseSensitive)(value, caseSensitive), (0, _case.toCaseSensitive)(search, caseSensitive), position);
 
     return lastIndex !== -1 && lastIndex === position;
 };
@@ -518,13 +492,7 @@ exports.endsWith = endsWith;
 var startsWith = function startsWith(value, search) {
     var position = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
     var caseSensitive = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
-
-
-    if (caseSensitive) {
-        return substr(value, position, length(search)) === search;
-    }
-
-    return substr((0, _string.toUpperCase)(value), position, length(search)) === (0, _string.toUpperCase)(search);
+    return substr((0, _case.toCaseSensitive)(value, caseSensitive), position, length(search)) === (0, _case.toCaseSensitive)(search, caseSensitive);
 };
 
 exports.startsWith = startsWith;
@@ -633,12 +601,7 @@ exports.last = last;
 var indexOf = function indexOf(value, needle) {
     var offset = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
     var caseSensitive = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
-
-    if (caseSensitive) {
-        return value.indexOf(needle, offset);
-    }
-
-    return (0, _string.toUpperCase)(value).indexOf((0, _string.toUpperCase)(needle), offset);
+    return (0, _case.toCaseSensitive)(value, caseSensitive).indexOf((0, _case.toCaseSensitive)(needle, caseSensitive), offset);
 };
 
 exports.indexOf = indexOf;
@@ -661,11 +624,7 @@ exports.indexOf = indexOf;
 var lastIndexOf = function lastIndexOf(value, needle) {
     var offset = arguments.length <= 2 || arguments[2] === undefined ? undefined : arguments[2];
     var caseSensitive = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
-
-    if (caseSensitive) {
-        return value.lastIndexOf(needle, offset);
-    }
-    return (0, _string.toUpperCase)(value).lastIndexOf((0, _string.toUpperCase)(needle), offset);
+    return (0, _case.toCaseSensitive)(value, caseSensitive).lastIndexOf((0, _case.toCaseSensitive)(needle, caseSensitive), offset);
 };
 
 exports.lastIndexOf = lastIndexOf;
@@ -842,14 +801,7 @@ var prepend = function prepend(value) {
         prepends[_key2 - 1] = arguments[_key2];
     }
 
-    (0, _validate.validString)(value);
-    (0, _validate.validArrayString)(prepends);
-
-    if (length(prepends) === 0) {
-        return value;
-    }
-
-    return prepends.join('') + value;
+    return prependArray(value, prepends);
 };
 
 exports.prepend = prepend;
@@ -1215,199 +1167,3 @@ var inequal = function inequal(stringA, stringB) {
 };
 
 exports.inequal = inequal;
-
-/**
- * Convert string chars to hexadecimal unicode (4 digits)
- * @playground
- * var hexEncode = require('strman').hexEncode;
- * let result = hexEncode("strman");
- * @param {String} value - Value to encode
- * @returns {String} - String in hexadecimal format.
- */
-
-var hexEncode = function hexEncode(value) {
-    return chars(value).map(function (data) {
-        return leftPad(data.charCodeAt(0).toString(16), 4, '0');
-    }).join('');
-};
-
-exports.hexEncode = hexEncode;
-
-/**
- * Convert hexadecimal unicode (4 digits) string to string chars
- * @playground
- * var hexDecode = require('strman').hexDecode;
- * let result = hexDecode("007300740072006d0061006e");
- * @param {String} value - Value to decode
- * @returns {String} - String decoded.
- */
-
-var hexDecode = function hexDecode(value) {
-    return value.match(/.{1,4}/g).map(function (data) {
-        return String.fromCharCode(parseInt(data, 16));
-    }).join('');
-};
-
-exports.hexDecode = hexDecode;
-
-/**
- * Convert string chars to binary unicode (16 digits)
- * @playground
- * var binEncode = require('strman').binEncode;
- * let result = binEncode("strman");
- * @param {String} value - Value to encode
- * @returns {String} - String in binary format.
- */
-
-var binEncode = function binEncode(value) {
-    return chars(value).map(function (data) {
-        return leftPad(data.charCodeAt(0).toString(2), 16, '0');
-    }).join('');
-};
-
-exports.binEncode = binEncode;
-/**
- * Convert binary unicode (16 digits) string to string chars
- * @playground
- * var binDecode = require('strman').binDecode;
- * let result = binDecode("000000000111001100000000011101000000000001110010000000000110110100000000011000010000000001101110");
- * @param {String} value - Value to decode
- * @returns {String} - String decoded.
- */
-
-var binDecode = function binDecode(value) {
-    return value.match(/.{1,16}/g).map(function (data) {
-        return String.fromCharCode(parseInt(data, 2));
-    }).join('');
-};
-
-exports.binDecode = binDecode;
-
-/**
- * Convert string chars to decimal unicode (5 digits)
- * @playground
- * var decEncode = require('strman').decEncode;
- * let result = decEncode("strman");
- * @param {String} value - Value to encode
- * @returns {String} - String in decimal format.
- */
-
-var decEncode = function decEncode(value) {
-    return chars(value).map(function (data) {
-        return leftPad(data.charCodeAt(0).toString(10), 5, '0');
-    }).join('');
-};
-
-exports.decEncode = decEncode;
-
-/**
- * Convert binary unicode (16 digits) string to string chars
- * @playground
- * var decDecode = require('strman').decDecode;
- * let result = decDecode("001150011600114001090009700110");
- * @param {String} value - Value to decode
- * @returns {String} - String decoded.
- */
-
-var decDecode = function decDecode(value) {
-    return value.match(/.{1,5}/g).map(function (data) {
-        return String.fromCharCode(parseInt(data, 10));
-    }).join('');
-};
-
-exports.decDecode = decDecode;
-
-/**
- * Replaces all characters with the appropriate UTF-8 escape sequences.
- * @playground
- * var urlEncode = require('strman').urlEncode;
- * let result = urlEncode("https://github.com/dleitee/strman/&name=áéíóú");
- * @param {String} value - The string to be encoded
- * @returns {String} - Returns a string in which all non-alphanumeric characters except -_.
- */
-
-var urlEncode = function urlEncode(value) {
-    return encodeURI(value);
-};
-
-exports.urlEncode = urlEncode;
-
-/**
- * Decodes URL-encoded string
- * @playground
- * var urlDecode = require('strman').urlDecode;
- * let result = urlDecode("https://github.com/dleitee/strman/&name=%C3%A1%C3%A9%C3%AD%C3%B3%C3%BA");
- * @param {String} value - The string to be decoded
- * @returns {String} - Returns the decoded string.
- */
-
-var urlDecode = function urlDecode(value) {
-    return decodeURI(value);
-};
-
-exports.urlDecode = urlDecode;
-
-/**
- * Encodes data with MIME base64.
- * Base64-encoded data takes about 33% more space than the original data.
- * @playground
- * var base64Encode = require('strman').base64Encode;
- * let result = base64Encode("strman");
- * @param {String} value - The data to encode.
- * @returns - The encoded data.
- */
-
-var base64Encode = function base64Encode(value) {
-    return new Buffer(value).toString('base64');
-};
-
-exports.base64Encode = base64Encode;
-
-/**
- * Decodes data encoded with MIME base64
- * @playground
- * var base64Decode = require('strman').base64Decode;
- * let result = base64Decode("c3RybWFu");
- * @param {String} value - The data to decode.
- * @returns - The decoded data.
- */
-
-var base64Decode = function base64Decode(value) {
-    return new Buffer(value, 'base64').toString();
-};
-
-exports.base64Decode = base64Decode;
-
-/**
- * Convert all HTML entities to applicable characters.
- * @playground
- * var htmlDecode = require('strman').htmlDecode;
- * let result = htmlDecode('&lt;div&gt;');
- * @params {String} value - value to decode.
- * @returns - The decoded data.
- */
-
-var htmlDecode = function htmlDecode(value) {
-    return replace(value, '(&\\w+;)', function (match, index) {
-        return _typeof(_entities.entitiesDecode[index]) !== undefined ? _entities.entitiesDecode[index] : match;
-    });
-};
-
-exports.htmlDecode = htmlDecode;
-
-/**
- * Convert all applicable characters to HTML entities.
- * @playground
- * var htmlEncode = require('strman').htmlEncode;
- * let result = htmlEncode('<div>');
- * @params {String} value - value to encode.
- * @returns - The encoded data.
- */
-
-var htmlEncode = function htmlEncode(value) {
-    return replace(value, '[\\u00A0-\\u9999<>\\&]', function (match) {
-        return _typeof(_entities.entitiesEncode[match]) !== undefined ? _entities.entitiesEncode[match] : match;
-    }, true, true);
-};
-
-exports.htmlEncode = htmlEncode;

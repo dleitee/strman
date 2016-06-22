@@ -9,9 +9,15 @@ var _stringUtils = require('../string.utils.js');
 
 var _number = require('./number');
 
+var _throw = require('./throw');
+
+var errorNotATypeMessage = function errorNotATypeMessage(type, value) {
+    return '[strman] ' + value + ' is not a ' + type + '.';
+};
+
 var validString = function validString(value) {
     if (!(0, _stringUtils.isString)(value)) {
-        throw new Error('[strman] ' + value + ' is not a String.');
+        throw (0, _throw.error)(errorNotATypeMessage('String', value));
     }
 
     return true;
@@ -23,9 +29,7 @@ exports.validString = validString;
 var validArrayString = function validArrayString(array) {
 
     array.map(function (data) {
-        if (!(0, _stringUtils.isString)(data)) {
-            throw new Error('[strman] ' + data + ' is not a String.');
-        }
+        validString(data);
         return data;
     });
 
@@ -37,7 +41,7 @@ exports.validArrayString = validArrayString;
 
 var validNumber = function validNumber(value) {
     if (!(0, _number._isNumber)(value)) {
-        throw new Error('[strman] ' + value + ' is not a Number.');
+        throw (0, _throw.error)(errorNotATypeMessage('Number', value));
     }
 
     return true;
@@ -48,7 +52,7 @@ exports.validNumber = validNumber;
 
 var validCharLength = function validCharLength(char) {
     if ((0, _stringUtils.length)(char) === 0) {
-        throw new Error('Char should be length >= 1');
+        throw (0, _throw.error)('Char should be length >= 1');
     }
 
     return true;
