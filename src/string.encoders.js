@@ -79,6 +79,6 @@ export {base64Encode};
  */
 const htmlEncode = (value) => replace(value, '[\\u00A0-\\u9999<>\\&]',
     (match) =>
-        typeof entitiesEncode[match] !== undefined ? entitiesEncode[match] : match , true, true);
+        typeof entitiesEncode.get(match) !== undefined ? entitiesEncode.get(match) : match , true, true);
 
 export {htmlEncode};

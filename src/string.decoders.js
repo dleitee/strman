@@ -80,7 +80,7 @@ export {base64Decode};
 const htmlDecode = (value) =>
     replace(value, '(&\\w+;)',
         (match, index) =>
-            typeof entitiesDecode[index] !== undefined ? entitiesDecode[index] : match
+            typeof entitiesDecode.get(index) !== undefined ? entitiesDecode.get(index) : match
         );
 
 export {htmlDecode};
