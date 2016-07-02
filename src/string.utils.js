@@ -257,9 +257,9 @@ export {contains};
  * strman.containsAll(title, needles) // returns true
  */
 const containsAll = (value, needles, caseSensitive = true) =>
-    needles.reduce((previous, current) =>
+    length(needles) > 0?needles.reduce((previous, current) =>
         !contains(value, current, caseSensitive)?false:previous && true
-        , true);
+        , true):false;
 
 export {containsAll};
 
@@ -276,14 +276,9 @@ export {containsAll};
  * let needles = ['Leite', 'Oliveira']
  * strman.containsAny(title, needles) // returns true
  */
-const containsAny = (value, needles, caseSensitive = true) => {
-    for(let i = 0; i < length(needles); i++){
-        if(contains(value, needles[i], caseSensitive)){
-            return true;
-        }
-    }
-    return false;
-};
+const containsAny = (value, needles, caseSensitive = true) =>
+    needles.reduce((previous, current) =>
+        contains(value, current, caseSensitive)?true:previous, false);
 
 export {containsAny};
 

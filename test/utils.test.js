@@ -299,7 +299,7 @@ describe('contains function', () => {
 
 describe('containsAll function', () => {
     it('should be true, if needle = []', () => {
-        chai.expect(containsAll('a', [], true)).to.equal(true);
+        chai.expect(containsAll('a', [], true)).to.equal(false);
     });
 
     it('should be true, caseSensitive = true', () => {
