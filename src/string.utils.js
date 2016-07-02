@@ -106,13 +106,10 @@ export {replace};
  * @return {String} - String without non valid characters.
  */
 const transliterate = (value) => {
-    let result = value;
     for(let key in ascii){
-        for(let char in ascii[key]){
-            result = replace(result, ascii[key][char], key);
-        }
+        ascii[key].map((char) => value = replace(value, char, key));
     }
-    return result;
+    return value;
 };
 
 export {transliterate};
