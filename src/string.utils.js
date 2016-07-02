@@ -104,7 +104,7 @@ export {replace};
  * @param {String} value - The String!.
  * @return {String} - String without non valid characters.
  */
-const transliterate = (value) => {
+const transliterate = value => {
     for(let key in ascii){
         ascii[key].map((char) => value = replace(value, char, key));
     }
@@ -207,7 +207,7 @@ export {chars};
  * let title = '  a  b  c  '
  * strman.collapseWhitespace(title) // returns 'a b c'
  */
-const collapseWhitespace = (value) => trim(replace(value, '\\s\\s+',' '));
+const collapseWhitespace = value => trim(replace(value, '\\s\\s+',' '));
 
 export {collapseWhitespace};
 
@@ -750,14 +750,8 @@ export {repeat};
  * @param {String} value - The String!.
  * @return {String} - The String reversed!
  */
-const reverse = (value) => {
-    let i = 0;
-    let reversed = '';
-    while(length(value) > i++){
-        reversed = append(reversed, substr(value, -1*i, 1));
-    }
-    return reversed;
-};
+const reverse = value =>
+    split(value, '').reduceRight((previous, current) => append(previous, current), '');
 
 export {reverse};
 
