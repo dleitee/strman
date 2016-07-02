@@ -157,14 +157,6 @@ describe('append function', () => {
         chai.expect(append('foobar')).to.equal('foobar');
         chai.expect(append('', 'foobar')).to.equal('foobar');
     });
-    it('should be throw', () => {
-        chai.assert.throws(append.bind(this, '', 1), Error);
-        chai.assert.throws(append.bind(this, '', true), Error);
-        chai.assert.throws(append.bind(this, '', false), Error);
-        chai.assert.throws(append.bind(this, '', 1.2), Error);
-        chai.assert.throws(append.bind(this, '', {}), Error);
-        chai.assert.throws(append.bind(this, '', []), Error);
-    });
 });
 
 describe('appendArray function', () => {
@@ -172,18 +164,6 @@ describe('appendArray function', () => {
         chai.expect(appendArray('f', ['o', 'o', 'b', 'a', 'r'])).to.equal('foobar');
         chai.expect(appendArray('foobar')).to.equal('foobar');
         chai.expect(appendArray('', ['foobar'])).to.equal('foobar');
-    });
-    it('should be throw', () => {
-        chai.assert.throws(appendArray.bind(this, '', 1), Error);
-        chai.assert.throws(appendArray.bind(this, '', true), Error);
-        chai.assert.throws(appendArray.bind(this, '', false), Error);
-        chai.assert.throws(appendArray.bind(this, '', 1.2), Error);
-        chai.assert.throws(appendArray.bind(this, '', {}), Error);
-        chai.assert.throws(appendArray.bind(this, '', [1]), Error);
-        chai.assert.throws(appendArray.bind(this, '', [true]), Error);
-        chai.assert.throws(appendArray.bind(this, '', [false]), Error);
-        chai.assert.throws(appendArray.bind(this, '', [1.2]), Error);
-        chai.assert.throws(appendArray.bind(this, '', [{}]), Error);
     });
 });
 
@@ -194,14 +174,6 @@ describe('prepend function', () => {
         chai.expect(prepend('', 'foobar')).to.equal('foobar');
         chai.expect(prepend('bar', 'foo')).to.equal('foobar');
     });
-    it('should be throw', () => {
-        chai.assert.throws(prepend.bind(this, '', 1), Error);
-        chai.assert.throws(prepend.bind(this, '', []), Error);
-        chai.assert.throws(prepend.bind(this, '', true), Error);
-        chai.assert.throws(prepend.bind(this, '', false), Error);
-        chai.assert.throws(prepend.bind(this, '', 1.2), Error);
-        chai.assert.throws(prepend.bind(this, '', {}), Error);
-    });
 });
 
 describe('prependArray function', () => {
@@ -210,18 +182,6 @@ describe('prependArray function', () => {
         chai.expect(prependArray('foobar')).to.equal('foobar');
         chai.expect(prependArray('', ['foobar'])).to.equal('foobar');
         chai.expect(prependArray('bar', ['foo'])).to.equal('foobar');
-    });
-    it('should be throw', () => {
-        chai.assert.throws(prependArray.bind(this, '', 1), Error);
-        chai.assert.throws(prependArray.bind(this, '', true), Error);
-        chai.assert.throws(prependArray.bind(this, '', false), Error);
-        chai.assert.throws(prependArray.bind(this, '', 1.2), Error);
-        chai.assert.throws(prependArray.bind(this, '', {}), Error);
-        chai.assert.throws(prependArray.bind(this, '', [1]), Error);
-        chai.assert.throws(prependArray.bind(this, '', [true]), Error);
-        chai.assert.throws(prependArray.bind(this, '', [false]), Error);
-        chai.assert.throws(prependArray.bind(this, '', [1.2]), Error);
-        chai.assert.throws(prependArray.bind(this, '', [{}]), Error);
     });
 });
 
@@ -233,19 +193,6 @@ describe('at function', () => {
         chai.expect(at('oobafr', -2)).to.equal('f');
 
     });
-    it('should be throw', () => {
-        chai.assert.throws(at.bind(this, 1, 1), Error);
-        chai.assert.throws(at.bind(this, [], 1), Error);
-        chai.assert.throws(at.bind(this, true, 1), Error);
-        chai.assert.throws(at.bind(this, false, 1), Error);
-        chai.assert.throws(at.bind(this, 1.2, 1), Error);
-        chai.assert.throws(at.bind(this, {}, 1), Error);
-        chai.assert.throws(at.bind(this, '', ''), Error);
-        chai.assert.throws(at.bind(this, '', []), Error);
-        chai.assert.throws(at.bind(this, '', true), Error);
-        chai.assert.throws(at.bind(this, '', false), Error);
-        chai.assert.throws(at.bind(this, '', {}), Error);
-    });
 });
 
 describe('between function', () => {
@@ -254,26 +201,6 @@ describe('between function', () => {
         chai.expect(between('<span>foo</span>', '<span>', '</span>')[0]).to.equal('foo');
         chai.expect(between('<span>bar</span><span>foo</span>', '<span>', '</span>')[0]).to.equal('bar');
         chai.expect(between('<span>bar</span><span>foo</span>', '<span>', '</span>')[1]).to.equal('foo');
-    });
-    it('should be throw', () => {
-        chai.assert.throws(between.bind(this, '', '', 1), Error);
-        chai.assert.throws(between.bind(this, '', '', []), Error);
-        chai.assert.throws(between.bind(this, '', '', {}), Error);
-        chai.assert.throws(between.bind(this, '', '', true), Error);
-        chai.assert.throws(between.bind(this, '', '', false), Error);
-        chai.assert.throws(between.bind(this, '', '', 1.2), Error);
-        chai.assert.throws(between.bind(this, '', 1, ''), Error);
-        chai.assert.throws(between.bind(this, '', [], ''), Error);
-        chai.assert.throws(between.bind(this, '', {}, ''), Error);
-        chai.assert.throws(between.bind(this, '', true, ''), Error);
-        chai.assert.throws(between.bind(this, '', false, ''), Error);
-        chai.assert.throws(between.bind(this, '', 1.2, ''), Error);
-        chai.assert.throws(between.bind(this, 1, '', ''), Error);
-        chai.assert.throws(between.bind(this, [], '', ''), Error);
-        chai.assert.throws(between.bind(this, {}, '', ''), Error);
-        chai.assert.throws(between.bind(this, true, '', ''), Error);
-        chai.assert.throws(between.bind(this, false, '', ''), Error);
-        chai.assert.throws(between.bind(this, 1.2, '', ''), Error);
     });
 });
 
@@ -285,14 +212,6 @@ describe('chars function', () => {
         chai.expect(chars(title)[2]).to.equal('t');
         chai.expect(chars(title)[3]).to.equal('l');
         chai.expect(chars(title)[4]).to.equal('e');
-    });
-    it('should be throw', () => {
-        chai.assert.throws(chars.bind(this, 1), Error);
-        chai.assert.throws(chars.bind(this, []), Error);
-        chai.assert.throws(chars.bind(this, {}), Error);
-        chai.assert.throws(chars.bind(this, true), Error);
-        chai.assert.throws(chars.bind(this, false), Error);
-        chai.assert.throws(chars.bind(this, 1.2), Error);
     });
 });
 
@@ -748,10 +667,6 @@ describe('leftPad function', () => {
         chai.expect(leftPad('0001', 5, 0)).to.equal('00001');
         chai.expect(leftPad('00001', 5, 0)).to.equal('00001');
     });
-
-    it('should be error', () => {
-        chai.assert.throws(leftPad.bind(this, '1', 10, ''), Error);
-    });
 });
 
 describe('rightPad function', () => {
@@ -762,10 +677,6 @@ describe('rightPad function', () => {
         chai.expect(rightPad('100', 5, 0)).to.equal('10000');
         chai.expect(rightPad('1000', 5, 0)).to.equal('10000');
         chai.expect(rightPad('10000', 5, 0)).to.equal('10000');
-    });
-
-    it('should be error', () => {
-        chai.assert.throws(rightPad.bind(this, '1', 10, ''), Error);
     });
 });
 

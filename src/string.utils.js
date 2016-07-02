@@ -1,6 +1,5 @@
 import {ascii} from './lib/ascii';
 import {_pop} from './lib/array';
-import {validString, validArrayString, validNumber, validCharLength} from './lib/validate';
 import {toCaseSensitive} from './lib/case';
 /**
  * Checks whether a string.
@@ -142,9 +141,6 @@ export {append};
  */
 const appendArray = (value, appends = []) => {
 
-    validString(value);
-    validArrayString(appends);
-
     if(length(appends) === 0){
         return value;
     }
@@ -166,12 +162,7 @@ export {appendArray};
  * let title = 'abc'
  * strman.at(title, 1) // returns 'b'
  */
-const at = (value, index) => {
-    validString(value);
-    validNumber(index);
-
-    return substr(value, index, 1);
-};
+const at = (value, index) => substr(value, index, 1);
 
 export {at};
 
@@ -187,22 +178,8 @@ export {at};
  * let title = '[abc][def]'
  * strman.between(title, '[', ']') // returns ['abc', 'def']
  */
-const between = (value, start, end) => {
-
-    let result = null;
-
-    validArrayString([value, start, end]);
-
-    result = split(value, end);
-
-    result = result.map((text) => {
-        return substr(text, indexOf(text, start)+length(start));
-    });
-
-    result = _pop(result);
-
-    return result;
-};
+const between = (value, start, end) =>
+    _pop(split(value, end).map((text) => substr(text, indexOf(text, start)+length(start))));
 
 export {between};
 
@@ -216,10 +193,7 @@ export {between};
  * let title = 'abc'
  * strman.chars(title) // returns ['a', 'b', 'c']
  */
-const chars = value => {
-    validString(value);
-    return value.split('');
-};
+const chars = value => value.split('');
 
 export {chars};
 
@@ -612,8 +586,6 @@ export {length};
         char = substr(char, 0, 1);
     }
 
-    validCharLength(char);
-
     _length = _length - length(value);
 
     result = append(repeat(char, _length), result);
@@ -642,8 +614,6 @@ const rightPad = (value, _length, char = ' ') => {
     if(length(char) > 1){
         char = substr(char, 0, 1);
     }
-
-    validCharLength(char);
 
     _length = _length - length(value);
 
@@ -709,9 +679,6 @@ export {prepend};
  * @return {String} - The String prepended!
  */
 const prependArray = (value, prepends = []) => {
-
-    validString(value);
-    validArrayString(prepends);
 
     if(length(prepends) === 0){
         return value;
