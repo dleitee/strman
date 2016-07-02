@@ -1,6 +1,5 @@
 import {ascii} from './lib/ascii';
 import {_pop} from './lib/array';
-import {validString, validArrayString, validNumber, validCharLength} from './lib/validate';
 import {toCaseSensitive} from './lib/case';
 /**
  * Checks whether a string.
@@ -105,14 +104,11 @@ export {replace};
  * @param {String} value - The String!.
  * @return {String} - String without non valid characters.
  */
-const transliterate = (value) => {
-    let result = value;
+const transliterate = value => {
     for(let key in ascii){
-        for(let char in ascii[key]){
-            result = replace(result, ascii[key][char], key);
-        }
+        ascii[key].map((char) => value = replace(value, char, key));
     }
-    return result;
+    return value;
 };
 
 export {transliterate};
@@ -145,9 +141,6 @@ export {append};
  */
 const appendArray = (value, appends = []) => {
 
-    validString(value);
-    validArrayString(appends);
-
     if(length(appends) === 0){
         return value;
     }
@@ -169,12 +162,7 @@ export {appendArray};
  * let title = 'abc'
  * strman.at(title, 1) // returns 'b'
  */
-const at = (value, index) => {
-    validString(value);
-    validNumber(index);
-
-    return substr(value, index, 1);
-};
+const at = (value, index) => substr(value, index, 1);
 
 export {at};
 
@@ -190,22 +178,8 @@ export {at};
  * let title = '[abc][def]'
  * strman.between(title, '[', ']') // returns ['abc', 'def']
  */
-const between = (value, start, end) => {
-
-    let result = null;
-
-    validArrayString([value, start, end]);
-
-    result = split(value, end);
-
-    result = result.map((text) => {
-        return substr(text, indexOf(text, start)+length(start));
-    });
-
-    result = _pop(result);
-
-    return result;
-};
+const between = (value, start, end) =>
+    _pop(split(value, end).map((text) => substr(text, indexOf(text, start)+length(start))));
 
 export {between};
 
@@ -219,10 +193,7 @@ export {between};
  * let title = 'abc'
  * strman.chars(title) // returns ['a', 'b', 'c']
  */
-const chars = value => {
-    validString(value);
-    return value.split('');
-};
+const chars = value => value.split('');
 
 export {chars};
 
@@ -236,7 +207,7 @@ export {chars};
  * let title = '  a  b  c  '
  * strman.collapseWhitespace(title) // returns 'a b c'
  */
-const collapseWhitespace = (value) => trim(replace(value, '\\s\\s+',' '));
+const collapseWhitespace = value => trim(replace(value, '\\s\\s+',' '));
 
 export {collapseWhitespace};
 
@@ -268,7 +239,7 @@ export {removeNonWords};
  * strman.contains(title, needle, false) // returns true
  */
 const contains = (value, needle, caseSensitive = true) =>
-    indexOf(toCaseSensitive(value, caseSensitive), toCaseSensitive(needle, caseSensitive)) > -1;
+    indexOf(value, needle, 0, caseSensitive) > -1;
 
 export {contains};
 
@@ -285,19 +256,10 @@ export {contains};
  * let needles = ['Leite', 'Daniel']
  * strman.containsAll(title, needles) // returns true
  */
-const containsAll = (value, needles, caseSensitive = true) => {
-
-    if(length(needles) === 0){
-        return false;
-    }
-
-    for(let i = 0; i < length(needles); i++){
-        if(!contains(value, needles[i], caseSensitive)){
-            return false;
-        }
-    }
-    return true;
-};
+const containsAll = (value, needles, caseSensitive = true) =>
+    length(needles) > 0?needles.reduce((previous, current) =>
+        !contains(value, current, caseSensitive)?false:previous && true
+        , true):false;
 
 export {containsAll};
 
@@ -314,14 +276,9 @@ export {containsAll};
  * let needles = ['Leite', 'Oliveira']
  * strman.containsAny(title, needles) // returns true
  */
-const containsAny = (value, needles, caseSensitive = true) => {
-    for(let i = 0; i < length(needles); i++){
-        if(contains(value, needles[i], caseSensitive)){
-            return true;
-        }
-    }
-    return false;
-};
+const containsAny = (value, needles, caseSensitive = true) =>
+    needles.reduce((previous, current) =>
+        contains(value, current, caseSensitive)?true:previous, false);
 
 export {containsAny};
 
@@ -615,8 +572,6 @@ export {length};
         char = substr(char, 0, 1);
     }
 
-    validCharLength(char);
-
     _length = _length - length(value);
 
     result = append(repeat(char, _length), result);
@@ -645,8 +600,6 @@ const rightPad = (value, _length, char = ' ') => {
     if(length(char) > 1){
         char = substr(char, 0, 1);
     }
-
-    validCharLength(char);
 
     _length = _length - length(value);
 
@@ -712,9 +665,6 @@ export {prepend};
  * @return {String} - The String prepended!
  */
 const prependArray = (value, prepends = []) => {
-
-    validString(value);
-    validArrayString(prepends);
 
     if(length(prepends) === 0){
         return value;
@@ -800,14 +750,8 @@ export {repeat};
  * @param {String} value - The String!.
  * @return {String} - The String reversed!
  */
-const reverse = (value) => {
-    let i = 0;
-    let reversed = '';
-    while(length(value) > i++){
-        reversed = append(reversed, substr(value, -1*i, 1));
-    }
-    return reversed;
-};
+const reverse = value =>
+    split(value, '').reduceRight((previous, current) => append(previous, current), '');
 
 export {reverse};
 

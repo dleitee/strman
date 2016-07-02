@@ -4,9 +4,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var _pop = exports._pop = function _pop(array) {
-    var newarray = [];
-    for (var i = 0; i < array.length - 1; i++) {
-        newarray[i] = array[i];
-    }
-    return newarray;
+    return array.reduce(function (previous, current, index) {
+        if (index < array.length - 1) {
+            previous.push(current);
+            return previous;
+        }
+        return previous;
+    }, []);
 };
