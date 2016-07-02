@@ -861,9 +861,6 @@ exports.removeRight = removeRight;
 var repeat = function repeat(value, multiplier) {
     var i = 0;
     var result = '';
-    new Array(multiplier).reduce(function (previous, current) {
-        return append(previous, current);
-    }, value);
     while (multiplier > i++) {
         result += value;
     }
