@@ -298,16 +298,8 @@ describe('contains function', () => {
 });
 
 describe('containsAll function', () => {
-    it('should be false, caseSensitive = true', () => {
-        let fixtures = [
-            'foo bar',
-            'bar foo',
-            'foobar'
-        ];
-
-        fixtures.forEach(el => {
-            chai.expect(containsAll(el, [], true)).to.equal(false);
-        });
+    it('should be true, if needle = []', () => {
+        chai.expect(containsAll('a', [], true)).to.equal(true);
     });
 
     it('should be true, caseSensitive = true', () => {
