@@ -239,7 +239,7 @@ export {removeNonWords};
  * strman.contains(title, needle, false) // returns true
  */
 const contains = (value, needle, caseSensitive = true) =>
-    indexOf(toCaseSensitive(value, caseSensitive), toCaseSensitive(needle, caseSensitive)) > -1;
+    indexOf(value, needle, 0, caseSensitive) > -1;
 
 export {contains};
 
