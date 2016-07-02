@@ -11,8 +11,6 @@ var _ascii = require('./lib/ascii');
 
 var _array = require('./lib/array');
 
-var _validate = require('./lib/validate');
-
 var _case = require('./lib/case');
 
 /**
@@ -142,13 +140,16 @@ exports.replace = replace;
  */
 
 var transliterate = function transliterate(value) {
-    var result = value;
+    var _loop = function _loop(key) {
+        _ascii.ascii[key].map(function (char) {
+            return value = replace(value, char, key);
+        });
+    };
+
     for (var key in _ascii.ascii) {
-        for (var char in _ascii.ascii[key]) {
-            result = replace(result, _ascii.ascii[key][char], key);
-        }
+        _loop(key);
     }
-    return result;
+    return value;
 };
 
 exports.transliterate = transliterate;
@@ -191,9 +192,6 @@ var appendArray = function appendArray(value) {
     var appends = arguments.length <= 1 || arguments[1] === undefined ? [] : arguments[1];
 
 
-    (0, _validate.validString)(value);
-    (0, _validate.validArrayString)(appends);
-
     if (length(appends) === 0) {
         return value;
     }
@@ -216,9 +214,6 @@ exports.appendArray = appendArray;
  */
 
 var at = function at(value, index) {
-    (0, _validate.validString)(value);
-    (0, _validate.validNumber)(index);
-
     return substr(value, index, 1);
 };
 
@@ -238,20 +233,9 @@ exports.at = at;
  */
 
 var between = function between(value, start, end) {
-
-    var result = null;
-
-    (0, _validate.validArrayString)([value, start, end]);
-
-    result = split(value, end);
-
-    result = result.map(function (text) {
+    return (0, _array._pop)(split(value, end).map(function (text) {
         return substr(text, indexOf(text, start) + length(start));
-    });
-
-    result = (0, _array._pop)(result);
-
-    return result;
+    }));
 };
 
 exports.between = between;
@@ -268,7 +252,6 @@ exports.between = between;
  */
 
 var chars = function chars(value) {
-    (0, _validate.validString)(value);
     return value.split('');
 };
 
@@ -325,7 +308,7 @@ exports.removeNonWords = removeNonWords;
 
 var contains = function contains(value, needle) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
-    return indexOf((0, _case.toCaseSensitive)(value, caseSensitive), (0, _case.toCaseSensitive)(needle, caseSensitive)) > -1;
+    return indexOf(value, needle, 0, caseSensitive) > -1;
 };
 
 exports.contains = contains;
@@ -346,18 +329,9 @@ exports.contains = contains;
 
 var containsAll = function containsAll(value, needles) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
-
-
-    if (length(needles) === 0) {
-        return false;
-    }
-
-    for (var i = 0; i < length(needles); i++) {
-        if (!contains(value, needles[i], caseSensitive)) {
-            return false;
-        }
-    }
-    return true;
+    return length(needles) > 0 ? needles.reduce(function (previous, current) {
+        return !contains(value, current, caseSensitive) ? false : previous && true;
+    }, true) : false;
 };
 
 exports.containsAll = containsAll;
@@ -378,13 +352,9 @@ exports.containsAll = containsAll;
 
 var containsAny = function containsAny(value, needles) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
-
-    for (var i = 0; i < length(needles); i++) {
-        if (contains(value, needles[i], caseSensitive)) {
-            return true;
-        }
-    }
-    return false;
+    return needles.reduce(function (previous, current) {
+        return contains(value, current, caseSensitive) ? true : previous;
+    }, false);
 };
 
 exports.containsAny = containsAny;
@@ -701,8 +671,6 @@ var leftPad = function leftPad(value, _length) {
         char = substr(char, 0, 1);
     }
 
-    (0, _validate.validCharLength)(char);
-
     _length = _length - length(value);
 
     result = append(repeat(char, _length), result);
@@ -734,8 +702,6 @@ var rightPad = function rightPad(value, _length) {
     if (length(char) > 1) {
         char = substr(char, 0, 1);
     }
-
-    (0, _validate.validCharLength)(char);
 
     _length = _length - length(value);
 
@@ -821,9 +787,6 @@ var prependArray = function prependArray(value) {
     var prepends = arguments.length <= 1 || arguments[1] === undefined ? [] : arguments[1];
 
 
-    (0, _validate.validString)(value);
-    (0, _validate.validArrayString)(prepends);
-
     if (length(prepends) === 0) {
         return value;
     }
@@ -898,6 +861,9 @@ exports.removeRight = removeRight;
 var repeat = function repeat(value, multiplier) {
     var i = 0;
     var result = '';
+    new Array(multiplier).reduce(function (previous, current) {
+        return append(previous, current);
+    }, value);
     while (multiplier > i++) {
         result += value;
     }
@@ -917,12 +883,9 @@ exports.repeat = repeat;
  */
 
 var reverse = function reverse(value) {
-    var i = 0;
-    var reversed = '';
-    while (length(value) > i++) {
-        reversed = append(reversed, substr(value, -1 * i, 1));
-    }
-    return reversed;
+    return split(value, '').reduceRight(function (previous, current) {
+        return append(previous, current);
+    }, '');
 };
 
 exports.reverse = reverse;
