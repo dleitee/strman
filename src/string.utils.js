@@ -542,13 +542,7 @@ export {insert};
  * @param {String} value - The String!.
  * @return {Number} - Length of the string..
  */
-const length = value => {
-    let i = 0;
-    while(value[i] !== undefined){
-        i++;
-    }
-    return i;
-};
+const length = value => value.length;
 
 export {length};
 
