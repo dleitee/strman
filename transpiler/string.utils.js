@@ -431,15 +431,13 @@ var endsWith = function endsWith(value, search) {
     var caseSensitive = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
 
 
-    var lastIndex = null;
-
     if (typeof position !== 'number' || !isFinite(position) || Math.floor(position) !== position || position > length(value)) {
         position = length(value);
     }
 
     position -= length(search);
 
-    lastIndex = indexOf((0, _case.toCaseSensitive)(value, caseSensitive), (0, _case.toCaseSensitive)(search, caseSensitive), position);
+    var lastIndex = indexOf((0, _case.toCaseSensitive)(value, caseSensitive), (0, _case.toCaseSensitive)(search, caseSensitive), position);
 
     return lastIndex !== -1 && lastIndex === position;
 };
@@ -509,13 +507,7 @@ exports.ensureLeft = ensureLeft;
 
 var ensureRight = function ensureRight(value, _substr) {
     var caseSensitive = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
-
-
-    if (!endsWith(value, _substr, null, caseSensitive)) {
-        return append(value, _substr);
-    }
-
-    return value;
+    return !endsWith(value, _substr, null, caseSensitive) ? append(value, _substr) : value;
 };
 
 exports.ensureRight = ensureRight;
@@ -639,11 +631,7 @@ exports.insert = insert;
  */
 
 var length = function length(value) {
-    var i = 0;
-    while (value[i] !== undefined) {
-        i++;
-    }
-    return i;
+    return value.length;
 };
 
 exports.length = length;
