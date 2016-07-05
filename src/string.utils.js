@@ -347,8 +347,6 @@ export {countSubstr};
  */
 const endsWith = (value, search, position = null, caseSensitive = true) => {
 
-    let lastIndex = null;
-
     if (typeof position !== 'number' || !isFinite(position)
             || Math.floor(position) !== position || position > length(value)) {
         position = length(value);
@@ -356,7 +354,7 @@ const endsWith = (value, search, position = null, caseSensitive = true) => {
 
     position -= length(search);
 
-    lastIndex = indexOf(
+    const lastIndex = indexOf(
                     toCaseSensitive(value, caseSensitive),
                     toCaseSensitive(search, caseSensitive),
                     position
@@ -425,14 +423,8 @@ export  {ensureLeft};
  * let substr = ' Leite'
  * strman.ensureRight(value, substr) // returns 'Daniel Leite'
  */
-const ensureRight = (value, _substr, caseSensitive = true)  => {
-
-    if(!endsWith(value, _substr, null, caseSensitive)){
-        return append(value, _substr);
-    }
-
-    return value;
-};
+const ensureRight = (value, _substr, caseSensitive = true)  =>
+    !endsWith(value, _substr, null, caseSensitive)?append(value, _substr):value;
 
 export {ensureRight};
 
