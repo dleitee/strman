@@ -2,6 +2,8 @@ import chai from 'chai';
 import {toStudlyCaps, isLowerCase, isUpperCase, toCamelCase, toSnakeCase, toKebabCase}
     from '../src/string.cases';
 
+const deepFreeze = require('deep-freeze');
+
 describe('#toStudlyCaps(value)', () => {
     it('should match DeCamelize', () => {
         let fixtures = [
@@ -17,6 +19,7 @@ describe('#toStudlyCaps(value)', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(toStudlyCaps(el)).to.equal('DeCamelize');
         });
     });
@@ -32,6 +35,7 @@ describe('isLowerCase function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(isLowerCase(el)).to.equal(true);
         });
     });
@@ -42,6 +46,7 @@ describe('isLowerCase function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(isLowerCase(el)).to.equal(false);
         });
     });
@@ -56,6 +61,7 @@ describe('isUpperCase function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(isUpperCase(el)).to.equal(true);
         });
     });
@@ -66,6 +72,7 @@ describe('isUpperCase function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(isUpperCase(el)).to.equal(false);
         });
     });
@@ -86,6 +93,7 @@ describe('#toCamelCase(value)', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(toCamelCase(el)).to.equal('camelCase');
         });
     });
@@ -106,6 +114,7 @@ describe('#toSnakeCase(value)', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(toSnakeCase(el)).to.equal('de_camelize');
         });
     });
@@ -126,6 +135,7 @@ describe('#toKebabCase(value)', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(toKebabCase(el)).to.equal('de-camelize');
         });
     });
