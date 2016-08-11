@@ -1,5 +1,6 @@
 import chai from 'chai';
 import {slugify} from '../src/strman';
+const deepFreeze = require('deep-freeze');
 
 describe('Slugfiy function', () => {
     it('should be foo-bar', () => {
@@ -18,6 +19,8 @@ describe('Slugfiy function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
+            el = 'foo-bar';
             chai.expect(slugify(el)).to.equal('foo-bar');
         });
     });
@@ -35,6 +38,7 @@ describe('Slugfiy function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(slugify(el)).to.equal('foo-and-bar');
         });
     });
@@ -50,6 +54,7 @@ describe('Slugfiy function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.assert.throws(slugify.bind(this, el), Error);
         });
     });

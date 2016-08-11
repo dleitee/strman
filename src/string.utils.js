@@ -80,8 +80,8 @@ export {removeSpaces};
  * @param {String} value - The String!.
  * @param {String} search - String to search.
  * @param {String} newvalue - String to replace.
- * @param {Boolean = true} caseSensitive - if you use caseSensitive replace.
- * @param {Boolean = true} multiline - if you use multiline replace.
+ * @param {Boolean} caseSensitive - if you use caseSensitive replace.
+ * @param {Boolean} multiline - if you use multiline replace.
  * @return {String} - String replaced with 'newvalue'.
  */
 const replace = (value, search = '', newvalue = '', caseSensitive = true, multiline = true) => {
@@ -374,8 +374,8 @@ export {endsWith};
  * let result = startsWith(title, 'str');
  * @param {String} value - The String!.
  * @param {String} search - Value to search.
- * @param {Number = 0} position - offset to search.
- * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @param {Number} position - offset to search.
+ * @param {Boolean} caseSensitive - if you use caseSensitive to test.
  * @return {Boolean} - If 'value' startsWith 'search' return true, else false.
  */
 const startsWith = (value, search, position = 0, caseSensitive = true) =>
@@ -465,8 +465,8 @@ export {last};
  * let result = indexOf(title, 'man');
  * @param {String} value - The String!.
  * @param {String} needle - Value to search.
- * @param {Number = 0} offset - Offset to search.
- * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @param {Number} offset - Offset to search.
+ * @param {Boolean} caseSensitive - if you use caseSensitive to test.
  * @return {Number} - Return position of the first occurrence of 'needle'.
  */
 const indexOf = (value, needle, offset = 0, caseSensitive = true) =>
@@ -484,8 +484,8 @@ export {indexOf};
  * let result = lastIndexOf(title, 'str');
  * @param {String} value - The String!.
  * @param {String} needle - Value to search.
- * @param {Number = undefined} offset - Offset to search.
- * @param {Boolean = true} caseSensitive - if you use caseSensitive to test.
+ * @param {Number} offset - Offset to search.
+ * @param {Boolean} caseSensitive - if you use caseSensitive to test.
  * @return {Number} - Return position of the last occurrence of 'needle'.
  */
 const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) =>
@@ -619,7 +619,7 @@ export {substr};
  * let result = split(title, '');
  * @param {String} value - The String!.
  * @param {String} separator - Split separator.
- * @param {Number = undefined} limit - Split limit.
+ * @param {Number} limit - Split limit.
  * @return {String} - The String splited!
  */
 const split = (value, separator, limit = undefined) => value.split(separator, limit);
@@ -669,7 +669,7 @@ export {prependArray};
  * let result = removeLeft(title, 'str');
  * @param {String} value - The String!.
  * @param {String} prefix - String to remove on left.
- * @param {Boolean = true} caseSensitive - If you need to caseSensitive.
+ * @param {Boolean} caseSensitive - If you need to caseSensitive.
  * @return {String} - The String without prefix!
  */
 const removeLeft = (value, prefix, caseSensitive = true) => {
@@ -691,7 +691,7 @@ export {removeLeft};
  * let result = removeRight(title, 'man');
  * @param {String} value - The String!.
  * @param {String} suffix - String to remove on right.
- * @param {Boolean = true} caseSensitive - If you need to caseSensitive.
+ * @param {Boolean} caseSensitive - If you need to caseSensitive.
  * @return {String} - The String without suffix!
  */
 const removeRight = (value, suffix, caseSensitive = true) => {
@@ -780,8 +780,8 @@ export {shuffle};
  * let title = "strman";
  * let result = surround(title, '<', '>');
  * @param {String} value - The String!.
- * @param {String = ''} _substr - The substr to append on left, if substrRight is null, this is appended in right.
- * @param {String = null} _substrRight - The substr to append on right.
+ * @param {String} _substr - The substr to append on left, if substrRight is null, this is appended in right.
+ * @param {String} _substrRight - The substr to append on right.
  * @return {String} - The String with surround substrs!
  */
 const surround = (value, _substr = '', _substrRight = null) =>

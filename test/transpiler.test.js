@@ -1,6 +1,8 @@
 import chai from 'chai';
 import {isString} from '../transpiler/strman';
 
+const deepFreeze = require('deep-freeze');
+
 describe('isString function', () => {
     it('should be false', () => {
         let fixtures = [
@@ -12,6 +14,7 @@ describe('isString function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(isString(el)).to.equal(false);
         });
     });
@@ -22,6 +25,7 @@ describe('isString function', () => {
         ];
 
         fixtures.forEach(el => {
+            deepFreeze(el);
             chai.expect(isString(el)).to.equal(true);
         });
     });

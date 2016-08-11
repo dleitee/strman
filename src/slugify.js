@@ -5,22 +5,21 @@ import {toLowerCase, trim, removeSpaces, replace, transliterate} from './strman'
  * @playground
  * var slugify = require('strman').slugify;
  * let title = "A Javascript string manipulation library.";
- * let result = slugify(title);
+ * let value = slugify(title);
  * @param {String} value - The value to slugify
  * @return {String} - The slugified value
  */
 const slugify = (value) => {
 
-    let result = value;
-    result = toLowerCase(result);
-    result = trim(result);
-    result = removeSpaces(result, '-');
-    result = replace(result, '&','-and-');
-    result = transliterate(result);
-    result = replace(result, '[^\\w\\-]+', '');
-    result = replace(result, '\-\-+','-');
+    value = toLowerCase(value);
+    value = trim(value);
+    value = removeSpaces(value, '-');
+    value = replace(value, '&','-and-');
+    value = transliterate(value);
+    value = replace(value, '[^\\w\\-]+', '');
+    value = replace(value, '\-\-+','-');
 
-    return result;
+    return value;
 };
 
 export {slugify};
