@@ -12,7 +12,7 @@
     "test:lint": "eslint ./src",
     "test:coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "dox" : "./node_modules/.bin/dox < ./src/slugify.js < ./src/string.cases.js < ./src/string.decoders.js < ./src/string.encoders.js < ./src/string.utils.js < ./src/strman.js > docs.json"
+    "dox" : "./node_modules/.bin/dox < ./src/*.js > docs.json"
   },
   "repository": {
     "type": "git",
