@@ -2,3 +2,11 @@ node_modules
 _site
 coverage
 docs.json
+.idea/
+.idea/.name
+.idea/misc.xml
+.idea/modules.xml
+.idea/strman.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.DS_Store
