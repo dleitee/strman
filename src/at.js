@@ -1,4 +1,4 @@
-import substr from './substr';
+import substr from './substr'
 
 /**
  * Get the character at index
@@ -11,6 +11,4 @@ import substr from './substr';
  * let title = 'abc'
  * strman.at(title, 1) // returns 'b'
  */
-const at = (value, index) => substr(value, index, 1);
-
-export default at;
+export default (value, index) => substr(value, index, 1)

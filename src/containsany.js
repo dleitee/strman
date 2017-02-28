@@ -1,3 +1,4 @@
+import contains from './contains'
 /**
  * Verifies that one or more of needles are contained in value
  * @param {String} value The input string
@@ -11,8 +12,12 @@
  * let needles = ['Leite', 'Oliveira']
  * strman.containsAny(title, needles) // returns true
  */
-const containsAny = (value, needles, caseSensitive = true) =>
-    needles.reduce((previous, current) =>
-        contains(value, current, caseSensitive)?true:previous, false);
+const containsAny = (value, caseSensitive, previous, current) => {
+  if (contains(value, current, caseSensitive)) {
+    return true
+  }
+  return previous
+}
 
-export {containsAny};
+export default (value, needles, caseSensitive = true) =>
+  needles.reduce(containsAny.bind(this, value, caseSensitive), false)

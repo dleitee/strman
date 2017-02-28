@@ -11,6 +11,4 @@ import appendArray from './appendarray'
  * let title = 's'
  * strman.append(title, 'tr', 'm', 'an') // returns 'strman'
  */
-const append = (value, ...appends) => appendArray(value, appends);
-
-export default append;
+export default (value, ...appends) => appendArray(value, appends)

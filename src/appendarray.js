@@ -9,13 +9,9 @@
  * let s = 's'
  * strman.appendArray(s, ['tr', 'm', 'an']) // returns 'strman'
  */
-const appendArray = (value, appends = []) => {
-
-    if(appends.lenght === 0){
-        return value;
-    }
-
-    return value + appends.join('');
-};
-
-export default appendArray;
+export default (value, appends = []) => {
+  if (appends.length === 0) {
+    return value
+  }
+  return value + appends.join('')
+}

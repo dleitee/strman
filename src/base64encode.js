@@ -7,6 +7,4 @@
  * @param {String} value - The data to encode.
  * @returns - The encoded data.
  */
-const base64Encode = (value) => new Buffer(value).toString('base64');
-
-export {base64Encode};
+export default value => new Buffer(value).toString('base64')

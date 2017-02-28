@@ -8,6 +8,4 @@
  * let title = 'abc'
  * strman.chars(title) // returns ['a', 'b', 'c']
  */
-const chars = value => value.split('');
-
-export {chars};
+export default value => value.split('')

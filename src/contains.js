@@ -1,4 +1,4 @@
-
+import indexOf from './indexof'
 /**
  * Verifies that the needle is contained in value
  * @param {String} value The input string
@@ -12,7 +12,5 @@
  * let needle = 'leite'
  * strman.contains(title, needle, false) // returns true
  */
-const contains = (value, needle, caseSensitive = true) =>
-    indexOf(value, needle, 0, caseSensitive) > -1;
-
-export {contains};
+export default (value, needle, caseSensitive = true) =>
+  indexOf(value, needle, 0, caseSensitive) > -1

@@ -9,14 +9,12 @@ import equal from './equal'
  * let result = compare("foo", "bar");
  * @param {String} stringA - String for the comparative
  * @param {String} stringB - String to be compared
- * @returns {Number} - +1 if [stringA] > [stringB], -1 if [stringA] < [stringB] and 0 if [stringA] = [stringB]
+ * @returns {Number}
+ * +1 if [stringA] > [stringB], -1 if [stringA] < [stringB] and 0 if [stringA] = [stringB]
  */
-const compare = (stringA, stringB) => {
-    if(equal(stringA, stringB)){
-        return 0;
-    }
-
-    return stringA > stringB? 1 : -1;
-};
-
-export default compare;
+export default (stringA, stringB) => {
+  if (equal(stringA, stringB)) {
+    return 0
+  }
+  return stringA > stringB ? 1 : -1
+}

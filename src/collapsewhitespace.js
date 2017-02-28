@@ -1,4 +1,5 @@
-
+import trim from './trim'
+import replace from './replace'
 /**
  * Replaces consecutive whitespace characters with a single space
  * @param {String} value The input string
@@ -9,6 +10,4 @@
  * let title = '  a  b  c  '
  * strman.collapseWhitespace(title) // returns 'a b c'
  */
-const collapseWhitespace = value => trim(replace(value, '\\s\\s+',' '));
-
-export {collapseWhitespace};
+export default value => trim(replace(value, '\\s\\s+', ' '))
