@@ -7,12 +7,11 @@
     "test": "test"
   },
   "scripts": {
-    "prepublish": "npm test && gulp",
     "test": "mocha --compilers js:babel-register",
     "test:lint": "eslint ./src",
     "test:coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "dox" : "./node_modules/.bin/dox < ./src/*.js > docs.json"
+    "dox": "./node_modules/.bin/dox < ./src/*.js > docs.json"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,57 @@
     "manipulation",
     "strman"
   ],
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb/base",
+    "env": {
+      "browser": true,
+      "node": true,
+      "jest": true
+    },
+    "rules": {
+      "semi": [
+        2,
+        "never"
+      ],
+      "no-console": [
+        2,
+        {
+          "allow": [
+            "warn",
+            "info",
+            "error"
+          ]
+        }
+      ],
+      "import/named": 2,
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1,
+          "maxEOF": 1,
+          "maxBOF": 0
+        }
+      ],
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "parent",
+            "sibling",
+            "index"
+          ],
+          "newlines-between": "always"
+        }
+      ],
+      "no-lenght/no-lenght": "error"
+    },
+    "plugins": [
+      "no-lenght"
+    ]
+  },
   "author": "Daniel Leite de Oliveira <dleitee@gmail.com>",
   "license": "MIT",
   "bugs": {
