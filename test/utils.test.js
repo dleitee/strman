@@ -1,5 +1,5 @@
 import chai from 'chai';
-import {isString, trim, removeSpaces, replace, removeNonWords, append,
+import {isString, trim, removeSpaces, replace, removeNonWords,
     at, between, chars, collapseWhitespace, contains, containsAll, containsAny, countSubstr,
     endsWith, startsWith, ensureLeft, ensureRight, first, last, indexOf, lastIndexOf, insert,
     length, leftPad, rightPad, prepend, removeLeft, appendArray, prependArray, removeRight,
@@ -151,14 +151,6 @@ describe('transliterate function', () => {
     });
 });
 
-describe('append function', () => {
-    it('should be foobar', () => {
-        chai.expect(append('f', 'o', 'o', 'b', 'a', 'r')).to.equal('foobar');
-        chai.expect(append('foobar')).to.equal('foobar');
-        chai.expect(append('', 'foobar')).to.equal('foobar');
-    });
-});
-
 describe('appendArray function', () => {
     it('should be foobar', () => {
         chai.expect(appendArray('f', ['o', 'o', 'b', 'a', 'r'])).to.equal('foobar');
@@ -182,16 +174,6 @@ describe('prependArray function', () => {
         chai.expect(prependArray('foobar')).to.equal('foobar');
         chai.expect(prependArray('', ['foobar'])).to.equal('foobar');
         chai.expect(prependArray('bar', ['foo'])).to.equal('foobar');
-    });
-});
-
-describe('at function', () => {
-    it('should be f', () => {
-        chai.expect(at('foobar', 0)).to.equal('f');
-        chai.expect(at('ofobar', 1)).to.equal('f');
-        chai.expect(at('oobarf', -1)).to.equal('f');
-        chai.expect(at('oobafr', -2)).to.equal('f');
-
     });
 });
 
@@ -650,17 +632,6 @@ describe('length function', () => {
     });
 });
 
-describe('leftPad function', () => {
-    it('should be 00001', () => {
-        chai.expect(leftPad('1', 5, '00')).to.equal('00001');
-        chai.expect(leftPad('1', 5, 0)).to.equal('00001');
-        chai.expect(leftPad('01', 5, 0)).to.equal('00001');
-        chai.expect(leftPad('001', 5, 0)).to.equal('00001');
-        chai.expect(leftPad('0001', 5, 0)).to.equal('00001');
-        chai.expect(leftPad('00001', 5, 0)).to.equal('00001');
-    });
-});
-
 describe('rightPad function', () => {
     it('should be 10000', () => {
         chai.expect(rightPad('1', 5, '00')).to.equal('10000');
@@ -847,15 +818,6 @@ describe('binEncode function', () => {
     });
 });
 
-describe('binDecode function', () => {
-    it('should be string', () => {
-        chai.expect(binDecode('0110111100100010')).to.equal('漢');
-        chai.expect(binDecode('0000000001000001')).to.equal('A');
-        chai.expect(binDecode('0000000011000001')).to.equal('Á');
-        chai.expect(binDecode('00000000010000010000000001000001')).to.equal('AA');
-    });
-});
-
 describe('decEncode function', () => {
     it('should be binary', () => {
         chai.expect(decEncode('漢')).to.equal('28450');
@@ -871,26 +833,6 @@ describe('decDecode function', () => {
         chai.expect(decDecode('00065')).to.equal('A');
         chai.expect(decDecode('00193')).to.equal('Á');
         chai.expect(decDecode('0006500065')).to.equal('AA');
-    });
-});
-
-describe('base64Encode function', () => {
-    it('should be string', () => {
-        chai.expect(base64Encode('Daniel')).to.equal('RGFuaWVs');
-        chai.expect(base64Encode('foo')).to.equal('Zm9v');
-        chai.expect(base64Encode('bar')).to.equal('YmFy');
-        chai.expect(base64Encode('bár!')).to.equal('YsOhciE=');
-        chai.expect(base64Encode('漢')).to.equal('5ryi');
-    });
-});
-
-describe('base64Decode function', () => {
-    it('should be string', () => {
-        chai.expect(base64Decode('RGFuaWVs')).to.equal('Daniel');
-        chai.expect(base64Decode('Zm9v')).to.equal('foo');
-        chai.expect(base64Decode('YmFy')).to.equal('bar');
-        chai.expect(base64Decode('YsOhciE=')).to.equal('bár!');
-        chai.expect(base64Decode('5ryi')).to.equal('漢');
     });
 });
 
