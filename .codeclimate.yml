@@ -11,6 +11,4 @@ ratings:
   paths:
   - src/**
 exclude_paths:
-- dist/**/*
 - test/**/*
-- transpiler/**/*

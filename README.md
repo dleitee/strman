@@ -15,11 +15,6 @@ strman is available on npm:
 npm install strman --save
 ```
 
-or bower:
-```
-bower install strman
-```
-
 ## Documentation
 
 [https://doclets.io/dleitee/strman/master](https://doclets.io/dleitee/strman/master)
