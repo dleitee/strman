@@ -1,3 +1,5 @@
+import indexOf from './indexof'
+import getCase from './lib/case'
 /**
  * Polyfill to countSubstr function
  * @private
@@ -8,21 +10,16 @@
  * @param allowOverlapping = false
  * @return integer
  */
-const _countSubstring = (value, _substr, allowOverlapping = false, position = 0, count = 0) => {
-
-    let _position = indexOf(value, _substr, position);
-
-    if(_position === -1){
-        return count;
-    }
-
-    if(!allowOverlapping){
-        _position = _position + length(_substr) - 1;
-    }
-
-    return _countSubstring(value, _substr, allowOverlapping, _position + 1, count + 1);
-
-};
+const countSubstring = (value, substr, allowOverlapping = false, position = 0, count = 0) => {
+  let currentPosition = indexOf(value, substr, position)
+  if (currentPosition === -1) {
+    return count
+  }
+  if (!allowOverlapping) {
+    currentPosition += substr.length - 1
+  }
+  return countSubstring(value, substr, allowOverlapping, currentPosition + 1, count + 1)
+}
 
 /**
  * Count the number of times substr appears in value
@@ -38,11 +35,5 @@ const _countSubstring = (value, _substr, allowOverlapping = false, position = 0,
  * let substr = 'Leite'
  * strman.counSubstr(title, substr) // returns 1
  */
-const countSubstr = (value, _substr, caseSensitive = true, allowOverlapping = false) =>
-    _countSubstring(
-        toCaseSensitive(value, caseSensitive),
-        toCaseSensitive(_substr, caseSensitive),
-        allowOverlapping
-    );
-
-export {countSubstr};
+export default (value, substr, caseSensitive = true, allowOverlapping = false) =>
+  countSubstring(getCase(value, caseSensitive), getCase(substr, caseSensitive), allowOverlapping)
