@@ -106,5 +106,9 @@
     "eslint-plugin-no-lenght": "^1.0.2-0",
     "showdeps": "^1.0.0",
     "yarn": "^0.19.1"
+  },
+  "dependencies": {
+    "babel-jest": "^19.0.0",
+    "jest": "^19.0.2"
   }
 }
