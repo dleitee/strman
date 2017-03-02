@@ -1,3 +1,5 @@
+import { entitiesDecode } from './lib/entities'
+import replace from './replace'
 /**
  * Convert all HTML entities to applicable characters.
  * @playground
@@ -6,10 +8,12 @@
  * @params {String} value - value to decode.
  * @returns - The decoded data.
  */
-const htmlDecode = (value) =>
-    replace(value, '(&\\w+;)',
-        (match, index) =>
-            typeof entitiesDecode.get(index) !== undefined ? entitiesDecode.get(index) : match
-        );
-
-export {htmlDecode};
+export default value =>
+  replace(value, '(&\\w+;)',
+    (match, index) => {
+      if (typeof entitiesDecode[index] !== 'undefined') {
+        return entitiesDecode[index]
+      }
+      return match
+    },
+  )

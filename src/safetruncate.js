@@ -40,4 +40,4 @@ const safeTruncate = (value, length, _append = '') => {
 
 };
 
-export {safeTruncate};
+

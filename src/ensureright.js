@@ -14,4 +14,4 @@
 const ensureRight = (value, _substr, caseSensitive = true)  =>
     !endsWith(value, _substr, null, caseSensitive)?append(value, _substr):value;
 
-export {ensureRight};
+

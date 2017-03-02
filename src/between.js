@@ -1,5 +1,7 @@
-import { _pop } from './lib/array';
+import pop from './lib/poparray'
 import substr from './substr'
+import split from './split'
+import indexOf from './indexof'
 
 /**
  * Returns array with strings between [start] and [end]
@@ -13,7 +15,5 @@ import substr from './substr'
  * let title = '[abc][def]'
  * strman.between(title, '[', ']') // returns ['abc', 'def']
  */
-const between = (value, start, end) =>
-    _pop(split(value, end).map((text) => substr(text, indexOf(text, start)+start.length)));
-
-export default between;
+export default (value, start, end) =>
+    pop(split(value, end).map(text => substr(text, indexOf(text, start) + start.length)))

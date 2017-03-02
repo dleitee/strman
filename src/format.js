@@ -10,9 +10,12 @@ import replace from './replace'
  * @param {String[]} params - Array with the parameters described in the string.
  * @returns {String} - Formatted string.
  */
-const format = (value, params = []) =>
-    replace(value, '{(\\w+)}',
-        (match, index) => typeof params[index] !== undefined ? params[index] : match
-    );
-
-export default format;
+export default (value, params = []) =>
+  replace(value, '{(\\w+)}',
+    (match, index) => {
+      if (typeof params[index] !== 'undefined') {
+        return params[index]
+      }
+      return match
+    },
+  )

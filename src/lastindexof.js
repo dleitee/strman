@@ -18,4 +18,4 @@ const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) =>
             offset
         );
 
-export {lastIndexOf};
+

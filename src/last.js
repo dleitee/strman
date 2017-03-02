@@ -1,3 +1,5 @@
+import substr from './substr'
+
 /**
  * Return the last 'n' chars of string.
  * @playground
@@ -8,6 +10,4 @@
  * @param {String} n - Number of chars to return.
  * @return {String} - Return 'n' lasts chars.
  */
-const last = (value, n) => substr(value, -1 * n, n);
-
-export {last};
+export default (value, n) => substr(value, -1 * n, n)

@@ -31,4 +31,4 @@ const endsWith = (value, search, position = null, caseSensitive = true) => {
 
 };
 
-export {endsWith};
+

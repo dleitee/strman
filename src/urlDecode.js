@@ -8,4 +8,4 @@
  */
 const urlDecode = (value) => decodeURI(value);
 
-export {urlDecode};
+

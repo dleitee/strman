@@ -7,8 +7,8 @@
  * @param {String} value - The String!.
  * @return {String} - String in snake_case.
  */
-const toSnakeCase = value => {
+export default value => {
     return toDecamelize(value, '_');
 };
 
-export {toSnakeCase};
+

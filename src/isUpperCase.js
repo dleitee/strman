@@ -9,4 +9,4 @@
  */
 const isUpperCase = (value) => value === toUpperCase(value);
 
-export {isUpperCase};
+

@@ -1,3 +1,5 @@
+import { entitiesEncode } from './lib/entities'
+import replace from './replace'
 /**
  * Convert all applicable characters to HTML entities.
  * @playground
@@ -6,8 +8,10 @@
  * @params {String} value - value to encode.
  * @returns - The encoded data.
  */
-const htmlEncode = (value) => replace(value, '[\\u00A0-\\u9999<>\\&]',
-    (match) =>
-        typeof entitiesEncode.get(match) !== undefined ? entitiesEncode.get(match) : match , true, true);
-
-export {htmlEncode};
+export default value => replace(value, '[\\u00A0-\\u9999<>\\&]',
+  (match) => {
+    if (typeof entitiesEncode[match] !== 'undefined') {
+      return entitiesEncode[match]
+    }
+    return match
+  }, true, true)

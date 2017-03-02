@@ -1,3 +1,5 @@
+import { LENGTH_DECIMAL, BASE_DECIMAL } from './lib/numerical.base'
+import decode from './lib/decode'
 /**
  * Convert binary unicode (16 digits) string to string chars
  * @playground
@@ -6,6 +8,4 @@
  * @param {String} value - Value to decode
  * @returns {String} - String decoded.
  */
-const decDecode = (value) => decode(value, LENGTH_DECIMAL, BASE_DECIMAL);
-
-export {decDecode};
+export default value => decode(value, LENGTH_DECIMAL, BASE_DECIMAL)

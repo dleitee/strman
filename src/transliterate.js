@@ -1,4 +1,4 @@
-import ascii from './lib/ascii';
+import ascii from './lib/ascii'
 import replace from './replace'
 
 /**
@@ -10,11 +10,11 @@ import replace from './replace'
  * @param {String} value - The String!.
  * @return {String} - String without non valid characters.
  */
-const transliterate = value => {
-    for(let key in ascii){
-        ascii[key].map((char) => value = replace(value, char, key));
-    }
-    return value;
-};
-
-export default transliterate;
+export default value =>
+  Object.keys(ascii).reduce((newValue, currentKey) =>
+    ascii[currentKey].reduce(
+      (previous, currentValue) => replace(previous, currentValue, currentKey),
+      newValue,
+    ),
+    value,
+  )

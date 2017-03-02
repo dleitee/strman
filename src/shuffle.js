@@ -28,4 +28,4 @@ const _shuffle =(array) => {
  */
 const shuffle = (value) => _shuffle(split(value)).join('');
 
-export {shuffle};
+

@@ -1,2240 +1,3727 @@
-const decode = new Map();
-decode.set('&AElig', '\u00C6');
-decode.set('&AElig;', '\u00C6');
-decode.set('&AMP', '\u0026');
-decode.set('&AMP;', '\u0026');
-decode.set('&Aacute', '\u00C1');
-decode.set('&Aacute;', '\u00C1');
-decode.set('&Abreve;', '\u0102');
-decode.set('&Acirc', '\u00C2');
-decode.set('&Acirc;', '\u00C2');
-decode.set('&Acy;', '\u0410');
-decode.set('&Afr;', '\uD835\uDD04');
-decode.set('&Agrave', '\u00C0');
-decode.set('&Agrave;', '\u00C0');
-decode.set('&Alpha;', '\u0391');
-decode.set('&Amacr;', '\u0100');
-decode.set('&And;', '\u2A53');
-decode.set('&Aogon;', '\u0104');
-decode.set('&Aopf;', '\uD835\uDD38');
-decode.set('&ApplyFunction;', '\u2061');
-decode.set('&Aring', '\u00C5');
-decode.set('&Aring;', '\u00C5');
-decode.set('&Ascr;', '\uD835\uDC9C');
-decode.set('&Assign;', '\u2254');
-decode.set('&Atilde', '\u00C3');
-decode.set('&Atilde;', '\u00C3');
-decode.set('&Auml', '\u00C4');
-decode.set('&Auml;', '\u00C4');
-decode.set('&Backslash;', '\u2216');
-decode.set('&Barv;', '\u2AE7');
-decode.set('&Barwed;', '\u2306');
-decode.set('&Bcy;', '\u0411');
-decode.set('&Because;', '\u2235');
-decode.set('&Bernoullis;', '\u212C');
-decode.set('&Beta;', '\u0392');
-decode.set('&Bfr;', '\uD835\uDD05');
-decode.set('&Bopf;', '\uD835\uDD39');
-decode.set('&Breve;', '\u02D8');
-decode.set('&Bscr;', '\u212C');
-decode.set('&Bumpeq;', '\u224E');
-decode.set('&CHcy;', '\u0427');
-decode.set('&COPY', '\u00A9');
-decode.set('&COPY;', '\u00A9');
-decode.set('&Cacute;', '\u0106');
-decode.set('&Cap;', '\u22D2');
-decode.set('&CapitalDifferentialD;', '\u2145');
-decode.set('&Cayleys;', '\u212D');
-decode.set('&Ccaron;', '\u010C');
-decode.set('&Ccedil', '\u00C7');
-decode.set('&Ccedil;', '\u00C7');
-decode.set('&Ccirc;', '\u0108');
-decode.set('&Cconint;', '\u2230');
-decode.set('&Cdot;', '\u010A');
-decode.set('&Cedilla;', '\u00B8');
-decode.set('&CenterDot;', '\u00B7');
-decode.set('&Cfr;', '\u212D');
-decode.set('&Chi;', '\u03A7');
-decode.set('&CircleDot;', '\u2299');
-decode.set('&CircleMinus;', '\u2296');
-decode.set('&CirclePlus;', '\u2295');
-decode.set('&CircleTimes;', '\u2297');
-decode.set('&ClockwiseContourIntegral;', '\u2232');
-decode.set('&CloseCurlyDoubleQuote;', '\u201D');
-decode.set('&CloseCurlyQuote;', '\u2019');
-decode.set('&Colon;', '\u2237');
-decode.set('&Colone;', '\u2A74');
-decode.set('&Congruent;', '\u2261');
-decode.set('&Conint;', '\u222F');
-decode.set('&ContourIntegral;', '\u222E');
-decode.set('&Copf;', '\u2102');
-decode.set('&Coproduct;', '\u2210');
-decode.set('&CounterClockwiseContourIntegral;', '\u2233');
-decode.set('&Cross;', '\u2A2F');
-decode.set('&Cscr;', '\uD835\uDC9E');
-decode.set('&Cup;', '\u22D3');
-decode.set('&CupCap;', '\u224D');
-decode.set('&DD;', '\u2145');
-decode.set('&DDotrahd;', '\u2911');
-decode.set('&DJcy;', '\u0402');
-decode.set('&DScy;', '\u0405');
-decode.set('&DZcy;', '\u040F');
-decode.set('&Dagger;', '\u2021');
-decode.set('&Darr;', '\u21A1');
-decode.set('&Dashv;', '\u2AE4');
-decode.set('&Dcaron;', '\u010E');
-decode.set('&Dcy;', '\u0414');
-decode.set('&Del;', '\u2207');
-decode.set('&Delta;', '\u0394');
-decode.set('&Dfr;', '\uD835\uDD07');
-decode.set('&DiacriticalAcute;', '\u00B4');
-decode.set('&DiacriticalDot;', '\u02D9');
-decode.set('&DiacriticalDoubleAcute;', '\u02DD');
-decode.set('&DiacriticalGrave;', '\u0060');
-decode.set('&DiacriticalTilde;', '\u02DC');
-decode.set('&Diamond;', '\u22C4');
-decode.set('&DifferentialD;', '\u2146');
-decode.set('&Dopf;', '\uD835\uDD3B');
-decode.set('&Dot;', '\u00A8');
-decode.set('&DotDot;', '\u20DC');
-decode.set('&DotEqual;', '\u2250');
-decode.set('&DoubleContourIntegral;', '\u222F');
-decode.set('&DoubleDot;', '\u00A8');
-decode.set('&DoubleDownArrow;', '\u21D3');
-decode.set('&DoubleLeftArrow;', '\u21D0');
-decode.set('&DoubleLeftRightArrow;', '\u21D4');
-decode.set('&DoubleLeftTee;', '\u2AE4');
-decode.set('&DoubleLongLeftArrow;', '\u27F8');
-decode.set('&DoubleLongLeftRightArrow;', '\u27FA');
-decode.set('&DoubleLongRightArrow;', '\u27F9');
-decode.set('&DoubleRightArrow;', '\u21D2');
-decode.set('&DoubleRightTee;', '\u22A8');
-decode.set('&DoubleUpArrow;', '\u21D1');
-decode.set('&DoubleUpDownArrow;', '\u21D5');
-decode.set('&DoubleVerticalBar;', '\u2225');
-decode.set('&DownArrow;', '\u2193');
-decode.set('&DownArrowBar;', '\u2913');
-decode.set('&DownArrowUpArrow;', '\u21F5');
-decode.set('&DownBreve;', '\u0311');
-decode.set('&DownLeftRightVector;', '\u2950');
-decode.set('&DownLeftTeeVector;', '\u295E');
-decode.set('&DownLeftVector;', '\u21BD');
-decode.set('&DownLeftVectorBar;', '\u2956');
-decode.set('&DownRightTeeVector;', '\u295F');
-decode.set('&DownRightVector;', '\u21C1');
-decode.set('&DownRightVectorBar;', '\u2957');
-decode.set('&DownTee;', '\u22A4');
-decode.set('&DownTeeArrow;', '\u21A7');
-decode.set('&Downarrow;', '\u21D3');
-decode.set('&Dscr;', '\uD835\uDC9F');
-decode.set('&Dstrok;', '\u0110');
-decode.set('&ENG;', '\u014A');
-decode.set('&ETH', '\u00D0');
-decode.set('&ETH;', '\u00D0');
-decode.set('&Eacute', '\u00C9');
-decode.set('&Eacute;', '\u00C9');
-decode.set('&Ecaron;', '\u011A');
-decode.set('&Ecirc', '\u00CA');
-decode.set('&Ecirc;', '\u00CA');
-decode.set('&Ecy;', '\u042D');
-decode.set('&Edot;', '\u0116');
-decode.set('&Efr;', '\uD835\uDD08');
-decode.set('&Egrave', '\u00C8');
-decode.set('&Egrave;', '\u00C8');
-decode.set('&Element;', '\u2208');
-decode.set('&Emacr;', '\u0112');
-decode.set('&EmptySmallSquare;', '\u25FB');
-decode.set('&EmptyVerySmallSquare;', '\u25AB');
-decode.set('&Eogon;', '\u0118');
-decode.set('&Eopf;', '\uD835\uDD3C');
-decode.set('&Epsilon;', '\u0395');
-decode.set('&Equal;', '\u2A75');
-decode.set('&EqualTilde;', '\u2242');
-decode.set('&Equilibrium;', '\u21CC');
-decode.set('&Escr;', '\u2130');
-decode.set('&Esim;', '\u2A73');
-decode.set('&Eta;', '\u0397');
-decode.set('&Euml', '\u00CB');
-decode.set('&Euml;', '\u00CB');
-decode.set('&Exists;', '\u2203');
-decode.set('&ExponentialE;', '\u2147');
-decode.set('&Fcy;', '\u0424');
-decode.set('&Ffr;', '\uD835\uDD09');
-decode.set('&FilledSmallSquare;', '\u25FC');
-decode.set('&FilledVerySmallSquare;', '\u25AA');
-decode.set('&Fopf;', '\uD835\uDD3D');
-decode.set('&ForAll;', '\u2200');
-decode.set('&Fouriertrf;', '\u2131');
-decode.set('&Fscr;', '\u2131');
-decode.set('&GJcy;', '\u0403');
-decode.set('&GT', '\u003E');
-decode.set('&GT;', '\u003E');
-decode.set('&Gamma;', '\u0393');
-decode.set('&Gammad;', '\u03DC');
-decode.set('&Gbreve;', '\u011E');
-decode.set('&Gcedil;', '\u0122');
-decode.set('&Gcirc;', '\u011C');
-decode.set('&Gcy;', '\u0413');
-decode.set('&Gdot;', '\u0120');
-decode.set('&Gfr;', '\uD835\uDD0A');
-decode.set('&Gg;', '\u22D9');
-decode.set('&Gopf;', '\uD835\uDD3E');
-decode.set('&GreaterEqual;', '\u2265');
-decode.set('&GreaterEqualLess;', '\u22DB');
-decode.set('&GreaterFullEqual;', '\u2267');
-decode.set('&GreaterGreater;', '\u2AA2');
-decode.set('&GreaterLess;', '\u2277');
-decode.set('&GreaterSlantEqual;', '\u2A7E');
-decode.set('&GreaterTilde;', '\u2273');
-decode.set('&Gscr;', '\uD835\uDCA2');
-decode.set('&Gt;', '\u226B');
-decode.set('&HARDcy;', '\u042A');
-decode.set('&Hacek;', '\u02C7');
-decode.set('&Hat;', '\u005E');
-decode.set('&Hcirc;', '\u0124');
-decode.set('&Hfr;', '\u210C');
-decode.set('&HilbertSpace;', '\u210B');
-decode.set('&Hopf;', '\u210D');
-decode.set('&HorizontalLine;', '\u2500');
-decode.set('&Hscr;', '\u210B');
-decode.set('&Hstrok;', '\u0126');
-decode.set('&HumpDownHump;', '\u224E');
-decode.set('&HumpEqual;', '\u224F');
-decode.set('&IEcy;', '\u0415');
-decode.set('&IJlig;', '\u0132');
-decode.set('&IOcy;', '\u0401');
-decode.set('&Iacute', '\u00CD');
-decode.set('&Iacute;', '\u00CD');
-decode.set('&Icirc', '\u00CE');
-decode.set('&Icirc;', '\u00CE');
-decode.set('&Icy;', '\u0418');
-decode.set('&Idot;', '\u0130');
-decode.set('&Ifr;', '\u2111');
-decode.set('&Igrave', '\u00CC');
-decode.set('&Igrave;', '\u00CC');
-decode.set('&Im;', '\u2111');
-decode.set('&Imacr;', '\u012A');
-decode.set('&ImaginaryI;', '\u2148');
-decode.set('&Implies;', '\u21D2');
-decode.set('&Int;', '\u222C');
-decode.set('&Integral;', '\u222B');
-decode.set('&Intersection;', '\u22C2');
-decode.set('&InvisibleComma;', '\u2063');
-decode.set('&InvisibleTimes;', '\u2062');
-decode.set('&Iogon;', '\u012E');
-decode.set('&Iopf;', '\uD835\uDD40');
-decode.set('&Iota;', '\u0399');
-decode.set('&Iscr;', '\u2110');
-decode.set('&Itilde;', '\u0128');
-decode.set('&Iukcy;', '\u0406');
-decode.set('&Iuml', '\u00CF');
-decode.set('&Iuml;', '\u00CF');
-decode.set('&Jcirc;', '\u0134');
-decode.set('&Jcy;', '\u0419');
-decode.set('&Jfr;', '\uD835\uDD0D');
-decode.set('&Jopf;', '\uD835\uDD41');
-decode.set('&Jscr;', '\uD835\uDCA5');
-decode.set('&Jsercy;', '\u0408');
-decode.set('&Jukcy;', '\u0404');
-decode.set('&KHcy;', '\u0425');
-decode.set('&KJcy;', '\u040C');
-decode.set('&Kappa;', '\u039A');
-decode.set('&Kcedil;', '\u0136');
-decode.set('&Kcy;', '\u041A');
-decode.set('&Kfr;', '\uD835\uDD0E');
-decode.set('&Kopf;', '\uD835\uDD42');
-decode.set('&Kscr;', '\uD835\uDCA6');
-decode.set('&LJcy;', '\u0409');
-decode.set('&LT', '\u003C');
-decode.set('&LT;', '\u003C');
-decode.set('&Lacute;', '\u0139');
-decode.set('&Lambda;', '\u039B');
-decode.set('&Lang;', '\u27EA');
-decode.set('&Laplacetrf;', '\u2112');
-decode.set('&Larr;', '\u219E');
-decode.set('&Lcaron;', '\u013D');
-decode.set('&Lcedil;', '\u013B');
-decode.set('&Lcy;', '\u041B');
-decode.set('&LeftAngleBracket;', '\u27E8');
-decode.set('&LeftArrow;', '\u2190');
-decode.set('&LeftArrowBar;', '\u21E4');
-decode.set('&LeftArrowRightArrow;', '\u21C6');
-decode.set('&LeftCeiling;', '\u2308');
-decode.set('&LeftDoubleBracket;', '\u27E6');
-decode.set('&LeftDownTeeVector;', '\u2961');
-decode.set('&LeftDownVector;', '\u21C3');
-decode.set('&LeftDownVectorBar;', '\u2959');
-decode.set('&LeftFloor;', '\u230A');
-decode.set('&LeftRightArrow;', '\u2194');
-decode.set('&LeftRightVector;', '\u294E');
-decode.set('&LeftTee;', '\u22A3');
-decode.set('&LeftTeeArrow;', '\u21A4');
-decode.set('&LeftTeeVector;', '\u295A');
-decode.set('&LeftTriangle;', '\u22B2');
-decode.set('&LeftTriangleBar;', '\u29CF');
-decode.set('&LeftTriangleEqual;', '\u22B4');
-decode.set('&LeftUpDownVector;', '\u2951');
-decode.set('&LeftUpTeeVector;', '\u2960');
-decode.set('&LeftUpVector;', '\u21BF');
-decode.set('&LeftUpVectorBar;', '\u2958');
-decode.set('&LeftVector;', '\u21BC');
-decode.set('&LeftVectorBar;', '\u2952');
-decode.set('&Leftarrow;', '\u21D0');
-decode.set('&Leftrightarrow;', '\u21D4');
-decode.set('&LessEqualGreater;', '\u22DA');
-decode.set('&LessFullEqual;', '\u2266');
-decode.set('&LessGreater;', '\u2276');
-decode.set('&LessLess;', '\u2AA1');
-decode.set('&LessSlantEqual;', '\u2A7D');
-decode.set('&LessTilde;', '\u2272');
-decode.set('&Lfr;', '\uD835\uDD0F');
-decode.set('&Ll;', '\u22D8');
-decode.set('&Lleftarrow;', '\u21DA');
-decode.set('&Lmidot;', '\u013F');
-decode.set('&LongLeftArrow;', '\u27F5');
-decode.set('&LongLeftRightArrow;', '\u27F7');
-decode.set('&LongRightArrow;', '\u27F6');
-decode.set('&Longleftarrow;', '\u27F8');
-decode.set('&Longleftrightarrow;', '\u27FA');
-decode.set('&Longrightarrow;', '\u27F9');
-decode.set('&Lopf;', '\uD835\uDD43');
-decode.set('&LowerLeftArrow;', '\u2199');
-decode.set('&LowerRightArrow;', '\u2198');
-decode.set('&Lscr;', '\u2112');
-decode.set('&Lsh;', '\u21B0');
-decode.set('&Lstrok;', '\u0141');
-decode.set('&Lt;', '\u226A');
-decode.set('&Map;', '\u2905');
-decode.set('&Mcy;', '\u041C');
-decode.set('&MediumSpace;', '\u205F');
-decode.set('&Mellintrf;', '\u2133');
-decode.set('&Mfr;', '\uD835\uDD10');
-decode.set('&MinusPlus;', '\u2213');
-decode.set('&Mopf;', '\uD835\uDD44');
-decode.set('&Mscr;', '\u2133');
-decode.set('&Mu;', '\u039C');
-decode.set('&NJcy;', '\u040A');
-decode.set('&Nacute;', '\u0143');
-decode.set('&Ncaron;', '\u0147');
-decode.set('&Ncedil;', '\u0145');
-decode.set('&Ncy;', '\u041D');
-decode.set('&NegativeMediumSpace;', '\u200B');
-decode.set('&NegativeThickSpace;', '\u200B');
-decode.set('&NegativeThinSpace;', '\u200B');
-decode.set('&NegativeVeryThinSpace;', '\u200B');
-decode.set('&NestedGreaterGreater;', '\u226B');
-decode.set('&NestedLessLess;', '\u226A');
-decode.set('&NewLine;', '\u000A');
-decode.set('&Nfr;', '\uD835\uDD11');
-decode.set('&NoBreak;', '\u2060');
-decode.set('&NonBreakingSpace;', '\u00A0');
-decode.set('&Nopf;', '\u2115');
-decode.set('&Not;', '\u2AEC');
-decode.set('&NotCongruent;', '\u2262');
-decode.set('&NotCupCap;', '\u226D');
-decode.set('&NotDoubleVerticalBar;', '\u2226');
-decode.set('&NotElement;', '\u2209');
-decode.set('&NotEqual;', '\u2260');
-decode.set('&NotEqualTilde;', '\u2242\u0338');
-decode.set('&NotExists;', '\u2204');
-decode.set('&NotGreater;', '\u226F');
-decode.set('&NotGreaterEqual;', '\u2271');
-decode.set('&NotGreaterFullEqual;', '\u2267\u0338');
-decode.set('&NotGreaterGreater;', '\u226B\u0338');
-decode.set('&NotGreaterLess;', '\u2279');
-decode.set('&NotGreaterSlantEqual;', '\u2A7E\u0338');
-decode.set('&NotGreaterTilde;', '\u2275');
-decode.set('&NotHumpDownHump;', '\u224E\u0338');
-decode.set('&NotHumpEqual;', '\u224F\u0338');
-decode.set('&NotLeftTriangle;', '\u22EA');
-decode.set('&NotLeftTriangleBar;', '\u29CF\u0338');
-decode.set('&NotLeftTriangleEqual;', '\u22EC');
-decode.set('&NotLess;', '\u226E');
-decode.set('&NotLessEqual;', '\u2270');
-decode.set('&NotLessGreater;', '\u2278');
-decode.set('&NotLessLess;', '\u226A\u0338');
-decode.set('&NotLessSlantEqual;', '\u2A7D\u0338');
-decode.set('&NotLessTilde;', '\u2274');
-decode.set('&NotNestedGreaterGreater;', '\u2AA2\u0338');
-decode.set('&NotNestedLessLess;', '\u2AA1\u0338');
-decode.set('&NotPrecedes;', '\u2280');
-decode.set('&NotPrecedesEqual;', '\u2AAF\u0338');
-decode.set('&NotPrecedesSlantEqual;', '\u22E0');
-decode.set('&NotReverseElement;', '\u220C');
-decode.set('&NotRightTriangle;', '\u22EB');
-decode.set('&NotRightTriangleBar;', '\u29D0\u0338');
-decode.set('&NotRightTriangleEqual;', '\u22ED');
-decode.set('&NotSquareSubset;', '\u228F\u0338');
-decode.set('&NotSquareSubsetEqual;', '\u22E2');
-decode.set('&NotSquareSuperset;', '\u2290\u0338');
-decode.set('&NotSquareSupersetEqual;', '\u22E3');
-decode.set('&NotSubset;', '\u2282\u20D2');
-decode.set('&NotSubsetEqual;', '\u2288');
-decode.set('&NotSucceeds;', '\u2281');
-decode.set('&NotSucceedsEqual;', '\u2AB0\u0338');
-decode.set('&NotSucceedsSlantEqual;', '\u22E1');
-decode.set('&NotSucceedsTilde;', '\u227F\u0338');
-decode.set('&NotSuperset;', '\u2283\u20D2');
-decode.set('&NotSupersetEqual;', '\u2289');
-decode.set('&NotTilde;', '\u2241');
-decode.set('&NotTildeEqual;', '\u2244');
-decode.set('&NotTildeFullEqual;', '\u2247');
-decode.set('&NotTildeTilde;', '\u2249');
-decode.set('&NotVerticalBar;', '\u2224');
-decode.set('&Nscr;', '\uD835\uDCA9');
-decode.set('&Ntilde', '\u00D1');
-decode.set('&Ntilde;', '\u00D1');
-decode.set('&Nu;', '\u039D');
-decode.set('&OElig;', '\u0152');
-decode.set('&Oacute', '\u00D3');
-decode.set('&Oacute;', '\u00D3');
-decode.set('&Ocirc', '\u00D4');
-decode.set('&Ocirc;', '\u00D4');
-decode.set('&Ocy;', '\u041E');
-decode.set('&Odblac;', '\u0150');
-decode.set('&Ofr;', '\uD835\uDD12');
-decode.set('&Ograve', '\u00D2');
-decode.set('&Ograve;', '\u00D2');
-decode.set('&Omacr;', '\u014C');
-decode.set('&Omega;', '\u03A9');
-decode.set('&Omicron;', '\u039F');
-decode.set('&Oopf;', '\uD835\uDD46');
-decode.set('&OpenCurlyDoubleQuote;', '\u201C');
-decode.set('&OpenCurlyQuote;', '\u2018');
-decode.set('&Or;', '\u2A54');
-decode.set('&Oscr;', '\uD835\uDCAA');
-decode.set('&Oslash', '\u00D8');
-decode.set('&Oslash;', '\u00D8');
-decode.set('&Otilde', '\u00D5');
-decode.set('&Otilde;', '\u00D5');
-decode.set('&Otimes;', '\u2A37');
-decode.set('&Ouml', '\u00D6');
-decode.set('&Ouml;', '\u00D6');
-decode.set('&OverBar;', '\u203E');
-decode.set('&OverBrace;', '\u23DE');
-decode.set('&OverBracket;', '\u23B4');
-decode.set('&OverParenthesis;', '\u23DC');
-decode.set('&PartialD;', '\u2202');
-decode.set('&Pcy;', '\u041F');
-decode.set('&Pfr;', '\uD835\uDD13');
-decode.set('&Phi;', '\u03A6');
-decode.set('&Pi;', '\u03A0');
-decode.set('&PlusMinus;', '\u00B1');
-decode.set('&Poincareplane;', '\u210C');
-decode.set('&Popf;', '\u2119');
-decode.set('&Pr;', '\u2ABB');
-decode.set('&Precedes;', '\u227A');
-decode.set('&PrecedesEqual;', '\u2AAF');
-decode.set('&PrecedesSlantEqual;', '\u227C');
-decode.set('&PrecedesTilde;', '\u227E');
-decode.set('&Prime;', '\u2033');
-decode.set('&Product;', '\u220F');
-decode.set('&Proportion;', '\u2237');
-decode.set('&Proportional;', '\u221D');
-decode.set('&Pscr;', '\uD835\uDCAB');
-decode.set('&Psi;', '\u03A8');
-decode.set('&QUOT', '\u0022');
-decode.set('&QUOT;', '\u0022');
-decode.set('&Qfr;', '\uD835\uDD14');
-decode.set('&Qopf;', '\u211A');
-decode.set('&Qscr;', '\uD835\uDCAC');
-decode.set('&RBarr;', '\u2910');
-decode.set('&REG', '\u00AE');
-decode.set('&REG;', '\u00AE');
-decode.set('&Racute;', '\u0154');
-decode.set('&Rang;', '\u27EB');
-decode.set('&Rarr;', '\u21A0');
-decode.set('&Rarrtl;', '\u2916');
-decode.set('&Rcaron;', '\u0158');
-decode.set('&Rcedil;', '\u0156');
-decode.set('&Rcy;', '\u0420');
-decode.set('&Re;', '\u211C');
-decode.set('&ReverseElement;', '\u220B');
-decode.set('&ReverseEquilibrium;', '\u21CB');
-decode.set('&ReverseUpEquilibrium;', '\u296F');
-decode.set('&Rfr;', '\u211C');
-decode.set('&Rho;', '\u03A1');
-decode.set('&RightAngleBracket;', '\u27E9');
-decode.set('&RightArrow;', '\u2192');
-decode.set('&RightArrowBar;', '\u21E5');
-decode.set('&RightArrowLeftArrow;', '\u21C4');
-decode.set('&RightCeiling;', '\u2309');
-decode.set('&RightDoubleBracket;', '\u27E7');
-decode.set('&RightDownTeeVector;', '\u295D');
-decode.set('&RightDownVector;', '\u21C2');
-decode.set('&RightDownVectorBar;', '\u2955');
-decode.set('&RightFloor;', '\u230B');
-decode.set('&RightTee;', '\u22A2');
-decode.set('&RightTeeArrow;', '\u21A6');
-decode.set('&RightTeeVector;', '\u295B');
-decode.set('&RightTriangle;', '\u22B3');
-decode.set('&RightTriangleBar;', '\u29D0');
-decode.set('&RightTriangleEqual;', '\u22B5');
-decode.set('&RightUpDownVector;', '\u294F');
-decode.set('&RightUpTeeVector;', '\u295C');
-decode.set('&RightUpVector;', '\u21BE');
-decode.set('&RightUpVectorBar;', '\u2954');
-decode.set('&RightVector;', '\u21C0');
-decode.set('&RightVectorBar;', '\u2953');
-decode.set('&Rightarrow;', '\u21D2');
-decode.set('&Ropf;', '\u211D');
-decode.set('&RoundImplies;', '\u2970');
-decode.set('&Rrightarrow;', '\u21DB');
-decode.set('&Rscr;', '\u211B');
-decode.set('&Rsh;', '\u21B1');
-decode.set('&RuleDelayed;', '\u29F4');
-decode.set('&SHCHcy;', '\u0429');
-decode.set('&SHcy;', '\u0428');
-decode.set('&SOFTcy;', '\u042C');
-decode.set('&Sacute;', '\u015A');
-decode.set('&Sc;', '\u2ABC');
-decode.set('&Scaron;', '\u0160');
-decode.set('&Scedil;', '\u015E');
-decode.set('&Scirc;', '\u015C');
-decode.set('&Scy;', '\u0421');
-decode.set('&Sfr;', '\uD835\uDD16');
-decode.set('&ShortDownArrow;', '\u2193');
-decode.set('&ShortLeftArrow;', '\u2190');
-decode.set('&ShortRightArrow;', '\u2192');
-decode.set('&ShortUpArrow;', '\u2191');
-decode.set('&Sigma;', '\u03A3');
-decode.set('&SmallCircle;', '\u2218');
-decode.set('&Sopf;', '\uD835\uDD4A');
-decode.set('&Sqrt;', '\u221A');
-decode.set('&Square;', '\u25A1');
-decode.set('&SquareIntersection;', '\u2293');
-decode.set('&SquareSubset;', '\u228F');
-decode.set('&SquareSubsetEqual;', '\u2291');
-decode.set('&SquareSuperset;', '\u2290');
-decode.set('&SquareSupersetEqual;', '\u2292');
-decode.set('&SquareUnion;', '\u2294');
-decode.set('&Sscr;', '\uD835\uDCAE');
-decode.set('&Star;', '\u22C6');
-decode.set('&Sub;', '\u22D0');
-decode.set('&Subset;', '\u22D0');
-decode.set('&SubsetEqual;', '\u2286');
-decode.set('&Succeeds;', '\u227B');
-decode.set('&SucceedsEqual;', '\u2AB0');
-decode.set('&SucceedsSlantEqual;', '\u227D');
-decode.set('&SucceedsTilde;', '\u227F');
-decode.set('&SuchThat;', '\u220B');
-decode.set('&Sum;', '\u2211');
-decode.set('&Sup;', '\u22D1');
-decode.set('&Superset;', '\u2283');
-decode.set('&SupersetEqual;', '\u2287');
-decode.set('&Supset;', '\u22D1');
-decode.set('&THORN', '\u00DE');
-decode.set('&THORN;', '\u00DE');
-decode.set('&TRADE;', '\u2122');
-decode.set('&TSHcy;', '\u040B');
-decode.set('&TScy;', '\u0426');
-decode.set('&Tab;', '\u0009');
-decode.set('&Tau;', '\u03A4');
-decode.set('&Tcaron;', '\u0164');
-decode.set('&Tcedil;', '\u0162');
-decode.set('&Tcy;', '\u0422');
-decode.set('&Tfr;', '\uD835\uDD17');
-decode.set('&Therefore;', '\u2234');
-decode.set('&Theta;', '\u0398');
-decode.set('&ThickSpace;', '\u205F\u200A');
-decode.set('&ThinSpace;', '\u2009');
-decode.set('&Tilde;', '\u223C');
-decode.set('&TildeEqual;', '\u2243');
-decode.set('&TildeFullEqual;', '\u2245');
-decode.set('&TildeTilde;', '\u2248');
-decode.set('&Topf;', '\uD835\uDD4B');
-decode.set('&TripleDot;', '\u20DB');
-decode.set('&Tscr;', '\uD835\uDCAF');
-decode.set('&Tstrok;', '\u0166');
-decode.set('&Uacute', '\u00DA');
-decode.set('&Uacute;', '\u00DA');
-decode.set('&Uarr;', '\u219F');
-decode.set('&Uarrocir;', '\u2949');
-decode.set('&Ubrcy;', '\u040E');
-decode.set('&Ubreve;', '\u016C');
-decode.set('&Ucirc', '\u00DB');
-decode.set('&Ucirc;', '\u00DB');
-decode.set('&Ucy;', '\u0423');
-decode.set('&Udblac;', '\u0170');
-decode.set('&Ufr;', '\uD835\uDD18');
-decode.set('&Ugrave', '\u00D9');
-decode.set('&Ugrave;', '\u00D9');
-decode.set('&Umacr;', '\u016A');
-decode.set('&UnderBar;', '\u005F');
-decode.set('&UnderBrace;', '\u23DF');
-decode.set('&UnderBracket;', '\u23B5');
-decode.set('&UnderParenthesis;', '\u23DD');
-decode.set('&Union;', '\u22C3');
-decode.set('&UnionPlus;', '\u228E');
-decode.set('&Uogon;', '\u0172');
-decode.set('&Uopf;', '\uD835\uDD4C');
-decode.set('&UpArrow;', '\u2191');
-decode.set('&UpArrowBar;', '\u2912');
-decode.set('&UpArrowDownArrow;', '\u21C5');
-decode.set('&UpDownArrow;', '\u2195');
-decode.set('&UpEquilibrium;', '\u296E');
-decode.set('&UpTee;', '\u22A5');
-decode.set('&UpTeeArrow;', '\u21A5');
-decode.set('&Uparrow;', '\u21D1');
-decode.set('&Updownarrow;', '\u21D5');
-decode.set('&UpperLeftArrow;', '\u2196');
-decode.set('&UpperRightArrow;', '\u2197');
-decode.set('&Upsi;', '\u03D2');
-decode.set('&Upsilon;', '\u03A5');
-decode.set('&Uring;', '\u016E');
-decode.set('&Uscr;', '\uD835\uDCB0');
-decode.set('&Utilde;', '\u0168');
-decode.set('&Uuml', '\u00DC');
-decode.set('&Uuml;', '\u00DC');
-decode.set('&VDash;', '\u22AB');
-decode.set('&Vbar;', '\u2AEB');
-decode.set('&Vcy;', '\u0412');
-decode.set('&Vdash;', '\u22A9');
-decode.set('&Vdashl;', '\u2AE6');
-decode.set('&Vee;', '\u22C1');
-decode.set('&Verbar;', '\u2016');
-decode.set('&Vert;', '\u2016');
-decode.set('&VerticalBar;', '\u2223');
-decode.set('&VerticalLine;', '\u007C');
-decode.set('&VerticalSeparator;', '\u2758');
-decode.set('&VerticalTilde;', '\u2240');
-decode.set('&VeryThinSpace;', '\u200A');
-decode.set('&Vfr;', '\uD835\uDD19');
-decode.set('&Vopf;', '\uD835\uDD4D');
-decode.set('&Vscr;', '\uD835\uDCB1');
-decode.set('&Vvdash;', '\u22AA');
-decode.set('&Wcirc;', '\u0174');
-decode.set('&Wedge;', '\u22C0');
-decode.set('&Wfr;', '\uD835\uDD1A');
-decode.set('&Wopf;', '\uD835\uDD4E');
-decode.set('&Wscr;', '\uD835\uDCB2');
-decode.set('&Xfr;', '\uD835\uDD1B');
-decode.set('&Xi;', '\u039E');
-decode.set('&Xopf;', '\uD835\uDD4F');
-decode.set('&Xscr;', '\uD835\uDCB3');
-decode.set('&YAcy;', '\u042F');
-decode.set('&YIcy;', '\u0407');
-decode.set('&YUcy;', '\u042E');
-decode.set('&Yacute', '\u00DD');
-decode.set('&Yacute;', '\u00DD');
-decode.set('&Ycirc;', '\u0176');
-decode.set('&Ycy;', '\u042B');
-decode.set('&Yfr;', '\uD835\uDD1C');
-decode.set('&Yopf;', '\uD835\uDD50');
-decode.set('&Yscr;', '\uD835\uDCB4');
-decode.set('&Yuml;', '\u0178');
-decode.set('&ZHcy;', '\u0416');
-decode.set('&Zacute;', '\u0179');
-decode.set('&Zcaron;', '\u017D');
-decode.set('&Zcy;', '\u0417');
-decode.set('&Zdot;', '\u017B');
-decode.set('&ZeroWidthSpace;', '\u200B');
-decode.set('&Zeta;', '\u0396');
-decode.set('&Zfr;', '\u2128');
-decode.set('&Zopf;', '\u2124');
-decode.set('&Zscr;', '\uD835\uDCB5');
-decode.set('&aacute;', '\u00E1');
-decode.set('&abreve;', '\u0103');
-decode.set('&ac;', '\u223E');
-decode.set('&acE;', '\u223E\u0333');
-decode.set('&acd;', '\u223F');
-decode.set('&acirc', '\u00E2');
-decode.set('&acirc;', '\u00E2');
-decode.set('&acute', '\u00B4');
-decode.set('&acute;', '\u00B4');
-decode.set('&acy;', '\u0430');
-decode.set('&aelig', '\u00E6');
-decode.set('&aelig;', '\u00E6');
-decode.set('&af;', '\u2061');
-decode.set('&afr;', '\uD835\uDD1E');
-decode.set('&agrave', '\u00E0');
-decode.set('&agrave;', '\u00E0');
-decode.set('&alefsym;', '\u2135');
-decode.set('&aleph;', '\u2135');
-decode.set('&alpha;', '\u03B1');
-decode.set('&amacr;', '\u0101');
-decode.set('&amalg;', '\u2A3F');
-decode.set('&amp', '\u0026');
-decode.set('&amp;', '\u0026');
-decode.set('&and;', '\u2227');
-decode.set('&andand;', '\u2A55');
-decode.set('&andd;', '\u2A5C');
-decode.set('&andslope;', '\u2A58');
-decode.set('&andv;', '\u2A5A');
-decode.set('&ang;', '\u2220');
-decode.set('&ange;', '\u29A4');
-decode.set('&angle;', '\u2220');
-decode.set('&angmsd;', '\u2221');
-decode.set('&angmsdaa;', '\u29A8');
-decode.set('&angmsdab;', '\u29A9');
-decode.set('&angmsdac;', '\u29AA');
-decode.set('&angmsdad;', '\u29AB');
-decode.set('&angmsdae;', '\u29AC');
-decode.set('&angmsdaf;', '\u29AD');
-decode.set('&angmsdag;', '\u29AE');
-decode.set('&angmsdah;', '\u29AF');
-decode.set('&angrt;', '\u221F');
-decode.set('&angrtvb;', '\u22BE');
-decode.set('&angrtvbd;', '\u299D');
-decode.set('&angsph;', '\u2222');
-decode.set('&angst;', '\u00C5');
-decode.set('&angzarr;', '\u237C');
-decode.set('&aogon;', '\u0105');
-decode.set('&aopf;', '\uD835\uDD52');
-decode.set('&ap;', '\u2248');
-decode.set('&apE;', '\u2A70');
-decode.set('&apacir;', '\u2A6F');
-decode.set('&ape;', '\u224A');
-decode.set('&apid;', '\u224B');
-decode.set('&apos;', '\u0027');
-decode.set('&approx;', '\u2248');
-decode.set('&approxeq;', '\u224A');
-decode.set('&aring', '\u00E5');
-decode.set('&aring;', '\u00E5');
-decode.set('&ascr;', '\uD835\uDCB6');
-decode.set('&ast;', '\u002A');
-decode.set('&asymp;', '\u2248');
-decode.set('&asympeq;', '\u224D');
-decode.set('&atilde', '\u00E3');
-decode.set('&atilde;', '\u00E3');
-decode.set('&auml', '\u00E4');
-decode.set('&auml;', '\u00E4');
-decode.set('&awconint;', '\u2233');
-decode.set('&awint;', '\u2A11');
-decode.set('&bNot;', '\u2AED');
-decode.set('&backcong;', '\u224C');
-decode.set('&backepsilon;', '\u03F6');
-decode.set('&backprime;', '\u2035');
-decode.set('&backsim;', '\u223D');
-decode.set('&backsimeq;', '\u22CD');
-decode.set('&barvee;', '\u22BD');
-decode.set('&barwed;', '\u2305');
-decode.set('&barwedge;', '\u2305');
-decode.set('&bbrk;', '\u23B5');
-decode.set('&bbrktbrk;', '\u23B6');
-decode.set('&bcong;', '\u224C');
-decode.set('&bcy;', '\u0431');
-decode.set('&bdquo;', '\u201E');
-decode.set('&becaus;', '\u2235');
-decode.set('&because;', '\u2235');
-decode.set('&bemptyv;', '\u29B0');
-decode.set('&bepsi;', '\u03F6');
-decode.set('&bernou;', '\u212C');
-decode.set('&beta;', '\u03B2');
-decode.set('&beth;', '\u2136');
-decode.set('&between;', '\u226C');
-decode.set('&bfr;', '\uD835\uDD1F');
-decode.set('&bigcap;', '\u22C2');
-decode.set('&bigcirc;', '\u25EF');
-decode.set('&bigcup;', '\u22C3');
-decode.set('&bigodot;', '\u2A00');
-decode.set('&bigoplus;', '\u2A01');
-decode.set('&bigotimes;', '\u2A02');
-decode.set('&bigsqcup;', '\u2A06');
-decode.set('&bigstar;', '\u2605');
-decode.set('&bigtriangledown;', '\u25BD');
-decode.set('&bigtriangleup;', '\u25B3');
-decode.set('&biguplus;', '\u2A04');
-decode.set('&bigvee;', '\u22C1');
-decode.set('&bigwedge;', '\u22C0');
-decode.set('&bkarow;', '\u290D');
-decode.set('&blacklozenge;', '\u29EB');
-decode.set('&blacksquare;', '\u25AA');
-decode.set('&blacktriangle;', '\u25B4');
-decode.set('&blacktriangledown;', '\u25BE');
-decode.set('&blacktriangleleft;', '\u25C2');
-decode.set('&blacktriangleright;', '\u25B8');
-decode.set('&blank;', '\u2423');
-decode.set('&blk12;', '\u2592');
-decode.set('&blk14;', '\u2591');
-decode.set('&blk34;', '\u2593');
-decode.set('&block;', '\u2588');
-decode.set('&bne;', '\u003D\u20E5');
-decode.set('&bnequiv;', '\u2261\u20E5');
-decode.set('&bnot;', '\u2310');
-decode.set('&bopf;', '\uD835\uDD53');
-decode.set('&bot;', '\u22A5');
-decode.set('&bottom;', '\u22A5');
-decode.set('&bowtie;', '\u22C8');
-decode.set('&boxDL;', '\u2557');
-decode.set('&boxDR;', '\u2554');
-decode.set('&boxDl;', '\u2556');
-decode.set('&boxDr;', '\u2553');
-decode.set('&boxH;', '\u2550');
-decode.set('&boxHD;', '\u2566');
-decode.set('&boxHU;', '\u2569');
-decode.set('&boxHd;', '\u2564');
-decode.set('&boxHu;', '\u2567');
-decode.set('&boxUL;', '\u255D');
-decode.set('&boxUR;', '\u255A');
-decode.set('&boxUl;', '\u255C');
-decode.set('&boxUr;', '\u2559');
-decode.set('&boxV;', '\u2551');
-decode.set('&boxVH;', '\u256C');
-decode.set('&boxVL;', '\u2563');
-decode.set('&boxVR;', '\u2560');
-decode.set('&boxVh;', '\u256B');
-decode.set('&boxVl;', '\u2562');
-decode.set('&boxVr;', '\u255F');
-decode.set('&boxbox;', '\u29C9');
-decode.set('&boxdL;', '\u2555');
-decode.set('&boxdR;', '\u2552');
-decode.set('&boxdl;', '\u2510');
-decode.set('&boxdr;', '\u250C');
-decode.set('&boxh;', '\u2500');
-decode.set('&boxhD;', '\u2565');
-decode.set('&boxhU;', '\u2568');
-decode.set('&boxhd;', '\u252C');
-decode.set('&boxhu;', '\u2534');
-decode.set('&boxminus;', '\u229F');
-decode.set('&boxplus;', '\u229E');
-decode.set('&boxtimes;', '\u22A0');
-decode.set('&boxuL;', '\u255B');
-decode.set('&boxuR;', '\u2558');
-decode.set('&boxul;', '\u2518');
-decode.set('&boxur;', '\u2514');
-decode.set('&boxv;', '\u2502');
-decode.set('&boxvH;', '\u256A');
-decode.set('&boxvL;', '\u2561');
-decode.set('&boxvR;', '\u255E');
-decode.set('&boxvh;', '\u253C');
-decode.set('&boxvl;', '\u2524');
-decode.set('&boxvr;', '\u251C');
-decode.set('&bprime;', '\u2035');
-decode.set('&breve;', '\u02D8');
-decode.set('&brvbar', '\u00A6');
-decode.set('&brvbar;', '\u00A6');
-decode.set('&bscr;', '\uD835\uDCB7');
-decode.set('&bsemi;', '\u204F');
-decode.set('&bsim;', '\u223D');
-decode.set('&bsime;', '\u22CD');
-decode.set('&bsol;', '\u005C');
-decode.set('&bsolb;', '\u29C5');
-decode.set('&bsolhsub;', '\u27C8');
-decode.set('&bull;', '\u2022');
-decode.set('&bullet;', '\u2022');
-decode.set('&bump;', '\u224E');
-decode.set('&bumpE;', '\u2AAE');
-decode.set('&bumpe;', '\u224F');
-decode.set('&bumpeq;', '\u224F');
-decode.set('&cacute;', '\u0107');
-decode.set('&cap;', '\u2229');
-decode.set('&capand;', '\u2A44');
-decode.set('&capbrcup;', '\u2A49');
-decode.set('&capcap;', '\u2A4B');
-decode.set('&capcup;', '\u2A47');
-decode.set('&capdot;', '\u2A40');
-decode.set('&caps;', '\u2229\uFE00');
-decode.set('&caret;', '\u2041');
-decode.set('&caron;', '\u02C7');
-decode.set('&ccaps;', '\u2A4D');
-decode.set('&ccaron;', '\u010D');
-decode.set('&ccedil', '\u00E7');
-decode.set('&ccedil;', '\u00E7');
-decode.set('&ccirc;', '\u0109');
-decode.set('&ccups;', '\u2A4C');
-decode.set('&ccupssm;', '\u2A50');
-decode.set('&cdot;', '\u010B');
-decode.set('&cedil', '\u00B8');
-decode.set('&cedil;', '\u00B8');
-decode.set('&cemptyv;', '\u29B2');
-decode.set('&cent', '\u00A2');
-decode.set('&cent;', '\u00A2');
-decode.set('&centerdot;', '\u00B7');
-decode.set('&cfr;', '\uD835\uDD20');
-decode.set('&chcy;', '\u0447');
-decode.set('&check;', '\u2713');
-decode.set('&checkmark;', '\u2713');
-decode.set('&chi;', '\u03C7');
-decode.set('&cir;', '\u25CB');
-decode.set('&cirE;', '\u29C3');
-decode.set('&circ;', '\u02C6');
-decode.set('&circeq;', '\u2257');
-decode.set('&circlearrowleft;', '\u21BA');
-decode.set('&circlearrowright;', '\u21BB');
-decode.set('&circledR;', '\u00AE');
-decode.set('&circledS;', '\u24C8');
-decode.set('&circledast;', '\u229B');
-decode.set('&circledcirc;', '\u229A');
-decode.set('&circleddash;', '\u229D');
-decode.set('&cire;', '\u2257');
-decode.set('&cirfnint;', '\u2A10');
-decode.set('&cirmid;', '\u2AEF');
-decode.set('&cirscir;', '\u29C2');
-decode.set('&clubs;', '\u2663');
-decode.set('&clubsuit;', '\u2663');
-decode.set('&colon;', '\u003A');
-decode.set('&colone;', '\u2254');
-decode.set('&coloneq;', '\u2254');
-decode.set('&comma;', '\u002C');
-decode.set('&commat;', '\u0040');
-decode.set('&comp;', '\u2201');
-decode.set('&compfn;', '\u2218');
-decode.set('&complement;', '\u2201');
-decode.set('&complexes;', '\u2102');
-decode.set('&cong;', '\u2245');
-decode.set('&congdot;', '\u2A6D');
-decode.set('&conint;', '\u222E');
-decode.set('&copf;', '\uD835\uDD54');
-decode.set('&coprod;', '\u2210');
-decode.set('&copy', '\u00A9');
-decode.set('&copy;', '\u00A9');
-decode.set('&copysr;', '\u2117');
-decode.set('&crarr;', '\u21B5');
-decode.set('&cross;', '\u2717');
-decode.set('&cscr;', '\uD835\uDCB8');
-decode.set('&csub;', '\u2ACF');
-decode.set('&csube;', '\u2AD1');
-decode.set('&csup;', '\u2AD0');
-decode.set('&csupe;', '\u2AD2');
-decode.set('&ctdot;', '\u22EF');
-decode.set('&cudarrl;', '\u2938');
-decode.set('&cudarrr;', '\u2935');
-decode.set('&cuepr;', '\u22DE');
-decode.set('&cuesc;', '\u22DF');
-decode.set('&cularr;', '\u21B6');
-decode.set('&cularrp;', '\u293D');
-decode.set('&cup;', '\u222A');
-decode.set('&cupbrcap;', '\u2A48');
-decode.set('&cupcap;', '\u2A46');
-decode.set('&cupcup;', '\u2A4A');
-decode.set('&cupdot;', '\u228D');
-decode.set('&cupor;', '\u2A45');
-decode.set('&cups;', '\u222A\uFE00');
-decode.set('&curarr;', '\u21B7');
-decode.set('&curarrm;', '\u293C');
-decode.set('&curlyeqprec;', '\u22DE');
-decode.set('&curlyeqsucc;', '\u22DF');
-decode.set('&curlyvee;', '\u22CE');
-decode.set('&curlywedge;', '\u22CF');
-decode.set('&curren', '\u00A4');
-decode.set('&curren;', '\u00A4');
-decode.set('&curvearrowleft;', '\u21B6');
-decode.set('&curvearrowright;', '\u21B7');
-decode.set('&cuvee;', '\u22CE');
-decode.set('&cuwed;', '\u22CF');
-decode.set('&cwconint;', '\u2232');
-decode.set('&cwint;', '\u2231');
-decode.set('&cylcty;', '\u232D');
-decode.set('&dArr;', '\u21D3');
-decode.set('&dHar;', '\u2965');
-decode.set('&dagger;', '\u2020');
-decode.set('&daleth;', '\u2138');
-decode.set('&darr;', '\u2193');
-decode.set('&dash;', '\u2010');
-decode.set('&dashv;', '\u22A3');
-decode.set('&dbkarow;', '\u290F');
-decode.set('&dblac;', '\u02DD');
-decode.set('&dcaron;', '\u010F');
-decode.set('&dcy;', '\u0434');
-decode.set('&dd;', '\u2146');
-decode.set('&ddagger;', '\u2021');
-decode.set('&ddarr;', '\u21CA');
-decode.set('&ddotseq;', '\u2A77');
-decode.set('&deg', '\u00B0');
-decode.set('&deg;', '\u00B0');
-decode.set('&delta;', '\u03B4');
-decode.set('&demptyv;', '\u29B1');
-decode.set('&dfisht;', '\u297F');
-decode.set('&dfr;', '\uD835\uDD21');
-decode.set('&dharl;', '\u21C3');
-decode.set('&dharr;', '\u21C2');
-decode.set('&diam;', '\u22C4');
-decode.set('&diamond;', '\u22C4');
-decode.set('&diamondsuit;', '\u2666');
-decode.set('&diams;', '\u2666');
-decode.set('&die;', '\u00A8');
-decode.set('&digamma;', '\u03DD');
-decode.set('&disin;', '\u22F2');
-decode.set('&div;', '\u00F7');
-decode.set('&divide', '\u00F7');
-decode.set('&divide;', '\u00F7');
-decode.set('&divideontimes;', '\u22C7');
-decode.set('&divonx;', '\u22C7');
-decode.set('&djcy;', '\u0452');
-decode.set('&dlcorn;', '\u231E');
-decode.set('&dlcrop;', '\u230D');
-decode.set('&dollar;', '\u0024');
-decode.set('&dopf;', '\uD835\uDD55');
-decode.set('&dot;', '\u02D9');
-decode.set('&doteq;', '\u2250');
-decode.set('&doteqdot;', '\u2251');
-decode.set('&dotminus;', '\u2238');
-decode.set('&dotplus;', '\u2214');
-decode.set('&dotsquare;', '\u22A1');
-decode.set('&doublebarwedge;', '\u2306');
-decode.set('&downarrow;', '\u2193');
-decode.set('&downdownarrows;', '\u21CA');
-decode.set('&downharpoonleft;', '\u21C3');
-decode.set('&downharpoonright;', '\u21C2');
-decode.set('&drbkarow;', '\u2910');
-decode.set('&drcorn;', '\u231F');
-decode.set('&drcrop;', '\u230C');
-decode.set('&dscr;', '\uD835\uDCB9');
-decode.set('&dscy;', '\u0455');
-decode.set('&dsol;', '\u29F6');
-decode.set('&dstrok;', '\u0111');
-decode.set('&dtdot;', '\u22F1');
-decode.set('&dtri;', '\u25BF');
-decode.set('&dtrif;', '\u25BE');
-decode.set('&duarr;', '\u21F5');
-decode.set('&duhar;', '\u296F');
-decode.set('&dwangle;', '\u29A6');
-decode.set('&dzcy;', '\u045F');
-decode.set('&dzigrarr;', '\u27FF');
-decode.set('&eDDot;', '\u2A77');
-decode.set('&eDot;', '\u2251');
-decode.set('&eacute;', '\u00E9');
-decode.set('&easter;', '\u2A6E');
-decode.set('&ecaron;', '\u011B');
-decode.set('&ecir;', '\u2256');
-decode.set('&ecirc', '\u00EA');
-decode.set('&ecirc;', '\u00EA');
-decode.set('&ecolon;', '\u2255');
-decode.set('&ecy;', '\u044D');
-decode.set('&edot;', '\u0117');
-decode.set('&ee;', '\u2147');
-decode.set('&efDot;', '\u2252');
-decode.set('&efr;', '\uD835\uDD22');
-decode.set('&eg;', '\u2A9A');
-decode.set('&egrave', '\u00E8');
-decode.set('&egrave;', '\u00E8');
-decode.set('&egs;', '\u2A96');
-decode.set('&egsdot;', '\u2A98');
-decode.set('&el;', '\u2A99');
-decode.set('&elinters;', '\u23E7');
-decode.set('&ell;', '\u2113');
-decode.set('&els;', '\u2A95');
-decode.set('&elsdot;', '\u2A97');
-decode.set('&emacr;', '\u0113');
-decode.set('&empty;', '\u2205');
-decode.set('&emptyset;', '\u2205');
-decode.set('&emptyv;', '\u2205');
-decode.set('&emsp13;', '\u2004');
-decode.set('&emsp14;', '\u2005');
-decode.set('&emsp;', '\u2003');
-decode.set('&eng;', '\u014B');
-decode.set('&ensp;', '\u2002');
-decode.set('&eogon;', '\u0119');
-decode.set('&eopf;', '\uD835\uDD56');
-decode.set('&epar;', '\u22D5');
-decode.set('&eparsl;', '\u29E3');
-decode.set('&eplus;', '\u2A71');
-decode.set('&epsi;', '\u03B5');
-decode.set('&epsilon;', '\u03B5');
-decode.set('&epsiv;', '\u03F5');
-decode.set('&eqcirc;', '\u2256');
-decode.set('&eqcolon;', '\u2255');
-decode.set('&eqsim;', '\u2242');
-decode.set('&eqslantgtr;', '\u2A96');
-decode.set('&eqslantless;', '\u2A95');
-decode.set('&equals;', '\u003D');
-decode.set('&equest;', '\u225F');
-decode.set('&equiv;', '\u2261');
-decode.set('&equivDD;', '\u2A78');
-decode.set('&eqvparsl;', '\u29E5');
-decode.set('&erDot;', '\u2253');
-decode.set('&erarr;', '\u2971');
-decode.set('&escr;', '\u212F');
-decode.set('&esdot;', '\u2250');
-decode.set('&esim;', '\u2242');
-decode.set('&eta;', '\u03B7');
-decode.set('&eth', '\u00F0');
-decode.set('&eth;', '\u00F0');
-decode.set('&euml', '\u00EB');
-decode.set('&euml;', '\u00EB');
-decode.set('&euro;', '\u20AC');
-decode.set('&excl;', '\u0021');
-decode.set('&exist;', '\u2203');
-decode.set('&expectation;', '\u2130');
-decode.set('&exponentiale;', '\u2147');
-decode.set('&fallingdotseq;', '\u2252');
-decode.set('&fcy;', '\u0444');
-decode.set('&female;', '\u2640');
-decode.set('&ffilig;', '\uFB03');
-decode.set('&fflig;', '\uFB00');
-decode.set('&ffllig;', '\uFB04');
-decode.set('&ffr;', '\uD835\uDD23');
-decode.set('&filig;', '\uFB01');
-decode.set('&fjlig;', '\u0066\u006A');
-decode.set('&flat;', '\u266D');
-decode.set('&fllig;', '\uFB02');
-decode.set('&fltns;', '\u25B1');
-decode.set('&fnof;', '\u0192');
-decode.set('&fopf;', '\uD835\uDD57');
-decode.set('&forall;', '\u2200');
-decode.set('&fork;', '\u22D4');
-decode.set('&forkv;', '\u2AD9');
-decode.set('&fpartint;', '\u2A0D');
-decode.set('&frac12', '\u00BD');
-decode.set('&frac12;', '\u00BD');
-decode.set('&frac13;', '\u2153');
-decode.set('&frac14', '\u00BC');
-decode.set('&frac14;', '\u00BC');
-decode.set('&frac15;', '\u2155');
-decode.set('&frac16;', '\u2159');
-decode.set('&frac18;', '\u215B');
-decode.set('&frac23;', '\u2154');
-decode.set('&frac25;', '\u2156');
-decode.set('&frac34', '\u00BE');
-decode.set('&frac34;', '\u00BE');
-decode.set('&frac35;', '\u2157');
-decode.set('&frac38;', '\u215C');
-decode.set('&frac45;', '\u2158');
-decode.set('&frac56;', '\u215A');
-decode.set('&frac58;', '\u215D');
-decode.set('&frac78;', '\u215E');
-decode.set('&frasl;', '\u2044');
-decode.set('&frown;', '\u2322');
-decode.set('&fscr;', '\uD835\uDCBB');
-decode.set('&gE;', '\u2267');
-decode.set('&gEl;', '\u2A8C');
-decode.set('&gacute;', '\u01F5');
-decode.set('&gamma;', '\u03B3');
-decode.set('&gammad;', '\u03DD');
-decode.set('&gap;', '\u2A86');
-decode.set('&gbreve;', '\u011F');
-decode.set('&gcirc;', '\u011D');
-decode.set('&gcy;', '\u0433');
-decode.set('&gdot;', '\u0121');
-decode.set('&ge;', '\u2265');
-decode.set('&gel;', '\u22DB');
-decode.set('&geq;', '\u2265');
-decode.set('&geqq;', '\u2267');
-decode.set('&geqslant;', '\u2A7E');
-decode.set('&ges;', '\u2A7E');
-decode.set('&gescc;', '\u2AA9');
-decode.set('&gesdot;', '\u2A80');
-decode.set('&gesdoto;', '\u2A82');
-decode.set('&gesdotol;', '\u2A84');
-decode.set('&gesl;', '\u22DB\uFE00');
-decode.set('&gesles;', '\u2A94');
-decode.set('&gfr;', '\uD835\uDD24');
-decode.set('&gg;', '\u226B');
-decode.set('&ggg;', '\u22D9');
-decode.set('&gimel;', '\u2137');
-decode.set('&gjcy;', '\u0453');
-decode.set('&gl;', '\u2277');
-decode.set('&glE;', '\u2A92');
-decode.set('&gla;', '\u2AA5');
-decode.set('&glj;', '\u2AA4');
-decode.set('&gnE;', '\u2269');
-decode.set('&gnap;', '\u2A8A');
-decode.set('&gnapprox;', '\u2A8A');
-decode.set('&gne;', '\u2A88');
-decode.set('&gneq;', '\u2A88');
-decode.set('&gneqq;', '\u2269');
-decode.set('&gnsim;', '\u22E7');
-decode.set('&gopf;', '\uD835\uDD58');
-decode.set('&grave;', '\u0060');
-decode.set('&gscr;', '\u210A');
-decode.set('&gsim;', '\u2273');
-decode.set('&gsime;', '\u2A8E');
-decode.set('&gsiml;', '\u2A90');
-decode.set('&gt', '\u003E');
-decode.set('&gt;', '\u003E');
-decode.set('&gtcc;', '\u2AA7');
-decode.set('&gtcir;', '\u2A7A');
-decode.set('&gtdot;', '\u22D7');
-decode.set('&gtlPar;', '\u2995');
-decode.set('&gtquest;', '\u2A7C');
-decode.set('&gtrapprox;', '\u2A86');
-decode.set('&gtrarr;', '\u2978');
-decode.set('&gtrdot;', '\u22D7');
-decode.set('&gtreqless;', '\u22DB');
-decode.set('&gtreqqless;', '\u2A8C');
-decode.set('&gtrless;', '\u2277');
-decode.set('&gtrsim;', '\u2273');
-decode.set('&gvertneqq;', '\u2269\uFE00');
-decode.set('&gvnE;', '\u2269\uFE00');
-decode.set('&hArr;', '\u21D4');
-decode.set('&hairsp;', '\u200A');
-decode.set('&half;', '\u00BD');
-decode.set('&hamilt;', '\u210B');
-decode.set('&hardcy;', '\u044A');
-decode.set('&harr;', '\u2194');
-decode.set('&harrcir;', '\u2948');
-decode.set('&harrw;', '\u21AD');
-decode.set('&hbar;', '\u210F');
-decode.set('&hcirc;', '\u0125');
-decode.set('&hearts;', '\u2665');
-decode.set('&heartsuit;', '\u2665');
-decode.set('&hellip;', '\u2026');
-decode.set('&hercon;', '\u22B9');
-decode.set('&hfr;', '\uD835\uDD25');
-decode.set('&hksearow;', '\u2925');
-decode.set('&hkswarow;', '\u2926');
-decode.set('&hoarr;', '\u21FF');
-decode.set('&homtht;', '\u223B');
-decode.set('&hookleftarrow;', '\u21A9');
-decode.set('&hookrightarrow;', '\u21AA');
-decode.set('&hopf;', '\uD835\uDD59');
-decode.set('&horbar;', '\u2015');
-decode.set('&hscr;', '\uD835\uDCBD');
-decode.set('&hslash;', '\u210F');
-decode.set('&hstrok;', '\u0127');
-decode.set('&hybull;', '\u2043');
-decode.set('&hyphen;', '\u2010');
-decode.set('&iacute', '\u00ED');
-decode.set('&iacute;', '\u00ED');
-decode.set('&ic;', '\u2063');
-decode.set('&icirc', '\u00EE');
-decode.set('&icirc;', '\u00EE');
-decode.set('&icy;', '\u0438');
-decode.set('&iecy;', '\u0435');
-decode.set('&iexcl', '\u00A1');
-decode.set('&iexcl;', '\u00A1');
-decode.set('&iff;', '\u21D4');
-decode.set('&ifr;', '\uD835\uDD26');
-decode.set('&igrave', '\u00EC');
-decode.set('&igrave;', '\u00EC');
-decode.set('&ii;', '\u2148');
-decode.set('&iiiint;', '\u2A0C');
-decode.set('&iiint;', '\u222D');
-decode.set('&iinfin;', '\u29DC');
-decode.set('&iiota;', '\u2129');
-decode.set('&ijlig;', '\u0133');
-decode.set('&imacr;', '\u012B');
-decode.set('&image;', '\u2111');
-decode.set('&imagline;', '\u2110');
-decode.set('&imagpart;', '\u2111');
-decode.set('&imath;', '\u0131');
-decode.set('&imof;', '\u22B7');
-decode.set('&imped;', '\u01B5');
-decode.set('&in;', '\u2208');
-decode.set('&incare;', '\u2105');
-decode.set('&infin;', '\u221E');
-decode.set('&infintie;', '\u29DD');
-decode.set('&inodot;', '\u0131');
-decode.set('&int;', '\u222B');
-decode.set('&intcal;', '\u22BA');
-decode.set('&integers;', '\u2124');
-decode.set('&intercal;', '\u22BA');
-decode.set('&intlarhk;', '\u2A17');
-decode.set('&intprod;', '\u2A3C');
-decode.set('&iocy;', '\u0451');
-decode.set('&iogon;', '\u012F');
-decode.set('&iopf;', '\uD835\uDD5A');
-decode.set('&iota;', '\u03B9');
-decode.set('&iprod;', '\u2A3C');
-decode.set('&iquest', '\u00BF');
-decode.set('&iquest;', '\u00BF');
-decode.set('&iscr;', '\uD835\uDCBE');
-decode.set('&isin;', '\u2208');
-decode.set('&isinE;', '\u22F9');
-decode.set('&isindot;', '\u22F5');
-decode.set('&isins;', '\u22F4');
-decode.set('&isinsv;', '\u22F3');
-decode.set('&isinv;', '\u2208');
-decode.set('&it;', '\u2062');
-decode.set('&itilde;', '\u0129');
-decode.set('&iukcy;', '\u0456');
-decode.set('&iuml', '\u00EF');
-decode.set('&iuml;', '\u00EF');
-decode.set('&jcirc;', '\u0135');
-decode.set('&jcy;', '\u0439');
-decode.set('&jfr;', '\uD835\uDD27');
-decode.set('&jmath;', '\u0237');
-decode.set('&jopf;', '\uD835\uDD5B');
-decode.set('&jscr;', '\uD835\uDCBF');
-decode.set('&jsercy;', '\u0458');
-decode.set('&jukcy;', '\u0454');
-decode.set('&kappa;', '\u03BA');
-decode.set('&kappav;', '\u03F0');
-decode.set('&kcedil;', '\u0137');
-decode.set('&kcy;', '\u043A');
-decode.set('&kfr;', '\uD835\uDD28');
-decode.set('&kgreen;', '\u0138');
-decode.set('&khcy;', '\u0445');
-decode.set('&kjcy;', '\u045C');
-decode.set('&kopf;', '\uD835\uDD5C');
-decode.set('&kscr;', '\uD835\uDCC0');
-decode.set('&lAarr;', '\u21DA');
-decode.set('&lArr;', '\u21D0');
-decode.set('&lAtail;', '\u291B');
-decode.set('&lBarr;', '\u290E');
-decode.set('&lE;', '\u2266');
-decode.set('&lEg;', '\u2A8B');
-decode.set('&lHar;', '\u2962');
-decode.set('&lacute;', '\u013A');
-decode.set('&laemptyv;', '\u29B4');
-decode.set('&lagran;', '\u2112');
-decode.set('&lambda;', '\u03BB');
-decode.set('&lang;', '\u27E8');
-decode.set('&langd;', '\u2991');
-decode.set('&langle;', '\u27E8');
-decode.set('&lap;', '\u2A85');
-decode.set('&laquo', '\u00AB');
-decode.set('&laquo;', '\u00AB');
-decode.set('&larr;', '\u2190');
-decode.set('&larrb;', '\u21E4');
-decode.set('&larrbfs;', '\u291F');
-decode.set('&larrfs;', '\u291D');
-decode.set('&larrhk;', '\u21A9');
-decode.set('&larrlp;', '\u21AB');
-decode.set('&larrpl;', '\u2939');
-decode.set('&larrsim;', '\u2973');
-decode.set('&larrtl;', '\u21A2');
-decode.set('&lat;', '\u2AAB');
-decode.set('&latail;', '\u2919');
-decode.set('&late;', '\u2AAD');
-decode.set('&lates;', '\u2AAD\uFE00');
-decode.set('&lbarr;', '\u290C');
-decode.set('&lbbrk;', '\u2772');
-decode.set('&lbrace;', '\u007B');
-decode.set('&lbrack;', '\u005B');
-decode.set('&lbrke;', '\u298B');
-decode.set('&lbrksld;', '\u298F');
-decode.set('&lbrkslu;', '\u298D');
-decode.set('&lcaron;', '\u013E');
-decode.set('&lcedil;', '\u013C');
-decode.set('&lceil;', '\u2308');
-decode.set('&lcub;', '\u007B');
-decode.set('&lcy;', '\u043B');
-decode.set('&ldca;', '\u2936');
-decode.set('&ldquo;', '\u201C');
-decode.set('&ldquor;', '\u201E');
-decode.set('&ldrdhar;', '\u2967');
-decode.set('&ldrushar;', '\u294B');
-decode.set('&ldsh;', '\u21B2');
-decode.set('&le;', '\u2264');
-decode.set('&leftarrow;', '\u2190');
-decode.set('&leftarrowtail;', '\u21A2');
-decode.set('&leftharpoondown;', '\u21BD');
-decode.set('&leftharpoonup;', '\u21BC');
-decode.set('&leftleftarrows;', '\u21C7');
-decode.set('&leftrightarrow;', '\u2194');
-decode.set('&leftrightarrows;', '\u21C6');
-decode.set('&leftrightharpoons;', '\u21CB');
-decode.set('&leftrightsquigarrow;', '\u21AD');
-decode.set('&leftthreetimes;', '\u22CB');
-decode.set('&leg;', '\u22DA');
-decode.set('&leq;', '\u2264');
-decode.set('&leqq;', '\u2266');
-decode.set('&leqslant;', '\u2A7D');
-decode.set('&les;', '\u2A7D');
-decode.set('&lescc;', '\u2AA8');
-decode.set('&lesdot;', '\u2A7F');
-decode.set('&lesdoto;', '\u2A81');
-decode.set('&lesdotor;', '\u2A83');
-decode.set('&lesg;', '\u22DA\uFE00');
-decode.set('&lesges;', '\u2A93');
-decode.set('&lessapprox;', '\u2A85');
-decode.set('&lessdot;', '\u22D6');
-decode.set('&lesseqgtr;', '\u22DA');
-decode.set('&lesseqqgtr;', '\u2A8B');
-decode.set('&lessgtr;', '\u2276');
-decode.set('&lesssim;', '\u2272');
-decode.set('&lfisht;', '\u297C');
-decode.set('&lfloor;', '\u230A');
-decode.set('&lfr;', '\uD835\uDD29');
-decode.set('&lg;', '\u2276');
-decode.set('&lgE;', '\u2A91');
-decode.set('&lhard;', '\u21BD');
-decode.set('&lharu;', '\u21BC');
-decode.set('&lharul;', '\u296A');
-decode.set('&lhblk;', '\u2584');
-decode.set('&ljcy;', '\u0459');
-decode.set('&ll;', '\u226A');
-decode.set('&llarr;', '\u21C7');
-decode.set('&llcorner;', '\u231E');
-decode.set('&llhard;', '\u296B');
-decode.set('&lltri;', '\u25FA');
-decode.set('&lmidot;', '\u0140');
-decode.set('&lmoust;', '\u23B0');
-decode.set('&lmoustache;', '\u23B0');
-decode.set('&lnE;', '\u2268');
-decode.set('&lnap;', '\u2A89');
-decode.set('&lnapprox;', '\u2A89');
-decode.set('&lne;', '\u2A87');
-decode.set('&lneq;', '\u2A87');
-decode.set('&lneqq;', '\u2268');
-decode.set('&lnsim;', '\u22E6');
-decode.set('&loang;', '\u27EC');
-decode.set('&loarr;', '\u21FD');
-decode.set('&lobrk;', '\u27E6');
-decode.set('&longleftarrow;', '\u27F5');
-decode.set('&longleftrightarrow;', '\u27F7');
-decode.set('&longmapsto;', '\u27FC');
-decode.set('&longrightarrow;', '\u27F6');
-decode.set('&looparrowleft;', '\u21AB');
-decode.set('&looparrowright;', '\u21AC');
-decode.set('&lopar;', '\u2985');
-decode.set('&lopf;', '\uD835\uDD5D');
-decode.set('&loplus;', '\u2A2D');
-decode.set('&lotimes;', '\u2A34');
-decode.set('&lowast;', '\u2217');
-decode.set('&lowbar;', '\u005F');
-decode.set('&loz;', '\u25CA');
-decode.set('&lozenge;', '\u25CA');
-decode.set('&lozf;', '\u29EB');
-decode.set('&lpar;', '\u0028');
-decode.set('&lparlt;', '\u2993');
-decode.set('&lrarr;', '\u21C6');
-decode.set('&lrcorner;', '\u231F');
-decode.set('&lrhar;', '\u21CB');
-decode.set('&lrhard;', '\u296D');
-decode.set('&lrm;', '\u200E');
-decode.set('&lrtri;', '\u22BF');
-decode.set('&lsaquo;', '\u2039');
-decode.set('&lscr;', '\uD835\uDCC1');
-decode.set('&lsh;', '\u21B0');
-decode.set('&lsim;', '\u2272');
-decode.set('&lsime;', '\u2A8D');
-decode.set('&lsimg;', '\u2A8F');
-decode.set('&lsqb;', '\u005B');
-decode.set('&lsquo;', '\u2018');
-decode.set('&lsquor;', '\u201A');
-decode.set('&lstrok;', '\u0142');
-decode.set('&lt', '\u003C');
-decode.set('&lt;', '\u003C');
-decode.set('&ltcc;', '\u2AA6');
-decode.set('&ltcir;', '\u2A79');
-decode.set('&ltdot;', '\u22D6');
-decode.set('&lthree;', '\u22CB');
-decode.set('&ltimes;', '\u22C9');
-decode.set('&ltlarr;', '\u2976');
-decode.set('&ltquest;', '\u2A7B');
-decode.set('&ltrPar;', '\u2996');
-decode.set('&ltri;', '\u25C3');
-decode.set('&ltrie;', '\u22B4');
-decode.set('&ltrif;', '\u25C2');
-decode.set('&lurdshar;', '\u294A');
-decode.set('&luruhar;', '\u2966');
-decode.set('&lvertneqq;', '\u2268\uFE00');
-decode.set('&lvnE;', '\u2268\uFE00');
-decode.set('&mDDot;', '\u223A');
-decode.set('&macr', '\u00AF');
-decode.set('&macr;', '\u00AF');
-decode.set('&male;', '\u2642');
-decode.set('&malt;', '\u2720');
-decode.set('&maltese;', '\u2720');
-decode.set('&map;', '\u21A6');
-decode.set('&mapsto;', '\u21A6');
-decode.set('&mapstodown;', '\u21A7');
-decode.set('&mapstoleft;', '\u21A4');
-decode.set('&mapstoup;', '\u21A5');
-decode.set('&marker;', '\u25AE');
-decode.set('&mcomma;', '\u2A29');
-decode.set('&mcy;', '\u043C');
-decode.set('&mdash;', '\u2014');
-decode.set('&measuredangle;', '\u2221');
-decode.set('&mfr;', '\uD835\uDD2A');
-decode.set('&mho;', '\u2127');
-decode.set('&micro', '\u00B5');
-decode.set('&micro;', '\u00B5');
-decode.set('&mid;', '\u2223');
-decode.set('&midast;', '\u002A');
-decode.set('&midcir;', '\u2AF0');
-decode.set('&middot', '\u00B7');
-decode.set('&middot;', '\u00B7');
-decode.set('&minus;', '\u2212');
-decode.set('&minusb;', '\u229F');
-decode.set('&minusd;', '\u2238');
-decode.set('&minusdu;', '\u2A2A');
-decode.set('&mlcp;', '\u2ADB');
-decode.set('&mldr;', '\u2026');
-decode.set('&mnplus;', '\u2213');
-decode.set('&models;', '\u22A7');
-decode.set('&mopf;', '\uD835\uDD5E');
-decode.set('&mp;', '\u2213');
-decode.set('&mscr;', '\uD835\uDCC2');
-decode.set('&mstpos;', '\u223E');
-decode.set('&mu;', '\u03BC');
-decode.set('&multimap;', '\u22B8');
-decode.set('&mumap;', '\u22B8');
-decode.set('&nGg;', '\u22D9\u0338');
-decode.set('&nGt;', '\u226B\u20D2');
-decode.set('&nGtv;', '\u226B\u0338');
-decode.set('&nLeftarrow;', '\u21CD');
-decode.set('&nLeftrightarrow;', '\u21CE');
-decode.set('&nLl;', '\u22D8\u0338');
-decode.set('&nLt;', '\u226A\u20D2');
-decode.set('&nLtv;', '\u226A\u0338');
-decode.set('&nRightarrow;', '\u21CF');
-decode.set('&nVDash;', '\u22AF');
-decode.set('&nVdash;', '\u22AE');
-decode.set('&nabla;', '\u2207');
-decode.set('&nacute;', '\u0144');
-decode.set('&nang;', '\u2220\u20D2');
-decode.set('&nap;', '\u2249');
-decode.set('&napE;', '\u2A70\u0338');
-decode.set('&napid;', '\u224B\u0338');
-decode.set('&napos;', '\u0149');
-decode.set('&napprox;', '\u2249');
-decode.set('&natur;', '\u266E');
-decode.set('&natural;', '\u266E');
-decode.set('&naturals;', '\u2115');
-decode.set('&nbsp', '\u00A0');
-decode.set('&nbsp;', '\u00A0');
-decode.set('&nbump;', '\u224E\u0338');
-decode.set('&nbumpe;', '\u224F\u0338');
-decode.set('&ncap;', '\u2A43');
-decode.set('&ncaron;', '\u0148');
-decode.set('&ncedil;', '\u0146');
-decode.set('&ncong;', '\u2247');
-decode.set('&ncongdot;', '\u2A6D\u0338');
-decode.set('&ncup;', '\u2A42');
-decode.set('&ncy;', '\u043D');
-decode.set('&ndash;', '\u2013');
-decode.set('&ne;', '\u2260');
-decode.set('&neArr;', '\u21D7');
-decode.set('&nearhk;', '\u2924');
-decode.set('&nearr;', '\u2197');
-decode.set('&nearrow;', '\u2197');
-decode.set('&nedot;', '\u2250\u0338');
-decode.set('&nequiv;', '\u2262');
-decode.set('&nesear;', '\u2928');
-decode.set('&nesim;', '\u2242\u0338');
-decode.set('&nexist;', '\u2204');
-decode.set('&nexists;', '\u2204');
-decode.set('&nfr;', '\uD835\uDD2B');
-decode.set('&ngE;', '\u2267\u0338');
-decode.set('&nge;', '\u2271');
-decode.set('&ngeq;', '\u2271');
-decode.set('&ngeqq;', '\u2267\u0338');
-decode.set('&ngeqslant;', '\u2A7E\u0338');
-decode.set('&nges;', '\u2A7E\u0338');
-decode.set('&ngsim;', '\u2275');
-decode.set('&ngt;', '\u226F');
-decode.set('&ngtr;', '\u226F');
-decode.set('&nhArr;', '\u21CE');
-decode.set('&nharr;', '\u21AE');
-decode.set('&nhpar;', '\u2AF2');
-decode.set('&ni;', '\u220B');
-decode.set('&nis;', '\u22FC');
-decode.set('&nisd;', '\u22FA');
-decode.set('&niv;', '\u220B');
-decode.set('&njcy;', '\u045A');
-decode.set('&nlArr;', '\u21CD');
-decode.set('&nlE;', '\u2266\u0338');
-decode.set('&nlarr;', '\u219A');
-decode.set('&nldr;', '\u2025');
-decode.set('&nle;', '\u2270');
-decode.set('&nleftarrow;', '\u219A');
-decode.set('&nleftrightarrow;', '\u21AE');
-decode.set('&nleq;', '\u2270');
-decode.set('&nleqq;', '\u2266\u0338');
-decode.set('&nleqslant;', '\u2A7D\u0338');
-decode.set('&nles;', '\u2A7D\u0338');
-decode.set('&nless;', '\u226E');
-decode.set('&nlsim;', '\u2274');
-decode.set('&nlt;', '\u226E');
-decode.set('&nltri;', '\u22EA');
-decode.set('&nltrie;', '\u22EC');
-decode.set('&nmid;', '\u2224');
-decode.set('&nopf;', '\uD835\uDD5F');
-decode.set('&not', '\u00AC');
-decode.set('&not;', '\u00AC');
-decode.set('&notin;', '\u2209');
-decode.set('&notinE;', '\u22F9\u0338');
-decode.set('&notindot;', '\u22F5\u0338');
-decode.set('&notinva;', '\u2209');
-decode.set('&notinvb;', '\u22F7');
-decode.set('&notinvc;', '\u22F6');
-decode.set('&notni;', '\u220C');
-decode.set('&notniva;', '\u220C');
-decode.set('&notnivb;', '\u22FE');
-decode.set('&notnivc;', '\u22FD');
-decode.set('&npar;', '\u2226');
-decode.set('&nparallel;', '\u2226');
-decode.set('&nparsl;', '\u2AFD\u20E5');
-decode.set('&npart;', '\u2202\u0338');
-decode.set('&npolint;', '\u2A14');
-decode.set('&npr;', '\u2280');
-decode.set('&nprcue;', '\u22E0');
-decode.set('&npre;', '\u2AAF\u0338');
-decode.set('&nprec;', '\u2280');
-decode.set('&npreceq;', '\u2AAF\u0338');
-decode.set('&nrArr;', '\u21CF');
-decode.set('&nrarr;', '\u219B');
-decode.set('&nrarrc;', '\u2933\u0338');
-decode.set('&nrarrw;', '\u219D\u0338');
-decode.set('&nrightarrow;', '\u219B');
-decode.set('&nrtri;', '\u22EB');
-decode.set('&nrtrie;', '\u22ED');
-decode.set('&nsc;', '\u2281');
-decode.set('&nsccue;', '\u22E1');
-decode.set('&nsce;', '\u2AB0\u0338');
-decode.set('&nscr;', '\uD835\uDCC3');
-decode.set('&nshortmid;', '\u2224');
-decode.set('&nshortparallel;', '\u2226');
-decode.set('&nsim;', '\u2241');
-decode.set('&nsime;', '\u2244');
-decode.set('&nsimeq;', '\u2244');
-decode.set('&nsmid;', '\u2224');
-decode.set('&nspar;', '\u2226');
-decode.set('&nsqsube;', '\u22E2');
-decode.set('&nsqsupe;', '\u22E3');
-decode.set('&nsub;', '\u2284');
-decode.set('&nsubE;', '\u2AC5\u0338');
-decode.set('&nsube;', '\u2288');
-decode.set('&nsubset;', '\u2282\u20D2');
-decode.set('&nsubseteq;', '\u2288');
-decode.set('&nsubseteqq;', '\u2AC5\u0338');
-decode.set('&nsucc;', '\u2281');
-decode.set('&nsucceq;', '\u2AB0\u0338');
-decode.set('&nsup;', '\u2285');
-decode.set('&nsupE;', '\u2AC6\u0338');
-decode.set('&nsupe;', '\u2289');
-decode.set('&nsupset;', '\u2283\u20D2');
-decode.set('&nsupseteq;', '\u2289');
-decode.set('&nsupseteqq;', '\u2AC6\u0338');
-decode.set('&ntgl;', '\u2279');
-decode.set('&ntilde', '\u00F1');
-decode.set('&ntilde;', '\u00F1');
-decode.set('&ntlg;', '\u2278');
-decode.set('&ntriangleleft;', '\u22EA');
-decode.set('&ntrianglelefteq;', '\u22EC');
-decode.set('&ntriangleright;', '\u22EB');
-decode.set('&ntrianglerighteq;', '\u22ED');
-decode.set('&nu;', '\u03BD');
-decode.set('&num;', '\u0023');
-decode.set('&numero;', '\u2116');
-decode.set('&numsp;', '\u2007');
-decode.set('&nvDash;', '\u22AD');
-decode.set('&nvHarr;', '\u2904');
-decode.set('&nvap;', '\u224D\u20D2');
-decode.set('&nvdash;', '\u22AC');
-decode.set('&nvge;', '\u2265\u20D2');
-decode.set('&nvgt;', '\u003E\u20D2');
-decode.set('&nvinfin;', '\u29DE');
-decode.set('&nvlArr;', '\u2902');
-decode.set('&nvle;', '\u2264\u20D2');
-decode.set('&nvlt;', '\u003C\u20D2');
-decode.set('&nvltrie;', '\u22B4\u20D2');
-decode.set('&nvrArr;', '\u2903');
-decode.set('&nvrtrie;', '\u22B5\u20D2');
-decode.set('&nvsim;', '\u223C\u20D2');
-decode.set('&nwArr;', '\u21D6');
-decode.set('&nwarhk;', '\u2923');
-decode.set('&nwarr;', '\u2196');
-decode.set('&nwarrow;', '\u2196');
-decode.set('&nwnear;', '\u2927');
-decode.set('&oS;', '\u24C8');
-decode.set('&oacute', '\u00F3');
-decode.set('&oacute;', '\u00F3');
-decode.set('&oast;', '\u229B');
-decode.set('&ocir;', '\u229A');
-decode.set('&ocirc', '\u00F4');
-decode.set('&ocirc;', '\u00F4');
-decode.set('&ocy;', '\u043E');
-decode.set('&odash;', '\u229D');
-decode.set('&odblac;', '\u0151');
-decode.set('&odiv;', '\u2A38');
-decode.set('&odot;', '\u2299');
-decode.set('&odsold;', '\u29BC');
-decode.set('&oelig;', '\u0153');
-decode.set('&ofcir;', '\u29BF');
-decode.set('&ofr;', '\uD835\uDD2C');
-decode.set('&ogon;', '\u02DB');
-decode.set('&ograve', '\u00F2');
-decode.set('&ograve;', '\u00F2');
-decode.set('&ogt;', '\u29C1');
-decode.set('&ohbar;', '\u29B5');
-decode.set('&ohm;', '\u03A9');
-decode.set('&oint;', '\u222E');
-decode.set('&olarr;', '\u21BA');
-decode.set('&olcir;', '\u29BE');
-decode.set('&olcross;', '\u29BB');
-decode.set('&oline;', '\u203E');
-decode.set('&olt;', '\u29C0');
-decode.set('&omacr;', '\u014D');
-decode.set('&omega;', '\u03C9');
-decode.set('&omicron;', '\u03BF');
-decode.set('&omid;', '\u29B6');
-decode.set('&ominus;', '\u2296');
-decode.set('&oopf;', '\uD835\uDD60');
-decode.set('&opar;', '\u29B7');
-decode.set('&operp;', '\u29B9');
-decode.set('&oplus;', '\u2295');
-decode.set('&or;', '\u2228');
-decode.set('&orarr;', '\u21BB');
-decode.set('&ord;', '\u2A5D');
-decode.set('&order;', '\u2134');
-decode.set('&orderof;', '\u2134');
-decode.set('&ordf', '\u00AA');
-decode.set('&ordf;', '\u00AA');
-decode.set('&ordm', '\u00BA');
-decode.set('&ordm;', '\u00BA');
-decode.set('&origof;', '\u22B6');
-decode.set('&oror;', '\u2A56');
-decode.set('&orslope;', '\u2A57');
-decode.set('&orv;', '\u2A5B');
-decode.set('&oscr;', '\u2134');
-decode.set('&oslash', '\u00F8');
-decode.set('&oslash;', '\u00F8');
-decode.set('&osol;', '\u2298');
-decode.set('&otilde', '\u00F5');
-decode.set('&otilde;', '\u00F5');
-decode.set('&otimes;', '\u2297');
-decode.set('&otimesas;', '\u2A36');
-decode.set('&ouml', '\u00F6');
-decode.set('&ouml;', '\u00F6');
-decode.set('&ovbar;', '\u233D');
-decode.set('&par;', '\u2225');
-decode.set('&para', '\u00B6');
-decode.set('&para;', '\u00B6');
-decode.set('&parallel;', '\u2225');
-decode.set('&parsim;', '\u2AF3');
-decode.set('&parsl;', '\u2AFD');
-decode.set('&part;', '\u2202');
-decode.set('&pcy;', '\u043F');
-decode.set('&percnt;', '\u0025');
-decode.set('&period;', '\u002E');
-decode.set('&permil;', '\u2030');
-decode.set('&perp;', '\u22A5');
-decode.set('&pertenk;', '\u2031');
-decode.set('&pfr;', '\uD835\uDD2D');
-decode.set('&phi;', '\u03C6');
-decode.set('&phiv;', '\u03D5');
-decode.set('&phmmat;', '\u2133');
-decode.set('&phone;', '\u260E');
-decode.set('&pi;', '\u03C0');
-decode.set('&pitchfork;', '\u22D4');
-decode.set('&piv;', '\u03D6');
-decode.set('&planck;', '\u210F');
-decode.set('&planckh;', '\u210E');
-decode.set('&plankv;', '\u210F');
-decode.set('&plus;', '\u002B');
-decode.set('&plusacir;', '\u2A23');
-decode.set('&plusb;', '\u229E');
-decode.set('&pluscir;', '\u2A22');
-decode.set('&plusdo;', '\u2214');
-decode.set('&plusdu;', '\u2A25');
-decode.set('&pluse;', '\u2A72');
-decode.set('&plusmn', '\u00B1');
-decode.set('&plusmn;', '\u00B1');
-decode.set('&plussim;', '\u2A26');
-decode.set('&plustwo;', '\u2A27');
-decode.set('&pm;', '\u00B1');
-decode.set('&pointint;', '\u2A15');
-decode.set('&popf;', '\uD835\uDD61');
-decode.set('&pound', '\u00A3');
-decode.set('&pound;', '\u00A3');
-decode.set('&pr;', '\u227A');
-decode.set('&prE;', '\u2AB3');
-decode.set('&prap;', '\u2AB7');
-decode.set('&prcue;', '\u227C');
-decode.set('&pre;', '\u2AAF');
-decode.set('&prec;', '\u227A');
-decode.set('&precapprox;', '\u2AB7');
-decode.set('&preccurlyeq;', '\u227C');
-decode.set('&preceq;', '\u2AAF');
-decode.set('&precnapprox;', '\u2AB9');
-decode.set('&precneqq;', '\u2AB5');
-decode.set('&precnsim;', '\u22E8');
-decode.set('&precsim;', '\u227E');
-decode.set('&prime;', '\u2032');
-decode.set('&primes;', '\u2119');
-decode.set('&prnE;', '\u2AB5');
-decode.set('&prnap;', '\u2AB9');
-decode.set('&prnsim;', '\u22E8');
-decode.set('&prod;', '\u220F');
-decode.set('&profalar;', '\u232E');
-decode.set('&profline;', '\u2312');
-decode.set('&profsurf;', '\u2313');
-decode.set('&prop;', '\u221D');
-decode.set('&propto;', '\u221D');
-decode.set('&prsim;', '\u227E');
-decode.set('&prurel;', '\u22B0');
-decode.set('&pscr;', '\uD835\uDCC5');
-decode.set('&psi;', '\u03C8');
-decode.set('&puncsp;', '\u2008');
-decode.set('&qfr;', '\uD835\uDD2E');
-decode.set('&qint;', '\u2A0C');
-decode.set('&qopf;', '\uD835\uDD62');
-decode.set('&qprime;', '\u2057');
-decode.set('&qscr;', '\uD835\uDCC6');
-decode.set('&quaternions;', '\u210D');
-decode.set('&quatint;', '\u2A16');
-decode.set('&quest;', '\u003F');
-decode.set('&questeq;', '\u225F');
-decode.set('&quot', '\u0022');
-decode.set('&quot;', '\u0022');
-decode.set('&rAarr;', '\u21DB');
-decode.set('&rArr;', '\u21D2');
-decode.set('&rAtail;', '\u291C');
-decode.set('&rBarr;', '\u290F');
-decode.set('&rHar;', '\u2964');
-decode.set('&race;', '\u223D\u0331');
-decode.set('&racute;', '\u0155');
-decode.set('&radic;', '\u221A');
-decode.set('&raemptyv;', '\u29B3');
-decode.set('&rang;', '\u27E9');
-decode.set('&rangd;', '\u2992');
-decode.set('&range;', '\u29A5');
-decode.set('&rangle;', '\u27E9');
-decode.set('&raquo', '\u00BB');
-decode.set('&raquo;', '\u00BB');
-decode.set('&rarr;', '\u2192');
-decode.set('&rarrap;', '\u2975');
-decode.set('&rarrb;', '\u21E5');
-decode.set('&rarrbfs;', '\u2920');
-decode.set('&rarrc;', '\u2933');
-decode.set('&rarrfs;', '\u291E');
-decode.set('&rarrhk;', '\u21AA');
-decode.set('&rarrlp;', '\u21AC');
-decode.set('&rarrpl;', '\u2945');
-decode.set('&rarrsim;', '\u2974');
-decode.set('&rarrtl;', '\u21A3');
-decode.set('&rarrw;', '\u219D');
-decode.set('&ratail;', '\u291A');
-decode.set('&ratio;', '\u2236');
-decode.set('&rationals;', '\u211A');
-decode.set('&rbarr;', '\u290D');
-decode.set('&rbbrk;', '\u2773');
-decode.set('&rbrace;', '\u007D');
-decode.set('&rbrack;', '\u005D');
-decode.set('&rbrke;', '\u298C');
-decode.set('&rbrksld;', '\u298E');
-decode.set('&rbrkslu;', '\u2990');
-decode.set('&rcaron;', '\u0159');
-decode.set('&rcedil;', '\u0157');
-decode.set('&rceil;', '\u2309');
-decode.set('&rcub;', '\u007D');
-decode.set('&rcy;', '\u0440');
-decode.set('&rdca;', '\u2937');
-decode.set('&rdldhar;', '\u2969');
-decode.set('&rdquo;', '\u201D');
-decode.set('&rdquor;', '\u201D');
-decode.set('&rdsh;', '\u21B3');
-decode.set('&real;', '\u211C');
-decode.set('&realine;', '\u211B');
-decode.set('&realpart;', '\u211C');
-decode.set('&reals;', '\u211D');
-decode.set('&rect;', '\u25AD');
-decode.set('&reg', '\u00AE');
-decode.set('&reg;', '\u00AE');
-decode.set('&rfisht;', '\u297D');
-decode.set('&rfloor;', '\u230B');
-decode.set('&rfr;', '\uD835\uDD2F');
-decode.set('&rhard;', '\u21C1');
-decode.set('&rharu;', '\u21C0');
-decode.set('&rharul;', '\u296C');
-decode.set('&rho;', '\u03C1');
-decode.set('&rhov;', '\u03F1');
-decode.set('&rightarrow;', '\u2192');
-decode.set('&rightarrowtail;', '\u21A3');
-decode.set('&rightharpoondown;', '\u21C1');
-decode.set('&rightharpoonup;', '\u21C0');
-decode.set('&rightleftarrows;', '\u21C4');
-decode.set('&rightleftharpoons;', '\u21CC');
-decode.set('&rightrightarrows;', '\u21C9');
-decode.set('&rightsquigarrow;', '\u219D');
-decode.set('&rightthreetimes;', '\u22CC');
-decode.set('&ring;', '\u02DA');
-decode.set('&risingdotseq;', '\u2253');
-decode.set('&rlarr;', '\u21C4');
-decode.set('&rlhar;', '\u21CC');
-decode.set('&rlm;', '\u200F');
-decode.set('&rmoust;', '\u23B1');
-decode.set('&rmoustache;', '\u23B1');
-decode.set('&rnmid;', '\u2AEE');
-decode.set('&roang;', '\u27ED');
-decode.set('&roarr;', '\u21FE');
-decode.set('&robrk;', '\u27E7');
-decode.set('&ropar;', '\u2986');
-decode.set('&ropf;', '\uD835\uDD63');
-decode.set('&roplus;', '\u2A2E');
-decode.set('&rotimes;', '\u2A35');
-decode.set('&rpar;', '\u0029');
-decode.set('&rpargt;', '\u2994');
-decode.set('&rppolint;', '\u2A12');
-decode.set('&rrarr;', '\u21C9');
-decode.set('&rsaquo;', '\u203A');
-decode.set('&rscr;', '\uD835\uDCC7');
-decode.set('&rsh;', '\u21B1');
-decode.set('&rsqb;', '\u005D');
-decode.set('&rsquo;', '\u2019');
-decode.set('&rsquor;', '\u2019');
-decode.set('&rthree;', '\u22CC');
-decode.set('&rtimes;', '\u22CA');
-decode.set('&rtri;', '\u25B9');
-decode.set('&rtrie;', '\u22B5');
-decode.set('&rtrif;', '\u25B8');
-decode.set('&rtriltri;', '\u29CE');
-decode.set('&ruluhar;', '\u2968');
-decode.set('&rx;', '\u211E');
-decode.set('&sacute;', '\u015B');
-decode.set('&sbquo;', '\u201A');
-decode.set('&sc;', '\u227B');
-decode.set('&scE;', '\u2AB4');
-decode.set('&scap;', '\u2AB8');
-decode.set('&scaron;', '\u0161');
-decode.set('&sccue;', '\u227D');
-decode.set('&sce;', '\u2AB0');
-decode.set('&scedil;', '\u015F');
-decode.set('&scirc;', '\u015D');
-decode.set('&scnE;', '\u2AB6');
-decode.set('&scnap;', '\u2ABA');
-decode.set('&scnsim;', '\u22E9');
-decode.set('&scpolint;', '\u2A13');
-decode.set('&scsim;', '\u227F');
-decode.set('&scy;', '\u0441');
-decode.set('&sdot;', '\u22C5');
-decode.set('&sdotb;', '\u22A1');
-decode.set('&sdote;', '\u2A66');
-decode.set('&seArr;', '\u21D8');
-decode.set('&searhk;', '\u2925');
-decode.set('&searr;', '\u2198');
-decode.set('&searrow;', '\u2198');
-decode.set('&sect', '\u00A7');
-decode.set('&sect;', '\u00A7');
-decode.set('&semi;', '\u003B');
-decode.set('&seswar;', '\u2929');
-decode.set('&setminus;', '\u2216');
-decode.set('&setmn;', '\u2216');
-decode.set('&sext;', '\u2736');
-decode.set('&sfr;', '\uD835\uDD30');
-decode.set('&sfrown;', '\u2322');
-decode.set('&sharp;', '\u266F');
-decode.set('&shchcy;', '\u0449');
-decode.set('&shcy;', '\u0448');
-decode.set('&shortmid;', '\u2223');
-decode.set('&shortparallel;', '\u2225');
-decode.set('&shy', '\u00AD');
-decode.set('&shy;', '\u00AD');
-decode.set('&sigma;', '\u03C3');
-decode.set('&sigmaf;', '\u03C2');
-decode.set('&sigmav;', '\u03C2');
-decode.set('&sim;', '\u223C');
-decode.set('&simdot;', '\u2A6A');
-decode.set('&sime;', '\u2243');
-decode.set('&simeq;', '\u2243');
-decode.set('&simg;', '\u2A9E');
-decode.set('&simgE;', '\u2AA0');
-decode.set('&siml;', '\u2A9D');
-decode.set('&simlE;', '\u2A9F');
-decode.set('&simne;', '\u2246');
-decode.set('&simplus;', '\u2A24');
-decode.set('&simrarr;', '\u2972');
-decode.set('&slarr;', '\u2190');
-decode.set('&smallsetminus;', '\u2216');
-decode.set('&smashp;', '\u2A33');
-decode.set('&smeparsl;', '\u29E4');
-decode.set('&smid;', '\u2223');
-decode.set('&smile;', '\u2323');
-decode.set('&smt;', '\u2AAA');
-decode.set('&smte;', '\u2AAC');
-decode.set('&smtes;', '\u2AAC\uFE00');
-decode.set('&softcy;', '\u044C');
-decode.set('&sol;', '\u002F');
-decode.set('&solb;', '\u29C4');
-decode.set('&solbar;', '\u233F');
-decode.set('&sopf;', '\uD835\uDD64');
-decode.set('&spades;', '\u2660');
-decode.set('&spadesuit;', '\u2660');
-decode.set('&spar;', '\u2225');
-decode.set('&sqcap;', '\u2293');
-decode.set('&sqcaps;', '\u2293\uFE00');
-decode.set('&sqcup;', '\u2294');
-decode.set('&sqcups;', '\u2294\uFE00');
-decode.set('&sqsub;', '\u228F');
-decode.set('&sqsube;', '\u2291');
-decode.set('&sqsubset;', '\u228F');
-decode.set('&sqsubseteq;', '\u2291');
-decode.set('&sqsup;', '\u2290');
-decode.set('&sqsupe;', '\u2292');
-decode.set('&sqsupset;', '\u2290');
-decode.set('&sqsupseteq;', '\u2292');
-decode.set('&squ;', '\u25A1');
-decode.set('&square;', '\u25A1');
-decode.set('&squarf;', '\u25AA');
-decode.set('&squf;', '\u25AA');
-decode.set('&srarr;', '\u2192');
-decode.set('&sscr;', '\uD835\uDCC8');
-decode.set('&ssetmn;', '\u2216');
-decode.set('&ssmile;', '\u2323');
-decode.set('&sstarf;', '\u22C6');
-decode.set('&star;', '\u2606');
-decode.set('&starf;', '\u2605');
-decode.set('&straightepsilon;', '\u03F5');
-decode.set('&straightphi;', '\u03D5');
-decode.set('&strns;', '\u00AF');
-decode.set('&sub;', '\u2282');
-decode.set('&subE;', '\u2AC5');
-decode.set('&subdot;', '\u2ABD');
-decode.set('&sube;', '\u2286');
-decode.set('&subedot;', '\u2AC3');
-decode.set('&submult;', '\u2AC1');
-decode.set('&subnE;', '\u2ACB');
-decode.set('&subne;', '\u228A');
-decode.set('&subplus;', '\u2ABF');
-decode.set('&subrarr;', '\u2979');
-decode.set('&subset;', '\u2282');
-decode.set('&subseteq;', '\u2286');
-decode.set('&subseteqq;', '\u2AC5');
-decode.set('&subsetneq;', '\u228A');
-decode.set('&subsetneqq;', '\u2ACB');
-decode.set('&subsim;', '\u2AC7');
-decode.set('&subsub;', '\u2AD5');
-decode.set('&subsup;', '\u2AD3');
-decode.set('&succ;', '\u227B');
-decode.set('&succapprox;', '\u2AB8');
-decode.set('&succcurlyeq;', '\u227D');
-decode.set('&succeq;', '\u2AB0');
-decode.set('&succnapprox;', '\u2ABA');
-decode.set('&succneqq;', '\u2AB6');
-decode.set('&succnsim;', '\u22E9');
-decode.set('&succsim;', '\u227F');
-decode.set('&sum;', '\u2211');
-decode.set('&sung;', '\u266A');
-decode.set('&sup1', '\u00B9');
-decode.set('&sup1;', '\u00B9');
-decode.set('&sup2', '\u00B2');
-decode.set('&sup2;', '\u00B2');
-decode.set('&sup3', '\u00B3');
-decode.set('&sup3;', '\u00B3');
-decode.set('&sup;', '\u2283');
-decode.set('&supE;', '\u2AC6');
-decode.set('&supdot;', '\u2ABE');
-decode.set('&supdsub;', '\u2AD8');
-decode.set('&supe;', '\u2287');
-decode.set('&supedot;', '\u2AC4');
-decode.set('&suphsol;', '\u27C9');
-decode.set('&suphsub;', '\u2AD7');
-decode.set('&suplarr;', '\u297B');
-decode.set('&supmult;', '\u2AC2');
-decode.set('&supnE;', '\u2ACC');
-decode.set('&supne;', '\u228B');
-decode.set('&supplus;', '\u2AC0');
-decode.set('&supset;', '\u2283');
-decode.set('&supseteq;', '\u2287');
-decode.set('&supseteqq;', '\u2AC6');
-decode.set('&supsetneq;', '\u228B');
-decode.set('&supsetneqq;', '\u2ACC');
-decode.set('&supsim;', '\u2AC8');
-decode.set('&supsub;', '\u2AD4');
-decode.set('&supsup;', '\u2AD6');
-decode.set('&swArr;', '\u21D9');
-decode.set('&swarhk;', '\u2926');
-decode.set('&swarr;', '\u2199');
-decode.set('&swarrow;', '\u2199');
-decode.set('&swnwar;', '\u292A');
-decode.set('&szlig', '\u00DF');
-decode.set('&szlig;', '\u00DF');
-decode.set('&target;', '\u2316');
-decode.set('&tau;', '\u03C4');
-decode.set('&tbrk;', '\u23B4');
-decode.set('&tcaron;', '\u0165');
-decode.set('&tcedil;', '\u0163');
-decode.set('&tcy;', '\u0442');
-decode.set('&tdot;', '\u20DB');
-decode.set('&telrec;', '\u2315');
-decode.set('&tfr;', '\uD835\uDD31');
-decode.set('&there4;', '\u2234');
-decode.set('&therefore;', '\u2234');
-decode.set('&theta;', '\u03B8');
-decode.set('&thetasym;', '\u03D1');
-decode.set('&thetav;', '\u03D1');
-decode.set('&thickapprox;', '\u2248');
-decode.set('&thicksim;', '\u223C');
-decode.set('&thinsp;', '\u2009');
-decode.set('&thkap;', '\u2248');
-decode.set('&thksim;', '\u223C');
-decode.set('&thorn', '\u00FE');
-decode.set('&thorn;', '\u00FE');
-decode.set('&tilde;', '\u02DC');
-decode.set('&times', '\u00D7');
-decode.set('&times;', '\u00D7');
-decode.set('&timesb;', '\u22A0');
-decode.set('&timesbar;', '\u2A31');
-decode.set('&timesd;', '\u2A30');
-decode.set('&tint;', '\u222D');
-decode.set('&toea;', '\u2928');
-decode.set('&top;', '\u22A4');
-decode.set('&topbot;', '\u2336');
-decode.set('&topcir;', '\u2AF1');
-decode.set('&topf;', '\uD835\uDD65');
-decode.set('&topfork;', '\u2ADA');
-decode.set('&tosa;', '\u2929');
-decode.set('&tprime;', '\u2034');
-decode.set('&trade;', '\u2122');
-decode.set('&triangle;', '\u25B5');
-decode.set('&triangledown;', '\u25BF');
-decode.set('&triangleleft;', '\u25C3');
-decode.set('&trianglelefteq;', '\u22B4');
-decode.set('&triangleq;', '\u225C');
-decode.set('&triangleright;', '\u25B9');
-decode.set('&trianglerighteq;', '\u22B5');
-decode.set('&tridot;', '\u25EC');
-decode.set('&trie;', '\u225C');
-decode.set('&triminus;', '\u2A3A');
-decode.set('&triplus;', '\u2A39');
-decode.set('&trisb;', '\u29CD');
-decode.set('&tritime;', '\u2A3B');
-decode.set('&trpezium;', '\u23E2');
-decode.set('&tscr;', '\uD835\uDCC9');
-decode.set('&tscy;', '\u0446');
-decode.set('&tshcy;', '\u045B');
-decode.set('&tstrok;', '\u0167');
-decode.set('&twixt;', '\u226C');
-decode.set('&twoheadleftarrow;', '\u219E');
-decode.set('&twoheadrightarrow;', '\u21A0');
-decode.set('&uArr;', '\u21D1');
-decode.set('&uHar;', '\u2963');
-decode.set('&uacute', '\u00FA');
-decode.set('&uacute;', '\u00FA');
-decode.set('&uarr;', '\u2191');
-decode.set('&ubrcy;', '\u045E');
-decode.set('&ubreve;', '\u016D');
-decode.set('&ucirc', '\u00FB');
-decode.set('&ucirc;', '\u00FB');
-decode.set('&ucy;', '\u0443');
-decode.set('&udarr;', '\u21C5');
-decode.set('&udblac;', '\u0171');
-decode.set('&udhar;', '\u296E');
-decode.set('&ufisht;', '\u297E');
-decode.set('&ufr;', '\uD835\uDD32');
-decode.set('&ugrave', '\u00F9');
-decode.set('&ugrave;', '\u00F9');
-decode.set('&uharl;', '\u21BF');
-decode.set('&uharr;', '\u21BE');
-decode.set('&uhblk;', '\u2580');
-decode.set('&ulcorn;', '\u231C');
-decode.set('&ulcorner;', '\u231C');
-decode.set('&ulcrop;', '\u230F');
-decode.set('&ultri;', '\u25F8');
-decode.set('&umacr;', '\u016B');
-decode.set('&uml', '\u00A8');
-decode.set('&uml;', '\u00A8');
-decode.set('&uogon;', '\u0173');
-decode.set('&uopf;', '\uD835\uDD66');
-decode.set('&uparrow;', '\u2191');
-decode.set('&updownarrow;', '\u2195');
-decode.set('&upharpoonleft;', '\u21BF');
-decode.set('&upharpoonright;', '\u21BE');
-decode.set('&uplus;', '\u228E');
-decode.set('&upsi;', '\u03C5');
-decode.set('&upsih;', '\u03D2');
-decode.set('&upsilon;', '\u03C5');
-decode.set('&upuparrows;', '\u21C8');
-decode.set('&urcorn;', '\u231D');
-decode.set('&urcorner;', '\u231D');
-decode.set('&urcrop;', '\u230E');
-decode.set('&uring;', '\u016F');
-decode.set('&urtri;', '\u25F9');
-decode.set('&uscr;', '\uD835\uDCCA');
-decode.set('&utdot;', '\u22F0');
-decode.set('&utilde;', '\u0169');
-decode.set('&utri;', '\u25B5');
-decode.set('&utrif;', '\u25B4');
-decode.set('&uuarr;', '\u21C8');
-decode.set('&uuml', '\u00FC');
-decode.set('&uuml;', '\u00FC');
-decode.set('&uwangle;', '\u29A7');
-decode.set('&vArr;', '\u21D5');
-decode.set('&vBar;', '\u2AE8');
-decode.set('&vBarv;', '\u2AE9');
-decode.set('&vDash;', '\u22A8');
-decode.set('&vangrt;', '\u299C');
-decode.set('&varepsilon;', '\u03F5');
-decode.set('&varkappa;', '\u03F0');
-decode.set('&varnothing;', '\u2205');
-decode.set('&varphi;', '\u03D5');
-decode.set('&varpi;', '\u03D6');
-decode.set('&varpropto;', '\u221D');
-decode.set('&varr;', '\u2195');
-decode.set('&varrho;', '\u03F1');
-decode.set('&varsigma;', '\u03C2');
-decode.set('&varsubsetneq;', '\u228A\uFE00');
-decode.set('&varsubsetneqq;', '\u2ACB\uFE00');
-decode.set('&varsupsetneq;', '\u228B\uFE00');
-decode.set('&varsupsetneqq;', '\u2ACC\uFE00');
-decode.set('&vartheta;', '\u03D1');
-decode.set('&vartriangleleft;', '\u22B2');
-decode.set('&vartriangleright;', '\u22B3');
-decode.set('&vcy;', '\u0432');
-decode.set('&vdash;', '\u22A2');
-decode.set('&vee;', '\u2228');
-decode.set('&veebar;', '\u22BB');
-decode.set('&veeeq;', '\u225A');
-decode.set('&vellip;', '\u22EE');
-decode.set('&verbar;', '\u007C');
-decode.set('&vert;', '\u007C');
-decode.set('&vfr;', '\uD835\uDD33');
-decode.set('&vltri;', '\u22B2');
-decode.set('&vnsub;', '\u2282\u20D2');
-decode.set('&vnsup;', '\u2283\u20D2');
-decode.set('&vopf;', '\uD835\uDD67');
-decode.set('&vprop;', '\u221D');
-decode.set('&vrtri;', '\u22B3');
-decode.set('&vscr;', '\uD835\uDCCB');
-decode.set('&vsubnE;', '\u2ACB\uFE00');
-decode.set('&vsubne;', '\u228A\uFE00');
-decode.set('&vsupnE;', '\u2ACC\uFE00');
-decode.set('&vsupne;', '\u228B\uFE00');
-decode.set('&vzigzag;', '\u299A');
-decode.set('&wcirc;', '\u0175');
-decode.set('&wedbar;', '\u2A5F');
-decode.set('&wedge;', '\u2227');
-decode.set('&wedgeq;', '\u2259');
-decode.set('&weierp;', '\u2118');
-decode.set('&wfr;', '\uD835\uDD34');
-decode.set('&wopf;', '\uD835\uDD68');
-decode.set('&wp;', '\u2118');
-decode.set('&wr;', '\u2240');
-decode.set('&wreath;', '\u2240');
-decode.set('&wscr;', '\uD835\uDCCC');
-decode.set('&xcap;', '\u22C2');
-decode.set('&xcirc;', '\u25EF');
-decode.set('&xcup;', '\u22C3');
-decode.set('&xdtri;', '\u25BD');
-decode.set('&xfr;', '\uD835\uDD35');
-decode.set('&xhArr;', '\u27FA');
-decode.set('&xharr;', '\u27F7');
-decode.set('&xi;', '\u03BE');
-decode.set('&xlArr;', '\u27F8');
-decode.set('&xlarr;', '\u27F5');
-decode.set('&xmap;', '\u27FC');
-decode.set('&xnis;', '\u22FB');
-decode.set('&xodot;', '\u2A00');
-decode.set('&xopf;', '\uD835\uDD69');
-decode.set('&xoplus;', '\u2A01');
-decode.set('&xotime;', '\u2A02');
-decode.set('&xrArr;', '\u27F9');
-decode.set('&xrarr;', '\u27F6');
-decode.set('&xscr;', '\uD835\uDCCD');
-decode.set('&xsqcup;', '\u2A06');
-decode.set('&xuplus;', '\u2A04');
-decode.set('&xutri;', '\u25B3');
-decode.set('&xvee;', '\u22C1');
-decode.set('&xwedge;', '\u22C0');
-decode.set('&yacute', '\u00FD');
-decode.set('&yacute;', '\u00FD');
-decode.set('&yacy;', '\u044F');
-decode.set('&ycirc;', '\u0177');
-decode.set('&ycy;', '\u044B');
-decode.set('&yen', '\u00A5');
-decode.set('&yen;', '\u00A5');
-decode.set('&yfr;', '\uD835\uDD36');
-decode.set('&yicy;', '\u0457');
-decode.set('&yopf;', '\uD835\uDD6A');
-decode.set('&yscr;', '\uD835\uDCCE');
-decode.set('&yucy;', '\u044E');
-decode.set('&yuml', '\u00FF');
-decode.set('&yuml;', '\u00FF');
-decode.set('&zacute;', '\u017A');
-decode.set('&zcaron;', '\u017E');
-decode.set('&zcy;', '\u0437');
-decode.set('&zdot;', '\u017C');
-decode.set('&zeetrf;', '\u2128');
-decode.set('&zeta;', '\u03B6');
-decode.set('&zfr;', '\uD835\uDD37');
-decode.set('&zhcy;', '\u0436');
-decode.set('&zigrarr;', '\u21DD');
-decode.set('&zopf;', '\uD835\uDD6B');
-decode.set('&zscr;', '\uD835\uDCCF');
-decode.set('&zwj;', '\u200D');
-decode.set('&zwnj;', '\u200C');
+export const entitiesDecode = {
+  '&AElig': '\u00C6',
+  '&AElig;': '\u00C6',
+  '&AMP': '\u0026',
+  '&AMP;': '\u0026',
+  '&Aacute': '\u00C1',
+  '&Aacute;': '\u00C1',
+  '&Abreve;': '\u0102',
+  '&Acirc': '\u00C2',
+  '&Acirc;': '\u00C2',
+  '&Acy;': '\u0410',
+  '&Afr;': '\uD835\uDD04',
+  '&Agrave': '\u00C0',
+  '&Agrave;': '\u00C0',
+  '&Alpha;': '\u0391',
+  '&Amacr;': '\u0100',
+  '&And;': '\u2A53',
+  '&Aogon;': '\u0104',
+  '&Aopf;': '\uD835\uDD38',
+  '&ApplyFunction;': '\u2061',
+  '&Aring': '\u00C5',
+  '&Aring;': '\u00C5',
+  '&Ascr;': '\uD835\uDC9C',
+  '&Assign;': '\u2254',
+  '&Atilde': '\u00C3',
+  '&Atilde;': '\u00C3',
+  '&Auml': '\u00C4',
+  '&Auml;': '\u00C4',
+  '&Backslash;': '\u2216',
+  '&Barv;': '\u2AE7',
+  '&Barwed;': '\u2306',
+  '&Bcy;': '\u0411',
+  '&Because;': '\u2235',
+  '&Bernoullis;': '\u212C',
+  '&Beta;': '\u0392',
+  '&Bfr;': '\uD835\uDD05',
+  '&Bopf;': '\uD835\uDD39',
+  '&Breve;': '\u02D8',
+  '&Bscr;': '\u212C',
+  '&Bumpeq;': '\u224E',
+  '&CHcy;': '\u0427',
+  '&COPY': '\u00A9',
+  '&COPY;': '\u00A9',
+  '&Cacute;': '\u0106',
+  '&Cap;': '\u22D2',
+  '&CapitalDifferentialD;': '\u2145',
+  '&Cayleys;': '\u212D',
+  '&Ccaron;': '\u010C',
+  '&Ccedil': '\u00C7',
+  '&Ccedil;': '\u00C7',
+  '&Ccirc;': '\u0108',
+  '&Cconint;': '\u2230',
+  '&Cdot;': '\u010A',
+  '&Cedilla;': '\u00B8',
+  '&CenterDot;': '\u00B7',
+  '&Cfr;': '\u212D',
+  '&Chi;': '\u03A7',
+  '&CircleDot;': '\u2299',
+  '&CircleMinus;': '\u2296',
+  '&CirclePlus;': '\u2295',
+  '&CircleTimes;': '\u2297',
+  '&ClockwiseContourIntegral;': '\u2232',
+  '&CloseCurlyDoubleQuote;': '\u201D',
+  '&CloseCurlyQuote;': '\u2019',
+  '&Colon;': '\u2237',
+  '&Colone;': '\u2A74',
+  '&Congruent;': '\u2261',
+  '&Conint;': '\u222F',
+  '&ContourIntegral;': '\u222E',
+  '&Copf;': '\u2102',
+  '&Coproduct;': '\u2210',
+  '&CounterClockwiseContourIntegral;': '\u2233',
+  '&Cross;': '\u2A2F',
+  '&Cscr;': '\uD835\uDC9E',
+  '&Cup;': '\u22D3',
+  '&CupCap;': '\u224D',
+  '&DD;': '\u2145',
+  '&DDotrahd;': '\u2911',
+  '&DJcy;': '\u0402',
+  '&DScy;': '\u0405',
+  '&DZcy;': '\u040F',
+  '&Dagger;': '\u2021',
+  '&Darr;': '\u21A1',
+  '&Dashv;': '\u2AE4',
+  '&Dcaron;': '\u010E',
+  '&Dcy;': '\u0414',
+  '&Del;': '\u2207',
+  '&Delta;': '\u0394',
+  '&Dfr;': '\uD835\uDD07',
+  '&DiacriticalAcute;': '\u00B4',
+  '&DiacriticalDot;': '\u02D9',
+  '&DiacriticalDoubleAcute;': '\u02DD',
+  '&DiacriticalGrave;': '\u0060',
+  '&DiacriticalTilde;': '\u02DC',
+  '&Diamond;': '\u22C4',
+  '&DifferentialD;': '\u2146',
+  '&Dopf;': '\uD835\uDD3B',
+  '&Dot;': '\u00A8',
+  '&DotDot;': '\u20DC',
+  '&DotEqual;': '\u2250',
+  '&DoubleContourIntegral;': '\u222F',
+  '&DoubleDot;': '\u00A8',
+  '&DoubleDownArrow;': '\u21D3',
+  '&DoubleLeftArrow;': '\u21D0',
+  '&DoubleLeftRightArrow;': '\u21D4',
+  '&DoubleLeftTee;': '\u2AE4',
+  '&DoubleLongLeftArrow;': '\u27F8',
+  '&DoubleLongLeftRightArrow;': '\u27FA',
+  '&DoubleLongRightArrow;': '\u27F9',
+  '&DoubleRightArrow;': '\u21D2',
+  '&DoubleRightTee;': '\u22A8',
+  '&DoubleUpArrow;': '\u21D1',
+  '&DoubleUpDownArrow;': '\u21D5',
+  '&DoubleVerticalBar;': '\u2225',
+  '&DownArrow;': '\u2193',
+  '&DownArrowBar;': '\u2913',
+  '&DownArrowUpArrow;': '\u21F5',
+  '&DownBreve;': '\u0311',
+  '&DownLeftRightVector;': '\u2950',
+  '&DownLeftTeeVector;': '\u295E',
+  '&DownLeftVector;': '\u21BD',
+  '&DownLeftVectorBar;': '\u2956',
+  '&DownRightTeeVector;': '\u295F',
+  '&DownRightVector;': '\u21C1',
+  '&DownRightVectorBar;': '\u2957',
+  '&DownTee;': '\u22A4',
+  '&DownTeeArrow;': '\u21A7',
+  '&Downarrow;': '\u21D3',
+  '&Dscr;': '\uD835\uDC9F',
+  '&Dstrok;': '\u0110',
+  '&ENG;': '\u014A',
+  '&ETH': '\u00D0',
+  '&ETH;': '\u00D0',
+  '&Eacute': '\u00C9',
+  '&Eacute;': '\u00C9',
+  '&Ecaron;': '\u011A',
+  '&Ecirc': '\u00CA',
+  '&Ecirc;': '\u00CA',
+  '&Ecy;': '\u042D',
+  '&Edot;': '\u0116',
+  '&Efr;': '\uD835\uDD08',
+  '&Egrave': '\u00C8',
+  '&Egrave;': '\u00C8',
+  '&Element;': '\u2208',
+  '&Emacr;': '\u0112',
+  '&EmptySmallSquare;': '\u25FB',
+  '&EmptyVerySmallSquare;': '\u25AB',
+  '&Eogon;': '\u0118',
+  '&Eopf;': '\uD835\uDD3C',
+  '&Epsilon;': '\u0395',
+  '&Equal;': '\u2A75',
+  '&EqualTilde;': '\u2242',
+  '&Equilibrium;': '\u21CC',
+  '&Escr;': '\u2130',
+  '&Esim;': '\u2A73',
+  '&Eta;': '\u0397',
+  '&Euml': '\u00CB',
+  '&Euml;': '\u00CB',
+  '&Exists;': '\u2203',
+  '&ExponentialE;': '\u2147',
+  '&Fcy;': '\u0424',
+  '&Ffr;': '\uD835\uDD09',
+  '&FilledSmallSquare;': '\u25FC',
+  '&FilledVerySmallSquare;': '\u25AA',
+  '&Fopf;': '\uD835\uDD3D',
+  '&ForAll;': '\u2200',
+  '&Fouriertrf;': '\u2131',
+  '&Fscr;': '\u2131',
+  '&GJcy;': '\u0403',
+  '&GT': '\u003E',
+  '&GT;': '\u003E',
+  '&Gamma;': '\u0393',
+  '&Gammad;': '\u03DC',
+  '&Gbreve;': '\u011E',
+  '&Gcedil;': '\u0122',
+  '&Gcirc;': '\u011C',
+  '&Gcy;': '\u0413',
+  '&Gdot;': '\u0120',
+  '&Gfr;': '\uD835\uDD0A',
+  '&Gg;': '\u22D9',
+  '&Gopf;': '\uD835\uDD3E',
+  '&GreaterEqual;': '\u2265',
+  '&GreaterEqualLess;': '\u22DB',
+  '&GreaterFullEqual;': '\u2267',
+  '&GreaterGreater;': '\u2AA2',
+  '&GreaterLess;': '\u2277',
+  '&GreaterSlantEqual;': '\u2A7E',
+  '&GreaterTilde;': '\u2273',
+  '&Gscr;': '\uD835\uDCA2',
+  '&Gt;': '\u226B',
+  '&HARDcy;': '\u042A',
+  '&Hacek;': '\u02C7',
+  '&Hat;': '\u005E',
+  '&Hcirc;': '\u0124',
+  '&Hfr;': '\u210C',
+  '&HilbertSpace;': '\u210B',
+  '&Hopf;': '\u210D',
+  '&HorizontalLine;': '\u2500',
+  '&Hscr;': '\u210B',
+  '&Hstrok;': '\u0126',
+  '&HumpDownHump;': '\u224E',
+  '&HumpEqual;': '\u224F',
+  '&IEcy;': '\u0415',
+  '&IJlig;': '\u0132',
+  '&IOcy;': '\u0401',
+  '&Iacute': '\u00CD',
+  '&Iacute;': '\u00CD',
+  '&Icirc': '\u00CE',
+  '&Icirc;': '\u00CE',
+  '&Icy;': '\u0418',
+  '&Idot;': '\u0130',
+  '&Ifr;': '\u2111',
+  '&Igrave': '\u00CC',
+  '&Igrave;': '\u00CC',
+  '&Im;': '\u2111',
+  '&Imacr;': '\u012A',
+  '&ImaginaryI;': '\u2148',
+  '&Implies;': '\u21D2',
+  '&Int;': '\u222C',
+  '&Integral;': '\u222B',
+  '&Intersection;': '\u22C2',
+  '&InvisibleComma;': '\u2063',
+  '&InvisibleTimes;': '\u2062',
+  '&Iogon;': '\u012E',
+  '&Iopf;': '\uD835\uDD40',
+  '&Iota;': '\u0399',
+  '&Iscr;': '\u2110',
+  '&Itilde;': '\u0128',
+  '&Iukcy;': '\u0406',
+  '&Iuml': '\u00CF',
+  '&Iuml;': '\u00CF',
+  '&Jcirc;': '\u0134',
+  '&Jcy;': '\u0419',
+  '&Jfr;': '\uD835\uDD0D',
+  '&Jopf;': '\uD835\uDD41',
+  '&Jscr;': '\uD835\uDCA5',
+  '&Jsercy;': '\u0408',
+  '&Jukcy;': '\u0404',
+  '&KHcy;': '\u0425',
+  '&KJcy;': '\u040C',
+  '&Kappa;': '\u039A',
+  '&Kcedil;': '\u0136',
+  '&Kcy;': '\u041A',
+  '&Kfr;': '\uD835\uDD0E',
+  '&Kopf;': '\uD835\uDD42',
+  '&Kscr;': '\uD835\uDCA6',
+  '&LJcy;': '\u0409',
+  '&LT': '\u003C',
+  '&LT;': '\u003C',
+  '&Lacute;': '\u0139',
+  '&Lambda;': '\u039B',
+  '&Lang;': '\u27EA',
+  '&Laplacetrf;': '\u2112',
+  '&Larr;': '\u219E',
+  '&Lcaron;': '\u013D',
+  '&Lcedil;': '\u013B',
+  '&Lcy;': '\u041B',
+  '&LeftAngleBracket;': '\u27E8',
+  '&LeftArrow;': '\u2190',
+  '&LeftArrowBar;': '\u21E4',
+  '&LeftArrowRightArrow;': '\u21C6',
+  '&LeftCeiling;': '\u2308',
+  '&LeftDoubleBracket;': '\u27E6',
+  '&LeftDownTeeVector;': '\u2961',
+  '&LeftDownVector;': '\u21C3',
+  '&LeftDownVectorBar;': '\u2959',
+  '&LeftFloor;': '\u230A',
+  '&LeftRightArrow;': '\u2194',
+  '&LeftRightVector;': '\u294E',
+  '&LeftTee;': '\u22A3',
+  '&LeftTeeArrow;': '\u21A4',
+  '&LeftTeeVector;': '\u295A',
+  '&LeftTriangle;': '\u22B2',
+  '&LeftTriangleBar;': '\u29CF',
+  '&LeftTriangleEqual;': '\u22B4',
+  '&LeftUpDownVector;': '\u2951',
+  '&LeftUpTeeVector;': '\u2960',
+  '&LeftUpVector;': '\u21BF',
+  '&LeftUpVectorBar;': '\u2958',
+  '&LeftVector;': '\u21BC',
+  '&LeftVectorBar;': '\u2952',
+  '&Leftarrow;': '\u21D0',
+  '&Leftrightarrow;': '\u21D4',
+  '&LessEqualGreater;': '\u22DA',
+  '&LessFullEqual;': '\u2266',
+  '&LessGreater;': '\u2276',
+  '&LessLess;': '\u2AA1',
+  '&LessSlantEqual;': '\u2A7D',
+  '&LessTilde;': '\u2272',
+  '&Lfr;': '\uD835\uDD0F',
+  '&Ll;': '\u22D8',
+  '&Lleftarrow;': '\u21DA',
+  '&Lmidot;': '\u013F',
+  '&LongLeftArrow;': '\u27F5',
+  '&LongLeftRightArrow;': '\u27F7',
+  '&LongRightArrow;': '\u27F6',
+  '&Longleftarrow;': '\u27F8',
+  '&Longleftrightarrow;': '\u27FA',
+  '&Longrightarrow;': '\u27F9',
+  '&Lopf;': '\uD835\uDD43',
+  '&LowerLeftArrow;': '\u2199',
+  '&LowerRightArrow;': '\u2198',
+  '&Lscr;': '\u2112',
+  '&Lsh;': '\u21B0',
+  '&Lstrok;': '\u0141',
+  '&Lt;': '\u226A',
+  '&Map;': '\u2905',
+  '&Mcy;': '\u041C',
+  '&MediumSpace;': '\u205F',
+  '&Mellintrf;': '\u2133',
+  '&Mfr;': '\uD835\uDD10',
+  '&MinusPlus;': '\u2213',
+  '&Mopf;': '\uD835\uDD44',
+  '&Mscr;': '\u2133',
+  '&Mu;': '\u039C',
+  '&NJcy;': '\u040A',
+  '&Nacute;': '\u0143',
+  '&Ncaron;': '\u0147',
+  '&Ncedil;': '\u0145',
+  '&Ncy;': '\u041D',
+  '&NegativeMediumSpace;': '\u200B',
+  '&NegativeThickSpace;': '\u200B',
+  '&NegativeThinSpace;': '\u200B',
+  '&NegativeVeryThinSpace;': '\u200B',
+  '&NestedGreaterGreater;': '\u226B',
+  '&NestedLessLess;': '\u226A',
+  '&NewLine;': '\u000A',
+  '&Nfr;': '\uD835\uDD11',
+  '&NoBreak;': '\u2060',
+  '&NonBreakingSpace;': '\u00A0',
+  '&Nopf;': '\u2115',
+  '&Not;': '\u2AEC',
+  '&NotCongruent;': '\u2262',
+  '&NotCupCap;': '\u226D',
+  '&NotDoubleVerticalBar;': '\u2226',
+  '&NotElement;': '\u2209',
+  '&NotEqual;': '\u2260',
+  '&NotEqualTilde;': '\u2242\u0338',
+  '&NotExists;': '\u2204',
+  '&NotGreater;': '\u226F',
+  '&NotGreaterEqual;': '\u2271',
+  '&NotGreaterFullEqual;': '\u2267\u0338',
+  '&NotGreaterGreater;': '\u226B\u0338',
+  '&NotGreaterLess;': '\u2279',
+  '&NotGreaterSlantEqual;': '\u2A7E\u0338',
+  '&NotGreaterTilde;': '\u2275',
+  '&NotHumpDownHump;': '\u224E\u0338',
+  '&NotHumpEqual;': '\u224F\u0338',
+  '&NotLeftTriangle;': '\u22EA',
+  '&NotLeftTriangleBar;': '\u29CF\u0338',
+  '&NotLeftTriangleEqual;': '\u22EC',
+  '&NotLess;': '\u226E',
+  '&NotLessEqual;': '\u2270',
+  '&NotLessGreater;': '\u2278',
+  '&NotLessLess;': '\u226A\u0338',
+  '&NotLessSlantEqual;': '\u2A7D\u0338',
+  '&NotLessTilde;': '\u2274',
+  '&NotNestedGreaterGreater;': '\u2AA2\u0338',
+  '&NotNestedLessLess;': '\u2AA1\u0338',
+  '&NotPrecedes;': '\u2280',
+  '&NotPrecedesEqual;': '\u2AAF\u0338',
+  '&NotPrecedesSlantEqual;': '\u22E0',
+  '&NotReverseElement;': '\u220C',
+  '&NotRightTriangle;': '\u22EB',
+  '&NotRightTriangleBar;': '\u29D0\u0338',
+  '&NotRightTriangleEqual;': '\u22ED',
+  '&NotSquareSubset;': '\u228F\u0338',
+  '&NotSquareSubsetEqual;': '\u22E2',
+  '&NotSquareSuperset;': '\u2290\u0338',
+  '&NotSquareSupersetEqual;': '\u22E3',
+  '&NotSubset;': '\u2282\u20D2',
+  '&NotSubsetEqual;': '\u2288',
+  '&NotSucceeds;': '\u2281',
+  '&NotSucceedsEqual;': '\u2AB0\u0338',
+  '&NotSucceedsSlantEqual;': '\u22E1',
+  '&NotSucceedsTilde;': '\u227F\u0338',
+  '&NotSuperset;': '\u2283\u20D2',
+  '&NotSupersetEqual;': '\u2289',
+  '&NotTilde;': '\u2241',
+  '&NotTildeEqual;': '\u2244',
+  '&NotTildeFullEqual;': '\u2247',
+  '&NotTildeTilde;': '\u2249',
+  '&NotVerticalBar;': '\u2224',
+  '&Nscr;': '\uD835\uDCA9',
+  '&Ntilde': '\u00D1',
+  '&Ntilde;': '\u00D1',
+  '&Nu;': '\u039D',
+  '&OElig;': '\u0152',
+  '&Oacute': '\u00D3',
+  '&Oacute;': '\u00D3',
+  '&Ocirc': '\u00D4',
+  '&Ocirc;': '\u00D4',
+  '&Ocy;': '\u041E',
+  '&Odblac;': '\u0150',
+  '&Ofr;': '\uD835\uDD12',
+  '&Ograve': '\u00D2',
+  '&Ograve;': '\u00D2',
+  '&Omacr;': '\u014C',
+  '&Omega;': '\u03A9',
+  '&Omicron;': '\u039F',
+  '&Oopf;': '\uD835\uDD46',
+  '&OpenCurlyDoubleQuote;': '\u201C',
+  '&OpenCurlyQuote;': '\u2018',
+  '&Or;': '\u2A54',
+  '&Oscr;': '\uD835\uDCAA',
+  '&Oslash': '\u00D8',
+  '&Oslash;': '\u00D8',
+  '&Otilde': '\u00D5',
+  '&Otilde;': '\u00D5',
+  '&Otimes;': '\u2A37',
+  '&Ouml': '\u00D6',
+  '&Ouml;': '\u00D6',
+  '&OverBar;': '\u203E',
+  '&OverBrace;': '\u23DE',
+  '&OverBracket;': '\u23B4',
+  '&OverParenthesis;': '\u23DC',
+  '&PartialD;': '\u2202',
+  '&Pcy;': '\u041F',
+  '&Pfr;': '\uD835\uDD13',
+  '&Phi;': '\u03A6',
+  '&Pi;': '\u03A0',
+  '&PlusMinus;': '\u00B1',
+  '&Poincareplane;': '\u210C',
+  '&Popf;': '\u2119',
+  '&Pr;': '\u2ABB',
+  '&Precedes;': '\u227A',
+  '&PrecedesEqual;': '\u2AAF',
+  '&PrecedesSlantEqual;': '\u227C',
+  '&PrecedesTilde;': '\u227E',
+  '&Prime;': '\u2033',
+  '&Product;': '\u220F',
+  '&Proportion;': '\u2237',
+  '&Proportional;': '\u221D',
+  '&Pscr;': '\uD835\uDCAB',
+  '&Psi;': '\u03A8',
+  '&QUOT': '\u0022',
+  '&QUOT;': '\u0022',
+  '&Qfr;': '\uD835\uDD14',
+  '&Qopf;': '\u211A',
+  '&Qscr;': '\uD835\uDCAC',
+  '&RBarr;': '\u2910',
+  '&REG': '\u00AE',
+  '&REG;': '\u00AE',
+  '&Racute;': '\u0154',
+  '&Rang;': '\u27EB',
+  '&Rarr;': '\u21A0',
+  '&Rarrtl;': '\u2916',
+  '&Rcaron;': '\u0158',
+  '&Rcedil;': '\u0156',
+  '&Rcy;': '\u0420',
+  '&Re;': '\u211C',
+  '&ReverseElement;': '\u220B',
+  '&ReverseEquilibrium;': '\u21CB',
+  '&ReverseUpEquilibrium;': '\u296F',
+  '&Rfr;': '\u211C',
+  '&Rho;': '\u03A1',
+  '&RightAngleBracket;': '\u27E9',
+  '&RightArrow;': '\u2192',
+  '&RightArrowBar;': '\u21E5',
+  '&RightArrowLeftArrow;': '\u21C4',
+  '&RightCeiling;': '\u2309',
+  '&RightDoubleBracket;': '\u27E7',
+  '&RightDownTeeVector;': '\u295D',
+  '&RightDownVector;': '\u21C2',
+  '&RightDownVectorBar;': '\u2955',
+  '&RightFloor;': '\u230B',
+  '&RightTee;': '\u22A2',
+  '&RightTeeArrow;': '\u21A6',
+  '&RightTeeVector;': '\u295B',
+  '&RightTriangle;': '\u22B3',
+  '&RightTriangleBar;': '\u29D0',
+  '&RightTriangleEqual;': '\u22B5',
+  '&RightUpDownVector;': '\u294F',
+  '&RightUpTeeVector;': '\u295C',
+  '&RightUpVector;': '\u21BE',
+  '&RightUpVectorBar;': '\u2954',
+  '&RightVector;': '\u21C0',
+  '&RightVectorBar;': '\u2953',
+  '&Rightarrow;': '\u21D2',
+  '&Ropf;': '\u211D',
+  '&RoundImplies;': '\u2970',
+  '&Rrightarrow;': '\u21DB',
+  '&Rscr;': '\u211B',
+  '&Rsh;': '\u21B1',
+  '&RuleDelayed;': '\u29F4',
+  '&SHCHcy;': '\u0429',
+  '&SHcy;': '\u0428',
+  '&SOFTcy;': '\u042C',
+  '&Sacute;': '\u015A',
+  '&Sc;': '\u2ABC',
+  '&Scaron;': '\u0160',
+  '&Scedil;': '\u015E',
+  '&Scirc;': '\u015C',
+  '&Scy;': '\u0421',
+  '&Sfr;': '\uD835\uDD16',
+  '&ShortDownArrow;': '\u2193',
+  '&ShortLeftArrow;': '\u2190',
+  '&ShortRightArrow;': '\u2192',
+  '&ShortUpArrow;': '\u2191',
+  '&Sigma;': '\u03A3',
+  '&SmallCircle;': '\u2218',
+  '&Sopf;': '\uD835\uDD4A',
+  '&Sqrt;': '\u221A',
+  '&Square;': '\u25A1',
+  '&SquareIntersection;': '\u2293',
+  '&SquareSubset;': '\u228F',
+  '&SquareSubsetEqual;': '\u2291',
+  '&SquareSuperset;': '\u2290',
+  '&SquareSupersetEqual;': '\u2292',
+  '&SquareUnion;': '\u2294',
+  '&Sscr;': '\uD835\uDCAE',
+  '&Star;': '\u22C6',
+  '&Sub;': '\u22D0',
+  '&Subset;': '\u22D0',
+  '&SubsetEqual;': '\u2286',
+  '&Succeeds;': '\u227B',
+  '&SucceedsEqual;': '\u2AB0',
+  '&SucceedsSlantEqual;': '\u227D',
+  '&SucceedsTilde;': '\u227F',
+  '&SuchThat;': '\u220B',
+  '&Sum;': '\u2211',
+  '&Sup;': '\u22D1',
+  '&Superset;': '\u2283',
+  '&SupersetEqual;': '\u2287',
+  '&Supset;': '\u22D1',
+  '&THORN': '\u00DE',
+  '&THORN;': '\u00DE',
+  '&TRADE;': '\u2122',
+  '&TSHcy;': '\u040B',
+  '&TScy;': '\u0426',
+  '&Tab;': '\u0009',
+  '&Tau;': '\u03A4',
+  '&Tcaron;': '\u0164',
+  '&Tcedil;': '\u0162',
+  '&Tcy;': '\u0422',
+  '&Tfr;': '\uD835\uDD17',
+  '&Therefore;': '\u2234',
+  '&Theta;': '\u0398',
+  '&ThickSpace;': '\u205F\u200A',
+  '&ThinSpace;': '\u2009',
+  '&Tilde;': '\u223C',
+  '&TildeEqual;': '\u2243',
+  '&TildeFullEqual;': '\u2245',
+  '&TildeTilde;': '\u2248',
+  '&Topf;': '\uD835\uDD4B',
+  '&TripleDot;': '\u20DB',
+  '&Tscr;': '\uD835\uDCAF',
+  '&Tstrok;': '\u0166',
+  '&Uacute': '\u00DA',
+  '&Uacute;': '\u00DA',
+  '&Uarr;': '\u219F',
+  '&Uarrocir;': '\u2949',
+  '&Ubrcy;': '\u040E',
+  '&Ubreve;': '\u016C',
+  '&Ucirc': '\u00DB',
+  '&Ucirc;': '\u00DB',
+  '&Ucy;': '\u0423',
+  '&Udblac;': '\u0170',
+  '&Ufr;': '\uD835\uDD18',
+  '&Ugrave': '\u00D9',
+  '&Ugrave;': '\u00D9',
+  '&Umacr;': '\u016A',
+  '&UnderBar;': '\u005F',
+  '&UnderBrace;': '\u23DF',
+  '&UnderBracket;': '\u23B5',
+  '&UnderParenthesis;': '\u23DD',
+  '&Union;': '\u22C3',
+  '&UnionPlus;': '\u228E',
+  '&Uogon;': '\u0172',
+  '&Uopf;': '\uD835\uDD4C',
+  '&UpArrow;': '\u2191',
+  '&UpArrowBar;': '\u2912',
+  '&UpArrowDownArrow;': '\u21C5',
+  '&UpDownArrow;': '\u2195',
+  '&UpEquilibrium;': '\u296E',
+  '&UpTee;': '\u22A5',
+  '&UpTeeArrow;': '\u21A5',
+  '&Uparrow;': '\u21D1',
+  '&Updownarrow;': '\u21D5',
+  '&UpperLeftArrow;': '\u2196',
+  '&UpperRightArrow;': '\u2197',
+  '&Upsi;': '\u03D2',
+  '&Upsilon;': '\u03A5',
+  '&Uring;': '\u016E',
+  '&Uscr;': '\uD835\uDCB0',
+  '&Utilde;': '\u0168',
+  '&Uuml': '\u00DC',
+  '&Uuml;': '\u00DC',
+  '&VDash;': '\u22AB',
+  '&Vbar;': '\u2AEB',
+  '&Vcy;': '\u0412',
+  '&Vdash;': '\u22A9',
+  '&Vdashl;': '\u2AE6',
+  '&Vee;': '\u22C1',
+  '&Verbar;': '\u2016',
+  '&Vert;': '\u2016',
+  '&VerticalBar;': '\u2223',
+  '&VerticalLine;': '\u007C',
+  '&VerticalSeparator;': '\u2758',
+  '&VerticalTilde;': '\u2240',
+  '&VeryThinSpace;': '\u200A',
+  '&Vfr;': '\uD835\uDD19',
+  '&Vopf;': '\uD835\uDD4D',
+  '&Vscr;': '\uD835\uDCB1',
+  '&Vvdash;': '\u22AA',
+  '&Wcirc;': '\u0174',
+  '&Wedge;': '\u22C0',
+  '&Wfr;': '\uD835\uDD1A',
+  '&Wopf;': '\uD835\uDD4E',
+  '&Wscr;': '\uD835\uDCB2',
+  '&Xfr;': '\uD835\uDD1B',
+  '&Xi;': '\u039E',
+  '&Xopf;': '\uD835\uDD4F',
+  '&Xscr;': '\uD835\uDCB3',
+  '&YAcy;': '\u042F',
+  '&YIcy;': '\u0407',
+  '&YUcy;': '\u042E',
+  '&Yacute': '\u00DD',
+  '&Yacute;': '\u00DD',
+  '&Ycirc;': '\u0176',
+  '&Ycy;': '\u042B',
+  '&Yfr;': '\uD835\uDD1C',
+  '&Yopf;': '\uD835\uDD50',
+  '&Yscr;': '\uD835\uDCB4',
+  '&Yuml;': '\u0178',
+  '&ZHcy;': '\u0416',
+  '&Zacute;': '\u0179',
+  '&Zcaron;': '\u017D',
+  '&Zcy;': '\u0417',
+  '&Zdot;': '\u017B',
+  '&ZeroWidthSpace;': '\u200B',
+  '&Zeta;': '\u0396',
+  '&Zfr;': '\u2128',
+  '&Zopf;': '\u2124',
+  '&Zscr;': '\uD835\uDCB5',
+  '&aacute;': '\u00E1',
+  '&abreve;': '\u0103',
+  '&ac;': '\u223E',
+  '&acE;': '\u223E\u0333',
+  '&acd;': '\u223F',
+  '&acirc': '\u00E2',
+  '&acirc;': '\u00E2',
+  '&acute': '\u00B4',
+  '&acute;': '\u00B4',
+  '&acy;': '\u0430',
+  '&aelig': '\u00E6',
+  '&aelig;': '\u00E6',
+  '&af;': '\u2061',
+  '&afr;': '\uD835\uDD1E',
+  '&agrave': '\u00E0',
+  '&agrave;': '\u00E0',
+  '&alefsym;': '\u2135',
+  '&aleph;': '\u2135',
+  '&alpha;': '\u03B1',
+  '&amacr;': '\u0101',
+  '&amalg;': '\u2A3F',
+  '&amp': '\u0026',
+  '&amp;': '\u0026',
+  '&and;': '\u2227',
+  '&andand;': '\u2A55',
+  '&andd;': '\u2A5C',
+  '&andslope;': '\u2A58',
+  '&andv;': '\u2A5A',
+  '&ang;': '\u2220',
+  '&ange;': '\u29A4',
+  '&angle;': '\u2220',
+  '&angmsd;': '\u2221',
+  '&angmsdaa;': '\u29A8',
+  '&angmsdab;': '\u29A9',
+  '&angmsdac;': '\u29AA',
+  '&angmsdad;': '\u29AB',
+  '&angmsdae;': '\u29AC',
+  '&angmsdaf;': '\u29AD',
+  '&angmsdag;': '\u29AE',
+  '&angmsdah;': '\u29AF',
+  '&angrt;': '\u221F',
+  '&angrtvb;': '\u22BE',
+  '&angrtvbd;': '\u299D',
+  '&angsph;': '\u2222',
+  '&angst;': '\u00C5',
+  '&angzarr;': '\u237C',
+  '&aogon;': '\u0105',
+  '&aopf;': '\uD835\uDD52',
+  '&ap;': '\u2248',
+  '&apE;': '\u2A70',
+  '&apacir;': '\u2A6F',
+  '&ape;': '\u224A',
+  '&apid;': '\u224B',
+  '&apos;': '\u0027',
+  '&approx;': '\u2248',
+  '&approxeq;': '\u224A',
+  '&aring': '\u00E5',
+  '&aring;': '\u00E5',
+  '&ascr;': '\uD835\uDCB6',
+  '&ast;': '\u002A',
+  '&asymp;': '\u2248',
+  '&asympeq;': '\u224D',
+  '&atilde': '\u00E3',
+  '&atilde;': '\u00E3',
+  '&auml': '\u00E4',
+  '&auml;': '\u00E4',
+  '&awconint;': '\u2233',
+  '&awint;': '\u2A11',
+  '&bNot;': '\u2AED',
+  '&backcong;': '\u224C',
+  '&backepsilon;': '\u03F6',
+  '&backprime;': '\u2035',
+  '&backsim;': '\u223D',
+  '&backsimeq;': '\u22CD',
+  '&barvee;': '\u22BD',
+  '&barwed;': '\u2305',
+  '&barwedge;': '\u2305',
+  '&bbrk;': '\u23B5',
+  '&bbrktbrk;': '\u23B6',
+  '&bcong;': '\u224C',
+  '&bcy;': '\u0431',
+  '&bdquo;': '\u201E',
+  '&becaus;': '\u2235',
+  '&because;': '\u2235',
+  '&bemptyv;': '\u29B0',
+  '&bepsi;': '\u03F6',
+  '&bernou;': '\u212C',
+  '&beta;': '\u03B2',
+  '&beth;': '\u2136',
+  '&between;': '\u226C',
+  '&bfr;': '\uD835\uDD1F',
+  '&bigcap;': '\u22C2',
+  '&bigcirc;': '\u25EF',
+  '&bigcup;': '\u22C3',
+  '&bigodot;': '\u2A00',
+  '&bigoplus;': '\u2A01',
+  '&bigotimes;': '\u2A02',
+  '&bigsqcup;': '\u2A06',
+  '&bigstar;': '\u2605',
+  '&bigtriangledown;': '\u25BD',
+  '&bigtriangleup;': '\u25B3',
+  '&biguplus;': '\u2A04',
+  '&bigvee;': '\u22C1',
+  '&bigwedge;': '\u22C0',
+  '&bkarow;': '\u290D',
+  '&blacklozenge;': '\u29EB',
+  '&blacksquare;': '\u25AA',
+  '&blacktriangle;': '\u25B4',
+  '&blacktriangledown;': '\u25BE',
+  '&blacktriangleleft;': '\u25C2',
+  '&blacktriangleright;': '\u25B8',
+  '&blank;': '\u2423',
+  '&blk12;': '\u2592',
+  '&blk14;': '\u2591',
+  '&blk34;': '\u2593',
+  '&block;': '\u2588',
+  '&bne;': '\u003D\u20E5',
+  '&bnequiv;': '\u2261\u20E5',
+  '&bnot;': '\u2310',
+  '&bopf;': '\uD835\uDD53',
+  '&bot;': '\u22A5',
+  '&bottom;': '\u22A5',
+  '&bowtie;': '\u22C8',
+  '&boxDL;': '\u2557',
+  '&boxDR;': '\u2554',
+  '&boxDl;': '\u2556',
+  '&boxDr;': '\u2553',
+  '&boxH;': '\u2550',
+  '&boxHD;': '\u2566',
+  '&boxHU;': '\u2569',
+  '&boxHd;': '\u2564',
+  '&boxHu;': '\u2567',
+  '&boxUL;': '\u255D',
+  '&boxUR;': '\u255A',
+  '&boxUl;': '\u255C',
+  '&boxUr;': '\u2559',
+  '&boxV;': '\u2551',
+  '&boxVH;': '\u256C',
+  '&boxVL;': '\u2563',
+  '&boxVR;': '\u2560',
+  '&boxVh;': '\u256B',
+  '&boxVl;': '\u2562',
+  '&boxVr;': '\u255F',
+  '&boxbox;': '\u29C9',
+  '&boxdL;': '\u2555',
+  '&boxdR;': '\u2552',
+  '&boxdl;': '\u2510',
+  '&boxdr;': '\u250C',
+  '&boxh;': '\u2500',
+  '&boxhD;': '\u2565',
+  '&boxhU;': '\u2568',
+  '&boxhd;': '\u252C',
+  '&boxhu;': '\u2534',
+  '&boxminus;': '\u229F',
+  '&boxplus;': '\u229E',
+  '&boxtimes;': '\u22A0',
+  '&boxuL;': '\u255B',
+  '&boxuR;': '\u2558',
+  '&boxul;': '\u2518',
+  '&boxur;': '\u2514',
+  '&boxv;': '\u2502',
+  '&boxvH;': '\u256A',
+  '&boxvL;': '\u2561',
+  '&boxvR;': '\u255E',
+  '&boxvh;': '\u253C',
+  '&boxvl;': '\u2524',
+  '&boxvr;': '\u251C',
+  '&bprime;': '\u2035',
+  '&breve;': '\u02D8',
+  '&brvbar': '\u00A6',
+  '&brvbar;': '\u00A6',
+  '&bscr;': '\uD835\uDCB7',
+  '&bsemi;': '\u204F',
+  '&bsim;': '\u223D',
+  '&bsime;': '\u22CD',
+  '&bsol;': '\u005C',
+  '&bsolb;': '\u29C5',
+  '&bsolhsub;': '\u27C8',
+  '&bull;': '\u2022',
+  '&bullet;': '\u2022',
+  '&bump;': '\u224E',
+  '&bumpE;': '\u2AAE',
+  '&bumpe;': '\u224F',
+  '&bumpeq;': '\u224F',
+  '&cacute;': '\u0107',
+  '&cap;': '\u2229',
+  '&capand;': '\u2A44',
+  '&capbrcup;': '\u2A49',
+  '&capcap;': '\u2A4B',
+  '&capcup;': '\u2A47',
+  '&capdot;': '\u2A40',
+  '&caps;': '\u2229\uFE00',
+  '&caret;': '\u2041',
+  '&caron;': '\u02C7',
+  '&ccaps;': '\u2A4D',
+  '&ccaron;': '\u010D',
+  '&ccedil': '\u00E7',
+  '&ccedil;': '\u00E7',
+  '&ccirc;': '\u0109',
+  '&ccups;': '\u2A4C',
+  '&ccupssm;': '\u2A50',
+  '&cdot;': '\u010B',
+  '&cedil': '\u00B8',
+  '&cedil;': '\u00B8',
+  '&cemptyv;': '\u29B2',
+  '&cent': '\u00A2',
+  '&cent;': '\u00A2',
+  '&centerdot;': '\u00B7',
+  '&cfr;': '\uD835\uDD20',
+  '&chcy;': '\u0447',
+  '&check;': '\u2713',
+  '&checkmark;': '\u2713',
+  '&chi;': '\u03C7',
+  '&cir;': '\u25CB',
+  '&cirE;': '\u29C3',
+  '&circ;': '\u02C6',
+  '&circeq;': '\u2257',
+  '&circlearrowleft;': '\u21BA',
+  '&circlearrowright;': '\u21BB',
+  '&circledR;': '\u00AE',
+  '&circledS;': '\u24C8',
+  '&circledast;': '\u229B',
+  '&circledcirc;': '\u229A',
+  '&circleddash;': '\u229D',
+  '&cire;': '\u2257',
+  '&cirfnint;': '\u2A10',
+  '&cirmid;': '\u2AEF',
+  '&cirscir;': '\u29C2',
+  '&clubs;': '\u2663',
+  '&clubsuit;': '\u2663',
+  '&colon;': '\u003A',
+  '&colone;': '\u2254',
+  '&coloneq;': '\u2254',
+  '&comma;': '\u002C',
+  '&commat;': '\u0040',
+  '&comp;': '\u2201',
+  '&compfn;': '\u2218',
+  '&complement;': '\u2201',
+  '&complexes;': '\u2102',
+  '&cong;': '\u2245',
+  '&congdot;': '\u2A6D',
+  '&conint;': '\u222E',
+  '&copf;': '\uD835\uDD54',
+  '&coprod;': '\u2210',
+  '&copy': '\u00A9',
+  '&copy;': '\u00A9',
+  '&copysr;': '\u2117',
+  '&crarr;': '\u21B5',
+  '&cross;': '\u2717',
+  '&cscr;': '\uD835\uDCB8',
+  '&csub;': '\u2ACF',
+  '&csube;': '\u2AD1',
+  '&csup;': '\u2AD0',
+  '&csupe;': '\u2AD2',
+  '&ctdot;': '\u22EF',
+  '&cudarrl;': '\u2938',
+  '&cudarrr;': '\u2935',
+  '&cuepr;': '\u22DE',
+  '&cuesc;': '\u22DF',
+  '&cularr;': '\u21B6',
+  '&cularrp;': '\u293D',
+  '&cup;': '\u222A',
+  '&cupbrcap;': '\u2A48',
+  '&cupcap;': '\u2A46',
+  '&cupcup;': '\u2A4A',
+  '&cupdot;': '\u228D',
+  '&cupor;': '\u2A45',
+  '&cups;': '\u222A\uFE00',
+  '&curarr;': '\u21B7',
+  '&curarrm;': '\u293C',
+  '&curlyeqprec;': '\u22DE',
+  '&curlyeqsucc;': '\u22DF',
+  '&curlyvee;': '\u22CE',
+  '&curlywedge;': '\u22CF',
+  '&curren': '\u00A4',
+  '&curren;': '\u00A4',
+  '&curvearrowleft;': '\u21B6',
+  '&curvearrowright;': '\u21B7',
+  '&cuvee;': '\u22CE',
+  '&cuwed;': '\u22CF',
+  '&cwconint;': '\u2232',
+  '&cwint;': '\u2231',
+  '&cylcty;': '\u232D',
+  '&dArr;': '\u21D3',
+  '&dHar;': '\u2965',
+  '&dagger;': '\u2020',
+  '&daleth;': '\u2138',
+  '&darr;': '\u2193',
+  '&dash;': '\u2010',
+  '&dashv;': '\u22A3',
+  '&dbkarow;': '\u290F',
+  '&dblac;': '\u02DD',
+  '&dcaron;': '\u010F',
+  '&dcy;': '\u0434',
+  '&dd;': '\u2146',
+  '&ddagger;': '\u2021',
+  '&ddarr;': '\u21CA',
+  '&ddotseq;': '\u2A77',
+  '&deg': '\u00B0',
+  '&deg;': '\u00B0',
+  '&delta;': '\u03B4',
+  '&demptyv;': '\u29B1',
+  '&dfisht;': '\u297F',
+  '&dfr;': '\uD835\uDD21',
+  '&dharl;': '\u21C3',
+  '&dharr;': '\u21C2',
+  '&diam;': '\u22C4',
+  '&diamond;': '\u22C4',
+  '&diamondsuit;': '\u2666',
+  '&diams;': '\u2666',
+  '&die;': '\u00A8',
+  '&digamma;': '\u03DD',
+  '&disin;': '\u22F2',
+  '&div;': '\u00F7',
+  '&divide': '\u00F7',
+  '&divide;': '\u00F7',
+  '&divideontimes;': '\u22C7',
+  '&divonx;': '\u22C7',
+  '&djcy;': '\u0452',
+  '&dlcorn;': '\u231E',
+  '&dlcrop;': '\u230D',
+  '&dollar;': '\u0024',
+  '&dopf;': '\uD835\uDD55',
+  '&dot;': '\u02D9',
+  '&doteq;': '\u2250',
+  '&doteqdot;': '\u2251',
+  '&dotminus;': '\u2238',
+  '&dotplus;': '\u2214',
+  '&dotsquare;': '\u22A1',
+  '&doublebarwedge;': '\u2306',
+  '&downarrow;': '\u2193',
+  '&downdownarrows;': '\u21CA',
+  '&downharpoonleft;': '\u21C3',
+  '&downharpoonright;': '\u21C2',
+  '&drbkarow;': '\u2910',
+  '&drcorn;': '\u231F',
+  '&drcrop;': '\u230C',
+  '&dscr;': '\uD835\uDCB9',
+  '&dscy;': '\u0455',
+  '&dsol;': '\u29F6',
+  '&dstrok;': '\u0111',
+  '&dtdot;': '\u22F1',
+  '&dtri;': '\u25BF',
+  '&dtrif;': '\u25BE',
+  '&duarr;': '\u21F5',
+  '&duhar;': '\u296F',
+  '&dwangle;': '\u29A6',
+  '&dzcy;': '\u045F',
+  '&dzigrarr;': '\u27FF',
+  '&eDDot;': '\u2A77',
+  '&eDot;': '\u2251',
+  '&eacute;': '\u00E9',
+  '&easter;': '\u2A6E',
+  '&ecaron;': '\u011B',
+  '&ecir;': '\u2256',
+  '&ecirc': '\u00EA',
+  '&ecirc;': '\u00EA',
+  '&ecolon;': '\u2255',
+  '&ecy;': '\u044D',
+  '&edot;': '\u0117',
+  '&ee;': '\u2147',
+  '&efDot;': '\u2252',
+  '&efr;': '\uD835\uDD22',
+  '&eg;': '\u2A9A',
+  '&egrave': '\u00E8',
+  '&egrave;': '\u00E8',
+  '&egs;': '\u2A96',
+  '&egsdot;': '\u2A98',
+  '&el;': '\u2A99',
+  '&elinters;': '\u23E7',
+  '&ell;': '\u2113',
+  '&els;': '\u2A95',
+  '&elsdot;': '\u2A97',
+  '&emacr;': '\u0113',
+  '&empty;': '\u2205',
+  '&emptyset;': '\u2205',
+  '&emptyv;': '\u2205',
+  '&emsp13;': '\u2004',
+  '&emsp14;': '\u2005',
+  '&emsp;': '\u2003',
+  '&eng;': '\u014B',
+  '&ensp;': '\u2002',
+  '&eogon;': '\u0119',
+  '&eopf;': '\uD835\uDD56',
+  '&epar;': '\u22D5',
+  '&eparsl;': '\u29E3',
+  '&eplus;': '\u2A71',
+  '&epsi;': '\u03B5',
+  '&epsilon;': '\u03B5',
+  '&epsiv;': '\u03F5',
+  '&eqcirc;': '\u2256',
+  '&eqcolon;': '\u2255',
+  '&eqsim;': '\u2242',
+  '&eqslantgtr;': '\u2A96',
+  '&eqslantless;': '\u2A95',
+  '&equals;': '\u003D',
+  '&equest;': '\u225F',
+  '&equiv;': '\u2261',
+  '&equivDD;': '\u2A78',
+  '&eqvparsl;': '\u29E5',
+  '&erDot;': '\u2253',
+  '&erarr;': '\u2971',
+  '&escr;': '\u212F',
+  '&esdot;': '\u2250',
+  '&esim;': '\u2242',
+  '&eta;': '\u03B7',
+  '&eth': '\u00F0',
+  '&eth;': '\u00F0',
+  '&euml': '\u00EB',
+  '&euml;': '\u00EB',
+  '&euro;': '\u20AC',
+  '&excl;': '\u0021',
+  '&exist;': '\u2203',
+  '&expectation;': '\u2130',
+  '&exponentiale;': '\u2147',
+  '&fallingdotseq;': '\u2252',
+  '&fcy;': '\u0444',
+  '&female;': '\u2640',
+  '&ffilig;': '\uFB03',
+  '&fflig;': '\uFB00',
+  '&ffllig;': '\uFB04',
+  '&ffr;': '\uD835\uDD23',
+  '&filig;': '\uFB01',
+  '&fjlig;': '\u0066\u006A',
+  '&flat;': '\u266D',
+  '&fllig;': '\uFB02',
+  '&fltns;': '\u25B1',
+  '&fnof;': '\u0192',
+  '&fopf;': '\uD835\uDD57',
+  '&forall;': '\u2200',
+  '&fork;': '\u22D4',
+  '&forkv;': '\u2AD9',
+  '&fpartint;': '\u2A0D',
+  '&frac12': '\u00BD',
+  '&frac12;': '\u00BD',
+  '&frac13;': '\u2153',
+  '&frac14': '\u00BC',
+  '&frac14;': '\u00BC',
+  '&frac15;': '\u2155',
+  '&frac16;': '\u2159',
+  '&frac18;': '\u215B',
+  '&frac23;': '\u2154',
+  '&frac25;': '\u2156',
+  '&frac34': '\u00BE',
+  '&frac34;': '\u00BE',
+  '&frac35;': '\u2157',
+  '&frac38;': '\u215C',
+  '&frac45;': '\u2158',
+  '&frac56;': '\u215A',
+  '&frac58;': '\u215D',
+  '&frac78;': '\u215E',
+  '&frasl;': '\u2044',
+  '&frown;': '\u2322',
+  '&fscr;': '\uD835\uDCBB',
+  '&gE;': '\u2267',
+  '&gEl;': '\u2A8C',
+  '&gacute;': '\u01F5',
+  '&gamma;': '\u03B3',
+  '&gammad;': '\u03DD',
+  '&gap;': '\u2A86',
+  '&gbreve;': '\u011F',
+  '&gcirc;': '\u011D',
+  '&gcy;': '\u0433',
+  '&gdot;': '\u0121',
+  '&ge;': '\u2265',
+  '&gel;': '\u22DB',
+  '&geq;': '\u2265',
+  '&geqq;': '\u2267',
+  '&geqslant;': '\u2A7E',
+  '&ges;': '\u2A7E',
+  '&gescc;': '\u2AA9',
+  '&gesdot;': '\u2A80',
+  '&gesdoto;': '\u2A82',
+  '&gesdotol;': '\u2A84',
+  '&gesl;': '\u22DB\uFE00',
+  '&gesles;': '\u2A94',
+  '&gfr;': '\uD835\uDD24',
+  '&gg;': '\u226B',
+  '&ggg;': '\u22D9',
+  '&gimel;': '\u2137',
+  '&gjcy;': '\u0453',
+  '&gl;': '\u2277',
+  '&glE;': '\u2A92',
+  '&gla;': '\u2AA5',
+  '&glj;': '\u2AA4',
+  '&gnE;': '\u2269',
+  '&gnap;': '\u2A8A',
+  '&gnapprox;': '\u2A8A',
+  '&gne;': '\u2A88',
+  '&gneq;': '\u2A88',
+  '&gneqq;': '\u2269',
+  '&gnsim;': '\u22E7',
+  '&gopf;': '\uD835\uDD58',
+  '&grave;': '\u0060',
+  '&gscr;': '\u210A',
+  '&gsim;': '\u2273',
+  '&gsime;': '\u2A8E',
+  '&gsiml;': '\u2A90',
+  '&gt': '\u003E',
+  '&gt;': '\u003E',
+  '&gtcc;': '\u2AA7',
+  '&gtcir;': '\u2A7A',
+  '&gtdot;': '\u22D7',
+  '&gtlPar;': '\u2995',
+  '&gtquest;': '\u2A7C',
+  '&gtrapprox;': '\u2A86',
+  '&gtrarr;': '\u2978',
+  '&gtrdot;': '\u22D7',
+  '&gtreqless;': '\u22DB',
+  '&gtreqqless;': '\u2A8C',
+  '&gtrless;': '\u2277',
+  '&gtrsim;': '\u2273',
+  '&gvertneqq;': '\u2269\uFE00',
+  '&gvnE;': '\u2269\uFE00',
+  '&hArr;': '\u21D4',
+  '&hairsp;': '\u200A',
+  '&half;': '\u00BD',
+  '&hamilt;': '\u210B',
+  '&hardcy;': '\u044A',
+  '&harr;': '\u2194',
+  '&harrcir;': '\u2948',
+  '&harrw;': '\u21AD',
+  '&hbar;': '\u210F',
+  '&hcirc;': '\u0125',
+  '&hearts;': '\u2665',
+  '&heartsuit;': '\u2665',
+  '&hellip;': '\u2026',
+  '&hercon;': '\u22B9',
+  '&hfr;': '\uD835\uDD25',
+  '&hksearow;': '\u2925',
+  '&hkswarow;': '\u2926',
+  '&hoarr;': '\u21FF',
+  '&homtht;': '\u223B',
+  '&hookleftarrow;': '\u21A9',
+  '&hookrightarrow;': '\u21AA',
+  '&hopf;': '\uD835\uDD59',
+  '&horbar;': '\u2015',
+  '&hscr;': '\uD835\uDCBD',
+  '&hslash;': '\u210F',
+  '&hstrok;': '\u0127',
+  '&hybull;': '\u2043',
+  '&hyphen;': '\u2010',
+  '&iacute': '\u00ED',
+  '&iacute;': '\u00ED',
+  '&ic;': '\u2063',
+  '&icirc': '\u00EE',
+  '&icirc;': '\u00EE',
+  '&icy;': '\u0438',
+  '&iecy;': '\u0435',
+  '&iexcl': '\u00A1',
+  '&iexcl;': '\u00A1',
+  '&iff;': '\u21D4',
+  '&ifr;': '\uD835\uDD26',
+  '&igrave': '\u00EC',
+  '&igrave;': '\u00EC',
+  '&ii;': '\u2148',
+  '&iiiint;': '\u2A0C',
+  '&iiint;': '\u222D',
+  '&iinfin;': '\u29DC',
+  '&iiota;': '\u2129',
+  '&ijlig;': '\u0133',
+  '&imacr;': '\u012B',
+  '&image;': '\u2111',
+  '&imagline;': '\u2110',
+  '&imagpart;': '\u2111',
+  '&imath;': '\u0131',
+  '&imof;': '\u22B7',
+  '&imped;': '\u01B5',
+  '&in;': '\u2208',
+  '&incare;': '\u2105',
+  '&infin;': '\u221E',
+  '&infintie;': '\u29DD',
+  '&inodot;': '\u0131',
+  '&int;': '\u222B',
+  '&intcal;': '\u22BA',
+  '&integers;': '\u2124',
+  '&intercal;': '\u22BA',
+  '&intlarhk;': '\u2A17',
+  '&intprod;': '\u2A3C',
+  '&iocy;': '\u0451',
+  '&iogon;': '\u012F',
+  '&iopf;': '\uD835\uDD5A',
+  '&iota;': '\u03B9',
+  '&iprod;': '\u2A3C',
+  '&iquest': '\u00BF',
+  '&iquest;': '\u00BF',
+  '&iscr;': '\uD835\uDCBE',
+  '&isin;': '\u2208',
+  '&isinE;': '\u22F9',
+  '&isindot;': '\u22F5',
+  '&isins;': '\u22F4',
+  '&isinsv;': '\u22F3',
+  '&isinv;': '\u2208',
+  '&it;': '\u2062',
+  '&itilde;': '\u0129',
+  '&iukcy;': '\u0456',
+  '&iuml': '\u00EF',
+  '&iuml;': '\u00EF',
+  '&jcirc;': '\u0135',
+  '&jcy;': '\u0439',
+  '&jfr;': '\uD835\uDD27',
+  '&jmath;': '\u0237',
+  '&jopf;': '\uD835\uDD5B',
+  '&jscr;': '\uD835\uDCBF',
+  '&jsercy;': '\u0458',
+  '&jukcy;': '\u0454',
+  '&kappa;': '\u03BA',
+  '&kappav;': '\u03F0',
+  '&kcedil;': '\u0137',
+  '&kcy;': '\u043A',
+  '&kfr;': '\uD835\uDD28',
+  '&kgreen;': '\u0138',
+  '&khcy;': '\u0445',
+  '&kjcy;': '\u045C',
+  '&kopf;': '\uD835\uDD5C',
+  '&kscr;': '\uD835\uDCC0',
+  '&lAarr;': '\u21DA',
+  '&lArr;': '\u21D0',
+  '&lAtail;': '\u291B',
+  '&lBarr;': '\u290E',
+  '&lE;': '\u2266',
+  '&lEg;': '\u2A8B',
+  '&lHar;': '\u2962',
+  '&lacute;': '\u013A',
+  '&laemptyv;': '\u29B4',
+  '&lagran;': '\u2112',
+  '&lambda;': '\u03BB',
+  '&lang;': '\u27E8',
+  '&langd;': '\u2991',
+  '&langle;': '\u27E8',
+  '&lap;': '\u2A85',
+  '&laquo': '\u00AB',
+  '&laquo;': '\u00AB',
+  '&larr;': '\u2190',
+  '&larrb;': '\u21E4',
+  '&larrbfs;': '\u291F',
+  '&larrfs;': '\u291D',
+  '&larrhk;': '\u21A9',
+  '&larrlp;': '\u21AB',
+  '&larrpl;': '\u2939',
+  '&larrsim;': '\u2973',
+  '&larrtl;': '\u21A2',
+  '&lat;': '\u2AAB',
+  '&latail;': '\u2919',
+  '&late;': '\u2AAD',
+  '&lates;': '\u2AAD\uFE00',
+  '&lbarr;': '\u290C',
+  '&lbbrk;': '\u2772',
+  '&lbrace;': '\u007B',
+  '&lbrack;': '\u005B',
+  '&lbrke;': '\u298B',
+  '&lbrksld;': '\u298F',
+  '&lbrkslu;': '\u298D',
+  '&lcaron;': '\u013E',
+  '&lcedil;': '\u013C',
+  '&lceil;': '\u2308',
+  '&lcub;': '\u007B',
+  '&lcy;': '\u043B',
+  '&ldca;': '\u2936',
+  '&ldquo;': '\u201C',
+  '&ldquor;': '\u201E',
+  '&ldrdhar;': '\u2967',
+  '&ldrushar;': '\u294B',
+  '&ldsh;': '\u21B2',
+  '&le;': '\u2264',
+  '&leftarrow;': '\u2190',
+  '&leftarrowtail;': '\u21A2',
+  '&leftharpoondown;': '\u21BD',
+  '&leftharpoonup;': '\u21BC',
+  '&leftleftarrows;': '\u21C7',
+  '&leftrightarrow;': '\u2194',
+  '&leftrightarrows;': '\u21C6',
+  '&leftrightharpoons;': '\u21CB',
+  '&leftrightsquigarrow;': '\u21AD',
+  '&leftthreetimes;': '\u22CB',
+  '&leg;': '\u22DA',
+  '&leq;': '\u2264',
+  '&leqq;': '\u2266',
+  '&leqslant;': '\u2A7D',
+  '&les;': '\u2A7D',
+  '&lescc;': '\u2AA8',
+  '&lesdot;': '\u2A7F',
+  '&lesdoto;': '\u2A81',
+  '&lesdotor;': '\u2A83',
+  '&lesg;': '\u22DA\uFE00',
+  '&lesges;': '\u2A93',
+  '&lessapprox;': '\u2A85',
+  '&lessdot;': '\u22D6',
+  '&lesseqgtr;': '\u22DA',
+  '&lesseqqgtr;': '\u2A8B',
+  '&lessgtr;': '\u2276',
+  '&lesssim;': '\u2272',
+  '&lfisht;': '\u297C',
+  '&lfloor;': '\u230A',
+  '&lfr;': '\uD835\uDD29',
+  '&lg;': '\u2276',
+  '&lgE;': '\u2A91',
+  '&lhard;': '\u21BD',
+  '&lharu;': '\u21BC',
+  '&lharul;': '\u296A',
+  '&lhblk;': '\u2584',
+  '&ljcy;': '\u0459',
+  '&ll;': '\u226A',
+  '&llarr;': '\u21C7',
+  '&llcorner;': '\u231E',
+  '&llhard;': '\u296B',
+  '&lltri;': '\u25FA',
+  '&lmidot;': '\u0140',
+  '&lmoust;': '\u23B0',
+  '&lmoustache;': '\u23B0',
+  '&lnE;': '\u2268',
+  '&lnap;': '\u2A89',
+  '&lnapprox;': '\u2A89',
+  '&lne;': '\u2A87',
+  '&lneq;': '\u2A87',
+  '&lneqq;': '\u2268',
+  '&lnsim;': '\u22E6',
+  '&loang;': '\u27EC',
+  '&loarr;': '\u21FD',
+  '&lobrk;': '\u27E6',
+  '&longleftarrow;': '\u27F5',
+  '&longleftrightarrow;': '\u27F7',
+  '&longmapsto;': '\u27FC',
+  '&longrightarrow;': '\u27F6',
+  '&looparrowleft;': '\u21AB',
+  '&looparrowright;': '\u21AC',
+  '&lopar;': '\u2985',
+  '&lopf;': '\uD835\uDD5D',
+  '&loplus;': '\u2A2D',
+  '&lotimes;': '\u2A34',
+  '&lowast;': '\u2217',
+  '&lowbar;': '\u005F',
+  '&loz;': '\u25CA',
+  '&lozenge;': '\u25CA',
+  '&lozf;': '\u29EB',
+  '&lpar;': '\u0028',
+  '&lparlt;': '\u2993',
+  '&lrarr;': '\u21C6',
+  '&lrcorner;': '\u231F',
+  '&lrhar;': '\u21CB',
+  '&lrhard;': '\u296D',
+  '&lrm;': '\u200E',
+  '&lrtri;': '\u22BF',
+  '&lsaquo;': '\u2039',
+  '&lscr;': '\uD835\uDCC1',
+  '&lsh;': '\u21B0',
+  '&lsim;': '\u2272',
+  '&lsime;': '\u2A8D',
+  '&lsimg;': '\u2A8F',
+  '&lsqb;': '\u005B',
+  '&lsquo;': '\u2018',
+  '&lsquor;': '\u201A',
+  '&lstrok;': '\u0142',
+  '&lt': '\u003C',
+  '&lt;': '\u003C',
+  '&ltcc;': '\u2AA6',
+  '&ltcir;': '\u2A79',
+  '&ltdot;': '\u22D6',
+  '&lthree;': '\u22CB',
+  '&ltimes;': '\u22C9',
+  '&ltlarr;': '\u2976',
+  '&ltquest;': '\u2A7B',
+  '&ltrPar;': '\u2996',
+  '&ltri;': '\u25C3',
+  '&ltrie;': '\u22B4',
+  '&ltrif;': '\u25C2',
+  '&lurdshar;': '\u294A',
+  '&luruhar;': '\u2966',
+  '&lvertneqq;': '\u2268\uFE00',
+  '&lvnE;': '\u2268\uFE00',
+  '&mDDot;': '\u223A',
+  '&macr': '\u00AF',
+  '&macr;': '\u00AF',
+  '&male;': '\u2642',
+  '&malt;': '\u2720',
+  '&maltese;': '\u2720',
+  '&map;': '\u21A6',
+  '&mapsto;': '\u21A6',
+  '&mapstodown;': '\u21A7',
+  '&mapstoleft;': '\u21A4',
+  '&mapstoup;': '\u21A5',
+  '&marker;': '\u25AE',
+  '&mcomma;': '\u2A29',
+  '&mcy;': '\u043C',
+  '&mdash;': '\u2014',
+  '&measuredangle;': '\u2221',
+  '&mfr;': '\uD835\uDD2A',
+  '&mho;': '\u2127',
+  '&micro': '\u00B5',
+  '&micro;': '\u00B5',
+  '&mid;': '\u2223',
+  '&midast;': '\u002A',
+  '&midcir;': '\u2AF0',
+  '&middot': '\u00B7',
+  '&middot;': '\u00B7',
+  '&minus;': '\u2212',
+  '&minusb;': '\u229F',
+  '&minusd;': '\u2238',
+  '&minusdu;': '\u2A2A',
+  '&mlcp;': '\u2ADB',
+  '&mldr;': '\u2026',
+  '&mnplus;': '\u2213',
+  '&models;': '\u22A7',
+  '&mopf;': '\uD835\uDD5E',
+  '&mp;': '\u2213',
+  '&mscr;': '\uD835\uDCC2',
+  '&mstpos;': '\u223E',
+  '&mu;': '\u03BC',
+  '&multimap;': '\u22B8',
+  '&mumap;': '\u22B8',
+  '&nGg;': '\u22D9\u0338',
+  '&nGt;': '\u226B\u20D2',
+  '&nGtv;': '\u226B\u0338',
+  '&nLeftarrow;': '\u21CD',
+  '&nLeftrightarrow;': '\u21CE',
+  '&nLl;': '\u22D8\u0338',
+  '&nLt;': '\u226A\u20D2',
+  '&nLtv;': '\u226A\u0338',
+  '&nRightarrow;': '\u21CF',
+  '&nVDash;': '\u22AF',
+  '&nVdash;': '\u22AE',
+  '&nabla;': '\u2207',
+  '&nacute;': '\u0144',
+  '&nang;': '\u2220\u20D2',
+  '&nap;': '\u2249',
+  '&napE;': '\u2A70\u0338',
+  '&napid;': '\u224B\u0338',
+  '&napos;': '\u0149',
+  '&napprox;': '\u2249',
+  '&natur;': '\u266E',
+  '&natural;': '\u266E',
+  '&naturals;': '\u2115',
+  '&nbsp': '\u00A0',
+  '&nbsp;': '\u00A0',
+  '&nbump;': '\u224E\u0338',
+  '&nbumpe;': '\u224F\u0338',
+  '&ncap;': '\u2A43',
+  '&ncaron;': '\u0148',
+  '&ncedil;': '\u0146',
+  '&ncong;': '\u2247',
+  '&ncongdot;': '\u2A6D\u0338',
+  '&ncup;': '\u2A42',
+  '&ncy;': '\u043D',
+  '&ndash;': '\u2013',
+  '&ne;': '\u2260',
+  '&neArr;': '\u21D7',
+  '&nearhk;': '\u2924',
+  '&nearr;': '\u2197',
+  '&nearrow;': '\u2197',
+  '&nedot;': '\u2250\u0338',
+  '&nequiv;': '\u2262',
+  '&nesear;': '\u2928',
+  '&nesim;': '\u2242\u0338',
+  '&nexist;': '\u2204',
+  '&nexists;': '\u2204',
+  '&nfr;': '\uD835\uDD2B',
+  '&ngE;': '\u2267\u0338',
+  '&nge;': '\u2271',
+  '&ngeq;': '\u2271',
+  '&ngeqq;': '\u2267\u0338',
+  '&ngeqslant;': '\u2A7E\u0338',
+  '&nges;': '\u2A7E\u0338',
+  '&ngsim;': '\u2275',
+  '&ngt;': '\u226F',
+  '&ngtr;': '\u226F',
+  '&nhArr;': '\u21CE',
+  '&nharr;': '\u21AE',
+  '&nhpar;': '\u2AF2',
+  '&ni;': '\u220B',
+  '&nis;': '\u22FC',
+  '&nisd;': '\u22FA',
+  '&niv;': '\u220B',
+  '&njcy;': '\u045A',
+  '&nlArr;': '\u21CD',
+  '&nlE;': '\u2266\u0338',
+  '&nlarr;': '\u219A',
+  '&nldr;': '\u2025',
+  '&nle;': '\u2270',
+  '&nleftarrow;': '\u219A',
+  '&nleftrightarrow;': '\u21AE',
+  '&nleq;': '\u2270',
+  '&nleqq;': '\u2266\u0338',
+  '&nleqslant;': '\u2A7D\u0338',
+  '&nles;': '\u2A7D\u0338',
+  '&nless;': '\u226E',
+  '&nlsim;': '\u2274',
+  '&nlt;': '\u226E',
+  '&nltri;': '\u22EA',
+  '&nltrie;': '\u22EC',
+  '&nmid;': '\u2224',
+  '&nopf;': '\uD835\uDD5F',
+  '&not': '\u00AC',
+  '&not;': '\u00AC',
+  '&notin;': '\u2209',
+  '&notinE;': '\u22F9\u0338',
+  '&notindot;': '\u22F5\u0338',
+  '&notinva;': '\u2209',
+  '&notinvb;': '\u22F7',
+  '&notinvc;': '\u22F6',
+  '&notni;': '\u220C',
+  '&notniva;': '\u220C',
+  '&notnivb;': '\u22FE',
+  '&notnivc;': '\u22FD',
+  '&npar;': '\u2226',
+  '&nparallel;': '\u2226',
+  '&nparsl;': '\u2AFD\u20E5',
+  '&npart;': '\u2202\u0338',
+  '&npolint;': '\u2A14',
+  '&npr;': '\u2280',
+  '&nprcue;': '\u22E0',
+  '&npre;': '\u2AAF\u0338',
+  '&nprec;': '\u2280',
+  '&npreceq;': '\u2AAF\u0338',
+  '&nrArr;': '\u21CF',
+  '&nrarr;': '\u219B',
+  '&nrarrc;': '\u2933\u0338',
+  '&nrarrw;': '\u219D\u0338',
+  '&nrightarrow;': '\u219B',
+  '&nrtri;': '\u22EB',
+  '&nrtrie;': '\u22ED',
+  '&nsc;': '\u2281',
+  '&nsccue;': '\u22E1',
+  '&nsce;': '\u2AB0\u0338',
+  '&nscr;': '\uD835\uDCC3',
+  '&nshortmid;': '\u2224',
+  '&nshortparallel;': '\u2226',
+  '&nsim;': '\u2241',
+  '&nsime;': '\u2244',
+  '&nsimeq;': '\u2244',
+  '&nsmid;': '\u2224',
+  '&nspar;': '\u2226',
+  '&nsqsube;': '\u22E2',
+  '&nsqsupe;': '\u22E3',
+  '&nsub;': '\u2284',
+  '&nsubE;': '\u2AC5\u0338',
+  '&nsube;': '\u2288',
+  '&nsubset;': '\u2282\u20D2',
+  '&nsubseteq;': '\u2288',
+  '&nsubseteqq;': '\u2AC5\u0338',
+  '&nsucc;': '\u2281',
+  '&nsucceq;': '\u2AB0\u0338',
+  '&nsup;': '\u2285',
+  '&nsupE;': '\u2AC6\u0338',
+  '&nsupe;': '\u2289',
+  '&nsupset;': '\u2283\u20D2',
+  '&nsupseteq;': '\u2289',
+  '&nsupseteqq;': '\u2AC6\u0338',
+  '&ntgl;': '\u2279',
+  '&ntilde': '\u00F1',
+  '&ntilde;': '\u00F1',
+  '&ntlg;': '\u2278',
+  '&ntriangleleft;': '\u22EA',
+  '&ntrianglelefteq;': '\u22EC',
+  '&ntriangleright;': '\u22EB',
+  '&ntrianglerighteq;': '\u22ED',
+  '&nu;': '\u03BD',
+  '&num;': '\u0023',
+  '&numero;': '\u2116',
+  '&numsp;': '\u2007',
+  '&nvDash;': '\u22AD',
+  '&nvHarr;': '\u2904',
+  '&nvap;': '\u224D\u20D2',
+  '&nvdash;': '\u22AC',
+  '&nvge;': '\u2265\u20D2',
+  '&nvgt;': '\u003E\u20D2',
+  '&nvinfin;': '\u29DE',
+  '&nvlArr;': '\u2902',
+  '&nvle;': '\u2264\u20D2',
+  '&nvlt;': '\u003C\u20D2',
+  '&nvltrie;': '\u22B4\u20D2',
+  '&nvrArr;': '\u2903',
+  '&nvrtrie;': '\u22B5\u20D2',
+  '&nvsim;': '\u223C\u20D2',
+  '&nwArr;': '\u21D6',
+  '&nwarhk;': '\u2923',
+  '&nwarr;': '\u2196',
+  '&nwarrow;': '\u2196',
+  '&nwnear;': '\u2927',
+  '&oS;': '\u24C8',
+  '&oacute': '\u00F3',
+  '&oacute;': '\u00F3',
+  '&oast;': '\u229B',
+  '&ocir;': '\u229A',
+  '&ocirc': '\u00F4',
+  '&ocirc;': '\u00F4',
+  '&ocy;': '\u043E',
+  '&odash;': '\u229D',
+  '&odblac;': '\u0151',
+  '&odiv;': '\u2A38',
+  '&odot;': '\u2299',
+  '&odsold;': '\u29BC',
+  '&oelig;': '\u0153',
+  '&ofcir;': '\u29BF',
+  '&ofr;': '\uD835\uDD2C',
+  '&ogon;': '\u02DB',
+  '&ograve': '\u00F2',
+  '&ograve;': '\u00F2',
+  '&ogt;': '\u29C1',
+  '&ohbar;': '\u29B5',
+  '&ohm;': '\u03A9',
+  '&oint;': '\u222E',
+  '&olarr;': '\u21BA',
+  '&olcir;': '\u29BE',
+  '&olcross;': '\u29BB',
+  '&oline;': '\u203E',
+  '&olt;': '\u29C0',
+  '&omacr;': '\u014D',
+  '&omega;': '\u03C9',
+  '&omicron;': '\u03BF',
+  '&omid;': '\u29B6',
+  '&ominus;': '\u2296',
+  '&oopf;': '\uD835\uDD60',
+  '&opar;': '\u29B7',
+  '&operp;': '\u29B9',
+  '&oplus;': '\u2295',
+  '&or;': '\u2228',
+  '&orarr;': '\u21BB',
+  '&ord;': '\u2A5D',
+  '&order;': '\u2134',
+  '&orderof;': '\u2134',
+  '&ordf': '\u00AA',
+  '&ordf;': '\u00AA',
+  '&ordm': '\u00BA',
+  '&ordm;': '\u00BA',
+  '&origof;': '\u22B6',
+  '&oror;': '\u2A56',
+  '&orslope;': '\u2A57',
+  '&orv;': '\u2A5B',
+  '&oscr;': '\u2134',
+  '&oslash': '\u00F8',
+  '&oslash;': '\u00F8',
+  '&osol;': '\u2298',
+  '&otilde': '\u00F5',
+  '&otilde;': '\u00F5',
+  '&otimes;': '\u2297',
+  '&otimesas;': '\u2A36',
+  '&ouml': '\u00F6',
+  '&ouml;': '\u00F6',
+  '&ovbar;': '\u233D',
+  '&par;': '\u2225',
+  '&para': '\u00B6',
+  '&para;': '\u00B6',
+  '&parallel;': '\u2225',
+  '&parsim;': '\u2AF3',
+  '&parsl;': '\u2AFD',
+  '&part;': '\u2202',
+  '&pcy;': '\u043F',
+  '&percnt;': '\u0025',
+  '&period;': '\u002E',
+  '&permil;': '\u2030',
+  '&perp;': '\u22A5',
+  '&pertenk;': '\u2031',
+  '&pfr;': '\uD835\uDD2D',
+  '&phi;': '\u03C6',
+  '&phiv;': '\u03D5',
+  '&phmmat;': '\u2133',
+  '&phone;': '\u260E',
+  '&pi;': '\u03C0',
+  '&pitchfork;': '\u22D4',
+  '&piv;': '\u03D6',
+  '&planck;': '\u210F',
+  '&planckh;': '\u210E',
+  '&plankv;': '\u210F',
+  '&plus;': '\u002B',
+  '&plusacir;': '\u2A23',
+  '&plusb;': '\u229E',
+  '&pluscir;': '\u2A22',
+  '&plusdo;': '\u2214',
+  '&plusdu;': '\u2A25',
+  '&pluse;': '\u2A72',
+  '&plusmn': '\u00B1',
+  '&plusmn;': '\u00B1',
+  '&plussim;': '\u2A26',
+  '&plustwo;': '\u2A27',
+  '&pm;': '\u00B1',
+  '&pointint;': '\u2A15',
+  '&popf;': '\uD835\uDD61',
+  '&pound': '\u00A3',
+  '&pound;': '\u00A3',
+  '&pr;': '\u227A',
+  '&prE;': '\u2AB3',
+  '&prap;': '\u2AB7',
+  '&prcue;': '\u227C',
+  '&pre;': '\u2AAF',
+  '&prec;': '\u227A',
+  '&precapprox;': '\u2AB7',
+  '&preccurlyeq;': '\u227C',
+  '&preceq;': '\u2AAF',
+  '&precnapprox;': '\u2AB9',
+  '&precneqq;': '\u2AB5',
+  '&precnsim;': '\u22E8',
+  '&precsim;': '\u227E',
+  '&prime;': '\u2032',
+  '&primes;': '\u2119',
+  '&prnE;': '\u2AB5',
+  '&prnap;': '\u2AB9',
+  '&prnsim;': '\u22E8',
+  '&prod;': '\u220F',
+  '&profalar;': '\u232E',
+  '&profline;': '\u2312',
+  '&profsurf;': '\u2313',
+  '&prop;': '\u221D',
+  '&propto;': '\u221D',
+  '&prsim;': '\u227E',
+  '&prurel;': '\u22B0',
+  '&pscr;': '\uD835\uDCC5',
+  '&psi;': '\u03C8',
+  '&puncsp;': '\u2008',
+  '&qfr;': '\uD835\uDD2E',
+  '&qint;': '\u2A0C',
+  '&qopf;': '\uD835\uDD62',
+  '&qprime;': '\u2057',
+  '&qscr;': '\uD835\uDCC6',
+  '&quaternions;': '\u210D',
+  '&quatint;': '\u2A16',
+  '&quest;': '\u003F',
+  '&questeq;': '\u225F',
+  '&quot': '\u0022',
+  '&quot;': '\u0022',
+  '&rAarr;': '\u21DB',
+  '&rArr;': '\u21D2',
+  '&rAtail;': '\u291C',
+  '&rBarr;': '\u290F',
+  '&rHar;': '\u2964',
+  '&race;': '\u223D\u0331',
+  '&racute;': '\u0155',
+  '&radic;': '\u221A',
+  '&raemptyv;': '\u29B3',
+  '&rang;': '\u27E9',
+  '&rangd;': '\u2992',
+  '&range;': '\u29A5',
+  '&rangle;': '\u27E9',
+  '&raquo': '\u00BB',
+  '&raquo;': '\u00BB',
+  '&rarr;': '\u2192',
+  '&rarrap;': '\u2975',
+  '&rarrb;': '\u21E5',
+  '&rarrbfs;': '\u2920',
+  '&rarrc;': '\u2933',
+  '&rarrfs;': '\u291E',
+  '&rarrhk;': '\u21AA',
+  '&rarrlp;': '\u21AC',
+  '&rarrpl;': '\u2945',
+  '&rarrsim;': '\u2974',
+  '&rarrtl;': '\u21A3',
+  '&rarrw;': '\u219D',
+  '&ratail;': '\u291A',
+  '&ratio;': '\u2236',
+  '&rationals;': '\u211A',
+  '&rbarr;': '\u290D',
+  '&rbbrk;': '\u2773',
+  '&rbrace;': '\u007D',
+  '&rbrack;': '\u005D',
+  '&rbrke;': '\u298C',
+  '&rbrksld;': '\u298E',
+  '&rbrkslu;': '\u2990',
+  '&rcaron;': '\u0159',
+  '&rcedil;': '\u0157',
+  '&rceil;': '\u2309',
+  '&rcub;': '\u007D',
+  '&rcy;': '\u0440',
+  '&rdca;': '\u2937',
+  '&rdldhar;': '\u2969',
+  '&rdquo;': '\u201D',
+  '&rdquor;': '\u201D',
+  '&rdsh;': '\u21B3',
+  '&real;': '\u211C',
+  '&realine;': '\u211B',
+  '&realpart;': '\u211C',
+  '&reals;': '\u211D',
+  '&rect;': '\u25AD',
+  '&reg': '\u00AE',
+  '&reg;': '\u00AE',
+  '&rfisht;': '\u297D',
+  '&rfloor;': '\u230B',
+  '&rfr;': '\uD835\uDD2F',
+  '&rhard;': '\u21C1',
+  '&rharu;': '\u21C0',
+  '&rharul;': '\u296C',
+  '&rho;': '\u03C1',
+  '&rhov;': '\u03F1',
+  '&rightarrow;': '\u2192',
+  '&rightarrowtail;': '\u21A3',
+  '&rightharpoondown;': '\u21C1',
+  '&rightharpoonup;': '\u21C0',
+  '&rightleftarrows;': '\u21C4',
+  '&rightleftharpoons;': '\u21CC',
+  '&rightrightarrows;': '\u21C9',
+  '&rightsquigarrow;': '\u219D',
+  '&rightthreetimes;': '\u22CC',
+  '&ring;': '\u02DA',
+  '&risingdotseq;': '\u2253',
+  '&rlarr;': '\u21C4',
+  '&rlhar;': '\u21CC',
+  '&rlm;': '\u200F',
+  '&rmoust;': '\u23B1',
+  '&rmoustache;': '\u23B1',
+  '&rnmid;': '\u2AEE',
+  '&roang;': '\u27ED',
+  '&roarr;': '\u21FE',
+  '&robrk;': '\u27E7',
+  '&ropar;': '\u2986',
+  '&ropf;': '\uD835\uDD63',
+  '&roplus;': '\u2A2E',
+  '&rotimes;': '\u2A35',
+  '&rpar;': '\u0029',
+  '&rpargt;': '\u2994',
+  '&rppolint;': '\u2A12',
+  '&rrarr;': '\u21C9',
+  '&rsaquo;': '\u203A',
+  '&rscr;': '\uD835\uDCC7',
+  '&rsh;': '\u21B1',
+  '&rsqb;': '\u005D',
+  '&rsquo;': '\u2019',
+  '&rsquor;': '\u2019',
+  '&rthree;': '\u22CC',
+  '&rtimes;': '\u22CA',
+  '&rtri;': '\u25B9',
+  '&rtrie;': '\u22B5',
+  '&rtrif;': '\u25B8',
+  '&rtriltri;': '\u29CE',
+  '&ruluhar;': '\u2968',
+  '&rx;': '\u211E',
+  '&sacute;': '\u015B',
+  '&sbquo;': '\u201A',
+  '&sc;': '\u227B',
+  '&scE;': '\u2AB4',
+  '&scap;': '\u2AB8',
+  '&scaron;': '\u0161',
+  '&sccue;': '\u227D',
+  '&sce;': '\u2AB0',
+  '&scedil;': '\u015F',
+  '&scirc;': '\u015D',
+  '&scnE;': '\u2AB6',
+  '&scnap;': '\u2ABA',
+  '&scnsim;': '\u22E9',
+  '&scpolint;': '\u2A13',
+  '&scsim;': '\u227F',
+  '&scy;': '\u0441',
+  '&sdot;': '\u22C5',
+  '&sdotb;': '\u22A1',
+  '&sdote;': '\u2A66',
+  '&seArr;': '\u21D8',
+  '&searhk;': '\u2925',
+  '&searr;': '\u2198',
+  '&searrow;': '\u2198',
+  '&sect': '\u00A7',
+  '&sect;': '\u00A7',
+  '&semi;': '\u003B',
+  '&seswar;': '\u2929',
+  '&setminus;': '\u2216',
+  '&setmn;': '\u2216',
+  '&sext;': '\u2736',
+  '&sfr;': '\uD835\uDD30',
+  '&sfrown;': '\u2322',
+  '&sharp;': '\u266F',
+  '&shchcy;': '\u0449',
+  '&shcy;': '\u0448',
+  '&shortmid;': '\u2223',
+  '&shortparallel;': '\u2225',
+  '&shy': '\u00AD',
+  '&shy;': '\u00AD',
+  '&sigma;': '\u03C3',
+  '&sigmaf;': '\u03C2',
+  '&sigmav;': '\u03C2',
+  '&sim;': '\u223C',
+  '&simdot;': '\u2A6A',
+  '&sime;': '\u2243',
+  '&simeq;': '\u2243',
+  '&simg;': '\u2A9E',
+  '&simgE;': '\u2AA0',
+  '&siml;': '\u2A9D',
+  '&simlE;': '\u2A9F',
+  '&simne;': '\u2246',
+  '&simplus;': '\u2A24',
+  '&simrarr;': '\u2972',
+  '&slarr;': '\u2190',
+  '&smallsetminus;': '\u2216',
+  '&smashp;': '\u2A33',
+  '&smeparsl;': '\u29E4',
+  '&smid;': '\u2223',
+  '&smile;': '\u2323',
+  '&smt;': '\u2AAA',
+  '&smte;': '\u2AAC',
+  '&smtes;': '\u2AAC\uFE00',
+  '&softcy;': '\u044C',
+  '&sol;': '\u002F',
+  '&solb;': '\u29C4',
+  '&solbar;': '\u233F',
+  '&sopf;': '\uD835\uDD64',
+  '&spades;': '\u2660',
+  '&spadesuit;': '\u2660',
+  '&spar;': '\u2225',
+  '&sqcap;': '\u2293',
+  '&sqcaps;': '\u2293\uFE00',
+  '&sqcup;': '\u2294',
+  '&sqcups;': '\u2294\uFE00',
+  '&sqsub;': '\u228F',
+  '&sqsube;': '\u2291',
+  '&sqsubset;': '\u228F',
+  '&sqsubseteq;': '\u2291',
+  '&sqsup;': '\u2290',
+  '&sqsupe;': '\u2292',
+  '&sqsupset;': '\u2290',
+  '&sqsupseteq;': '\u2292',
+  '&squ;': '\u25A1',
+  '&square;': '\u25A1',
+  '&squarf;': '\u25AA',
+  '&squf;': '\u25AA',
+  '&srarr;': '\u2192',
+  '&sscr;': '\uD835\uDCC8',
+  '&ssetmn;': '\u2216',
+  '&ssmile;': '\u2323',
+  '&sstarf;': '\u22C6',
+  '&star;': '\u2606',
+  '&starf;': '\u2605',
+  '&straightepsilon;': '\u03F5',
+  '&straightphi;': '\u03D5',
+  '&strns;': '\u00AF',
+  '&sub;': '\u2282',
+  '&subE;': '\u2AC5',
+  '&subdot;': '\u2ABD',
+  '&sube;': '\u2286',
+  '&subedot;': '\u2AC3',
+  '&submult;': '\u2AC1',
+  '&subnE;': '\u2ACB',
+  '&subne;': '\u228A',
+  '&subplus;': '\u2ABF',
+  '&subrarr;': '\u2979',
+  '&subset;': '\u2282',
+  '&subseteq;': '\u2286',
+  '&subseteqq;': '\u2AC5',
+  '&subsetneq;': '\u228A',
+  '&subsetneqq;': '\u2ACB',
+  '&subsim;': '\u2AC7',
+  '&subsub;': '\u2AD5',
+  '&subsup;': '\u2AD3',
+  '&succ;': '\u227B',
+  '&succapprox;': '\u2AB8',
+  '&succcurlyeq;': '\u227D',
+  '&succeq;': '\u2AB0',
+  '&succnapprox;': '\u2ABA',
+  '&succneqq;': '\u2AB6',
+  '&succnsim;': '\u22E9',
+  '&succsim;': '\u227F',
+  '&sum;': '\u2211',
+  '&sung;': '\u266A',
+  '&sup1': '\u00B9',
+  '&sup1;': '\u00B9',
+  '&sup2': '\u00B2',
+  '&sup2;': '\u00B2',
+  '&sup3': '\u00B3',
+  '&sup3;': '\u00B3',
+  '&sup;': '\u2283',
+  '&supE;': '\u2AC6',
+  '&supdot;': '\u2ABE',
+  '&supdsub;': '\u2AD8',
+  '&supe;': '\u2287',
+  '&supedot;': '\u2AC4',
+  '&suphsol;': '\u27C9',
+  '&suphsub;': '\u2AD7',
+  '&suplarr;': '\u297B',
+  '&supmult;': '\u2AC2',
+  '&supnE;': '\u2ACC',
+  '&supne;': '\u228B',
+  '&supplus;': '\u2AC0',
+  '&supset;': '\u2283',
+  '&supseteq;': '\u2287',
+  '&supseteqq;': '\u2AC6',
+  '&supsetneq;': '\u228B',
+  '&supsetneqq;': '\u2ACC',
+  '&supsim;': '\u2AC8',
+  '&supsub;': '\u2AD4',
+  '&supsup;': '\u2AD6',
+  '&swArr;': '\u21D9',
+  '&swarhk;': '\u2926',
+  '&swarr;': '\u2199',
+  '&swarrow;': '\u2199',
+  '&swnwar;': '\u292A',
+  '&szlig': '\u00DF',
+  '&szlig;': '\u00DF',
+  '&target;': '\u2316',
+  '&tau;': '\u03C4',
+  '&tbrk;': '\u23B4',
+  '&tcaron;': '\u0165',
+  '&tcedil;': '\u0163',
+  '&tcy;': '\u0442',
+  '&tdot;': '\u20DB',
+  '&telrec;': '\u2315',
+  '&tfr;': '\uD835\uDD31',
+  '&there4;': '\u2234',
+  '&therefore;': '\u2234',
+  '&theta;': '\u03B8',
+  '&thetasym;': '\u03D1',
+  '&thetav;': '\u03D1',
+  '&thickapprox;': '\u2248',
+  '&thicksim;': '\u223C',
+  '&thinsp;': '\u2009',
+  '&thkap;': '\u2248',
+  '&thksim;': '\u223C',
+  '&thorn': '\u00FE',
+  '&thorn;': '\u00FE',
+  '&tilde;': '\u02DC',
+  '&times': '\u00D7',
+  '&times;': '\u00D7',
+  '&timesb;': '\u22A0',
+  '&timesbar;': '\u2A31',
+  '&timesd;': '\u2A30',
+  '&tint;': '\u222D',
+  '&toea;': '\u2928',
+  '&top;': '\u22A4',
+  '&topbot;': '\u2336',
+  '&topcir;': '\u2AF1',
+  '&topf;': '\uD835\uDD65',
+  '&topfork;': '\u2ADA',
+  '&tosa;': '\u2929',
+  '&tprime;': '\u2034',
+  '&trade;': '\u2122',
+  '&triangle;': '\u25B5',
+  '&triangledown;': '\u25BF',
+  '&triangleleft;': '\u25C3',
+  '&trianglelefteq;': '\u22B4',
+  '&triangleq;': '\u225C',
+  '&triangleright;': '\u25B9',
+  '&trianglerighteq;': '\u22B5',
+  '&tridot;': '\u25EC',
+  '&trie;': '\u225C',
+  '&triminus;': '\u2A3A',
+  '&triplus;': '\u2A39',
+  '&trisb;': '\u29CD',
+  '&tritime;': '\u2A3B',
+  '&trpezium;': '\u23E2',
+  '&tscr;': '\uD835\uDCC9',
+  '&tscy;': '\u0446',
+  '&tshcy;': '\u045B',
+  '&tstrok;': '\u0167',
+  '&twixt;': '\u226C',
+  '&twoheadleftarrow;': '\u219E',
+  '&twoheadrightarrow;': '\u21A0',
+  '&uArr;': '\u21D1',
+  '&uHar;': '\u2963',
+  '&uacute': '\u00FA',
+  '&uacute;': '\u00FA',
+  '&uarr;': '\u2191',
+  '&ubrcy;': '\u045E',
+  '&ubreve;': '\u016D',
+  '&ucirc': '\u00FB',
+  '&ucirc;': '\u00FB',
+  '&ucy;': '\u0443',
+  '&udarr;': '\u21C5',
+  '&udblac;': '\u0171',
+  '&udhar;': '\u296E',
+  '&ufisht;': '\u297E',
+  '&ufr;': '\uD835\uDD32',
+  '&ugrave': '\u00F9',
+  '&ugrave;': '\u00F9',
+  '&uharl;': '\u21BF',
+  '&uharr;': '\u21BE',
+  '&uhblk;': '\u2580',
+  '&ulcorn;': '\u231C',
+  '&ulcorner;': '\u231C',
+  '&ulcrop;': '\u230F',
+  '&ultri;': '\u25F8',
+  '&umacr;': '\u016B',
+  '&uml': '\u00A8',
+  '&uml;': '\u00A8',
+  '&uogon;': '\u0173',
+  '&uopf;': '\uD835\uDD66',
+  '&uparrow;': '\u2191',
+  '&updownarrow;': '\u2195',
+  '&upharpoonleft;': '\u21BF',
+  '&upharpoonright;': '\u21BE',
+  '&uplus;': '\u228E',
+  '&upsi;': '\u03C5',
+  '&upsih;': '\u03D2',
+  '&upsilon;': '\u03C5',
+  '&upuparrows;': '\u21C8',
+  '&urcorn;': '\u231D',
+  '&urcorner;': '\u231D',
+  '&urcrop;': '\u230E',
+  '&uring;': '\u016F',
+  '&urtri;': '\u25F9',
+  '&uscr;': '\uD835\uDCCA',
+  '&utdot;': '\u22F0',
+  '&utilde;': '\u0169',
+  '&utri;': '\u25B5',
+  '&utrif;': '\u25B4',
+  '&uuarr;': '\u21C8',
+  '&uuml': '\u00FC',
+  '&uuml;': '\u00FC',
+  '&uwangle;': '\u29A7',
+  '&vArr;': '\u21D5',
+  '&vBar;': '\u2AE8',
+  '&vBarv;': '\u2AE9',
+  '&vDash;': '\u22A8',
+  '&vangrt;': '\u299C',
+  '&varepsilon;': '\u03F5',
+  '&varkappa;': '\u03F0',
+  '&varnothing;': '\u2205',
+  '&varphi;': '\u03D5',
+  '&varpi;': '\u03D6',
+  '&varpropto;': '\u221D',
+  '&varr;': '\u2195',
+  '&varrho;': '\u03F1',
+  '&varsigma;': '\u03C2',
+  '&varsubsetneq;': '\u228A\uFE00',
+  '&varsubsetneqq;': '\u2ACB\uFE00',
+  '&varsupsetneq;': '\u228B\uFE00',
+  '&varsupsetneqq;': '\u2ACC\uFE00',
+  '&vartheta;': '\u03D1',
+  '&vartriangleleft;': '\u22B2',
+  '&vartriangleright;': '\u22B3',
+  '&vcy;': '\u0432',
+  '&vdash;': '\u22A2',
+  '&vee;': '\u2228',
+  '&veebar;': '\u22BB',
+  '&veeeq;': '\u225A',
+  '&vellip;': '\u22EE',
+  '&verbar;': '\u007C',
+  '&vert;': '\u007C',
+  '&vfr;': '\uD835\uDD33',
+  '&vltri;': '\u22B2',
+  '&vnsub;': '\u2282\u20D2',
+  '&vnsup;': '\u2283\u20D2',
+  '&vopf;': '\uD835\uDD67',
+  '&vprop;': '\u221D',
+  '&vrtri;': '\u22B3',
+  '&vscr;': '\uD835\uDCCB',
+  '&vsubnE;': '\u2ACB\uFE00',
+  '&vsubne;': '\u228A\uFE00',
+  '&vsupnE;': '\u2ACC\uFE00',
+  '&vsupne;': '\u228B\uFE00',
+  '&vzigzag;': '\u299A',
+  '&wcirc;': '\u0175',
+  '&wedbar;': '\u2A5F',
+  '&wedge;': '\u2227',
+  '&wedgeq;': '\u2259',
+  '&weierp;': '\u2118',
+  '&wfr;': '\uD835\uDD34',
+  '&wopf;': '\uD835\uDD68',
+  '&wp;': '\u2118',
+  '&wr;': '\u2240',
+  '&wreath;': '\u2240',
+  '&wscr;': '\uD835\uDCCC',
+  '&xcap;': '\u22C2',
+  '&xcirc;': '\u25EF',
+  '&xcup;': '\u22C3',
+  '&xdtri;': '\u25BD',
+  '&xfr;': '\uD835\uDD35',
+  '&xhArr;': '\u27FA',
+  '&xharr;': '\u27F7',
+  '&xi;': '\u03BE',
+  '&xlArr;': '\u27F8',
+  '&xlarr;': '\u27F5',
+  '&xmap;': '\u27FC',
+  '&xnis;': '\u22FB',
+  '&xodot;': '\u2A00',
+  '&xopf;': '\uD835\uDD69',
+  '&xoplus;': '\u2A01',
+  '&xotime;': '\u2A02',
+  '&xrArr;': '\u27F9',
+  '&xrarr;': '\u27F6',
+  '&xscr;': '\uD835\uDCCD',
+  '&xsqcup;': '\u2A06',
+  '&xuplus;': '\u2A04',
+  '&xutri;': '\u25B3',
+  '&xvee;': '\u22C1',
+  '&xwedge;': '\u22C0',
+  '&yacute': '\u00FD',
+  '&yacute;': '\u00FD',
+  '&yacy;': '\u044F',
+  '&ycirc;': '\u0177',
+  '&ycy;': '\u044B',
+  '&yen': '\u00A5',
+  '&yen;': '\u00A5',
+  '&yfr;': '\uD835\uDD36',
+  '&yicy;': '\u0457',
+  '&yopf;': '\uD835\uDD6A',
+  '&yscr;': '\uD835\uDCCE',
+  '&yucy;': '\u044E',
+  '&yuml': '\u00FF',
+  '&yuml;': '\u00FF',
+  '&zacute;': '\u017A',
+  '&zcaron;': '\u017E',
+  '&zcy;': '\u0437',
+  '&zdot;': '\u017C',
+  '&zeetrf;': '\u2128',
+  '&zeta;': '\u03B6',
+  '&zfr;': '\uD835\uDD37',
+  '&zhcy;': '\u0436',
+  '&zigrarr;': '\u21DD',
+  '&zopf;': '\uD835\uDD6B',
+  '&zscr;': '\uD835\uDCCF',
+  '&zwj;': '\u200D',
+  '&zwnj;': '\u200C',
+}
 
-exports.entitiesDecode = decode;
-
-const encode = new Map();
-decode.forEach((value, key) => {
-    encode.set(value, key);
-});
-
-exports.entitiesEncode = encode;
-
+export const entitiesEncode = {
+  '\u00C6' : '&AElig;',
+  '\u0026' : '&AMP;',
+  '\u00C1' : '&Aacute;',
+  '\u0102' : '&Abreve;',
+  '\u00C2' : '&Acirc;',
+  '\u0410' : '&Acy;',
+  '\uD835\uDD04' : '&Afr;',
+  '\u00C0' : '&Agrave;',
+  '\u0391' : '&Alpha;',
+  '\u0100' : '&Amacr;',
+  '\u2A53' : '&And;',
+  '\u0104' : '&Aogon;',
+  '\uD835\uDD38' : '&Aopf;',
+  '\u2061' : '&ApplyFunction;',
+  '\u00C5' : '&Aring;',
+  '\uD835\uDC9C' : '&Ascr;',
+  '\u2254' : '&Assign;',
+  '\u00C3' : '&Atilde;',
+  '\u00C4' : '&Auml;',
+  '\u2216' : '&Backslash;',
+  '\u2AE7' : '&Barv;',
+  '\u2306' : '&Barwed;',
+  '\u0411' : '&Bcy;',
+  '\u2235' : '&Because;',
+  '\u212C' : '&Bernoullis;',
+  '\u0392' : '&Beta;',
+  '\uD835\uDD05' : '&Bfr;',
+  '\uD835\uDD39' : '&Bopf;',
+  '\u02D8' : '&Breve;',
+  '\u224E' : '&Bumpeq;',
+  '\u0427' : '&CHcy;',
+  '\u00A9' : '&COPY;',
+  '\u0106' : '&Cacute;',
+  '\u22D2' : '&Cap;',
+  '\u2145' : '&CapitalDifferentialD;',
+  '\u212D' : '&Cayleys;',
+  '\u010C' : '&Ccaron;',
+  '\u00C7' : '&Ccedil;',
+  '\u0108' : '&Ccirc;',
+  '\u2230' : '&Cconint;',
+  '\u010A' : '&Cdot;',
+  '\u00B8' : '&Cedilla;',
+  '\u00B7' : '&CenterDot;',
+  '\u03A7' : '&Chi;',
+  '\u2299' : '&CircleDot;',
+  '\u2296' : '&CircleMinus;',
+  '\u2295' : '&CirclePlus;',
+  '\u2297' : '&CircleTimes;',
+  '\u2232' : '&ClockwiseContourIntegral;',
+  '\u201D' : '&CloseCurlyDoubleQuote;',
+  '\u2019' : '&CloseCurlyQuote;',
+  '\u2237' : '&Colon;',
+  '\u2A74' : '&Colone;',
+  '\u2261' : '&Congruent;',
+  '\u222F' : '&Conint;',
+  '\u222E' : '&ContourIntegral;',
+  '\u2102' : '&Copf;',
+  '\u2210' : '&Coproduct;',
+  '\u2233' : '&CounterClockwiseContourIntegral;',
+  '\u2A2F' : '&Cross;',
+  '\uD835\uDC9E' : '&Cscr;',
+  '\u22D3' : '&Cup;',
+  '\u224D' : '&CupCap;',
+  '\u2911' : '&DDotrahd;',
+  '\u0402' : '&DJcy;',
+  '\u0405' : '&DScy;',
+  '\u040F' : '&DZcy;',
+  '\u2021' : '&Dagger;',
+  '\u21A1' : '&Darr;',
+  '\u2AE4' : '&Dashv;',
+  '\u010E' : '&Dcaron;',
+  '\u0414' : '&Dcy;',
+  '\u2207' : '&Del;',
+  '\u0394' : '&Delta;',
+  '\uD835\uDD07' : '&Dfr;',
+  '\u00B4' : '&DiacriticalAcute;',
+  '\u02D9' : '&DiacriticalDot;',
+  '\u02DD' : '&DiacriticalDoubleAcute;',
+  '\u0060' : '&DiacriticalGrave;',
+  '\u02DC' : '&DiacriticalTilde;',
+  '\u22C4' : '&Diamond;',
+  '\u2146' : '&DifferentialD;',
+  '\uD835\uDD3B' : '&Dopf;',
+  '\u00A8' : '&Dot;',
+  '\u20DC' : '&DotDot;',
+  '\u2250' : '&DotEqual;',
+  '\u21D3' : '&DoubleDownArrow;',
+  '\u21D0' : '&DoubleLeftArrow;',
+  '\u21D4' : '&DoubleLeftRightArrow;',
+  '\u27F8' : '&DoubleLongLeftArrow;',
+  '\u27FA' : '&DoubleLongLeftRightArrow;',
+  '\u27F9' : '&DoubleLongRightArrow;',
+  '\u21D2' : '&DoubleRightArrow;',
+  '\u22A8' : '&DoubleRightTee;',
+  '\u21D1' : '&DoubleUpArrow;',
+  '\u21D5' : '&DoubleUpDownArrow;',
+  '\u2225' : '&DoubleVerticalBar;',
+  '\u2193' : '&DownArrow;',
+  '\u2913' : '&DownArrowBar;',
+  '\u21F5' : '&DownArrowUpArrow;',
+  '\u0311' : '&DownBreve;',
+  '\u2950' : '&DownLeftRightVector;',
+  '\u295E' : '&DownLeftTeeVector;',
+  '\u21BD' : '&DownLeftVector;',
+  '\u2956' : '&DownLeftVectorBar;',
+  '\u295F' : '&DownRightTeeVector;',
+  '\u21C1' : '&DownRightVector;',
+  '\u2957' : '&DownRightVectorBar;',
+  '\u22A4' : '&DownTee;',
+  '\u21A7' : '&DownTeeArrow;',
+  '\uD835\uDC9F' : '&Dscr;',
+  '\u0110' : '&Dstrok;',
+  '\u014A' : '&ENG;',
+  '\u00D0' : '&ETH;',
+  '\u00C9' : '&Eacute;',
+  '\u011A' : '&Ecaron;',
+  '\u00CA' : '&Ecirc;',
+  '\u042D' : '&Ecy;',
+  '\u0116' : '&Edot;',
+  '\uD835\uDD08' : '&Efr;',
+  '\u00C8' : '&Egrave;',
+  '\u2208' : '&Element;',
+  '\u0112' : '&Emacr;',
+  '\u25FB' : '&EmptySmallSquare;',
+  '\u25AB' : '&EmptyVerySmallSquare;',
+  '\u0118' : '&Eogon;',
+  '\uD835\uDD3C' : '&Eopf;',
+  '\u0395' : '&Epsilon;',
+  '\u2A75' : '&Equal;',
+  '\u2242' : '&EqualTilde;',
+  '\u21CC' : '&Equilibrium;',
+  '\u2130' : '&Escr;',
+  '\u2A73' : '&Esim;',
+  '\u0397' : '&Eta;',
+  '\u00CB' : '&Euml;',
+  '\u2203' : '&Exists;',
+  '\u2147' : '&ExponentialE;',
+  '\u0424' : '&Fcy;',
+  '\uD835\uDD09' : '&Ffr;',
+  '\u25FC' : '&FilledSmallSquare;',
+  '\u25AA' : '&FilledVerySmallSquare;',
+  '\uD835\uDD3D' : '&Fopf;',
+  '\u2200' : '&ForAll;',
+  '\u2131' : '&Fouriertrf;',
+  '\u0403' : '&GJcy;',
+  '\u003E' : '&GT;',
+  '\u0393' : '&Gamma;',
+  '\u03DC' : '&Gammad;',
+  '\u011E' : '&Gbreve;',
+  '\u0122' : '&Gcedil;',
+  '\u011C' : '&Gcirc;',
+  '\u0413' : '&Gcy;',
+  '\u0120' : '&Gdot;',
+  '\uD835\uDD0A' : '&Gfr;',
+  '\u22D9' : '&Gg;',
+  '\uD835\uDD3E' : '&Gopf;',
+  '\u2265' : '&GreaterEqual;',
+  '\u22DB' : '&GreaterEqualLess;',
+  '\u2267' : '&GreaterFullEqual;',
+  '\u2AA2' : '&GreaterGreater;',
+  '\u2277' : '&GreaterLess;',
+  '\u2A7E' : '&GreaterSlantEqual;',
+  '\u2273' : '&GreaterTilde;',
+  '\uD835\uDCA2' : '&Gscr;',
+  '\u226B' : '&Gt;',
+  '\u042A' : '&HARDcy;',
+  '\u02C7' : '&Hacek;',
+  '\u005E' : '&Hat;',
+  '\u0124' : '&Hcirc;',
+  '\u210C' : '&Hfr;',
+  '\u210B' : '&HilbertSpace;',
+  '\u210D' : '&Hopf;',
+  '\u2500' : '&HorizontalLine;',
+  '\u0126' : '&Hstrok;',
+  '\u224F' : '&HumpEqual;',
+  '\u0415' : '&IEcy;',
+  '\u0132' : '&IJlig;',
+  '\u0401' : '&IOcy;',
+  '\u00CD' : '&Iacute;',
+  '\u00CE' : '&Icirc;',
+  '\u0418' : '&Icy;',
+  '\u0130' : '&Idot;',
+  '\u2111' : '&Ifr;',
+  '\u00CC' : '&Igrave;',
+  '\u012A' : '&Imacr;',
+  '\u2148' : '&ImaginaryI;',
+  '\u222C' : '&Int;',
+  '\u222B' : '&Integral;',
+  '\u22C2' : '&Intersection;',
+  '\u2063' : '&InvisibleComma;',
+  '\u2062' : '&InvisibleTimes;',
+  '\u012E' : '&Iogon;',
+  '\uD835\uDD40' : '&Iopf;',
+  '\u0399' : '&Iota;',
+  '\u2110' : '&Iscr;',
+  '\u0128' : '&Itilde;',
+  '\u0406' : '&Iukcy;',
+  '\u00CF' : '&Iuml;',
+  '\u0134' : '&Jcirc;',
+  '\u0419' : '&Jcy;',
+  '\uD835\uDD0D' : '&Jfr;',
+  '\uD835\uDD41' : '&Jopf;',
+  '\uD835\uDCA5' : '&Jscr;',
+  '\u0408' : '&Jsercy;',
+  '\u0404' : '&Jukcy;',
+  '\u0425' : '&KHcy;',
+  '\u040C' : '&KJcy;',
+  '\u039A' : '&Kappa;',
+  '\u0136' : '&Kcedil;',
+  '\u041A' : '&Kcy;',
+  '\uD835\uDD0E' : '&Kfr;',
+  '\uD835\uDD42' : '&Kopf;',
+  '\uD835\uDCA6' : '&Kscr;',
+  '\u0409' : '&LJcy;',
+  '\u003C' : '&LT;',
+  '\u0139' : '&Lacute;',
+  '\u039B' : '&Lambda;',
+  '\u27EA' : '&Lang;',
+  '\u2112' : '&Laplacetrf;',
+  '\u219E' : '&Larr;',
+  '\u013D' : '&Lcaron;',
+  '\u013B' : '&Lcedil;',
+  '\u041B' : '&Lcy;',
+  '\u27E8' : '&LeftAngleBracket;',
+  '\u2190' : '&LeftArrow;',
+  '\u21E4' : '&LeftArrowBar;',
+  '\u21C6' : '&LeftArrowRightArrow;',
+  '\u2308' : '&LeftCeiling;',
+  '\u27E6' : '&LeftDoubleBracket;',
+  '\u2961' : '&LeftDownTeeVector;',
+  '\u21C3' : '&LeftDownVector;',
+  '\u2959' : '&LeftDownVectorBar;',
+  '\u230A' : '&LeftFloor;',
+  '\u2194' : '&LeftRightArrow;',
+  '\u294E' : '&LeftRightVector;',
+  '\u22A3' : '&LeftTee;',
+  '\u21A4' : '&LeftTeeArrow;',
+  '\u295A' : '&LeftTeeVector;',
+  '\u22B2' : '&LeftTriangle;',
+  '\u29CF' : '&LeftTriangleBar;',
+  '\u22B4' : '&LeftTriangleEqual;',
+  '\u2951' : '&LeftUpDownVector;',
+  '\u2960' : '&LeftUpTeeVector;',
+  '\u21BF' : '&LeftUpVector;',
+  '\u2958' : '&LeftUpVectorBar;',
+  '\u21BC' : '&LeftVector;',
+  '\u2952' : '&LeftVectorBar;',
+  '\u22DA' : '&LessEqualGreater;',
+  '\u2266' : '&LessFullEqual;',
+  '\u2276' : '&LessGreater;',
+  '\u2AA1' : '&LessLess;',
+  '\u2A7D' : '&LessSlantEqual;',
+  '\u2272' : '&LessTilde;',
+  '\uD835\uDD0F' : '&Lfr;',
+  '\u22D8' : '&Ll;',
+  '\u21DA' : '&Lleftarrow;',
+  '\u013F' : '&Lmidot;',
+  '\u27F5' : '&LongLeftArrow;',
+  '\u27F7' : '&LongLeftRightArrow;',
+  '\u27F6' : '&LongRightArrow;',
+  '\uD835\uDD43' : '&Lopf;',
+  '\u2199' : '&LowerLeftArrow;',
+  '\u2198' : '&LowerRightArrow;',
+  '\u21B0' : '&Lsh;',
+  '\u0141' : '&Lstrok;',
+  '\u226A' : '&Lt;',
+  '\u2905' : '&Map;',
+  '\u041C' : '&Mcy;',
+  '\u205F' : '&MediumSpace;',
+  '\u2133' : '&Mellintrf;',
+  '\uD835\uDD10' : '&Mfr;',
+  '\u2213' : '&MinusPlus;',
+  '\uD835\uDD44' : '&Mopf;',
+  '\u039C' : '&Mu;',
+  '\u040A' : '&NJcy;',
+  '\u0143' : '&Nacute;',
+  '\u0147' : '&Ncaron;',
+  '\u0145' : '&Ncedil;',
+  '\u041D' : '&Ncy;',
+  '\u200B' : '&NegativeMediumSpace;',
+  '\u000A' : '&NewLine;',
+  '\uD835\uDD11' : '&Nfr;',
+  '\u2060' : '&NoBreak;',
+  '\u00A0' : '&NonBreakingSpace;',
+  '\u2115' : '&Nopf;',
+  '\u2AEC' : '&Not;',
+  '\u2262' : '&NotCongruent;',
+  '\u226D' : '&NotCupCap;',
+  '\u2226' : '&NotDoubleVerticalBar;',
+  '\u2209' : '&NotElement;',
+  '\u2260' : '&NotEqual;',
+  '\u2242\u0338' : '&NotEqualTilde;',
+  '\u2204' : '&NotExists;',
+  '\u226F' : '&NotGreater;',
+  '\u2271' : '&NotGreaterEqual;',
+  '\u2267\u0338' : '&NotGreaterFullEqual;',
+  '\u226B\u0338' : '&NotGreaterGreater;',
+  '\u2279' : '&NotGreaterLess;',
+  '\u2A7E\u0338' : '&NotGreaterSlantEqual;',
+  '\u2275' : '&NotGreaterTilde;',
+  '\u224E\u0338' : '&NotHumpDownHump;',
+  '\u224F\u0338' : '&NotHumpEqual;',
+  '\u22EA' : '&NotLeftTriangle;',
+  '\u29CF\u0338' : '&NotLeftTriangleBar;',
+  '\u22EC' : '&NotLeftTriangleEqual;',
+  '\u226E' : '&NotLess;',
+  '\u2270' : '&NotLessEqual;',
+  '\u2278' : '&NotLessGreater;',
+  '\u226A\u0338' : '&NotLessLess;',
+  '\u2A7D\u0338' : '&NotLessSlantEqual;',
+  '\u2274' : '&NotLessTilde;',
+  '\u2AA2\u0338' : '&NotNestedGreaterGreater;',
+  '\u2AA1\u0338' : '&NotNestedLessLess;',
+  '\u2280' : '&NotPrecedes;',
+  '\u2AAF\u0338' : '&NotPrecedesEqual;',
+  '\u22E0' : '&NotPrecedesSlantEqual;',
+  '\u220C' : '&NotReverseElement;',
+  '\u22EB' : '&NotRightTriangle;',
+  '\u29D0\u0338' : '&NotRightTriangleBar;',
+  '\u22ED' : '&NotRightTriangleEqual;',
+  '\u228F\u0338' : '&NotSquareSubset;',
+  '\u22E2' : '&NotSquareSubsetEqual;',
+  '\u2290\u0338' : '&NotSquareSuperset;',
+  '\u22E3' : '&NotSquareSupersetEqual;',
+  '\u2282\u20D2' : '&NotSubset;',
+  '\u2288' : '&NotSubsetEqual;',
+  '\u2281' : '&NotSucceeds;',
+  '\u2AB0\u0338' : '&NotSucceedsEqual;',
+  '\u22E1' : '&NotSucceedsSlantEqual;',
+  '\u227F\u0338' : '&NotSucceedsTilde;',
+  '\u2283\u20D2' : '&NotSuperset;',
+  '\u2289' : '&NotSupersetEqual;',
+  '\u2241' : '&NotTilde;',
+  '\u2244' : '&NotTildeEqual;',
+  '\u2247' : '&NotTildeFullEqual;',
+  '\u2249' : '&NotTildeTilde;',
+  '\u2224' : '&NotVerticalBar;',
+  '\uD835\uDCA9' : '&Nscr;',
+  '\u00D1' : '&Ntilde;',
+  '\u039D' : '&Nu;',
+  '\u0152' : '&OElig;',
+  '\u00D3' : '&Oacute;',
+  '\u00D4' : '&Ocirc;',
+  '\u041E' : '&Ocy;',
+  '\u0150' : '&Odblac;',
+  '\uD835\uDD12' : '&Ofr;',
+  '\u00D2' : '&Ograve;',
+  '\u014C' : '&Omacr;',
+  '\u03A9' : '&Omega;',
+  '\u039F' : '&Omicron;',
+  '\uD835\uDD46' : '&Oopf;',
+  '\u201C' : '&OpenCurlyDoubleQuote;',
+  '\u2018' : '&OpenCurlyQuote;',
+  '\u2A54' : '&Or;',
+  '\uD835\uDCAA' : '&Oscr;',
+  '\u00D8' : '&Oslash;',
+  '\u00D5' : '&Otilde;',
+  '\u2A37' : '&Otimes;',
+  '\u00D6' : '&Ouml;',
+  '\u203E' : '&OverBar;',
+  '\u23DE' : '&OverBrace;',
+  '\u23B4' : '&OverBracket;',
+  '\u23DC' : '&OverParenthesis;',
+  '\u2202' : '&PartialD;',
+  '\u041F' : '&Pcy;',
+  '\uD835\uDD13' : '&Pfr;',
+  '\u03A6' : '&Phi;',
+  '\u03A0' : '&Pi;',
+  '\u00B1' : '&PlusMinus;',
+  '\u2119' : '&Popf;',
+  '\u2ABB' : '&Pr;',
+  '\u227A' : '&Precedes;',
+  '\u2AAF' : '&PrecedesEqual;',
+  '\u227C' : '&PrecedesSlantEqual;',
+  '\u227E' : '&PrecedesTilde;',
+  '\u2033' : '&Prime;',
+  '\u220F' : '&Product;',
+  '\u221D' : '&Proportional;',
+  '\uD835\uDCAB' : '&Pscr;',
+  '\u03A8' : '&Psi;',
+  '\u0022' : '&QUOT;',
+  '\uD835\uDD14' : '&Qfr;',
+  '\u211A' : '&Qopf;',
+  '\uD835\uDCAC' : '&Qscr;',
+  '\u2910' : '&RBarr;',
+  '\u00AE' : '&REG;',
+  '\u0154' : '&Racute;',
+  '\u27EB' : '&Rang;',
+  '\u21A0' : '&Rarr;',
+  '\u2916' : '&Rarrtl;',
+  '\u0158' : '&Rcaron;',
+  '\u0156' : '&Rcedil;',
+  '\u0420' : '&Rcy;',
+  '\u211C' : '&Re;',
+  '\u220B' : '&ReverseElement;',
+  '\u21CB' : '&ReverseEquilibrium;',
+  '\u296F' : '&ReverseUpEquilibrium;',
+  '\u03A1' : '&Rho;',
+  '\u27E9' : '&RightAngleBracket;',
+  '\u2192' : '&RightArrow;',
+  '\u21E5' : '&RightArrowBar;',
+  '\u21C4' : '&RightArrowLeftArrow;',
+  '\u2309' : '&RightCeiling;',
+  '\u27E7' : '&RightDoubleBracket;',
+  '\u295D' : '&RightDownTeeVector;',
+  '\u21C2' : '&RightDownVector;',
+  '\u2955' : '&RightDownVectorBar;',
+  '\u230B' : '&RightFloor;',
+  '\u22A2' : '&RightTee;',
+  '\u21A6' : '&RightTeeArrow;',
+  '\u295B' : '&RightTeeVector;',
+  '\u22B3' : '&RightTriangle;',
+  '\u29D0' : '&RightTriangleBar;',
+  '\u22B5' : '&RightTriangleEqual;',
+  '\u294F' : '&RightUpDownVector;',
+  '\u295C' : '&RightUpTeeVector;',
+  '\u21BE' : '&RightUpVector;',
+  '\u2954' : '&RightUpVectorBar;',
+  '\u21C0' : '&RightVector;',
+  '\u2953' : '&RightVectorBar;',
+  '\u211D' : '&Ropf;',
+  '\u2970' : '&RoundImplies;',
+  '\u21DB' : '&Rrightarrow;',
+  '\u211B' : '&Rscr;',
+  '\u21B1' : '&Rsh;',
+  '\u29F4' : '&RuleDelayed;',
+  '\u0429' : '&SHCHcy;',
+  '\u0428' : '&SHcy;',
+  '\u042C' : '&SOFTcy;',
+  '\u015A' : '&Sacute;',
+  '\u2ABC' : '&Sc;',
+  '\u0160' : '&Scaron;',
+  '\u015E' : '&Scedil;',
+  '\u015C' : '&Scirc;',
+  '\u0421' : '&Scy;',
+  '\uD835\uDD16' : '&Sfr;',
+  '\u2191' : '&ShortUpArrow;',
+  '\u03A3' : '&Sigma;',
+  '\u2218' : '&SmallCircle;',
+  '\uD835\uDD4A' : '&Sopf;',
+  '\u221A' : '&Sqrt;',
+  '\u25A1' : '&Square;',
+  '\u2293' : '&SquareIntersection;',
+  '\u228F' : '&SquareSubset;',
+  '\u2291' : '&SquareSubsetEqual;',
+  '\u2290' : '&SquareSuperset;',
+  '\u2292' : '&SquareSupersetEqual;',
+  '\u2294' : '&SquareUnion;',
+  '\uD835\uDCAE' : '&Sscr;',
+  '\u22C6' : '&Star;',
+  '\u22D0' : '&Sub;',
+  '\u2286' : '&SubsetEqual;',
+  '\u227B' : '&Succeeds;',
+  '\u2AB0' : '&SucceedsEqual;',
+  '\u227D' : '&SucceedsSlantEqual;',
+  '\u227F' : '&SucceedsTilde;',
+  '\u2211' : '&Sum;',
+  '\u22D1' : '&Sup;',
+  '\u2283' : '&Superset;',
+  '\u2287' : '&SupersetEqual;',
+  '\u00DE' : '&THORN;',
+  '\u2122' : '&TRADE;',
+  '\u040B' : '&TSHcy;',
+  '\u0426' : '&TScy;',
+  '\u0009' : '&Tab;',
+  '\u03A4' : '&Tau;',
+  '\u0164' : '&Tcaron;',
+  '\u0162' : '&Tcedil;',
+  '\u0422' : '&Tcy;',
+  '\uD835\uDD17' : '&Tfr;',
+  '\u2234' : '&Therefore;',
+  '\u0398' : '&Theta;',
+  '\u205F\u200A' : '&ThickSpace;',
+  '\u2009' : '&ThinSpace;',
+  '\u223C' : '&Tilde;',
+  '\u2243' : '&TildeEqual;',
+  '\u2245' : '&TildeFullEqual;',
+  '\u2248' : '&TildeTilde;',
+  '\uD835\uDD4B' : '&Topf;',
+  '\u20DB' : '&TripleDot;',
+  '\uD835\uDCAF' : '&Tscr;',
+  '\u0166' : '&Tstrok;',
+  '\u00DA' : '&Uacute;',
+  '\u219F' : '&Uarr;',
+  '\u2949' : '&Uarrocir;',
+  '\u040E' : '&Ubrcy;',
+  '\u016C' : '&Ubreve;',
+  '\u00DB' : '&Ucirc;',
+  '\u0423' : '&Ucy;',
+  '\u0170' : '&Udblac;',
+  '\uD835\uDD18' : '&Ufr;',
+  '\u00D9' : '&Ugrave;',
+  '\u016A' : '&Umacr;',
+  '\u005F' : '&UnderBar;',
+  '\u23DF' : '&UnderBrace;',
+  '\u23B5' : '&UnderBracket;',
+  '\u23DD' : '&UnderParenthesis;',
+  '\u22C3' : '&Union;',
+  '\u228E' : '&UnionPlus;',
+  '\u0172' : '&Uogon;',
+  '\uD835\uDD4C' : '&Uopf;',
+  '\u2912' : '&UpArrowBar;',
+  '\u21C5' : '&UpArrowDownArrow;',
+  '\u2195' : '&UpDownArrow;',
+  '\u296E' : '&UpEquilibrium;',
+  '\u22A5' : '&UpTee;',
+  '\u21A5' : '&UpTeeArrow;',
+  '\u2196' : '&UpperLeftArrow;',
+  '\u2197' : '&UpperRightArrow;',
+  '\u03D2' : '&Upsi;',
+  '\u03A5' : '&Upsilon;',
+  '\u016E' : '&Uring;',
+  '\uD835\uDCB0' : '&Uscr;',
+  '\u0168' : '&Utilde;',
+  '\u00DC' : '&Uuml;',
+  '\u22AB' : '&VDash;',
+  '\u2AEB' : '&Vbar;',
+  '\u0412' : '&Vcy;',
+  '\u22A9' : '&Vdash;',
+  '\u2AE6' : '&Vdashl;',
+  '\u22C1' : '&Vee;',
+  '\u2016' : '&Verbar;',
+  '\u2223' : '&VerticalBar;',
+  '\u007C' : '&VerticalLine;',
+  '\u2758' : '&VerticalSeparator;',
+  '\u2240' : '&VerticalTilde;',
+  '\u200A' : '&VeryThinSpace;',
+  '\uD835\uDD19' : '&Vfr;',
+  '\uD835\uDD4D' : '&Vopf;',
+  '\uD835\uDCB1' : '&Vscr;',
+  '\u22AA' : '&Vvdash;',
+  '\u0174' : '&Wcirc;',
+  '\u22C0' : '&Wedge;',
+  '\uD835\uDD1A' : '&Wfr;',
+  '\uD835\uDD4E' : '&Wopf;',
+  '\uD835\uDCB2' : '&Wscr;',
+  '\uD835\uDD1B' : '&Xfr;',
+  '\u039E' : '&Xi;',
+  '\uD835\uDD4F' : '&Xopf;',
+  '\uD835\uDCB3' : '&Xscr;',
+  '\u042F' : '&YAcy;',
+  '\u0407' : '&YIcy;',
+  '\u042E' : '&YUcy;',
+  '\u00DD' : '&Yacute;',
+  '\u0176' : '&Ycirc;',
+  '\u042B' : '&Ycy;',
+  '\uD835\uDD1C' : '&Yfr;',
+  '\uD835\uDD50' : '&Yopf;',
+  '\uD835\uDCB4' : '&Yscr;',
+  '\u0178' : '&Yuml;',
+  '\u0416' : '&ZHcy;',
+  '\u0179' : '&Zacute;',
+  '\u017D' : '&Zcaron;',
+  '\u0417' : '&Zcy;',
+  '\u017B' : '&Zdot;',
+  '\u0396' : '&Zeta;',
+  '\u2128' : '&Zfr;',
+  '\u2124' : '&Zopf;',
+  '\uD835\uDCB5' : '&Zscr;',
+  '\u00E1' : '&aacute;',
+  '\u0103' : '&abreve;',
+  '\u223E' : '&ac;',
+  '\u223E\u0333' : '&acE;',
+  '\u223F' : '&acd;',
+  '\u00E2' : '&acirc;',
+  '\u0430' : '&acy;',
+  '\u00E6' : '&aelig;',
+  '\uD835\uDD1E' : '&afr;',
+  '\u00E0' : '&agrave;',
+  '\u2135' : '&alefsym;',
+  '\u03B1' : '&alpha;',
+  '\u0101' : '&amacr;',
+  '\u2A3F' : '&amalg;',
+  '\u2227' : '&and;',
+  '\u2A55' : '&andand;',
+  '\u2A5C' : '&andd;',
+  '\u2A58' : '&andslope;',
+  '\u2A5A' : '&andv;',
+  '\u2220' : '&ang;',
+  '\u29A4' : '&ange;',
+  '\u2221' : '&angmsd;',
+  '\u29A8' : '&angmsdaa;',
+  '\u29A9' : '&angmsdab;',
+  '\u29AA' : '&angmsdac;',
+  '\u29AB' : '&angmsdad;',
+  '\u29AC' : '&angmsdae;',
+  '\u29AD' : '&angmsdaf;',
+  '\u29AE' : '&angmsdag;',
+  '\u29AF' : '&angmsdah;',
+  '\u221F' : '&angrt;',
+  '\u22BE' : '&angrtvb;',
+  '\u299D' : '&angrtvbd;',
+  '\u2222' : '&angsph;',
+  '\u237C' : '&angzarr;',
+  '\u0105' : '&aogon;',
+  '\uD835\uDD52' : '&aopf;',
+  '\u2A70' : '&apE;',
+  '\u2A6F' : '&apacir;',
+  '\u224A' : '&ape;',
+  '\u224B' : '&apid;',
+  '\u0027' : '&apos;',
+  '\u00E5' : '&aring;',
+  '\uD835\uDCB6' : '&ascr;',
+  '\u002A' : '&ast;',
+  '\u00E3' : '&atilde;',
+  '\u00E4' : '&auml;',
+  '\u2A11' : '&awint;',
+  '\u2AED' : '&bNot;',
+  '\u224C' : '&backcong;',
+  '\u03F6' : '&backepsilon;',
+  '\u2035' : '&backprime;',
+  '\u223D' : '&backsim;',
+  '\u22CD' : '&backsimeq;',
+  '\u22BD' : '&barvee;',
+  '\u2305' : '&barwed;',
+  '\u23B6' : '&bbrktbrk;',
+  '\u0431' : '&bcy;',
+  '\u201E' : '&bdquo;',
+  '\u29B0' : '&bemptyv;',
+  '\u03B2' : '&beta;',
+  '\u2136' : '&beth;',
+  '\u226C' : '&between;',
+  '\uD835\uDD1F' : '&bfr;',
+  '\u25EF' : '&bigcirc;',
+  '\u2A00' : '&bigodot;',
+  '\u2A01' : '&bigoplus;',
+  '\u2A02' : '&bigotimes;',
+  '\u2A06' : '&bigsqcup;',
+  '\u2605' : '&bigstar;',
+  '\u25BD' : '&bigtriangledown;',
+  '\u25B3' : '&bigtriangleup;',
+  '\u2A04' : '&biguplus;',
+  '\u290D' : '&bkarow;',
+  '\u29EB' : '&blacklozenge;',
+  '\u25B4' : '&blacktriangle;',
+  '\u25BE' : '&blacktriangledown;',
+  '\u25C2' : '&blacktriangleleft;',
+  '\u25B8' : '&blacktriangleright;',
+  '\u2423' : '&blank;',
+  '\u2592' : '&blk12;',
+  '\u2591' : '&blk14;',
+  '\u2593' : '&blk34;',
+  '\u2588' : '&block;',
+  '\u003D\u20E5' : '&bne;',
+  '\u2261\u20E5' : '&bnequiv;',
+  '\u2310' : '&bnot;',
+  '\uD835\uDD53' : '&bopf;',
+  '\u22C8' : '&bowtie;',
+  '\u2557' : '&boxDL;',
+  '\u2554' : '&boxDR;',
+  '\u2556' : '&boxDl;',
+  '\u2553' : '&boxDr;',
+  '\u2550' : '&boxH;',
+  '\u2566' : '&boxHD;',
+  '\u2569' : '&boxHU;',
+  '\u2564' : '&boxHd;',
+  '\u2567' : '&boxHu;',
+  '\u255D' : '&boxUL;',
+  '\u255A' : '&boxUR;',
+  '\u255C' : '&boxUl;',
+  '\u2559' : '&boxUr;',
+  '\u2551' : '&boxV;',
+  '\u256C' : '&boxVH;',
+  '\u2563' : '&boxVL;',
+  '\u2560' : '&boxVR;',
+  '\u256B' : '&boxVh;',
+  '\u2562' : '&boxVl;',
+  '\u255F' : '&boxVr;',
+  '\u29C9' : '&boxbox;',
+  '\u2555' : '&boxdL;',
+  '\u2552' : '&boxdR;',
+  '\u2510' : '&boxdl;',
+  '\u250C' : '&boxdr;',
+  '\u2565' : '&boxhD;',
+  '\u2568' : '&boxhU;',
+  '\u252C' : '&boxhd;',
+  '\u2534' : '&boxhu;',
+  '\u229F' : '&boxminus;',
+  '\u229E' : '&boxplus;',
+  '\u22A0' : '&boxtimes;',
+  '\u255B' : '&boxuL;',
+  '\u2558' : '&boxuR;',
+  '\u2518' : '&boxul;',
+  '\u2514' : '&boxur;',
+  '\u2502' : '&boxv;',
+  '\u256A' : '&boxvH;',
+  '\u2561' : '&boxvL;',
+  '\u255E' : '&boxvR;',
+  '\u253C' : '&boxvh;',
+  '\u2524' : '&boxvl;',
+  '\u251C' : '&boxvr;',
+  '\u00A6' : '&brvbar;',
+  '\uD835\uDCB7' : '&bscr;',
+  '\u204F' : '&bsemi;',
+  '\u005C' : '&bsol;',
+  '\u29C5' : '&bsolb;',
+  '\u27C8' : '&bsolhsub;',
+  '\u2022' : '&bull;',
+  '\u2AAE' : '&bumpE;',
+  '\u0107' : '&cacute;',
+  '\u2229' : '&cap;',
+  '\u2A44' : '&capand;',
+  '\u2A49' : '&capbrcup;',
+  '\u2A4B' : '&capcap;',
+  '\u2A47' : '&capcup;',
+  '\u2A40' : '&capdot;',
+  '\u2229\uFE00' : '&caps;',
+  '\u2041' : '&caret;',
+  '\u2A4D' : '&ccaps;',
+  '\u010D' : '&ccaron;',
+  '\u00E7' : '&ccedil;',
+  '\u0109' : '&ccirc;',
+  '\u2A4C' : '&ccups;',
+  '\u2A50' : '&ccupssm;',
+  '\u010B' : '&cdot;',
+  '\u29B2' : '&cemptyv;',
+  '\u00A2' : '&cent;',
+  '\uD835\uDD20' : '&cfr;',
+  '\u0447' : '&chcy;',
+  '\u2713' : '&check;',
+  '\u03C7' : '&chi;',
+  '\u25CB' : '&cir;',
+  '\u29C3' : '&cirE;',
+  '\u02C6' : '&circ;',
+  '\u2257' : '&circeq;',
+  '\u21BA' : '&circlearrowleft;',
+  '\u21BB' : '&circlearrowright;',
+  '\u24C8' : '&circledS;',
+  '\u229B' : '&circledast;',
+  '\u229A' : '&circledcirc;',
+  '\u229D' : '&circleddash;',
+  '\u2A10' : '&cirfnint;',
+  '\u2AEF' : '&cirmid;',
+  '\u29C2' : '&cirscir;',
+  '\u2663' : '&clubs;',
+  '\u003A' : '&colon;',
+  '\u002C' : '&comma;',
+  '\u0040' : '&commat;',
+  '\u2201' : '&comp;',
+  '\u2A6D' : '&congdot;',
+  '\uD835\uDD54' : '&copf;',
+  '\u2117' : '&copysr;',
+  '\u21B5' : '&crarr;',
+  '\u2717' : '&cross;',
+  '\uD835\uDCB8' : '&cscr;',
+  '\u2ACF' : '&csub;',
+  '\u2AD1' : '&csube;',
+  '\u2AD0' : '&csup;',
+  '\u2AD2' : '&csupe;',
+  '\u22EF' : '&ctdot;',
+  '\u2938' : '&cudarrl;',
+  '\u2935' : '&cudarrr;',
+  '\u22DE' : '&cuepr;',
+  '\u22DF' : '&cuesc;',
+  '\u21B6' : '&cularr;',
+  '\u293D' : '&cularrp;',
+  '\u222A' : '&cup;',
+  '\u2A48' : '&cupbrcap;',
+  '\u2A46' : '&cupcap;',
+  '\u2A4A' : '&cupcup;',
+  '\u228D' : '&cupdot;',
+  '\u2A45' : '&cupor;',
+  '\u222A\uFE00' : '&cups;',
+  '\u21B7' : '&curarr;',
+  '\u293C' : '&curarrm;',
+  '\u22CE' : '&curlyvee;',
+  '\u22CF' : '&curlywedge;',
+  '\u00A4' : '&curren;',
+  '\u2231' : '&cwint;',
+  '\u232D' : '&cylcty;',
+  '\u2965' : '&dHar;',
+  '\u2020' : '&dagger;',
+  '\u2138' : '&daleth;',
+  '\u2010' : '&dash;',
+  '\u290F' : '&dbkarow;',
+  '\u010F' : '&dcaron;',
+  '\u0434' : '&dcy;',
+  '\u21CA' : '&ddarr;',
+  '\u2A77' : '&ddotseq;',
+  '\u00B0' : '&deg;',
+  '\u03B4' : '&delta;',
+  '\u29B1' : '&demptyv;',
+  '\u297F' : '&dfisht;',
+  '\uD835\uDD21' : '&dfr;',
+  '\u2666' : '&diamondsuit;',
+  '\u03DD' : '&digamma;',
+  '\u22F2' : '&disin;',
+  '\u00F7' : '&div;',
+  '\u22C7' : '&divideontimes;',
+  '\u0452' : '&djcy;',
+  '\u231E' : '&dlcorn;',
+  '\u230D' : '&dlcrop;',
+  '\u0024' : '&dollar;',
+  '\uD835\uDD55' : '&dopf;',
+  '\u2251' : '&doteqdot;',
+  '\u2238' : '&dotminus;',
+  '\u2214' : '&dotplus;',
+  '\u22A1' : '&dotsquare;',
+  '\u231F' : '&drcorn;',
+  '\u230C' : '&drcrop;',
+  '\uD835\uDCB9' : '&dscr;',
+  '\u0455' : '&dscy;',
+  '\u29F6' : '&dsol;',
+  '\u0111' : '&dstrok;',
+  '\u22F1' : '&dtdot;',
+  '\u29A6' : '&dwangle;',
+  '\u045F' : '&dzcy;',
+  '\u2A6E' : '&easter;',
+  '\u011B' : '&ecaron;',
+  '\u2256' : '&ecir;',
+  '\u2255' : '&ecolon;',
+  '\u044D' : '&ecy;',
+  '\u2252' : '&efDot;',
+  '\uD835\uDD22' : '&efr;',
+  '\u2A9A' : '&eg;',
+  '\u2A96' : '&egs;',
+  '\u2A98' : '&egsdot;',
+  '\u2A99' : '&el;',
+  '\u23E7' : '&elinters;',
+  '\u2113' : '&ell;',
+  '\u2A95' : '&els;',
+  '\u2A97' : '&elsdot;',
+  '\u0113' : '&emacr;',
+  '\u2004' : '&emsp13;',
+  '\u2005' : '&emsp14;',
+  '\u2003' : '&emsp;',
+  '\u014B' : '&eng;',
+  '\u2002' : '&ensp;',
+  '\u0119' : '&eogon;',
+  '\uD835\uDD56' : '&eopf;',
+  '\u22D5' : '&epar;',
+  '\u29E3' : '&eparsl;',
+  '\u2A71' : '&eplus;',
+  '\u03B5' : '&epsi;',
+  '\u03F5' : '&epsiv;',
+  '\u003D' : '&equals;',
+  '\u225F' : '&equest;',
+  '\u2A78' : '&equivDD;',
+  '\u29E5' : '&eqvparsl;',
+  '\u2253' : '&erDot;',
+  '\u2971' : '&erarr;',
+  '\u212F' : '&escr;',
+  '\u03B7' : '&eta;',
+  '\u00F0' : '&eth;',
+  '\u00EB' : '&euml;',
+  '\u20AC' : '&euro;',
+  '\u0021' : '&excl;',
+  '\u0444' : '&fcy;',
+  '\u2640' : '&female;',
+  '\uFB03' : '&ffilig;',
+  '\uFB00' : '&fflig;',
+  '\uFB04' : '&ffllig;',
+  '\uD835\uDD23' : '&ffr;',
+  '\uFB01' : '&filig;',
+  '\u0066\u006A' : '&fjlig;',
+  '\u266D' : '&flat;',
+  '\uFB02' : '&fllig;',
+  '\u25B1' : '&fltns;',
+  '\u0192' : '&fnof;',
+  '\uD835\uDD57' : '&fopf;',
+  '\u22D4' : '&fork;',
+  '\u2AD9' : '&forkv;',
+  '\u2A0D' : '&fpartint;',
+  '\u00BD' : '&frac12;',
+  '\u2153' : '&frac13;',
+  '\u00BC' : '&frac14;',
+  '\u2155' : '&frac15;',
+  '\u2159' : '&frac16;',
+  '\u215B' : '&frac18;',
+  '\u2154' : '&frac23;',
+  '\u2156' : '&frac25;',
+  '\u00BE' : '&frac34;',
+  '\u2157' : '&frac35;',
+  '\u215C' : '&frac38;',
+  '\u2158' : '&frac45;',
+  '\u215A' : '&frac56;',
+  '\u215D' : '&frac58;',
+  '\u215E' : '&frac78;',
+  '\u2044' : '&frasl;',
+  '\u2322' : '&frown;',
+  '\uD835\uDCBB' : '&fscr;',
+  '\u00E9': '&eacute;',
+  '\u2A8C' : '&gEl;',
+  '\u01F5' : '&gacute;',
+  '\u03B3' : '&gamma;',
+  '\u2A86' : '&gap;',
+  '\u011F' : '&gbreve;',
+  '\u011D' : '&gcirc;',
+  '\u0433' : '&gcy;',
+  '\u0121' : '&gdot;',
+  '\u2AA9' : '&gescc;',
+  '\u2A80' : '&gesdot;',
+  '\u2A82' : '&gesdoto;',
+  '\u2A84' : '&gesdotol;',
+  '\u22DB\uFE00' : '&gesl;',
+  '\u2A94' : '&gesles;',
+  '\uD835\uDD24' : '&gfr;',
+  '\u2137' : '&gimel;',
+  '\u0453' : '&gjcy;',
+  '\u2A92' : '&glE;',
+  '\u2AA5' : '&gla;',
+  '\u2AA4' : '&glj;',
+  '\u2269' : '&gnE;',
+  '\u2A8A' : '&gnap;',
+  '\u2A88' : '&gne;',
+  '\u22E7' : '&gnsim;',
+  '\uD835\uDD58' : '&gopf;',
+  '\u210A' : '&gscr;',
+  '\u2A8E' : '&gsime;',
+  '\u2A90' : '&gsiml;',
+  '\u2AA7' : '&gtcc;',
+  '\u2A7A' : '&gtcir;',
+  '\u22D7' : '&gtdot;',
+  '\u2995' : '&gtlPar;',
+  '\u2A7C' : '&gtquest;',
+  '\u2978' : '&gtrarr;',
+  '\u2269\uFE00' : '&gvertneqq;',
+  '\u044A' : '&hardcy;',
+  '\u2948' : '&harrcir;',
+  '\u21AD' : '&harrw;',
+  '\u210F' : '&hbar;',
+  '\u0125' : '&hcirc;',
+  '\u2665' : '&hearts;',
+  '\u2026' : '&hellip;',
+  '\u22B9' : '&hercon;',
+  '\uD835\uDD25' : '&hfr;',
+  '\u2925' : '&hksearow;',
+  '\u2926' : '&hkswarow;',
+  '\u21FF' : '&hoarr;',
+  '\u223B' : '&homtht;',
+  '\u21A9' : '&hookleftarrow;',
+  '\u21AA' : '&hookrightarrow;',
+  '\uD835\uDD59' : '&hopf;',
+  '\u2015' : '&horbar;',
+  '\uD835\uDCBD' : '&hscr;',
+  '\u0127' : '&hstrok;',
+  '\u2043' : '&hybull;',
+  '\u00ED' : '&iacute;',
+  '\u00EE' : '&icirc;',
+  '\u0438' : '&icy;',
+  '\u0435' : '&iecy;',
+  '\u00A1' : '&iexcl;',
+  '\uD835\uDD26' : '&ifr;',
+  '\u00EC' : '&igrave;',
+  '\u2A0C' : '&iiiint;',
+  '\u222D' : '&iiint;',
+  '\u29DC' : '&iinfin;',
+  '\u2129' : '&iiota;',
+  '\u0133' : '&ijlig;',
+  '\u012B' : '&imacr;',
+  '\u0131' : '&imath;',
+  '\u22B7' : '&imof;',
+  '\u01B5' : '&imped;',
+  '\u2105' : '&incare;',
+  '\u221E' : '&infin;',
+  '\u29DD' : '&infintie;',
+  '\u22BA' : '&intcal;',
+  '\u2A17' : '&intlarhk;',
+  '\u2A3C' : '&intprod;',
+  '\u0451' : '&iocy;',
+  '\u012F' : '&iogon;',
+  '\uD835\uDD5A' : '&iopf;',
+  '\u03B9' : '&iota;',
+  '\u00BF' : '&iquest;',
+  '\uD835\uDCBE' : '&iscr;',
+  '\u22F9' : '&isinE;',
+  '\u22F5' : '&isindot;',
+  '\u22F4' : '&isins;',
+  '\u22F3' : '&isinsv;',
+  '\u0129' : '&itilde;',
+  '\u0456' : '&iukcy;',
+  '\u00EF' : '&iuml;',
+  '\u0135' : '&jcirc;',
+  '\u0439' : '&jcy;',
+  '\uD835\uDD27' : '&jfr;',
+  '\u0237' : '&jmath;',
+  '\uD835\uDD5B' : '&jopf;',
+  '\uD835\uDCBF' : '&jscr;',
+  '\u0458' : '&jsercy;',
+  '\u0454' : '&jukcy;',
+  '\u03BA' : '&kappa;',
+  '\u03F0' : '&kappav;',
+  '\u0137' : '&kcedil;',
+  '\u043A' : '&kcy;',
+  '\uD835\uDD28' : '&kfr;',
+  '\u0138' : '&kgreen;',
+  '\u0445' : '&khcy;',
+  '\u045C' : '&kjcy;',
+  '\uD835\uDD5C' : '&kopf;',
+  '\uD835\uDCC0' : '&kscr;',
+  '\u291B' : '&lAtail;',
+  '\u290E' : '&lBarr;',
+  '\u2A8B' : '&lEg;',
+  '\u2962' : '&lHar;',
+  '\u013A' : '&lacute;',
+  '\u29B4' : '&laemptyv;',
+  '\u03BB' : '&lambda;',
+  '\u2991' : '&langd;',
+  '\u2A85' : '&lap;',
+  '\u00AB' : '&laquo;',
+  '\u291F' : '&larrbfs;',
+  '\u291D' : '&larrfs;',
+  '\u21AB' : '&larrlp;',
+  '\u2939' : '&larrpl;',
+  '\u2973' : '&larrsim;',
+  '\u21A2' : '&larrtl;',
+  '\u2AAB' : '&lat;',
+  '\u2919' : '&latail;',
+  '\u2AAD' : '&late;',
+  '\u2AAD\uFE00' : '&lates;',
+  '\u290C' : '&lbarr;',
+  '\u2772' : '&lbbrk;',
+  '\u007B' : '&lbrace;',
+  '\u005B' : '&lbrack;',
+  '\u298B' : '&lbrke;',
+  '\u298F' : '&lbrksld;',
+  '\u298D' : '&lbrkslu;',
+  '\u013E' : '&lcaron;',
+  '\u013C' : '&lcedil;',
+  '\u043B' : '&lcy;',
+  '\u2936' : '&ldca;',
+  '\u2967' : '&ldrdhar;',
+  '\u294B' : '&ldrushar;',
+  '\u21B2' : '&ldsh;',
+  '\u2264' : '&le;',
+  '\u21C7' : '&leftleftarrows;',
+  '\u22CB' : '&leftthreetimes;',
+  '\u2AA8' : '&lescc;',
+  '\u2A7F' : '&lesdot;',
+  '\u2A81' : '&lesdoto;',
+  '\u2A83' : '&lesdotor;',
+  '\u22DA\uFE00' : '&lesg;',
+  '\u2A93' : '&lesges;',
+  '\u22D6' : '&lessdot;',
+  '\u297C' : '&lfisht;',
+  '\uD835\uDD29' : '&lfr;',
+  '\u2A91' : '&lgE;',
+  '\u296A' : '&lharul;',
+  '\u2584' : '&lhblk;',
+  '\u0459' : '&ljcy;',
+  '\u296B' : '&llhard;',
+  '\u25FA' : '&lltri;',
+  '\u0140' : '&lmidot;',
+  '\u23B0' : '&lmoust;',
+  '\u2268' : '&lnE;',
+  '\u2A89' : '&lnap;',
+  '\u2A87' : '&lne;',
+  '\u22E6' : '&lnsim;',
+  '\u27EC' : '&loang;',
+  '\u21FD' : '&loarr;',
+  '\u21AC' : '&looparrowright;',
+  '\u2985' : '&lopar;',
+  '\uD835\uDD5D' : '&lopf;',
+  '\u2A2D' : '&loplus;',
+  '\u2A34' : '&lotimes;',
+  '\u2217' : '&lowast;',
+  '\u25CA' : '&loz;',
+  '\u0028' : '&lpar;',
+  '\u2993' : '&lparlt;',
+  '\u296D' : '&lrhard;',
+  '\u200E' : '&lrm;',
+  '\u22BF' : '&lrtri;',
+  '\u2039' : '&lsaquo;',
+  '\uD835\uDCC1' : '&lscr;',
+  '\u2A8D' : '&lsime;',
+  '\u2A8F' : '&lsimg;',
+  '\u201A' : '&lsquor;',
+  '\u0142' : '&lstrok;',
+  '\u2AA6' : '&ltcc;',
+  '\u2A79' : '&ltcir;',
+  '\u22C9' : '&ltimes;',
+  '\u2976' : '&ltlarr;',
+  '\u2A7B' : '&ltquest;',
+  '\u2996' : '&ltrPar;',
+  '\u25C3' : '&ltri;',
+  '\u294A' : '&lurdshar;',
+  '\u2966' : '&luruhar;',
+  '\u2268\uFE00' : '&lvertneqq;',
+  '\u223A' : '&mDDot;',
+  '\u00AF' : '&macr;',
+  '\u2642' : '&male;',
+  '\u2720' : '&malt;',
+  '\u25AE' : '&marker;',
+  '\u2A29' : '&mcomma;',
+  '\u043C' : '&mcy;',
+  '\u2014' : '&mdash;',
+  '\uD835\uDD2A' : '&mfr;',
+  '\u2127' : '&mho;',
+  '\u00B5' : '&micro;',
+  '\u2AF0' : '&midcir;',
+  '\u2212' : '&minus;',
+  '\u2A2A' : '&minusdu;',
+  '\u2ADB' : '&mlcp;',
+  '\u22A7' : '&models;',
+  '\uD835\uDD5E' : '&mopf;',
+  '\uD835\uDCC2' : '&mscr;',
+  '\u03BC' : '&mu;',
+  '\u22B8' : '&multimap;',
+  '\u22D9\u0338' : '&nGg;',
+  '\u226B\u20D2' : '&nGt;',
+  '\u21CD' : '&nLeftarrow;',
+  '\u21CE' : '&nLeftrightarrow;',
+  '\u22D8\u0338' : '&nLl;',
+  '\u226A\u20D2' : '&nLt;',
+  '\u21CF' : '&nRightarrow;',
+  '\u22AF' : '&nVDash;',
+  '\u22AE' : '&nVdash;',
+  '\u0144' : '&nacute;',
+  '\u2220\u20D2' : '&nang;',
+  '\u2A70\u0338' : '&napE;',
+  '\u224B\u0338' : '&napid;',
+  '\u0149' : '&napos;',
+  '\u266E' : '&natur;',
+  '\u2A43' : '&ncap;',
+  '\u0148' : '&ncaron;',
+  '\u0146' : '&ncedil;',
+  '\u2A6D\u0338' : '&ncongdot;',
+  '\u2A42' : '&ncup;',
+  '\u043D' : '&ncy;',
+  '\u2013' : '&ndash;',
+  '\u21D7' : '&neArr;',
+  '\u2924' : '&nearhk;',
+  '\u2250\u0338' : '&nedot;',
+  '\u2928' : '&nesear;',
+  '\uD835\uDD2B' : '&nfr;',
+  '\u21AE' : '&nharr;',
+  '\u2AF2' : '&nhpar;',
+  '\u22FC' : '&nis;',
+  '\u22FA' : '&nisd;',
+  '\u045A' : '&njcy;',
+  '\u2266\u0338' : '&nlE;',
+  '\u219A' : '&nlarr;',
+  '\u2025' : '&nldr;',
+  '\uD835\uDD5F' : '&nopf;',
+  '\u00AC' : '&not;',
+  '\u22F9\u0338' : '&notinE;',
+  '\u22F5\u0338' : '&notindot;',
+  '\u22F7' : '&notinvb;',
+  '\u22F6' : '&notinvc;',
+  '\u22FE' : '&notnivb;',
+  '\u22FD' : '&notnivc;',
+  '\u2AFD\u20E5' : '&nparsl;',
+  '\u2202\u0338' : '&npart;',
+  '\u2A14' : '&npolint;',
+  '\u219B' : '&nrarr;',
+  '\u2933\u0338' : '&nrarrc;',
+  '\u219D\u0338' : '&nrarrw;',
+  '\uD835\uDCC3' : '&nscr;',
+  '\u2284' : '&nsub;',
+  '\u2AC5\u0338' : '&nsubE;',
+  '\u2285' : '&nsup;',
+  '\u2AC6\u0338' : '&nsupE;',
+  '\u03BD' : '&nu;',
+  '\u0023' : '&num;',
+  '\u2116' : '&numero;',
+  '\u2007' : '&numsp;',
+  '\u22AD' : '&nvDash;',
+  '\u2904' : '&nvHarr;',
+  '\u224D\u20D2' : '&nvap;',
+  '\u22AC' : '&nvdash;',
+  '\u2265\u20D2' : '&nvge;',
+  '\u003E\u20D2' : '&nvgt;',
+  '\u29DE' : '&nvinfin;',
+  '\u2902' : '&nvlArr;',
+  '\u2264\u20D2' : '&nvle;',
+  '\u003C\u20D2' : '&nvlt;',
+  '\u22B4\u20D2' : '&nvltrie;',
+  '\u2903' : '&nvrArr;',
+  '\u22B5\u20D2' : '&nvrtrie;',
+  '\u223C\u20D2' : '&nvsim;',
+  '\u21D6' : '&nwArr;',
+  '\u2923' : '&nwarhk;',
+  '\u2927' : '&nwnear;',
+  '\u00F3' : '&oacute;',
+  '\u00F4' : '&ocirc;',
+  '\u043E' : '&ocy;',
+  '\u0151' : '&odblac;',
+  '\u2A38' : '&odiv;',
+  '\u29BC' : '&odsold;',
+  '\u0153' : '&oelig;',
+  '\u29BF' : '&ofcir;',
+  '\uD835\uDD2C' : '&ofr;',
+  '\u02DB' : '&ogon;',
+  '\u00F2' : '&ograve;',
+  '\u29C1' : '&ogt;',
+  '\u29B5' : '&ohbar;',
+  '\u29BE' : '&olcir;',
+  '\u29BB' : '&olcross;',
+  '\u29C0' : '&olt;',
+  '\u014D' : '&omacr;',
+  '\u03C9' : '&omega;',
+  '\u03BF' : '&omicron;',
+  '\u29B6' : '&omid;',
+  '\uD835\uDD60' : '&oopf;',
+  '\u29B7' : '&opar;',
+  '\u29B9' : '&operp;',
+  '\u2228' : '&or;',
+  '\u2A5D' : '&ord;',
+  '\u2134' : '&order;',
+  '\u00AA' : '&ordf;',
+  '\u00BA' : '&ordm;',
+  '\u22B6' : '&origof;',
+  '\u2A56' : '&oror;',
+  '\u2A57' : '&orslope;',
+  '\u2298' : '&osol;',
+  '\u2A36' : '&otimesas;',
+  '\u2AF3' : '&parsim;',
+  '\u043F' : '&pcy;',
+  '\u0025' : '&percnt;',
+  '\u002E' : '&period;',
+  '\u2031' : '&pertenk;',
+  '\uD835\uDD2D' : '&pfr;',
+  '\u03C6' : '&phi;',
+  '\u260E' : '&phone;',
+  '\u002B' : '&plus;',
+  '\u2A25' : '&plusdu;',
+  '\u2A72' : '&pluse;',
+  '\u2A26' : '&plussim;',
+  '\u2A27' : '&plustwo;',
+  '\u2A15' : '&pointint;',
+  '\uD835\uDD61' : '&popf;',
+  '\u00A3' : '&pound;',
+  '\u2AB3' : '&prE;',
+  '\u2AB7' : '&prap;',
+  '\u2AB9' : '&precnapprox;',
+  '\u2AB5' : '&precneqq;',
+  '\u22E8' : '&precnsim;',
+  '\u2032' : '&prime;',
+  '\u232E' : '&profalar;',
+  '\u2312' : '&profline;',
+  '\u2313' : '&profsurf;',
+  '\u22B0' : '&prurel;',
+  '\uD835\uDCC5' : '&pscr;',
+  '\u03C8' : '&psi;',
+  '\u2008' : '&puncsp;',
+  '\uD835\uDD2E' : '&qfr;',
+  '\uD835\uDD62' : '&qopf;',
+  '\u2057' : '&qprime;',
+  '\uD835\uDCC6' : '&qscr;',
+  '\u2A16' : '&quatint;',
+  '\u003F' : '&quest;',
+  '\u291C' : '&rAtail;',
+  '\u2964' : '&rHar;',
+  '\u223D\u0331' : '&race;',
+  '\u0155' : '&racute;',
+  '\u29B3' : '&raemptyv;',
+  '\u2992' : '&rangd;',
+  '\u29A5' : '&range;',
+  '\u00BB' : '&raquo;',
+  '\u2975' : '&rarrap;',
+  '\u2920' : '&rarrbfs;',
+  '\u2933' : '&rarrc;',
+  '\u291E' : '&rarrfs;',
+  '\u2945' : '&rarrpl;',
+  '\u2974' : '&rarrsim;',
+  '\u21A3' : '&rarrtl;',
+  '\u219D' : '&rarrw;',
+  '\u291A' : '&ratail;',
+  '\u2236' : '&ratio;',
+  '\u2773' : '&rbbrk;',
+  '\u007D' : '&rbrace;',
+  '\u005D' : '&rbrack;',
+  '\u298C' : '&rbrke;',
+  '\u298E' : '&rbrksld;',
+  '\u2990' : '&rbrkslu;',
+  '\u0159' : '&rcaron;',
+  '\u0157' : '&rcedil;',
+  '\u0440' : '&rcy;',
+  '\u2937' : '&rdca;',
+  '\u2969' : '&rdldhar;',
+  '\u21B3' : '&rdsh;',
+  '\u25AD' : '&rect;',
+  '\u297D' : '&rfisht;',
+  '\uD835\uDD2F' : '&rfr;',
+  '\u296C' : '&rharul;',
+  '\u03C1' : '&rho;',
+  '\u03F1' : '&rhov;',
+  '\u21C9' : '&rightrightarrows;',
+  '\u22CC' : '&rightthreetimes;',
+  '\u02DA' : '&ring;',
+  '\u200F' : '&rlm;',
+  '\u23B1' : '&rmoust;',
+  '\u2AEE' : '&rnmid;',
+  '\u27ED' : '&roang;',
+  '\u21FE' : '&roarr;',
+  '\u2986' : '&ropar;',
+  '\uD835\uDD63' : '&ropf;',
+  '\u2A2E' : '&roplus;',
+  '\u27FC' : '&longmapsto;',
+  '\u2A35' : '&rotimes;',
+  '\u0029' : '&rpar;',
+  '\u2994' : '&rpargt;',
+  '\u2A12' : '&rppolint;',
+  '\u203A' : '&rsaquo;',
+  '\uD835\uDCC7' : '&rscr;',
+  '\u22CA' : '&rtimes;',
+  '\u25B9' : '&rtri;',
+  '\u29CE' : '&rtriltri;',
+  '\u2968' : '&ruluhar;',
+  '\u211E' : '&rx;',
+  '\u015B' : '&sacute;',
+  '\u2AB4' : '&scE;',
+  '\u2AB8' : '&scap;',
+  '\u0161' : '&scaron;',
+  '\u015F' : '&scedil;',
+  '\u015D' : '&scirc;',
+  '\u2AB6' : '&scnE;',
+  '\u2ABA' : '&scnap;',
+  '\u22E9' : '&scnsim;',
+  '\u2A13' : '&scpolint;',
+  '\u0441' : '&scy;',
+  '\u22C5' : '&sdot;',
+  '\u2A66' : '&sdote;',
+  '\u21D8' : '&seArr;',
+  '\u00A7' : '&sect;',
+  '\u003B' : '&semi;',
+  '\u2929' : '&seswar;',
+  '\u2736' : '&sext;',
+  '\uD835\uDD30' : '&sfr;',
+  '\u266F' : '&sharp;',
+  '\u0449' : '&shchcy;',
+  '\u0448' : '&shcy;',
+  '\u00AD' : '&shy;',
+  '\u03C3' : '&sigma;',
+  '\u03C2' : '&sigmaf;',
+  '\u2A6A' : '&simdot;',
+  '\u2A9E' : '&simg;',
+  '\u2AA0' : '&simgE;',
+  '\u2A9D' : '&siml;',
+  '\u2A9F' : '&simlE;',
+  '\u2246' : '&simne;',
+  '\u2A24' : '&simplus;',
+  '\u2972' : '&simrarr;',
+  '\u2A33' : '&smashp;',
+  '\u29E4' : '&smeparsl;',
+  '\u2323' : '&smile;',
+  '\u2AAA' : '&smt;',
+  '\u2AAC' : '&smte;',
+  '\u2AAC\uFE00' : '&smtes;',
+  '\u044C' : '&softcy;',
+  '\u002F' : '&sol;',
+  '\u29C4' : '&solb;',
+  '\u233F' : '&solbar;',
+  '\uD835\uDD64' : '&sopf;',
+  '\u2660' : '&spades;',
+  '\u2293\uFE00' : '&sqcaps;',
+  '\u2294\uFE00' : '&sqcups;',
+  '\uD835\uDCC8' : '&sscr;',
+  '\u2606' : '&star;',
+  '\u03D5' : '&straightphi;',
+  '\u2282' : '&sub;',
+  '\u2AC5' : '&subE;',
+  '\u2ABD' : '&subdot;',
+  '\u2AC3' : '&subedot;',
+  '\u2AC1' : '&submult;',
+  '\u2ACB' : '&subnE;',
+  '\u228A' : '&subne;',
+  '\u2ABF' : '&subplus;',
+  '\u2979' : '&subrarr;',
+  '\u2AC7' : '&subsim;',
+  '\u2AD5' : '&subsub;',
+  '\u2AD3' : '&subsup;',
+  '\u266A' : '&sung;',
+  '\u00B9' : '&sup1;',
+  '\u00B2' : '&sup2;',
+  '\u00B3' : '&sup3;',
+  '\u2AC6' : '&supE;',
+  '\u2ABE' : '&supdot;',
+  '\u2AD8' : '&supdsub;',
+  '\u2AC4' : '&supedot;',
+  '\u27C9' : '&suphsol;',
+  '\u2AD7' : '&suphsub;',
+  '\u297B' : '&suplarr;',
+  '\u2AC2' : '&supmult;',
+  '\u2ACC' : '&supnE;',
+  '\u228B' : '&supne;',
+  '\u2AC0' : '&supplus;',
+  '\u2AC8' : '&supsim;',
+  '\u2AD4' : '&supsub;',
+  '\u2AD6' : '&supsup;',
+  '\u21D9' : '&swArr;',
+  '\u292A' : '&swnwar;',
+  '\u00DF' : '&szlig;',
+  '\u2316' : '&target;',
+  '\u03C4' : '&tau;',
+  '\u0165' : '&tcaron;',
+  '\u0163' : '&tcedil;',
+  '\u0442' : '&tcy;',
+  '\u2315' : '&telrec;',
+  '\uD835\uDD31' : '&tfr;',
+  '\u03B8' : '&theta;',
+  '\u03D1' : '&thetasym;',
+  '\u00FE' : '&thorn;',
+  '\u00D7' : '&times;',
+  '\u2A31' : '&timesbar;',
+  '\u2A30' : '&timesd;',
+  '\u2336' : '&topbot;',
+  '\u2AF1' : '&topcir;',
+  '\uD835\uDD65' : '&topf;',
+  '\u2ADA' : '&topfork;',
+  '\u2034' : '&tprime;',
+  '\u25B5' : '&triangle;',
+  '\u25BF' : '&triangledown;',
+  '\u225C' : '&triangleq;',
+  '\u25EC' : '&tridot;',
+  '\u2A3A' : '&triminus;',
+  '\u2A39' : '&triplus;',
+  '\u29CD' : '&trisb;',
+  '\u2A3B' : '&tritime;',
+  '\u23E2' : '&trpezium;',
+  '\uD835\uDCC9' : '&tscr;',
+  '\u0446' : '&tscy;',
+  '\u045B' : '&tshcy;',
+  '\u0167' : '&tstrok;',
+  '\u2963' : '&uHar;',
+  '\u00FA' : '&uacute;',
+  '\u045E' : '&ubrcy;',
+  '\u016D' : '&ubreve;',
+  '\u00FB' : '&ucirc;',
+  '\u0443' : '&ucy;',
+  '\u0171' : '&udblac;',
+  '\u297E' : '&ufisht;',
+  '\uD835\uDD32' : '&ufr;',
+  '\u00F9' : '&ugrave;',
+  '\u2580' : '&uhblk;',
+  '\u231C' : '&ulcorn;',
+  '\u230F' : '&ulcrop;',
+  '\u25F8' : '&ultri;',
+  '\u016B' : '&umacr;',
+  '\u0173' : '&uogon;',
+  '\uD835\uDD66' : '&uopf;',
+  '\u03C5' : '&upsi;',
+  '\u21C8' : '&upuparrows;',
+  '\u231D' : '&urcorn;',
+  '\u230E' : '&urcrop;',
+  '\u016F' : '&uring;',
+  '\u25F9' : '&urtri;',
+  '\uD835\uDCCA' : '&uscr;',
+  '\u22F0' : '&utdot;',
+  '\u0169' : '&utilde;',
+  '\u00FC' : '&uuml;',
+  '\u29A7' : '&uwangle;',
+  '\u2AE8' : '&vBar;',
+  '\u2AE9' : '&vBarv;',
+  '\u299C' : '&vangrt;',
+  '\u2205' : '&varnothing;',
+  '\u228A\uFE00' : '&varsubsetneq;',
+  '\u2ACB\uFE00' : '&varsubsetneqq;',
+  '\u228B\uFE00' : '&varsupsetneq;',
+  '\u2ACC\uFE00' : '&varsupsetneqq;',
+  '\u0432' : '&vcy;',
+  '\u22BB' : '&veebar;',
+  '\u225A' : '&veeeq;',
+  '\u22EE' : '&vellip;',
+  '\uD835\uDD33' : '&vfr;',
+  '\uD835\uDD67' : '&vopf;',
+  '\uD835\uDCCB' : '&vscr;',
+  '\u299A' : '&vzigzag;',
+  '\u0175' : '&wcirc;',
+  '\u2A5F' : '&wedbar;',
+  '\u2259' : '&wedgeq;',
+  '\u2118' : '&weierp;',
+  '\uD835\uDD34' : '&wfr;',
+  '\uD835\uDD68' : '&wopf;',
+  '\uD835\uDCCC' : '&wscr;',
+  '\uD835\uDD35' : '&xfr;',
+  '\u03BE' : '&xi;',
+  '\u22FB' : '&xnis;',
+  '\uD835\uDD69' : '&xopf;',
+  '\uD835\uDCCD' : '&xscr;',
+  '\u00FD' : '&yacute;',
+  '\u044F' : '&yacy;',
+  '\u0177' : '&ycirc;',
+  '\u044B' : '&ycy;',
+  '\u00A5' : '&yen;',
+  '\uD835\uDD36' : '&yfr;',
+  '\u0457' : '&yicy;',
+  '\uD835\uDD6A' : '&yopf;',
+  '\uD835\uDCCE' : '&yscr;',
+  '\u044E' : '&yucy;',
+  '\u00FF' : '&yuml;',
+  '\u017A' : '&zacute;',
+  '\u017E' : '&zcaron;',
+  '\u0437' : '&zcy;',
+  '\u017C' : '&zdot;',
+  '\u03B6' : '&zeta;',
+  '\uD835\uDD37' : '&zfr;',
+  '\u0436' : '&zhcy;',
+  '\u21DD' : '&zigrarr;',
+  '\uD835\uDD6B' : '&zopf;',
+  '\uD835\uDCCF' : '&zscr;',
+  '\u200D' : '&zwj;',
+  '\u200C': '&zwnj;',
+}

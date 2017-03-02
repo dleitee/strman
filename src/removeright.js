@@ -19,4 +19,4 @@ const removeRight = (value, suffix, caseSensitive = true) => {
     return value;
 };
 
-export {removeRight};
+

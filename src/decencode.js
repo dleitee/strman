@@ -1,3 +1,5 @@
+import { LENGTH_DECIMAL, BASE_DECIMAL } from './lib/numerical.base'
+import encode from './lib/encode'
 /**
  * Convert string chars to decimal unicode (5 digits)
  * @playground
@@ -6,6 +8,4 @@
  * @param {String} value - Value to encode
  * @returns {String} - String in decimal format.
  */
-const decEncode = (value) => encode(value, LENGTH_DECIMAL, BASE_DECIMAL);
-
-export {decEncode};
+export default value => encode(value, LENGTH_DECIMAL, BASE_DECIMAL)

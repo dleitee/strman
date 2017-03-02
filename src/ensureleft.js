@@ -1,3 +1,5 @@
+import startsWith from './startswith'
+import append from './append'
 /**
  * Ensures that the `value` begins with `substr`. If it doesn't, it's prepended.
  * @param {String} value The input string
@@ -11,12 +13,10 @@
  * let substr = 'Daniel '
  * strman.ensureLeft(value, substr) // returns 'Daniel Leite'
  */
-const ensureLeft = (value, _substr, caseSensitive = true)  => {
-    if(!startsWith(value, _substr, 0, caseSensitive)){
-        return append(_substr, value);
-    }
+export default (value, substr, caseSensitive = true) => {
+  if (!startsWith(value, substr, 0, caseSensitive)) {
+    return append(substr, value)
+  }
 
-    return value;
-};
-
-export  {ensureLeft};
+  return value
+}

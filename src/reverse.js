@@ -8,7 +8,7 @@
  * @param {String} value - The String!.
  * @return {String} - The String reversed!
  */
-const reverse = value =>
+export default value =>
     split(value, '').reduceRight((previous, current) => append(previous, current), '');
 
-export {reverse};
+

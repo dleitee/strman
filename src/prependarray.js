@@ -17,4 +17,4 @@ const prependArray = (value, prepends = []) => {
     return prepends.join('') + value;
 };
 
-export {prependArray};
+

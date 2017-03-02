@@ -17,4 +17,4 @@ const startsWith = (value, search, position = 0, caseSensitive = true) =>
         length(search)
     ) === toCaseSensitive(search, caseSensitive);
 
-export {startsWith};
+

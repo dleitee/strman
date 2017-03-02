@@ -8,4 +8,4 @@
  */
 const hexEncode = (value) => encode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL);
 
-export {hexEncode};
+

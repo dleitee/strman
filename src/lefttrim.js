@@ -10,6 +10,4 @@ import replace from './replace'
  * @params {String = ' '} char - if you need remove other char on left boarders.
  * @return {String} - String without left boarders spaces.
  */
-const leftTrim = (value, char = ' ') => replace(value, `^${char}+`, '');
-
-export default leftTrim;
+export default (value, char = ' ') => replace(value, `^${char}+`, '')

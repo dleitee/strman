@@ -25,4 +25,4 @@ const rightPad = (value, _length, char = ' ') => {
     return result;
 };
 
-export {rightPad};
+

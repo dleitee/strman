@@ -1,4 +1,5 @@
- /**
+import toLowerCase from './tolowercase'
+/**
  * Verify if has lowerCase
  * @playground
  * var isLowerCase = require('strman').isLowerCase;
@@ -7,6 +8,4 @@
  * @param {String} value - The String!.
  * @return {Boolean} - String is lowercase?.
  */
-const isLowerCase = (value) => value === toLowerCase(value);
-
-export {isLowerCase};
+export default value => value === toLowerCase(value)

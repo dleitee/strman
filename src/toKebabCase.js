@@ -7,8 +7,8 @@
  * @param {String} value - The String!.
  * @return {String} - String in kebab-case.
  */
-const toKebabCase = value => {
+export default value => {
     return toDecamelize(value, '-');
 };
 
-export {toKebabCase};
+

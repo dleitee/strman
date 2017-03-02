@@ -7,9 +7,9 @@
  * @param {String} value - The String!.
  * @return {String} - String in camelCase.
  */
-const toCamelCase = value => {
+export default value => {
     let string = toStudlyCaps(value);
     return toLowerCase(string.substr(0, 1)) + string.substr(1);
 };
 
-export {toCamelCase};
+

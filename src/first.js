@@ -1,3 +1,4 @@
+import substr from './substr'
 /**
  * Return the first 'n' chars of string.
  * @playground
@@ -8,6 +9,4 @@
  * @param {String} n - Number of chars to return.
  * @return {String} - Return 'n' firsts chars.
  */
-const first = (value, n) => substr(value, 0, n);
-
-export {first};
+export default (value, n) => substr(value, 0, n)

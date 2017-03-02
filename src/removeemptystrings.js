@@ -7,6 +7,4 @@
  * @param {String[]} strings - Array of strings that will be cleaned.
  * @returns {String[]} - Array of strings without empty strings.
  */
-const removeEmptyStrings = (strings) => strings.filter(string => string && string !== '');
-
-export default removeEmptyStrings;
+export default strings => strings.filter(string => string && string !== '')

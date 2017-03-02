@@ -13,4 +13,4 @@ const toDecamelize = (value, chr = '_') => {
     return toLowerCase(string);
 };
 
-export {toDecamelize};
+

@@ -9,6 +9,4 @@
  * @param {Number} limit - Split limit.
  * @return {String} - The String splited!
  */
-const split = (value, separator, limit = undefined) => value.split(separator, limit);
-
-export {split};
+export default (value, separator, limit = undefined) => value.split(separator, limit)

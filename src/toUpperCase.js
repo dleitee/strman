@@ -7,6 +7,4 @@
  * @param {String} value - The String!.
  * @return {String} - String in uppercase.
  */
-const toUpperCase = value => value.toUpperCase();
-
-export {toUpperCase};
+export default value => value.toUpperCase()

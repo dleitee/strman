@@ -7,6 +7,4 @@
  * @param {String} value - The String!.
  * @return {String} - String in lowercase.
  */
-const toLowerCase = value => value.toLowerCase();
-
-export {toLowerCase};
+export default value => value.toLowerCase()

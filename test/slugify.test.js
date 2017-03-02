@@ -1,61 +1,28 @@
-import chai from 'chai';
-import {slugify} from '../src/strman';
-const deepFreeze = require('deep-freeze');
+import slugify from '../src/slugify'
 
-describe('Slugfiy function', () => {
-    it('should be foo-bar', () => {
-        let fixtures = [
-            'foo bar',
-            'foo bar.',
-            'foo bar ',
-            ' foo bar',
-            ' foo bar ',
-            'foo------bar',
-            'fóõ bár',
-            'foo ! bar',
-            'foo ~~ bar',
-            'foo     bar',
-            'FOO     bar'
-        ];
+describe('strman.slugfiy', () => {
+  test('should be foo-bar', () => {
+    const fixtures = ['foo bar', 'foo bar.', 'foo bar ', ' foo bar', ' foo bar ', 'foo------bar', 'fóõ bár', 'foo ! bar', 'foo ~~ bar', 'foo     bar', 'FOO     bar']
 
-        fixtures.forEach(el => {
-            deepFreeze(el);
-            el = 'foo-bar';
-            chai.expect(slugify(el)).to.equal('foo-bar');
-        });
-    });
-    it('should be foo-and-bar', () => {
-        let fixtures = [
-            'foo&bar',
-            'foo&bar.',
-            'foo&bar ',
-            ' foo&bar',
-            ' foo&bar ',
-            'foo&bar',
-            'fóõ-and---bár',
-            'foo  &    bar',
-            'FOO  &   bar'
-        ];
+    fixtures.forEach((el) => {
+      expect(slugify(el)).toBe('foo-bar')
+    })
+  })
+  test('should be foo-and-bar', () => {
+    const fixtures = ['foo&bar', 'foo&bar.', 'foo&bar ', ' foo&bar', ' foo&bar ', 'foo&bar', 'fóõ-and---bár', 'foo  &    bar', 'FOO  &   bar']
 
-        fixtures.forEach(el => {
-            deepFreeze(el);
-            chai.expect(slugify(el)).to.equal('foo-and-bar');
-        });
-    });
+    fixtures.forEach((el) => {
+      expect(slugify(el)).toBe('foo-and-bar')
+    })
+  })
 
-    it('should be throw', () => {
-        let fixtures = [
-            1,
-            [],
-            {},
-            1.2,
-            false,
-            true
-        ];
+  test('should be throw', () => {
+    const fixtures = [1, [], {}, 1.2, false, true]
 
-        fixtures.forEach(el => {
-            deepFreeze(el);
-            chai.assert.throws(slugify.bind(this, el), Error);
-        });
-    });
-});
+    fixtures.forEach((el) => {
+      expect(() => {
+        slugify(el)
+      }).toThrow(Error)
+    })
+  })
+})

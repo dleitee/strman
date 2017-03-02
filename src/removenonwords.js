@@ -1,3 +1,4 @@
+import replace from './replace'
 /**
  * Remove all non word characters.
  * @playground
@@ -8,6 +9,4 @@
  * @param {String} replaced - Value to replace.
  * @return {String} - String without non word characters.
  */
-const removeNonWords = (value, replaced = '') => replace(value, '[^\\w]+', replaced);
-
-export {removeNonWords};
+export default (value, replaced = '') => replace(value, '[^\\w]+', replaced)
