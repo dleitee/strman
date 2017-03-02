@@ -1,4 +1,6 @@
- /**
+import toCamelCase from './tocamelcase'
+import toLowerCase from './tolowercase'
+/**
  * Decamelize String
  * @playground
  * var toDecamelize = require('strman').toDecamelize;
@@ -7,10 +9,8 @@
  * @param {String} value - The String!.
  * @return {String} - String decamelized.
  */
-const toDecamelize = (value, chr = '_') => {
-    let camel = toCamelCase(value);
-    let string = camel.replace(/([A-Z])+/g, chr + '$1');
-    return toLowerCase(string);
-};
-
-
+export default (value, chr = '_') => {
+  const camel = toCamelCase(value)
+  const string = camel.replace(/([A-Z])+/g, `${chr}$1`)
+  return toLowerCase(string)
+}

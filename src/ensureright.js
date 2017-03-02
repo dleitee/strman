@@ -1,3 +1,5 @@
+import endsWith from './endswith'
+import append from './append'
 /**
  * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
  * @param {String} value The input string
@@ -11,7 +13,9 @@
  * let substr = ' Leite'
  * strman.ensureRight(value, substr) // returns 'Daniel Leite'
  */
-const ensureRight = (value, _substr, caseSensitive = true)  =>
-    !endsWith(value, _substr, null, caseSensitive)?append(value, _substr):value;
-
-
+export default (value, _substr, caseSensitive = true) => {
+  if (!endsWith(value, _substr, null, caseSensitive)) {
+    return append(value, _substr)
+  }
+  return value
+}

@@ -1,3 +1,4 @@
+import toUpperCase from './touppercase'
  /**
  * Verify if has UPPERCASE
  * @playground
@@ -7,6 +8,4 @@
  * @param {String} value - The String!.
  * @return {Boolean} - String is UPPERCASE?.
  */
-const isUpperCase = (value) => value === toUpperCase(value);
-
-
+export default value => value === toUpperCase(value)

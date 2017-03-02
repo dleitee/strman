@@ -1,3 +1,4 @@
+import toCaseSensitive from './lib/case'
 /**
  * The lastIndexOf() method returns the index within the calling String object of the last
  * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the
@@ -12,10 +13,8 @@
  * @param {Boolean} caseSensitive - if you use caseSensitive to test.
  * @return {Number} - Return position of the last occurrence of 'needle'.
  */
-const lastIndexOf = (value, needle, offset = undefined, caseSensitive = true) =>
-    toCaseSensitive(value, caseSensitive).lastIndexOf(
-            toCaseSensitive(needle, caseSensitive),
-            offset
-        );
-
-
+export default (value, needle, offset = undefined, caseSensitive = true) =>
+toCaseSensitive(value, caseSensitive).lastIndexOf(
+  toCaseSensitive(needle, caseSensitive),
+  offset,
+)

@@ -1,3 +1,4 @@
+import toDecamelize from './todecamelize'
 /**
  * Transform to kebab-case.
  * @playground
@@ -7,8 +8,4 @@
  * @param {String} value - The String!.
  * @return {String} - String in kebab-case.
  */
-export default value => {
-    return toDecamelize(value, '-');
-};
-
-
+export default value => toDecamelize(value, '-')

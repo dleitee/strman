@@ -7,26 +7,20 @@ import append from './append'
  * let title = "A Javascript string manipulation library.";
  * let result = truncate(title, 16, '...');
  * @param {String} value - Value will be truncated unsecurely.
- * @param {Number} _length - Size of the returned string.
+ * @param {Number} length - Size of the returned string.
  * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
  * @returns {String} - String truncated unsafely.
  */
-const truncate = (value, _length, _append = '') => {
+export default (value, length, _append = '') => {
+  if (length === 0) {
+    return ''
+  }
 
-    let truncated = '';
+  if (length >= value.length) {
+    return value
+  }
 
-    if(_length === 0){
-        return '';
-    }
+  const truncated = substr(value, 0, length - _append.length)
 
-    if (_length >= value.length) {
-        return value;
-    }
-
-    truncated = substr(value, 0, _append.length);
-
-    return append(truncated, _append);
-
-};
-
-export default truncate;
+  return append(truncated, _append)
+}

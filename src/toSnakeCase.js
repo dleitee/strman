@@ -1,3 +1,4 @@
+import toDecamelize from './todecamelize'
 /**
  * Transform to snake_case.
  * @playground
@@ -7,8 +8,4 @@
  * @param {String} value - The String!.
  * @return {String} - String in snake_case.
  */
-export default value => {
-    return toDecamelize(value, '_');
-};
-
-
+export default value => toDecamelize(value, '_')

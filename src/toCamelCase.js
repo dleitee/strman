@@ -1,3 +1,5 @@
+import toStudlyCaps from './tostudlycaps'
+import toLowerCase from './tolowercase'
 /**
  * Transform to camelCase.
  * @playground
@@ -7,9 +9,7 @@
  * @param {String} value - The String!.
  * @return {String} - String in camelCase.
  */
-export default value => {
-    let string = toStudlyCaps(value);
-    return toLowerCase(string.substr(0, 1)) + string.substr(1);
-};
-
-
+export default (value) => {
+  const string = toStudlyCaps(value)
+  return toLowerCase(string.substr(0, 1)) + string.substr(1)
+}

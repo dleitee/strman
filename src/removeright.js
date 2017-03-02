@@ -1,3 +1,5 @@
+import endsWith from './endswith'
+import substr from './substr'
 /**
  * Returns a new string with the 'suffix' removed, if present.
  * @playground
@@ -9,14 +11,12 @@
  * @param {Boolean} caseSensitive - If you need to caseSensitive.
  * @return {String} - The String without suffix!
  */
-const removeRight = (value, suffix, caseSensitive = true) => {
-    let _length = length(value) - length(suffix);
+export default (value, suffix, caseSensitive = true) => {
+    const _length = value.length - suffix.length
 
     if(endsWith(value, suffix, null, caseSensitive)){
-        return substr(value, 0, _length);
+        return substr(value, 0, _length)
     }
 
-    return value;
-};
-
-
+    return value
+}

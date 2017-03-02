@@ -1,3 +1,4 @@
+import append from './append'
 /**
  * Surrounds a 'value' with the given 'substr'.
  * @playground
@@ -9,7 +10,5 @@
  * @param {String} _substrRight - The substr to append on right.
  * @return {String} - The String with surround substrs!
  */
-const surround = (value, _substr = '', _substrRight = null) =>
-    append(_substr, value, _substrRight === null ? _substr : _substrRight);
-
-
+export default (value, _substr = '', _substrRight = null) =>
+  append(_substr, value, _substrRight === null ? _substr : _substrRight)

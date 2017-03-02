@@ -1,3 +1,5 @@
+import toCaseSensitive from './lib/case'
+import indexOf from './indexof'
 /**
  * Test if `value` ends with `search`
  * @param {String} value The input string
@@ -12,23 +14,18 @@
  * let search = 'Leite'
  * strman.endsWith(value, search) // returns true
  */
-const endsWith = (value, search, position = null, caseSensitive = true) => {
+export default (value, search, position = null, caseSensitive = true) => {
+  if (typeof position !== 'number' || !isFinite(position) || Math.floor(position) !== position || position > value.length) {
+    position = value.length
+  }
 
-    if (typeof position !== 'number' || !isFinite(position)
-            || Math.floor(position) !== position || position > length(value)) {
-        position = length(value);
-    }
+  position -= search.length
 
-    position -= length(search);
+  const lastIndex = indexOf(
+    toCaseSensitive(value, caseSensitive),
+    toCaseSensitive(search, caseSensitive),
+    position
+  )
 
-    const lastIndex = indexOf(
-                    toCaseSensitive(value, caseSensitive),
-                    toCaseSensitive(search, caseSensitive),
-                    position
-                );
-
-    return lastIndex !== -1 && lastIndex === position;
-
-};
-
-
+  return lastIndex !== -1 && lastIndex === position
+}

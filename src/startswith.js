@@ -1,3 +1,5 @@
+import substr from './substr'
+import toCaseSensitive from './lib/case'
 /**
  * Test if 'value' starts with 'search'
  * @playground
@@ -10,11 +12,9 @@
  * @param {Boolean} caseSensitive - if you use caseSensitive to test.
  * @return {Boolean} - If 'value' startsWith 'search' return true, else false.
  */
-const startsWith = (value, search, position = 0, caseSensitive = true) =>
-    substr(
-        toCaseSensitive(value, caseSensitive),
-        position,
-        length(search)
-    ) === toCaseSensitive(search, caseSensitive);
-
-
+export default (value, search, position = 0, caseSensitive = true) =>
+  substr(
+    toCaseSensitive(value, caseSensitive),
+    position,
+    search.length,
+  ) === toCaseSensitive(search, caseSensitive)

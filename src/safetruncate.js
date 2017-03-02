@@ -1,6 +1,6 @@
 import append from './append'
-import lasstIndexOf from './lastindexof'
-import indexof from './indexof'
+import lastIndexOf from './lastindexof'
+import indexOf from './indexof'
 import substr from './substr'
 
 /**
@@ -14,7 +14,7 @@ import substr from './substr'
  * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
  * @returns {String} - String truncated safely.
  */
-const safeTruncate = (value, length, _append = '') => {
+export default (value, length, _append = '') => {
 
     let truncated = '';
 

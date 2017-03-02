@@ -8,13 +8,9 @@
  * @param {String[]} prepends - Strings to prepend.
  * @return {String} - The String prepended!
  */
-const prependArray = (value, prepends = []) => {
-
-    if(length(prepends) === 0){
-        return value;
-    }
-
-    return prepends.join('') + value;
-};
-
-
+export default (value, prepends = []) => {
+  if (prepends.length === 0) {
+    return value
+  }
+  return prepends.join('') + value
+}

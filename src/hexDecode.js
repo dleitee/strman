@@ -1,3 +1,6 @@
+import { LENGTH_HEXADECIMAL, BASE_HEXADECIMAL } from './lib/numerical.base'
+import decode from './lib/decode'
+
 /**
  * Convert hexadecimal unicode (4 digits) string to string chars
  * @playground
@@ -6,6 +9,4 @@
  * @param {String} value - Value to decode
  * @returns {String} - String decoded.
  */
-const hexDecode = (value) => decode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL);
-
-
+export default value => decode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL)
