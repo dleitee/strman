@@ -10,6 +10,6 @@ import replace from './replace'
  * @param {String} replaced - Value to replace.
  * @return {String} - String without spaces.
  */
-const removeSpaces = (value, replaced = '') => replace(value, '\\s+', replaced);
+const removeSpaces = (value, replaced = '') => replace(value, '\\s+', replaced)
 
-export default removeSpaces;
+export default removeSpaces

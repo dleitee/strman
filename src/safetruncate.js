@@ -11,33 +11,30 @@ import substr from './substr'
  * let result = safeTruncate(title, 15, '...');
  * @param {String} value - Value will be truncated securely.
  * @param {Number} length - Max size of the returned string.
- * @param {String} [_append = ''] - Value that will be added to the end of the return string. Example: '...'
+ * @param {String} [_append = ''] - Value that will be added to the end of the return string.
  * @returns {String} - String truncated safely.
  */
 export default (value, length, _append = '') => {
+  let truncated = ''
 
-    let truncated = '';
+  if (length === 0) {
+    return ''
+  }
 
-    if(length === 0){
-        return '';
-    }
+  if (length >= value.length) {
+    return value
+  }
 
-    if (length >= value.length) {
-        return value;
-    }
+  const newLength = length - _append.length
+  truncated = substr(value, 0, newLength)
 
-    length -= _append.length ;
-    truncated = substr(value, 0, length);
+  const position = indexOf(value, ' ', newLength - 1)
 
-    let position = indexOf(value, ' ', length - 1);
+  if (position !== newLength) {
+    const lastPos = lastIndexOf(truncated, ' ')
+    truncated = substr(truncated, 0, lastPos)
+  }
 
-    if(position !== length){
-        let lastPos = lastIndexOf(truncated, ' ');
-        truncated = substr(truncated, 0, lastPos);
-    }
-
-    return append(truncated, _append);
-
-};
-
+  return append(truncated, _append)
+}
 

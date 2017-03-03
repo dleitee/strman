@@ -7,6 +7,6 @@
  * @param {String} stringB - String to be compared
  * @returns {Boolean} - [stringA] is inequal [stringB]
  */
-const inequal = (stringA, stringB) => stringA !== stringB;
+const inequal = (stringA, stringB) => stringA !== stringB
 
-export default inequal;
+export default inequal

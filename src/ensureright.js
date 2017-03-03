@@ -4,7 +4,8 @@ import append from './append'
  * Ensures that the [value] ends with [substr]. If it doesn't, it's appended.
  * @param {String} value The input string
  * @param {String} substr The substr to be ensured to be right
- * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching for determining if `value` already ends with `substr`
+ * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching for determining if
+ * `value` already ends with `substr`
  * @return {String} The string which is guarenteed to start with `substr`
  * @playground
  * var strman = require('strman')

@@ -6,17 +6,16 @@ import split from './split'
  * @param {Array} value - The array!.
  * @return {Array} - The Array shuffled!
 */
-const _shuffle = (array = []) => {
+const shuffle = (array = []) => {
   let j
-  let x
   let i
+  const newArray = array
   for (i = array.length; i; i -= 1) {
     j = Math.floor(Math.random() * i)
-    x = array[i - 1]
-    array[i - 1] = array[j]
-    array[j] = x
+    newArray[i - 1] = array[j]
+    newArray[j] = array[i - 1]
   }
-  return array
+  return newArray
 }
 
 /**
@@ -28,4 +27,4 @@ const _shuffle = (array = []) => {
  * @param {String} value - The String!.
  * @return {String} - The String shuffled!
  */
-export default value => _shuffle(split(value)).join('')
+export default value => shuffle(split(value)).join('')

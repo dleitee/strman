@@ -7,6 +7,6 @@
  * @param {String} stringB - String to be compared
  * @returns {Boolean} - [stringA] is equal [stringB]
  */
-const equal = (stringA, stringB) => stringA === stringB;
+const equal = (stringA, stringB) => stringA === stringB
 
-export default equal;
+export default equal

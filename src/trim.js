@@ -11,6 +11,4 @@ import rightTrim from './righttrim'
  * @params {String = ' '} char - if you need remove other char on boarders.
  * @return {String} - String without boarders spaces.
  */
-const trim = (value, char = ' ') => leftTrim(rightTrim(value, char), char)
-
-export default trim;
+export default (value, char = ' ') => leftTrim(rightTrim(value, char), char)

@@ -12,12 +12,10 @@
  * @return {String} - String replaced with 'newvalue'.
  */
 const replace = (value, search = '', newvalue = '', caseSensitive = true, multiline = true) => {
-    var flags = caseSensitive ? 'g' : 'gi';
+  const flags = caseSensitive ? 'g' : 'gi'
+  const flagsMultiline = multiline ? `${flags}m` : flags
 
-    multiline ? flags + 'm' : flags;
+  return value.replace(new RegExp(search, flagsMultiline), newvalue)
+}
 
-    return value.replace(new RegExp(search, flags), newvalue);
-
-};
-
-export default replace;
+export default replace

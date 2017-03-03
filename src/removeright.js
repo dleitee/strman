@@ -12,11 +12,11 @@ import substr from './substr'
  * @return {String} - The String without suffix!
  */
 export default (value, suffix, caseSensitive = true) => {
-    const _length = value.length - suffix.length
+  const length = value.length - suffix.length
 
-    if(endsWith(value, suffix, null, caseSensitive)){
-        return substr(value, 0, _length)
-    }
+  if (endsWith(value, suffix, null, caseSensitive)) {
+    return substr(value, 0, length)
+  }
 
-    return value
+  return value
 }

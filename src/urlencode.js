@@ -6,6 +6,4 @@
  * @param {String} value - The string to be encoded
  * @returns {String} - Returns a string in which all non-alphanumeric characters except -_.
  */
-const urlEncode = (value) => encodeURI(value);
-
-
+export default value => encodeURI(value)

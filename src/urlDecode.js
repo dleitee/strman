@@ -6,6 +6,4 @@
  * @param {String} value - The string to be decoded
  * @returns {String} - Returns the decoded string.
  */
-const urlDecode = (value) => decodeURI(value);
-
-
+export default value => decodeURI(value)

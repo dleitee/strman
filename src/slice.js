@@ -9,6 +9,4 @@
  * @param {Number} endSlice - End of slice.
  * @return {String} - The String sliced!
  */
- const slice = (value, beginSlice, endSlice = undefined) => value.slice(beginSlice, endSlice);
-
- export default slice;
+ export default (value, beginSlice, endSlice = undefined) => value.slice(beginSlice, endSlice)

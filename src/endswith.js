@@ -14,18 +14,23 @@ import indexOf from './indexof'
  * let search = 'Leite'
  * strman.endsWith(value, search) // returns true
  */
-export default (value, search, position = null, caseSensitive = true) => {
-  if (typeof position !== 'number' || !isFinite(position) || Math.floor(position) !== position || position > value.length) {
-    position = value.length
+
+const isInteger = value =>
+  typeof value === 'number' && isFinite(value) && Math.floor(value) === value
+
+const getPosition = (value, search, position) => {
+  if (!isInteger(position) || position > value.length) {
+    return value.length - search.length
   }
+  return position - search.length
+}
 
-  position -= search.length
-
+export default (value, search, position = null, caseSensitive = true) => {
+  const newPosition = getPosition(value, search, position)
   const lastIndex = indexOf(
     toCaseSensitive(value, caseSensitive),
     toCaseSensitive(search, caseSensitive),
-    position
+    newPosition,
   )
-
-  return lastIndex !== -1 && lastIndex === position
+  return lastIndex !== -1 && lastIndex === newPosition
 }
