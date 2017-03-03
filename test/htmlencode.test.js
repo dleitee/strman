@@ -7,5 +7,7 @@ describe('strman.htmlEncode', () => {
     expect(htmlEncode('Ш')).toBe('&SHcy;')
     expect(htmlEncode('Ж')).toBe('&ZHcy;')
     expect(htmlEncode('┐')).toBe('&boxdl;')
+    expect(htmlEncode('a')).toBe('a')
+    expect(htmlEncode('¶')).toBe('¶')
   })
 })

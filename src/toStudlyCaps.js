@@ -9,11 +9,6 @@ import toUpperCase from './touppercase'
  * @return {String} - String in StudlyCaps.
  */
 export default (value) => {
-  const string = value.replace(/[-_\s]+(.)?/g, (match, chr) => {
-    if (chr) {
-      return toUpperCase(chr)
-    }
-    return ''
-  })
+  const string = value.replace(/[-_\s]+(.)?/g, (match, chr) => toUpperCase(chr))
   return toUpperCase(string.substr(0, 1)) + string.substr(1)
 }

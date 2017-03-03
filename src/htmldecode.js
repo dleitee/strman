@@ -1,4 +1,4 @@
-import { entitiesDecode } from './lib/entities'
+import entitiesDecode from './lib/entitiesdecode'
 import replace from './replace'
 /**
  * Convert all HTML entities to applicable characters.

@@ -6,5 +6,6 @@ describe('strman.htmlDecode', () => {
     expect(htmlDecode('&SHcy;')).toBe('Ш')
     expect(htmlDecode('&ZHcy;')).toBe('Ж')
     expect(htmlDecode('&boxdl;')).toBe('┐')
+    expect(htmlDecode('&boxdlaaa;')).toBe('&boxdlaaa;')
   })
 })
