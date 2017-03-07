@@ -1,4 +1,4 @@
-import { LENGTH_DECIMAL, BASE_DECIMAL } from './lib/numerical.base'
+import { LENGTH_DECIMAL, BASE_DECIMAL } from './lib/numericalbase'
 import encode from './lib/encode'
 /**
  * Convert string chars to decimal unicode (5 digits)

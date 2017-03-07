@@ -1,4 +1,4 @@
-import { LENGTH_DECIMAL, BASE_DECIMAL } from './lib/numerical.base'
+import { LENGTH_DECIMAL, BASE_DECIMAL } from './lib/numericalbase'
 import decode from './lib/decode'
 /**
  * Convert binary unicode (16 digits) string to string chars

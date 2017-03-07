@@ -1,12 +1,13 @@
 {
   "name": "strman",
-  "version": "1.3.1",
+  "version": "1.3.3-prebuild-6",
   "description": "A Javascript string manipulation library without npm dependences.",
   "main": "transpiler/strman.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "build": "babel-node build/build.js",
     "test": "jest --coverage --expand",
     "test-watch": "jest --watch",
     "lint": "eslint src tests",

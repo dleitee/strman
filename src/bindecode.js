@@ -1,4 +1,4 @@
-import { LENGTH_BINARY, BASE_BINARY } from './lib/numerical.base'
+import { LENGTH_BINARY, BASE_BINARY } from './lib/numericalbase'
 import decode from './lib/decode'
 
 /**

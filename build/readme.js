@@ -15,7 +15,7 @@ $ npm i --save ${prefix(libname)}
 
 In Node.js:
 \`\`\`js
-var range = require('${prefix(libname)}');
+var ${libname} = require('${prefix(libname)}');
 \`\`\`
 
 # Contributing

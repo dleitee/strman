@@ -1,4 +1,4 @@
-import { LENGTH_HEXADECIMAL, BASE_HEXADECIMAL } from './lib/numerical.base'
+import { LENGTH_HEXADECIMAL, BASE_HEXADECIMAL } from './lib/numericalbase'
 import decode from './lib/decode'
 
 /**

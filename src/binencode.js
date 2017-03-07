@@ -1,4 +1,4 @@
-import { LENGTH_BINARY, BASE_BINARY } from './lib/numerical.base'
+import { LENGTH_BINARY, BASE_BINARY } from './lib/numericalbase'
 import encode from './lib/encode'
 /**
  * Convert string chars to binary unicode (16 digits)

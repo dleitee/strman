@@ -1,4 +1,4 @@
-import { LENGTH_HEXADECIMAL, BASE_HEXADECIMAL } from './lib/numerical.base'
+import { LENGTH_HEXADECIMAL, BASE_HEXADECIMAL } from './lib/numericalbase'
 import encode from './lib/encode'
 /**
  * Convert string chars to hexadecimal unicode (4 digits)

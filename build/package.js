@@ -1,7 +1,7 @@
 import prefix from './prefix'
 
 const mapDependencies = (dependencies, version) =>
-  dependencies.map(dependency => `"${prefix(dependency)}":"${version}"`)
+  dependencies.map(dependency => `"${dependency}":"${version}"`)
 
 const getDependencies = (dependencies, version) => {
   if (dependencies.length) {
@@ -16,8 +16,8 @@ const getDependencies = (dependencies, version) => {
 export default (name, version, dependencies = []) => `
   {
     "name": "${prefix(name)}",
-    "version": "${version}-0",
-    "description": "A Javascript string manipulation library without npm dependences.",
+    "version": "${version}",
+    "description": "The [strman](https://github.com/dleitee/strman) method \`${name}\` exported as a [Node.js](https://nodejs.org/) module.",
     "main": "index.js",
     "repository": {
       "type": "git",

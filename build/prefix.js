@@ -1,1 +1,1 @@
-export default (name) => `strman.${name}`
+export default name => `strman.${name}`
