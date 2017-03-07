@@ -1,6 +1,6 @@
 {
   "name": "strman",
-  "version": "1.3.3-prebuild-6",
+  "version": "2.0.0-pre-release-0",
   "description": "A Javascript string manipulation library without npm dependences.",
   "main": "transpiler/strman.js",
   "directories": {

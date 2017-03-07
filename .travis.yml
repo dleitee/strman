@@ -3,8 +3,12 @@ node_js:
   - "7"
 before_script:
   - 'npm install'
+   - echo "//registry.npmjs.org/:_authToken=\${TOKEN_NPM}" > .npmrc
 script:
   - npm run lint
   - npm test
+  - npm run build
+
 after_success:
   - 'npm run coveralls'
+
