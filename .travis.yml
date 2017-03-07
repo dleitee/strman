@@ -3,7 +3,10 @@ node_js:
   - "7"
 before_script:
   - 'npm install'
-  - echo "//registry.npmjs.org/:_authToken=\${TOKEN_NPM}" > .npmrc
+  - echo "//registry.npmjs.org/:_authToken=${TOKEN_NPM}" > ~/.npmrc
+  - echo "//registry.npmjs.org/:_password=${PASSWORD_NPM}" > ~/.npmrc
+  - echo "//registry.npmjs.org/:username=dleitee" >> ~/.npmrc
+  - echo "//registry.npmjs.org/:email=dleitee@gmail.com" >> ~/.npmrc
 script:
   - npm run lint
   - npm test
