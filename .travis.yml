@@ -3,7 +3,7 @@ node_js:
   - "7"
 before_script:
   - 'npm install'
-   - echo "//registry.npmjs.org/:_authToken=\${TOKEN_NPM}" > .npmrc
+  - echo "//registry.npmjs.org/:_authToken=\${TOKEN_NPM}" > .npmrc
 script:
   - npm run lint
   - npm test
@@ -11,4 +11,3 @@ script:
 
 after_success:
   - 'npm run coveralls'
-
