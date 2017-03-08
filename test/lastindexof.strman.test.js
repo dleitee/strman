@@ -2,7 +2,7 @@ import { lastIndexOf } from '../src/strman'
 
 describe('strman.lastIndexOf', () => {
   test('should be true', () => {
-    let value = 'foobarfoobar';
+    const value = 'foobarfoobar'
     expect(lastIndexOf(value, 'f')).toBe(6)
     expect(lastIndexOf(value, 'o')).toBe(8)
     expect(lastIndexOf(value, 'b')).toBe(9)
@@ -14,7 +14,7 @@ describe('strman.lastIndexOf', () => {
 
 describe('strman.lastIndexOf caseSensitive', () => {
   test('should be true', () => {
-    let value = 'foobarfoobar';
+    const value = 'foobarfoobar'
     expect(lastIndexOf(value, 'F', undefined, false)).toBe(6)
     expect(lastIndexOf(value, 'O', undefined, false)).toBe(8)
     expect(lastIndexOf(value, 'B', undefined, false)).toBe(9)
