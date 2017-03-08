@@ -13,7 +13,7 @@ import { getFileName } from './dependecies'
 
 export default async (filename) => {
   console.info(`Executing: ${filename}\n`)
-  const tmpDir = './tmp/'
+  const tmpDir = '/tmp/'
   const workdir = fs.mkdtempSync(tmpDir)
   const libname = filename.match(/[\w]+.js$/g)[0].replace('.js', '').toLowerCase()
   const file = fs.readFileSync(filename, { encoding: 'UTF-8' })
@@ -36,7 +36,7 @@ export default async (filename) => {
   fs.writeFileSync(`${workdir}/package.json`, library.package, options)
   fs.writeFileSync(`${workdir}/readme.md`, library.readme, options)
 
-  await exec(`cd ${workdir} && npm publish ./`, (error, stdout, stderr) => {
+  await exec(`cd ${workdir} && npm publish`, (error, stdout, stderr) => {
     console.info(filename)
     if (error) {
       console.error(`exec error: ${error}`)
