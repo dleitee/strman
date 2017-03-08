@@ -13,7 +13,7 @@ import { getFileName } from './dependecies'
 
 export default async (filename) => {
   console.info(`Executing: ${filename}\n`)
-  const tmpDir = '/tmp/'
+  const tmpDir = './tmp/'
   const workdir = fs.mkdtempSync(tmpDir)
   const libname = filename.match(/[\w]+.js$/g)[0].replace('.js', '').toLowerCase()
   const file = fs.readFileSync(filename, { encoding: 'UTF-8' })
