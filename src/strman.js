@@ -60,7 +60,6 @@ export decEncode from './decencode'
 export htmlEncode from './htmlencode'
 export leftTrim from './lefttrim'
 export replace from './replace'
-export strman from './strman'
 export transliterate from './transliterate'
 export binEncode from './binencode'
 export endsWith from './endswith'
@@ -68,3 +67,5 @@ export indexOf from './indexof'
 export reverse from './reverse'
 export substr from './substr'
 export trim from './trim'
+
+export default exports

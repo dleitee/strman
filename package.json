@@ -1,13 +1,16 @@
 {
   "name": "strman",
-  "version": "2.0.0-pre-release-0",
+  "version": "2.0.0-pre-release-1",
   "description": "A Javascript string manipulation library without npm dependences.",
-  "main": "src/strman.js",
+  "main": "lib/strman.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "build": "babel-node build/build.js",
+    "build:strman": "babel src --out-dir lib",
+    "prepublish": "npm run build:strman",
+    "postpublish": "rm -rf ./lib",
     "test": "jest --coverage --expand",
     "test-watch": "jest --watch",
     "lint": "eslint src tests",
@@ -106,9 +109,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-no-lenght": "^1.0.2-0",
     "showdeps": "^1.0.0",
-    "yarn": "^0.19.1"
-  },
-  "dependencies": {
+    "yarn": "^0.19.1",
     "babel-jest": "^19.0.0",
     "jest": "^19.0.2"
   }
