@@ -1,4 +1,4 @@
-import indexOf from '../src/indexof'
+import { indexOf } from '../src/strman'
 
 describe('strman.indexOf', () => {
   test('should be true', () => {

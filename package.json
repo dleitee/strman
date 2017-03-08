@@ -2,7 +2,7 @@
   "name": "strman",
   "version": "2.0.0-pre-release-0",
   "description": "A Javascript string manipulation library without npm dependences.",
-  "main": "transpiler/strman.js",
+  "main": "src/strman.js",
   "directories": {
     "test": "test"
   },
