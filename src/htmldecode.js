@@ -1,12 +1,29 @@
 import entitiesDecode from './lib/entitiesdecode'
 import replace from './replace'
 /**
+ * @module htmlDecode
+ * @description
  * Convert all HTML entities to applicable characters.
- * @playground
- * var htmlDecode = require('strman').htmlDecode;
- * let result = htmlDecode('&lt;div&gt;');
- * @params {String} value - value to decode.
- * @returns - The decoded data.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the htmlDecode function
+ * ```sh
+ * yarn add strman.htmldecode
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { htmlDecode } from 'strman'
+ * // OR
+ * import htmlDecode from 'strman.htmldecode'
+ * ```
+ * @param {String} value - value to decode.
+ * @example
+ * htmlDecode('&lt;div&gt;')
+ * // => '<div>'
+ * @returns { String } The decoded data.
  */
 export default value =>
   replace(value, '(&\\w+;)',

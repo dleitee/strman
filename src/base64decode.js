@@ -1,9 +1,26 @@
 /**
+ * @module base64decode
+ * @description
  * Decodes data encoded with MIME base64
- * @playground
- * var base64Decode = require('strman').base64Decode;
- * let result = base64Decode("c3RybWFu");
- * @param {String} value - The data to decode.
- * @returns - The decoded data.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the base64decode function
+ * ```sh
+ * yarn add strman.base64decode
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { base64decode } from 'strman'
+ * // OR
+ * import base64decode from 'strman.base64decode'
+ * ```
+  * @param {String} value - The data to decode.
+ * @example
+ * base64Decode('c3RybWFu')
+ * // => 'strman'
+ * @returns {String} The base64 decoded data.
  */
 export default value => new Buffer(value, 'base64').toString()

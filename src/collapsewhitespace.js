@@ -1,13 +1,28 @@
 import trim from './trim'
 import replace from './replace'
 /**
- * Replaces consecutive whitespace characters with a single space
+ * @module collapseWhitespace
+ * @description
+ * Replaces consecutive whitespace characters with a single space.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the collapseWhitespace function
+ * ```sh
+ * yarn add strman.collapsewhitespace
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { collapseWhitespace } from 'strman'
+ * // OR
+ * import collapseWhitespace from 'strman.collapsewhitespace'
+ * ```
  * @param {String} value The input string
- * @return {String} The whitespace collapsed string
- * @playground
- * var strman = require('strman')
- *
- * let title = '  a  b  c  '
- * strman.collapseWhitespace(title) // returns 'a b c'
+ * @example
+ * collapseWhitespace('  a  b  c  ')
+ * // => 'a b c'
+ * @returns {String} The whitespace collapsed string
  */
 export default value => trim(replace(value, '\\s\\s+', ' '))

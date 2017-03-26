@@ -1,13 +1,28 @@
 /**
+ * @module appendArray
+ * @description
  * Append Array of Strings on Value
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the appendArray function
+ * ```sh
+ * yarn add strman.appendarray
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { appendArray } from 'strman'
+ * // OR
+ * import appendArray from 'strman.appendarray'
+ * ```
  * @param {String} value String initial
  * @param {String[]} append Array with strings to append
- * @return {String} The concatenated string
- * @playground
- * var strman = require('strman')
- *
- * let s = 's'
- * strman.appendArray(s, ['tr', 'm', 'an']) // returns 'strman'
+ * @example
+ * appendArray('s', ['tr', 'm', 'an'])
+ * // => 'strman'
+ * @returns {String} The concatenated string
  */
 export default (value, appends = []) => {
   if (appends.length === 0) {

@@ -1,11 +1,5 @@
 import split from './split'
 
-/**
- * It returns a array with its values in random order.
- * @private
- * @param {Array} value - The array!.
- * @return {Array} - The Array shuffled!
-*/
 const shuffle = (array = []) => {
   let j
   let i
@@ -19,12 +13,28 @@ const shuffle = (array = []) => {
 }
 
 /**
+ * @module shuffle
+ * @description
  * It returns a string with its characters in random order.
- * @playground
- * var shuffle = require('strman').shuffle;
- * let title = "strman";
- * let result = shuffle(title);
- * @param {String} value - The String!.
- * @return {String} - The String shuffled!
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the shuffle function
+ * ```sh
+ * yarn add strman.shuffle
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { shuffle } from 'strman'
+ * // OR
+ * import shuffle from 'strman.shuffle'
+ * ```
+ * @param {String} value The String!
+ * @example
+ * shuffle('strman')
+ * // => 'rtmnas'
+ * @returns {String} The String shuffled!
  */
 export default value => shuffle(split(value)).join('')

@@ -1,15 +1,30 @@
 import replace from './replace'
 
 /**
+ * @module removeSpaces
+ * @description
  * Remove all spaces and replace for value.
- * @playground
- * var removeSpaces = require('strman').removeSpaces;
- * let title = "  s t r  m  a n     ";
- * let result = removeSpaces(title);
- * @param {String} value - The String!.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the removeSpaces function
+ * ```sh
+ * yarn add strman.removespaces
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { removeSpaces } from 'strman'
+ * // OR
+ * import removeSpaces from 'strman.removespaces'
+ * ```
+ * @param {String} value - The String!
  * @param {String} replaced - Value to replace.
- * @return {String} - String without spaces.
+ * @example
+ * const title = '  s t r  m  a n     '
+ * removeSpaces(title)
+ * // => 'strman'
+ * @returns {String}  String without spaces.
  */
-const removeSpaces = (value, replaced = '') => replace(value, '\\s+', replaced)
-
-export default removeSpaces
+export default (value, replaced = '') => replace(value, '\\s+', replaced)

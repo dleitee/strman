@@ -1,11 +1,28 @@
 import toDecamelize from './todecamelize'
 /**
+ * @module toKebabCase
+ * @description
  * Transform to kebab-case.
- * @playground
- * var toKebabCase = require('strman').toKebabCase;
- * let title = "A Javascript string manipulation library.";
- * let result = toKebabCase(title);
- * @param {String} value - The String!.
- * @return {String} - String in kebab-case.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the toKebabCase function
+ * ```sh
+ * yarn add strman.tokebabcase
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { toKebabCase } from 'strman'
+ * // OR
+ * import toKebabCase from 'strman.tokebabcase'
+ * ```
+ * @param {String} value The String!
+ * @example
+ * const title = 'A Javascript string manipulation library.'
+ * toKebabCase(title)
+ * // => 'a-javascript-string-manipulation-library.'
+ * @returns {String} String in kebab-case.
  */
 export default value => toDecamelize(value, '-')

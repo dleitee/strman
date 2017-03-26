@@ -1,12 +1,29 @@
 import replace from './replace'
 /**
+ * @module removeNonWords
+ * @description
  * Remove all non word characters.
- * @playground
- * var removeNonWords = require('strman').removeNonWords;
- * let title = "__strman../";
- * let result = removeNonWords(title);
- * @param {String} value - The String!.
- * @param {String} replaced - Value to replace.
- * @return {String} - String without non word characters.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the removeNonWords function
+ * ```sh
+ * yarn add strman.removenowords
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { removeNonWords } from 'strman'
+ * // OR
+ * import removeNonWords from 'strman.removenowords'
+ * ```
+ * @param {String} value The String!
+ * @param {String} [replaced = ''] Value to replace.
+ * @example
+ * const title = '__strman../'
+ * removeNonWords(title)
+ * // => 'strman'
+ * @returns {String} String without non word characters.
  */
 export default (value, replaced = '') => replace(value, '[^\\w]+', replaced)

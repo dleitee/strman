@@ -2,13 +2,30 @@ import ascii from './lib/ascii'
 import replace from './replace'
 
 /**
+ * @module transliterate
+ * @description
  * Remove all non valid characters. Example: change á => a or ẽ => e.
- * @playground
- * var transliterate = require('strman').transliterate;
- * let title = "strmáñ";
- * let result = transliterate(title);
- * @param {String} value - The String!.
- * @return {String} - String without non valid characters.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the transliterate function
+ * ```sh
+ * yarn add strman.transliterate
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { transliterate } from 'strman'
+ * // OR
+ * import transliterate from 'strman.transliterate'
+ * ```
+ * @param {String} value - The String!
+ * @example
+ * const title = 'strmáñ'
+ * transliterate(title)
+ * // => 'strman'
+ * @returns {String}  String without non valid characters.
  */
 export default value =>
   Object.keys(ascii).reduce((newValue, currentKey) =>

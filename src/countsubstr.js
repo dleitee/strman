@@ -1,16 +1,7 @@
 import indexOf from './indexof'
 import getCase from './lib/case'
-/**
- * Polyfill to countSubstr function
- * @private
- * @param value,
- * @param substr,
- * @param position = 0,
- * @param count = 0,
- * @param allowOverlapping = false
- * @return integer
- */
-const countSubstring = (value, substr, allowOverlapping = false, position = 0, count = 0) => {
+
+const countSubstr = (value, substr, allowOverlapping = false, position = 0, count = 0) => {
   let currentPosition = indexOf(value, substr, position)
   if (currentPosition === -1) {
     return count
@@ -18,22 +9,38 @@ const countSubstring = (value, substr, allowOverlapping = false, position = 0, c
   if (!allowOverlapping) {
     currentPosition += substr.length - 1
   }
-  return countSubstring(value, substr, allowOverlapping, currentPosition + 1, count + 1)
+  return countSubstr(value, substr, allowOverlapping, currentPosition + 1, count + 1)
 }
 
 /**
+ * @module countSubstr
+ * @description
  * Count the number of times substr appears in value
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the countSubstr function
+ * ```sh
+ * yarn add strman.countsubstr
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { countSubstr } from 'strman'
+ * // OR
+ * import countSubstr from 'strman.countsubstr'
+ * ```
  * @param {String} value The input string
  * @param {String} substr The substring to look for
  * @param {Boolean} [caseSensitive=true] Use case (in-)sensitive matching
  * @param {Boolean} [allowOverlapping=false] Allow overlapping substrings to be counted
- * @return {Number} The number of matches
- * @playground
- * var strman = require('strman')
- *
- * let title = 'Daniel Leite'
- * let substr = 'Leite'
- * strman.counSubstr(title, substr) // returns 1
+ * @example
+ * const title = 'Daniel Leite'
+ * const substr = 'Leite'
+ * countSubstr(title, substr)
+ * // => 1
+ * @returns {Number} The number of matches
  */
 export default (value, substr, caseSensitive = true, allowOverlapping = false) =>
-  countSubstring(getCase(value, caseSensitive), getCase(substr, caseSensitive), allowOverlapping)
+  countSubstr(getCase(value, caseSensitive), getCase(substr, caseSensitive), allowOverlapping)

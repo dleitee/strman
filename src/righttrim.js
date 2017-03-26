@@ -1,15 +1,30 @@
 import replace from './replace'
 
 /**
+ * @module rightTrim
+ * @description
  * Remove all spaces on right.
- * @playground
- * var rightTrim = require('strman').rightTrim;
- * let title = "strman     ";
- * let result = rightTrim(title);
- * @param {String} value - The String!.
- * @params {String = ' '} char - if you need remove other char on right boarders.
- * @return {String} - String without right boarders spaces.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the rightTrim function
+ * ```sh
+ * yarn add strman.righttrim
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { rightTrim } from 'strman'
+ * // OR
+ * import rightTrim from 'strman.righttrim'
+ * ```
+ * @param {String} value The String!
+ * @param {String} [char = ' '] if you need remove other char on right boarders.
+ * @example
+ * const title = 'strman     '
+ * rightTrim(title)
+ * // => 'strman'
+ * @returns {String} String without right boarders spaces.
  */
-const rightTrim = (value, char = ' ') => replace(value, `${char}+$`, '')
-
-export default rightTrim
+export default (value, char = ' ') => replace(value, `${char}+$`, '')

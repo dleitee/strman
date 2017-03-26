@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "babel-node build/build.js",
+    "build:packages": "babel-node build/build.js",
     "build:strman": "babel src --out-dir lib",
     "prepublish": "npm run build:strman",
     "postpublish": "rm -rf ./lib",
@@ -15,7 +15,7 @@
     "test-watch": "jest --watch",
     "lint": "eslint src tests",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "dox": "dox < ./src/*.js > docs.json"
+    "docs": "jsdoc --configure .jsdocrc --verbose -r"
   },
   "repository": {
     "type": "git",
@@ -96,6 +96,7 @@
     "babel-core": "^6.7.6",
     "babel-eslint": "^7.1.1",
     "babel-istanbul": "^0.8.0",
+    "babel-jest": "^19.0.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-remove-import": "^1.0.0",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
@@ -103,14 +104,16 @@
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.7.2",
     "coveralls": "^2.11.9",
-    "dox": "^0.8.1",
+    "dox": "^0.9.0",
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-no-lenght": "^1.0.2-0",
+    "jest": "^19.0.2",
+    "jsdoc": "^3.4.3",
+    "jsdoc-babel": "^0.3.0",
+    "minami": "^1.1.1",
     "showdeps": "^1.0.0",
-    "yarn": "^0.19.1",
-    "babel-jest": "^19.0.0",
-    "jest": "^19.0.2"
+    "yarn": "^0.19.1"
   }
 }

@@ -2,15 +2,32 @@ import substr from './substr'
 import append from './append'
 import repeat from './repeat'
 /**
+ * @module leftPad
+ * @description
  * Returns a new string of a given length such that the beginning of the string is padded.
- * @playground
- * var leftPad = require('strman').leftPad;
- * let title = "strman";
- * let result = leftPad(title, 10, 0);
- * @param {String} value - The String!.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the leftPad function
+ * ```sh
+ * yarn add strman.leftpad
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { leftPad } from 'strman'
+ * // OR
+ * import leftPad from 'strman.leftpad'
+ * ```
+ * @param {String} value - The String!
  * @param {Number} length - Max length of String.
- * @param {Char} char - Char to repeat.
- * @return {String} - String pad.
+ * @param {Char} [char = ' '] - Char to repeat.
+ * @example
+ * const title = 'strman'
+ * leftPad(title, 10, 0)
+ * // => '0000strman'
+ * @returns {String}  String pad.
  */
 export default (value, length, char = ' ') => {
   let result = value

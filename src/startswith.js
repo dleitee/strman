@@ -1,16 +1,32 @@
 import substr from './substr'
 import toCaseSensitive from './lib/case'
 /**
+ * @module startsWith
+ * @description
  * Test if 'value' starts with 'search'
- * @playground
- * var startsWith = require('strman').startsWith;
- * let title = "strman";
- * let result = startsWith(title, 'str');
- * @param {String} value - The String!.
- * @param {String} search - Value to search.
- * @param {Number} position - offset to search.
- * @param {Boolean} caseSensitive - if you use caseSensitive to test.
- * @return {Boolean} - If 'value' startsWith 'search' return true, else false.
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the startsWith function
+ * ```sh
+ * yarn add strman.startswith
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { startsWith } from 'strman'
+ * // OR
+ * import startsWith from 'strman.startswith'
+ * ```
+ * @param {String} value The String!
+ * @param {String} search Value to search.
+ * @param {Number} [position = 0] offset to search.
+ * @param {Boolean} [caseSensitive = true] if you use caseSensitive to test.
+ * @example
+ * startsWith('strman', 'str')
+ * // => true
+ * @returns {Boolean}  If 'value' startsWith 'search' return true, else false.
  */
 export default (value, search, position = 0, caseSensitive = true) =>
   substr(

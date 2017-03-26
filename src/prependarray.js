@@ -1,12 +1,29 @@
- /**
+/**
+ * @module prependArray
+ * @description
  * Returns a new string starting with 'prepends'.
- * @playground
- * var prependArray = require('strman').prependArray;
- * let title = "strman";
- * let result = prependArray(title, '_');
- * @param {String} value - The String!.
- * @param {String[]} prepends - Strings to prepend.
- * @return {String} - The String prepended!
+ * ## Install
+ * Install all functions of strman
+ * ```sh
+ * yarn add strman
+ * ```
+ * or just the prependArray function
+ * ```sh
+ * yarn add strman.prependarray
+ * ```
+ * ## Usage
+ * ```javascript
+ * import { prependArray } from 'strman'
+ * // OR
+ * import prependArray from 'strman.prependarray'
+ * ```
+ * @param {String} value The String!
+ * @param {String[]} prepends Strings to prepend.
+ * @example
+ * const title = 'strman'
+ * prependArray(title, ['_'])
+ * // => '_strman'
+ * @returns {String} The String prepended!
  */
 export default (value, prepends = []) => {
   if (prepends.length === 0) {
