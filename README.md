@@ -10,49 +10,37 @@ A Javascript string manipulation library.
 
 ## Install
 
-strman is available on npm:
+strman v2.0.0 is available on npm/yarn:
 ```
 npm install strman --save
+yarn add strman
 ```
 
 ## Documentation
 
-[https://doclets.io/dleitee/strman/master](https://doclets.io/dleitee/strman/master)
+[https://dleitee.github.io/strman/](https://dleitee.github.io/strman/)
 
 ## Usage
 
 ### With ES6/import
 
 ```javascript
-import {slugify} from 'strman';
+import { slugify } from 'strman'
 
-let title = "A Javascript string manipulation library.";
-let result = slugify(title);
-// result => "a-javascript-string-manipulation-library"
+const  title = "A Javascript string manipulation library.";
+slugify(title);
+// => "a-javascript-string-manipulation-library"
 ```
 
 ### With require
 
 ```javascript
-var slugify = require('strman').slugify;
+const slugify = require('strman').slugify;
 
-let title = "A Javascript string manipulation library.";
-let result = slugify(title);
-// result => "a-javascript-string-manipulation-library"
+const title = 'A Javascript string manipulation library.'
+slugify(title)
+// => "a-javascript-string-manipulation-library"
 ```
-
-### With Browser
-
-```html
-<script src="./bower_components/strman/dist/strman.js"></script>
-```
-
-```javascript
-var result = _s.isString('strman');
-// result => true
-```
-
-Also available for [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
 
 ## Credits
 
