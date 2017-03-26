@@ -1,12 +1,25 @@
 language: node_js
 node_js:
-  - "5"
+  - "7"
+
 before_script:
-  - 'npm install -g gulp'
-  - 'npm install'
+    - 'npm install'
+
+master:
+  before_script:
+    - echo "//registry.npmjs.org/:_authToken=${TOKEN_NPM}" > ~/.npmrc
+    - echo "//registry.npmjs.org/:_password=${PASSWORD_NPM}" >> ~/.npmrc
+    - echo "//registry.npmjs.org/:username=dleitee" >> ~/.npmrc
+    - echo "//registry.npmjs.org/:email=dleitee@gmail.com" >> ~/.npmrc
+
 script:
-  - npm run test:lint
-  - npm run test:coverage
+  - npm run lint
   - npm test
+
+master:
+  script:
+    - npm run build:packages
+    - npm publish
+
 after_success:
   - 'npm run coveralls'

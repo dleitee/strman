@@ -1,6 +1,8 @@
-import {toUpperCase} from '../string.cases';
+import toUpperCase from '../touppercase'
 
-const toCaseSensitive = (value, caseSensitive = true) =>
-    caseSensitive?value:toUpperCase(value);
-
-export {toCaseSensitive};
+export default (value, caseSensitive = true) => {
+  if (caseSensitive) {
+    return value
+  }
+  return toUpperCase(value)
+}

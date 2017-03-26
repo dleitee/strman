@@ -1,0 +1,6 @@
+test
+build
+src
+.codeclimate.yml
+.editorconfig
+.travis.yml
