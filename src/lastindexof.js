@@ -1,6 +1,6 @@
 import toCaseSensitive from './lib/case'
 /**
- * @module lastIndefOf
+ * @module lastIndexOf
  * @description
  * The lastIndexOf() method returns the index within the calling String object of the last
  * occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the
@@ -10,15 +10,15 @@ import toCaseSensitive from './lib/case'
  * ```sh
  * yarn add strman
  * ```
- * or just the lastIndefOf function
+ * or just the lastIndexOf function
  * ```sh
  * yarn add strman.lastindexof
  * ```
  * ## Usage
  * ```javascript
- * import { lastIndefOf } from 'strman'
+ * import { lastIndexOf } from 'strman'
  * // OR
- * import lastIndefOf from 'strman.lastindexof'
+ * import lastIndexOf from 'strman.lastindexof'
  * ```
  * @param {String} value The String!
  * @param {String} needle Value to search.

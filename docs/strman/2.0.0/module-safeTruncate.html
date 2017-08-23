@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>safeTruncate - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-append.html">append</a></li><li><a href="module-appendArray.html">appendArray</a></li><li><a href="module-at.html">at</a></li><li><a href="module-base64decode.html">base64decode</a></li><li><a href="module-base64encode.html">base64encode</a></li><li><a href="module-between.html">between</a></li><li><a href="module-binDecode.html">binDecode</a></li><li><a href="module-binEncode.html">binEncode</a></li><li><a href="module-chars.html">chars</a></li><li><a href="module-collapseWhitespace.html">collapseWhitespace</a></li><li><a href="module-compare.html">compare</a></li><li><a href="module-contains.html">contains</a></li><li><a href="module-containsAll.html">containsAll</a></li><li><a href="module-containsAny.html">containsAny</a></li><li><a href="module-countSubstr.html">countSubstr</a></li><li><a href="module-decDecode.html">decDecode</a></li><li><a href="module-decEncode.html">decEncode</a></li><li><a href="module-endsWith.html">endsWith</a></li><li><a href="module-ensureLeft.html">ensureLeft</a></li><li><a href="module-ensureRight.html">ensureRight</a></li><li><a href="module-equal.html">equal</a></li><li><a href="module-first.html">first</a></li><li><a href="module-format.html">format</a></li><li><a href="module-hexDecode.html">hexDecode</a></li><li><a href="module-hexEncode.html">hexEncode</a></li><li><a href="module-htmlDecode.html">htmlDecode</a></li><li><a href="module-htmlEncode.html">htmlEncode</a></li><li><a href="module-inequal.html">inequal</a></li><li><a href="module-insert.html">insert</a></li><li><a href="module-isLowerCase.html">isLowerCase</a></li><li><a href="module-isString.html">isString</a></li><li><a href="module-isUpperCase.html">isUpperCase</a></li><li><a href="module-last.html">last</a></li><li><a href="module-lastIndexOf.html">lastIndexOf</a></li><li><a href="module-leftPad.html">leftPad</a></li><li><a href="module-leftTrim.html">leftTrim</a></li><li><a href="module-prepend.html">prepend</a></li><li><a href="module-prependArray.html">prependArray</a></li><li><a href="module-removeEmptyStrings.html">removeEmptyStrings</a></li><li><a href="module-removeLeft.html">removeLeft</a></li><li><a href="module-removeNonWords.html">removeNonWords</a></li><li><a href="module-removeSpaces.html">removeSpaces</a></li><li><a href="module-repeat.html">repeat</a></li><li><a href="module-replace.html">replace</a></li><li><a href="module-reverse.html">reverse</a></li><li><a href="module-rightPad.html">rightPad</a></li><li><a href="module-rightTrim.html">rightTrim</a></li><li><a href="module-safeTruncate.html">safeTruncate</a></li><li><a href="module-shuffle.html">shuffle</a></li><li><a href="module-slugify.html">slugify</a></li><li><a href="module-split.html">split</a></li><li><a href="module-startsWith.html">startsWith</a></li><li><a href="module-substr.html">substr</a></li><li><a href="module-surround.html">surround</a></li><li><a href="module-toCamelCase.html">toCamelCase</a></li><li><a href="module-toDecamelize.html">toDecamelize</a></li><li><a href="module-toKebabCase.html">toKebabCase</a></li><li><a href="module-toLowerCase.html">toLowerCase</a></li><li><a href="module-toSnakeCase.html">toSnakeCase</a></li><li><a href="module-toStudlyCaps.html">toStudlyCaps</a></li><li><a href="module-toUpperCase.html">toUpperCase</a></li><li><a href="module-transliterate.html">transliterate</a></li><li><a href="module-trim.html">trim</a></li><li><a href="module-truncate.html">truncate</a></li><li><a href="module-urlDecode.html">urlDecode</a></li><li><a href="module-urlEncode.html">urlEncode</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">safeTruncate</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Truncate the string securely, not cutting a word in half. It always returns the last full word.</p>
+<h2>Install</h2><p>Install all functions of strman</p>
+<pre class="prettyprint source lang-sh"><code>yarn add strman</code></pre><p>or just the safeTruncate function</p>
+<pre class="prettyprint source lang-sh"><code>yarn add strman.safetruncate</code></pre><h2>Usage</h2><pre class="prettyprint source lang-javascript"><code>import { safeTruncate } from 'strman'
+// OR
+import safeTruncate from 'strman.safetruncate'</code></pre></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Value will be truncated securely.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>length</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Max size of the returned string.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>append</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ''
+                
+                </td>
+            
+
+            <td class="description last"><p>Value that will be added to the end of the return string.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="safetruncate.js.html">safetruncate.js</a>, <a href="safetruncate.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>String truncated safely.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const title = 'A Javascript string manipulation library.'
+safeTruncate(title, 15, '...');
+// => 'A Javascript...'</code></pre>
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon May 01 2017 10:51:53 GMT-0700 (PDT) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
