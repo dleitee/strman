@@ -35,6 +35,7 @@ export default (value) => {
   const valueWithoutSpaces = removeSpaces(trimValue, '-')
   const valueWithE = replace(valueWithoutSpaces, '&', '-and-')
   const transliterateValue = transliterate(valueWithE)
-  const replaceValue = replace(transliterateValue, '[^\\w\\-]+', '')
-  return replace(replaceValue, '-+', '-')
+  const wordsOnlyValue = replace(transliterateValue, '[^\\w\\-]+', '')
+  const singleDashesValue = replace(wordsOnlyValue, '-+', '-')
+  return trim(singleDashesValue, '-')
 }
