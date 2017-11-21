@@ -1,3 +1,4 @@
+// @flow
 import substr from './substr'
 /**
  * @module first
@@ -19,10 +20,10 @@ import substr from './substr'
  * import first from 'strman.first'
  * ```
  * @param {String} value - The String!
- * @param {String} n - Number of chars to return.
+ * @param {Number} n - Number of chars to return.
  * @example
  * first('strman', 3)
  * // => 'str'
  * @returns {String}  Return `n` firsts chars.
  */
-export default (value, n) => substr(value, 0, n)
+export default (value:string, n:number):string => substr(value, 0, n)

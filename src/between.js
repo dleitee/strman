@@ -1,3 +1,4 @@
+// @flow
 import pop from './lib/poparray'
 import substr from './substr'
 import split from './split'
@@ -30,5 +31,5 @@ import indexOf from './indexof'
  * // => ['abc', 'def']
  * @returns {String[]} An array with all the matches between a pair of `start` and `end`
  */
-export default (value, start, end) =>
+export default (value:string, start:string, end:string):Array<string> =>
     pop(split(value, end).map(text => substr(text, indexOf(text, start) + start.length)))

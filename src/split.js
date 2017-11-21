@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module split
  * @description
@@ -25,4 +26,4 @@
  * // => ['s', 't', 'r', 'm', 'a', 'n']
  * @returns {String}  The String splited!
  */
-export default (value, separator, limit = undefined) => value.split(separator, limit)
+export default (value:string, separator:string = '', limit:number = 0):Array<string> => value.split(separator, limit)

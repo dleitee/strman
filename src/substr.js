@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module substr
  * @description
@@ -25,4 +26,4 @@
  * // => 'strm'
  * @returns {String} The Substring!
  */
-export default (value, start, length = undefined) => value.substr(start, length)
+export default (value:string, start:number, length:number = 0):string => value.substr(start, length)

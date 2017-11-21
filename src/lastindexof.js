@@ -1,3 +1,4 @@
+// @flow
 import toCaseSensitive from './lib/case'
 /**
  * @module lastIndefOf
@@ -30,7 +31,7 @@ import toCaseSensitive from './lib/case'
  * // => 7
  * @returns {Number} Return position of the last occurrence of 'needle'.
  */
-export default (value, needle, offset = undefined, caseSensitive = true) =>
+export default (value:string, needle:string, offset:?number = undefined, caseSensitive:boolean = true):number =>
 toCaseSensitive(value, caseSensitive).lastIndexOf(
   toCaseSensitive(needle, caseSensitive),
   offset,

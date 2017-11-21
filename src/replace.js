@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module replace
  * @description
@@ -28,7 +29,7 @@
  * // => 'strman'
  * @returns {String} String replaced with 'newvalue'.
  */
-export default (value, search = '', newvalue = '', caseSensitive = true, multiline = true) => {
+export default (value:string, search:string = '', newvalue:string | Function = '', caseSensitive:boolean = true, multiline:boolean = true):string => {
   const flags = caseSensitive ? 'g' : 'gi'
   const flagsMultiline = multiline ? `${flags}m` : flags
 

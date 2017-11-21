@@ -1,3 +1,4 @@
+// @flow
 import replace from './replace'
 /**
  * @module leftTrim
@@ -26,4 +27,4 @@ import replace from './replace'
  * // => 'strman'
  * @returns {String} String without left boarders spaces.
  */
-export default (value, char = ' ') => replace(value, `^${char}+`, '')
+export default (value:string, char:string = ' '):string => replace(value, `^${char}+`, '')

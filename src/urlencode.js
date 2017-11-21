@@ -1,3 +1,4 @@
+// @form
 /**
  * @module urlEncode
  * @description
@@ -23,4 +24,4 @@
  * // => 'https://github.com/dleitee/strman/&name=%C3%A1%C3%A9%C3%AD%C3%B3%C3%BA'
  * @returns {String}  Returns a string in which all non-alphanumeric characters except -_.
  */
-export default value => encodeURI(value)
+export default (value:string):string => encodeURI(value)

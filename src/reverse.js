@@ -1,3 +1,4 @@
+// @flow
 import split from './split'
 import append from './append'
 /**
@@ -25,4 +26,4 @@ import append from './append'
  * // => 'namrts'
  * @returns {String}  The String reversed!
  */
-export default value => split(value, '').reduceRight((previous, current) => append(previous, current), '')
+export default (value:string):string => split(value, '').reduceRight((previous, current) => append(previous, current), '')

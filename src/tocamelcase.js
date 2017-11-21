@@ -1,3 +1,4 @@
+// @flow
 import toStudlyCaps from './tostudlycaps'
 import toLowerCase from './tolowercase'
 /**
@@ -26,7 +27,7 @@ import toLowerCase from './tolowercase'
  * // => 'aJavascriptStringManipulationLibrary'
  * @returns {String}  String in camelCase.
  */
-export default (value) => {
+export default (value:string):string => {
   const string = toStudlyCaps(value)
   return toLowerCase(string.substr(0, 1)) + string.substr(1)
 }

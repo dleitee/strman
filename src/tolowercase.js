@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module toLowerCase
  * @description
@@ -24,4 +25,4 @@
  * // => 'a javascript string manipulation library.'
  * @returns {String}  String in lowercase.
  */
-export default value => value.toLowerCase()
+export default (value:string):string => value.toLowerCase()

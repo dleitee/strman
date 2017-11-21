@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module removeEmptyStrings
  * @description
@@ -24,4 +25,4 @@
  * // => ['A Javascript string manipulation library.']
  * @returns {String[]}  Array of strings without empty strings.
  */
-export default strings => strings.filter(string => string && string !== '')
+export default (strings:Array<string>):Array<string> => strings.filter(string => string && string !== '')

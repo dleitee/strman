@@ -1,3 +1,4 @@
+// @flow
 import substr from './substr'
 /**
  * @module last
@@ -19,11 +20,11 @@ import substr from './substr'
  * import last from 'strman.last'
  * ```
  * @param {String} value The String!
- * @param {String} n Number of chars to return.
+ * @param {Number} n Number of chars to return.
  * @example
  * const title = 'strman'
  * last(title, 3)
  * // => 'man'
  * @returns {String} Return 'n' lasts chars.
  */
-export default (value, n) => substr(value, -1 * n, n)
+export default (value:string, n:number):string => substr(value, -1 * n, n)

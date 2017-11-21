@@ -1,3 +1,4 @@
+// @form
 import substr from './substr'
 import append from './append'
 /**
@@ -28,7 +29,7 @@ import append from './append'
  * // => 'A Javascript ...'
  * @returns {String}  String truncated unsafely.
  */
-export default (value, length, _append = '') => {
+export default (value:string, length:number, _append:string = ''):string => {
   if (length === 0) {
     return ''
   }

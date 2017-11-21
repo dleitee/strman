@@ -1,3 +1,4 @@
+// @flow
 import entitiesDecode from './lib/entitiesdecode'
 import replace from './replace'
 /**
@@ -25,9 +26,9 @@ import replace from './replace'
  * // => '<div>'
  * @returns { String } The decoded data.
  */
-export default value =>
+export default (value:string):string =>
   replace(value, '(&\\w+;)',
-    (match, index) => {
+    (match:string, index:number):string => {
       if (typeof entitiesDecode[index] !== 'undefined') {
         return entitiesDecode[index]
       }

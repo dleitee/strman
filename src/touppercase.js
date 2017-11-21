@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module toUpperCase
  * @description
@@ -24,4 +25,4 @@
  * // => 'A JAVASCRIPT STRING MANIPULATION LIBRARY.'
  * @returns {String}  String in uppercase.
  */
-export default value => value.toUpperCase()
+export default (value:string):string => value.toUpperCase()

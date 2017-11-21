@@ -1,3 +1,4 @@
+// @flow
 import startsWith from './startswith'
 import substr from './substr'
 /**
@@ -28,7 +29,7 @@ import substr from './substr'
  * // => 'man'
  * @returns {String} The String without prefix!
  */
-export default (value, prefix, caseSensitive = true) => {
+export default (value:string, prefix:string, caseSensitive:boolean = true):string => {
   if (startsWith(value, prefix, 0, caseSensitive)) {
     return substr(value, prefix.length)
   }

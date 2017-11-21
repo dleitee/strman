@@ -1,3 +1,4 @@
+// @flow
 import endsWith from './endswith'
 import substr from './substr'
 /**
@@ -28,10 +29,10 @@ import substr from './substr'
  * // => 'str'
  * @returns {String} The String without suffix!
  */
-export default (value, suffix, caseSensitive = true) => {
+export default (value:string, suffix:string, caseSensitive:boolean = true):string => {
   const length = value.length - suffix.length
 
-  if (endsWith(value, suffix, null, caseSensitive)) {
+  if (endsWith(value, suffix, 0, caseSensitive)) {
     return substr(value, 0, length)
   }
 

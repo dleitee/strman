@@ -1,6 +1,7 @@
+// @flow
 import contains from './contains'
 
-const containsAny = (value, caseSensitive, previous, current) => {
+const containsAny = (value:string, caseSensitive:boolean, previous:boolean, current:string):boolean => {
   if (contains(value, current, caseSensitive)) {
     return true
   }
@@ -36,5 +37,5 @@ const containsAny = (value, caseSensitive, previous, current) => {
  * // => true
  * @returns {Boolean} True if at least one of `needles` is contained
  */
-export default (value, needles, caseSensitive = true) =>
+export default (value:string, needles:Array<string>, caseSensitive:boolean = true):boolean =>
   needles.reduce(containsAny.bind(this, value, caseSensitive), false)

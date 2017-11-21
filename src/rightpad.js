@@ -1,7 +1,8 @@
+// @flow
 import substr from './substr'
 import append from './append'
 
-const rightPad = (value, length, char) => {
+const rightPad = (value:string, length:number, char:string):string => {
   if (value.length === length) {
     return value
   }
@@ -36,4 +37,4 @@ const rightPad = (value, length, char) => {
  * // => 'strman0000'
  * @returns {String} String pad.
  */
-export default (value, length, char = ' ') => rightPad(value, length, substr(String(char), 0, 1))
+export default (value:string, length:number, char:string = ' '):string => rightPad(value, length, substr(String(char), 0, 1))
