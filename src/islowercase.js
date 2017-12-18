@@ -26,4 +26,4 @@ import toLowerCase from './tolowercase'
  * // => false
  * @returns {Boolean}  String is lowercase?
  */
-export default (value:string):boolean => value === toLowerCase(value)
+export default (value: string): boolean => value === toLowerCase(value)

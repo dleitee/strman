@@ -26,4 +26,4 @@ import substr from './substr'
  * // => 'str'
  * @returns {String}  Return `n` firsts chars.
  */
-export default (value:string, n:number):string => substr(value, 0, n)
+export default (value: string, n: number): string => substr(value, 0, n)

@@ -26,7 +26,7 @@
  * // => '_strman'
  * @returns {String} The String prepended!
  */
-export default (value:string, prepends:Array<string> = []):string => {
+export default (value: string, prepends: Array<string> = []): string => {
   if (prepends.length === 0) {
     return value
   }

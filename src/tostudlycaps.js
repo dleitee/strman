@@ -26,7 +26,7 @@ import toUpperCase from './touppercase'
  * // => 'AJavascriptStringManipulationLibrary.'
  * @returns {String} String in StudlyCaps.
  */
-export default (value:string):string => {
+export default (value: string): string => {
   const string = value.replace(/[-_\s]+(.)?/g, (match, chr) => toUpperCase(chr))
   return toUpperCase(string.substr(0, 1)) + string.substr(1)
 }

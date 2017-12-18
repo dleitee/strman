@@ -27,4 +27,4 @@ import substr from './substr'
  * // => 'man'
  * @returns {String} Return 'n' lasts chars.
  */
-export default (value:string, n:number):string => substr(value, -1 * n, n)
+export default (value: string, n: number): string => substr(value, -1 * n, n)

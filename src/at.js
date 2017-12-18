@@ -27,4 +27,4 @@ import substr from './substr'
  * // => 'b'
  * @returns {String} The character at position index
  */
-export default (value:string, index: number):string => substr(value, index, 1)
+export default (value: string, index: number): string => substr(value, index, 1)

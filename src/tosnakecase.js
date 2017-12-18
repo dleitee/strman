@@ -26,4 +26,4 @@ import toDecamelize from './todecamelize'
  * // => 'a_javascript_string_manipulation_library.'
  * @returns {String} String in snake_case.
  */
-export default (value:string):string => toDecamelize(value, '_')
+export default (value: string): string => toDecamelize(value, '_')

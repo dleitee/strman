@@ -26,4 +26,4 @@ import encode from './lib/encode'
  * // => '001150011600114001090009700110'
  * @returns {String} String in decimal format.
  */
-export default (value:string):string => encode(value, LENGTH_DECIMAL, BASE_DECIMAL)
+export default (value: string): string => encode(value, LENGTH_DECIMAL, BASE_DECIMAL)

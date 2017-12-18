@@ -29,7 +29,7 @@ import append from './append'
  * // => 'A Javascript ...'
  * @returns {String}  String truncated unsafely.
  */
-export default (value:string, length:number, _append:string = ''):string => {
+export default (value: string, length: number, _append: string = ''): string => {
   if (length === 0) {
     return ''
   }

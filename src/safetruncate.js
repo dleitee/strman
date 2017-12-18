@@ -32,7 +32,7 @@ import substr from './substr'
  * // => 'A Javascript...'
  * @returns {String}  String truncated safely.
  */
-export default (value:string, length:number, append:string = ''):string => {
+export default (value: string, length: number, append: string = ''): string => {
   let truncated = ''
 
   if (length === 0) {
@@ -55,4 +55,3 @@ export default (value:string, length:number, append:string = ''):string => {
 
   return _append(truncated, append)
 }
-

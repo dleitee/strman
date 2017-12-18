@@ -29,5 +29,5 @@ import indexOf from './indexof'
  * // => true
  * @returns {Boolean} True if `needle` is contained
  */
-export default (value:string, needle:string, caseSensitive:boolean = true):boolean =>
+export default (value: string, needle: string, caseSensitive: boolean = true): boolean =>
   indexOf(value, needle, 0, caseSensitive) > -1

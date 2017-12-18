@@ -26,10 +26,16 @@ import replace from './replace'
  * // => '&lt;div&gt;'
  * @returns { String } The encoded data.
  */
-export default (value:string):string => replace(value, '[\\u00A0-\\u9999<>\\&]',
-  (match:string):string => {
-    if (typeof entitiesEncode[match] !== 'undefined') {
-      return entitiesEncode[match]
-    }
-    return match
-  }, true, true)
+export default (value: string): string =>
+  replace(
+    value,
+    '[\\u00A0-\\u9999<>\\&]',
+    (match: string): string => {
+      if (typeof entitiesEncode[match] !== 'undefined') {
+        return entitiesEncode[match]
+      }
+      return match
+    },
+    true,
+    true,
+  )

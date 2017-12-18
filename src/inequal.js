@@ -25,4 +25,4 @@
  * // => false
  * @returns {Boolean}  [stringA] is inequal [stringB]
  */
-export default (stringA:string, stringB:string):boolean => stringA !== stringB
+export default (stringA: string, stringB: string): boolean => stringA !== stringB

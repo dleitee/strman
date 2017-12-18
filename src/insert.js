@@ -29,7 +29,7 @@ import append from './append'
  * // => 'strman'
  * @returns {String} String with substr added.
  */
-export default (value:string, substr:string, index:number):string => {
+export default (value: string, substr: string, index: number): string => {
   if (index > value.length) {
     return value
   }

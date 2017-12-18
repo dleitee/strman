@@ -30,7 +30,7 @@ import transliterate from './transliterate'
  * // => 'a-javascript-string-manipulation-library'
  * @returns {String} The slugified value
  */
-export default (value:string):string => {
+export default (value: string): string => {
   const lowerCaseValue = toLowerCase(value)
   const trimValue = trim(lowerCaseValue)
   const valueWithoutSpaces = removeSpaces(trimValue, '-')

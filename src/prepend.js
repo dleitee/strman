@@ -27,4 +27,4 @@ import prependArray from './prependarray'
  * // => '_strman'
  * @returns {String}  The String prepended!
  */
-export default (value:string, ...prepends:Array<string>):string => prependArray(value, prepends)
+export default (value: string, ...prepends: Array<string>): string => prependArray(value, prepends)

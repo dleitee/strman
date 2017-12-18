@@ -27,4 +27,5 @@
  * // => 'rma'
  * @returns {String} The String sliced!
  */
- export default (value:string, beginSlice:number, endSlice:number = beginSlice):string => value.slice(beginSlice, endSlice)
+export default (value: string, beginSlice: number, endSlice: number = beginSlice): string =>
+  value.slice(beginSlice, endSlice)

@@ -27,4 +27,4 @@ import replace from './replace'
  * // => 'strman'
  * @returns {String} String without non word characters.
  */
-export default (value:string, replaced:string = ''):string => replace(value, '[^\\w]+', replaced)
+export default (value: string, replaced: string = ''): string => replace(value, '[^\\w]+', replaced)

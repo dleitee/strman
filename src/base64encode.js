@@ -26,4 +26,4 @@
  * // => 'c3RybWFu'
  * @returns {String} The base64 encoded data.
  */
-export default (value:string):string => new Buffer(value).toString('base64')
+export default (value: string): string => new Buffer(value).toString('base64')

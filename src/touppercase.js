@@ -25,4 +25,4 @@
  * // => 'A JAVASCRIPT STRING MANIPULATION LIBRARY.'
  * @returns {String}  String in uppercase.
  */
-export default (value:string):string => value.toUpperCase()
+export default (value: string): string => value.toUpperCase()

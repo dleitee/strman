@@ -26,4 +26,4 @@ import encode from './lib/encode'
  * // => '007300740072006d0061006e'
  * @returns {String} String in hexadecimal format.
  */
-export default (value:string):string => encode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL)
+export default (value: string): string => encode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL)

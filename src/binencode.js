@@ -27,4 +27,4 @@ import encode from './lib/encode'
  * // => '00000000011100110000000001110100000000000111001000000000011011010000000001100001'
  * @returns {String} String in binary format.
  */
-export default (value:string):string => encode(value, LENGTH_BINARY, BASE_BINARY)
+export default (value: string): string => encode(value, LENGTH_BINARY, BASE_BINARY)

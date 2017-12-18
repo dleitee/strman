@@ -28,4 +28,4 @@ import decode from './lib/decode'
  * // => 'strman'
  * @returns {String}  String decoded.
  */
-export default (value:string):string => decode(value, LENGTH_BINARY, BASE_BINARY)
+export default (value: string): string => decode(value, LENGTH_BINARY, BASE_BINARY)

@@ -26,4 +26,4 @@ import toUpperCase from './touppercase'
  * // => false
  * @returns {Boolean} String is UPPERCASE?.
  */
-export default (value:string):boolean => value === toUpperCase(value)
+export default (value: string): boolean => value === toUpperCase(value)

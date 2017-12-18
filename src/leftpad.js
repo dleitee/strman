@@ -30,7 +30,7 @@ import repeat from './repeat'
  * // => '0000strman'
  * @returns {String}  String pad.
  */
-export default (value:string, length:number, char:string = ' '):string => {
+export default (value: string, length: number, char: string = ' '): string => {
   let result = value
   let newchar = String(char)
 

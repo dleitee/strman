@@ -28,12 +28,10 @@ import replace from './replace'
  * // => `SELECT * FROM CONTACTS WHERE NAME LIKE '%DANIEL%' AND EMAIL LIKE '%GMAIL%'`
  * @returns {String}  Formatted string.
  */
-export default (value:string, params:Array<string> = []) =>
-  replace(value, '{(\\w+)}',
-    (match:string, index:number):string => {
-      if (typeof params[index] !== 'undefined') {
-        return params[index]
-      }
-      return match
-    },
-  )
+export default (value: string, params: Array<string> = []) =>
+  replace(value, '{(\\w+)}', (match: string, index: number): string => {
+    if (typeof params[index] !== 'undefined') {
+      return params[index]
+    }
+    return match
+  })

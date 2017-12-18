@@ -25,4 +25,4 @@
  * // => true
  * @returns {Boolean}  `stringA`is equal `stringB`
  */
-export default (stringA:string, stringB:string) => stringA === stringB
+export default (stringA: string, stringB: string) => stringA === stringB

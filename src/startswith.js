@@ -29,9 +29,11 @@ import toCaseSensitive from './lib/case'
  * // => true
  * @returns {Boolean}  If 'value' startsWith 'search' return true, else false.
  */
-export default (value:string, search:string, position:number = 0, caseSensitive:boolean = true):boolean =>
-  substr(
-    toCaseSensitive(value, caseSensitive),
-    position,
-    search.length,
-  ) === toCaseSensitive(search, caseSensitive)
+export default (
+  value: string,
+  search: string,
+  position: number = 0,
+  caseSensitive: boolean = true,
+): boolean =>
+  substr(toCaseSensitive(value, caseSensitive), position, search.length) ===
+  toCaseSensitive(search, caseSensitive)

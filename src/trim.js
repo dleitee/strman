@@ -29,4 +29,4 @@ import rightTrim from './righttrim'
  * // => 'strman'
  * @returns {String} String without boarders spaces.
  */
-export default (value:string, char:string = ' '):string => leftTrim(rightTrim(value, char), char)
+export default (value: string, char: string = ' '): string => leftTrim(rightTrim(value, char), char)

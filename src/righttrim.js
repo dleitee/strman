@@ -28,4 +28,4 @@ import replace from './replace'
  * // => 'strman'
  * @returns {String} String without right boarders spaces.
  */
-export default (value:string, char:string = ' '):string => replace(value, `${char}+$`, '')
+export default (value: string, char: string = ' '): string => replace(value, `${char}+$`, '')

@@ -25,7 +25,7 @@
  * // => 'strman'
  * @returns {String} The concatenated string
  */
-export default (value:string, appends: Array<?string> = []):string => {
+export default (value: string, appends: Array<?string> = []): string => {
   if (appends.length === 0) {
     return value
   }

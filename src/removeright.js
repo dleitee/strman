@@ -29,7 +29,7 @@ import substr from './substr'
  * // => 'str'
  * @returns {String} The String without suffix!
  */
-export default (value:string, suffix:string, caseSensitive:boolean = true):string => {
+export default (value: string, suffix: string, caseSensitive: boolean = true): string => {
   const length = value.length - suffix.length
 
   if (endsWith(value, suffix, 0, caseSensitive)) {

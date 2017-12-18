@@ -29,5 +29,10 @@ import toCaseSensitive from './lib/case'
  * // => 3
  * @returns {Number} Return position of the first occurrence of 'needle'.
  */
-export default (value:string, needle:string, offset:number = 0, caseSensitive:boolean = true):number =>
-    toCaseSensitive(value, caseSensitive).indexOf(toCaseSensitive(needle, caseSensitive), offset)
+export default (
+  value: string,
+  needle: string,
+  offset: number = 0,
+  caseSensitive: boolean = true,
+): number =>
+  toCaseSensitive(value, caseSensitive).indexOf(toCaseSensitive(needle, caseSensitive), offset)

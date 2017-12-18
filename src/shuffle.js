@@ -1,7 +1,7 @@
 // @flow
 import split from './split'
 
-const shuffle = (array:Array<string> = []):Array<string> => {
+const shuffle = (array: Array<string> = []): Array<string> => {
   let j
   let i
   const newArray = array
@@ -38,4 +38,4 @@ const shuffle = (array:Array<string> = []):Array<string> => {
  * // => 'rtmnas'
  * @returns {String} The String shuffled!
  */
-export default (value:string):string => shuffle(split(value)).join('')
+export default (value: string): string => shuffle(split(value)).join('')

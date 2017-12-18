@@ -25,4 +25,5 @@
  * // => true
  * @returns {Boolean} if 'value' isString, return true, else false.
  */
-export default (value:string):boolean => Object.prototype.toString.call(value) === '[object String]'
+export default (value: string): boolean =>
+  Object.prototype.toString.call(value) === '[object String]'

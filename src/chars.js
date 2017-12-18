@@ -24,4 +24,4 @@
  * // => ['a', 'b', 'c']
  * @returns {String[]} The array with the single characters of `value`
  */
-export default (value:string):Array<string> => value.split('')
+export default (value: string): Array<string> => value.split('')

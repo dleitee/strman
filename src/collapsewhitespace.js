@@ -26,4 +26,4 @@ import replace from './replace'
  * // => 'a b c'
  * @returns {String} The whitespace collapsed string
  */
-export default (value:string):string => trim(replace(value, '\\s\\s+', ' '))
+export default (value: string): string => trim(replace(value, '\\s\\s+', ' '))
