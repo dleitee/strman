@@ -1,3 +1,4 @@
+// @flow
 import toUpperCase from './touppercase'
 /**
  * @module toStudlyCaps
@@ -25,7 +26,7 @@ import toUpperCase from './touppercase'
  * // => 'AJavascriptStringManipulationLibrary.'
  * @returns {String} String in StudlyCaps.
  */
-export default (value) => {
+export default (value: string): string => {
   const string = value.replace(/[-_\s]+(.)?/g, (match, chr) => toUpperCase(chr))
   return toUpperCase(string.substr(0, 1)) + string.substr(1)
 }

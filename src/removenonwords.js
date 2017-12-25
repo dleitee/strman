@@ -1,3 +1,4 @@
+// @flow
 import replace from './replace'
 /**
  * @module removeNonWords
@@ -26,4 +27,4 @@ import replace from './replace'
  * // => 'strman'
  * @returns {String} String without non word characters.
  */
-export default (value, replaced = '') => replace(value, '[^\\w]+', replaced)
+export default (value: string, replaced: string = ''): string => replace(value, '[^\\w]+', replaced)

@@ -1,3 +1,4 @@
+// @flow
 import replace from './replace'
 
 /**
@@ -27,4 +28,4 @@ import replace from './replace'
  * // => 'strman'
  * @returns {String}  String without spaces.
  */
-export default (value, replaced = '') => replace(value, '\\s+', replaced)
+export default (value: string, replaced: string = ''): string => replace(value, '\\s+', replaced)

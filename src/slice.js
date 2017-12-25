@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module slugify
  * @description
@@ -26,4 +27,5 @@
  * // => 'rma'
  * @returns {String} The String sliced!
  */
- export default (value, beginSlice, endSlice = undefined) => value.slice(beginSlice, endSlice)
+export default (value: string, beginSlice: number, endSlice: number = beginSlice): string =>
+  value.slice(beginSlice, endSlice)

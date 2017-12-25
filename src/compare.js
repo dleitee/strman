@@ -1,3 +1,4 @@
+// @flow
 import equal from './equal'
 
 /**
@@ -34,7 +35,7 @@ import equal from './equal'
  * // => 1
  * @returns {Number}
  */
-export default (stringA, stringB) => {
+export default (stringA: string, stringB: string): number => {
   if (equal(stringA, stringB)) {
     return 0
   }

@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module base64decode
  * @description
@@ -17,10 +18,10 @@
  * // OR
  * import base64decode from 'strman.base64decode'
  * ```
-  * @param {String} value - The data to decode.
+ * @param {String} value - The data to decode.
  * @example
  * base64Decode('c3RybWFu')
  * // => 'strman'
  * @returns {String} The base64 decoded data.
  */
-export default value => new Buffer(value, 'base64').toString()
+export default (value: string): string => new Buffer(value, 'base64').toString()

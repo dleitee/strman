@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module repeat
  * @description
@@ -25,7 +26,7 @@
  * // => 'strmanstrmanstrmanstrmanstrman'
  * @returns {String}  The String repeated!
  */
-export default (value, multiplier) => {
+export default (value: string, multiplier: number): string => {
   let i = 0
   let result = ''
   while (multiplier > i) {

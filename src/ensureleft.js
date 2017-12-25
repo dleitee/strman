@@ -1,3 +1,4 @@
+// @flow
 import startsWith from './startswith'
 import append from './append'
 /**
@@ -30,7 +31,7 @@ import append from './append'
  * // => 'Daniel Leite'
  * @returns {String} The string which is guarenteed to start with `substr`
  */
-export default (value, substr, caseSensitive = true) => {
+export default (value: string, substr: string, caseSensitive: boolean = true): string => {
   if (!startsWith(value, substr, 0, caseSensitive)) {
     return append(substr, value)
   }

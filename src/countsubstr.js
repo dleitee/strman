@@ -1,7 +1,14 @@
+// @flow
 import indexOf from './indexof'
 import getCase from './lib/case'
 
-const countSubstr = (value, substr, allowOverlapping = false, position = 0, count = 0) => {
+const countSubstr = (
+  value: string,
+  substr: string,
+  allowOverlapping: boolean = false,
+  position: number = 0,
+  count: number = 0,
+): number => {
   let currentPosition = indexOf(value, substr, position)
   if (currentPosition === -1) {
     return count
@@ -42,5 +49,10 @@ const countSubstr = (value, substr, allowOverlapping = false, position = 0, coun
  * // => 1
  * @returns {Number} The number of matches
  */
-export default (value, substr, caseSensitive = true, allowOverlapping = false) =>
+export default (
+  value: string,
+  substr: string,
+  caseSensitive: boolean = true,
+  allowOverlapping: boolean = false,
+): number =>
   countSubstr(getCase(value, caseSensitive), getCase(substr, caseSensitive), allowOverlapping)

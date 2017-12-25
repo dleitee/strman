@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module inequal
  * @description
@@ -24,4 +25,4 @@
  * // => false
  * @returns {Boolean}  [stringA] is inequal [stringB]
  */
-export default (stringA, stringB) => stringA !== stringB
+export default (stringA: string, stringB: string): boolean => stringA !== stringB

@@ -1,3 +1,4 @@
+// @flow
 import toCamelCase from './tocamelcase'
 import toLowerCase from './tolowercase'
 /**
@@ -24,9 +25,9 @@ import toLowerCase from './tolowercase'
  * const title = 'A Javascript string manipulation library.'
  * toDecamelize(title)
  * // => 'a_javascript_string_manipulation_library.'
-  * @returns {String}  String decamelized.
+ * @returns {String}  String decamelized.
  */
-export default (value, chr = '_') => {
+export default (value: string, chr: string = '_'): string => {
   const camel = toCamelCase(value)
   const string = camel.replace(/([A-Z])+/g, `${chr}$1`)
   return toLowerCase(string)

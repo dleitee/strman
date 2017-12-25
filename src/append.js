@@ -1,3 +1,4 @@
+// @flow
 import appendArray from './appendarray'
 
 /**
@@ -26,4 +27,4 @@ import appendArray from './appendarray'
  * // => 'strman'
  * @returns {String} The concatenated string
  */
-export default (value, ...appends) => appendArray(value, appends)
+export default (value: string, ...appends: Array<?string>): string => appendArray(value, appends)

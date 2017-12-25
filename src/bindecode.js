@@ -1,3 +1,4 @@
+// @flow
 import { LENGTH_BINARY, BASE_BINARY } from './lib/numericalbase'
 import decode from './lib/decode'
 
@@ -27,4 +28,4 @@ import decode from './lib/decode'
  * // => 'strman'
  * @returns {String}  String decoded.
  */
-export default value => decode(value, LENGTH_BINARY, BASE_BINARY)
+export default (value: string): string => decode(value, LENGTH_BINARY, BASE_BINARY)

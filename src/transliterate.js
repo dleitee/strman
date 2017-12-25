@@ -1,3 +1,4 @@
+// @flow
 import ascii from './lib/ascii'
 import replace from './replace'
 
@@ -27,11 +28,12 @@ import replace from './replace'
  * // => 'strman'
  * @returns {String}  String without non valid characters.
  */
-export default value =>
-  Object.keys(ascii).reduce((newValue, currentKey) =>
-    ascii[currentKey].reduce(
-      (previous, currentValue) => replace(previous, currentValue, currentKey),
-      newValue,
-    ),
+export default (value: string): string =>
+  Object.keys(ascii).reduce(
+    (newValue, currentKey) =>
+      ascii[currentKey].reduce(
+        (previous, currentValue) => replace(previous, currentValue, currentKey),
+        newValue,
+      ),
     value,
   )

@@ -1,3 +1,4 @@
+// @flow
 import toDecamelize from './todecamelize'
 /**
  * @module toKebabCase
@@ -25,4 +26,4 @@ import toDecamelize from './todecamelize'
  * // => 'a-javascript-string-manipulation-library.'
  * @returns {String} String in kebab-case.
  */
-export default value => toDecamelize(value, '-')
+export default (value: string): string => toDecamelize(value, '-')

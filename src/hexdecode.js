@@ -1,3 +1,4 @@
+// @flow
 import { LENGTH_HEXADECIMAL, BASE_HEXADECIMAL } from './lib/numericalbase'
 import decode from './lib/decode'
 
@@ -26,4 +27,4 @@ import decode from './lib/decode'
  * // => 'strman'
  * @returns {String}  String decoded.
  */
-export default value => decode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL)
+export default (value: string): string => decode(value, LENGTH_HEXADECIMAL, BASE_HEXADECIMAL)

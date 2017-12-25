@@ -1,3 +1,4 @@
+// @flow
 import append from './append'
 /**
  * @module surround
@@ -27,5 +28,5 @@ import append from './append'
  * // => '<strman>'
  * @returns {String} The String with surround substrs!
  */
-export default (value, _substr = '', substrRight = null) =>
+export default (value: string, _substr: string = '', substrRight: ?string = null) =>
   append(_substr, value, substrRight === null ? _substr : substrRight)

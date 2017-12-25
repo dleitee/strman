@@ -1,3 +1,4 @@
+// @flow
 import toLowerCase from './tolowercase'
 import trim from './trim'
 import removeSpaces from './removespaces'
@@ -29,7 +30,7 @@ import transliterate from './transliterate'
  * // => 'a-javascript-string-manipulation-library'
  * @returns {String} The slugified value
  */
-export default (value) => {
+export default (value: string): string => {
   const lowerCaseValue = toLowerCase(value)
   const trimValue = trim(lowerCaseValue)
   const valueWithoutSpaces = removeSpaces(trimValue, '-')

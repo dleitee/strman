@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module prependArray
  * @description
@@ -25,7 +26,7 @@
  * // => '_strman'
  * @returns {String} The String prepended!
  */
-export default (value, prepends = []) => {
+export default (value: string, prepends: Array<string> = []): string => {
   if (prepends.length === 0) {
     return value
   }

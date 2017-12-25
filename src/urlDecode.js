@@ -1,3 +1,4 @@
+// @form
 /**
  * @module urlDecode
  * @description
@@ -23,4 +24,4 @@
  * // => 'https://github.com/dleitee/strman/&name=áéíóú'
  * @returns {String} Returns the decoded string.
  */
-export default value => decodeURI(value)
+export default (value: string): string => decodeURI(value)

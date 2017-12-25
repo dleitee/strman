@@ -1,3 +1,4 @@
+// @flow
 import _substr from './substr'
 import append from './append'
 /**
@@ -28,7 +29,7 @@ import append from './append'
  * // => 'strman'
  * @returns {String} String with substr added.
  */
-export default (value, substr, index) => {
+export default (value: string, substr: string, index: number): string => {
   if (index > value.length) {
     return value
   }

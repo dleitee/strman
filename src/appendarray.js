@@ -1,3 +1,4 @@
+// @flow
 /**
  * @module appendArray
  * @description
@@ -24,7 +25,7 @@
  * // => 'strman'
  * @returns {String} The concatenated string
  */
-export default (value, appends = []) => {
+export default (value: string, appends: Array<?string> = []): string => {
   if (appends.length === 0) {
     return value
   }
