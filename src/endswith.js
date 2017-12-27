@@ -2,14 +2,17 @@
 import toCaseSensitive from './lib/case'
 import indexOf from './indexof'
 
-const isInteger = (value: number): boolean =>
+const isInteger = (value: ?number): boolean =>
   typeof value === 'number' && isFinite(value) && Math.floor(value) === value
 
-const getPosition = (value: string, search: string, position: number): number => {
-  if (!isInteger(position) || position > value.length) {
+const getPosition = (value: string, search: string, position?: number): number => {
+  if (!isInteger(position) || (position && position > value.length)) {
     return value.length - search.length
   }
-  return position - search.length
+  if (position || position === 0) {
+    return position - search.length
+  }
+  return 0
 }
 
 /**
@@ -45,7 +48,7 @@ const getPosition = (value: string, search: string, position: number): number =>
 export default (
   value: string,
   search: string,
-  position: number = 0,
+  position?: number,
   caseSensitive: boolean = true,
 ): boolean => {
   const newPosition = getPosition(value, search, position)
