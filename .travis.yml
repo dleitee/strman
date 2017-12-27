@@ -13,6 +13,7 @@ master:
     - echo "//registry.npmjs.org/:email=dleitee@gmail.com" >> ~/.npmrc
 
 script:
+  - npm run flow
   - npm run lint
   - npm test
 
