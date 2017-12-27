@@ -30,7 +30,7 @@ import substr from './substr'
  * @returns {String} The String without prefix!
  */
 export default (value: string, prefix: string, caseSensitive: boolean = true): string => {
-  if (startsWith(value, prefix, 0, caseSensitive)) {
+  if (startsWith(value, prefix, undefined, caseSensitive)) {
     return substr(value, prefix.length)
   }
   return value

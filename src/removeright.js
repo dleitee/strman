@@ -2,7 +2,7 @@
 import endsWith from './endswith'
 import substr from './substr'
 /**
- * @module removeSpaces
+ * @module removeRight
  * @description
  * Returns a new string with the 'suffix' removed, if present.
  * ## Install
@@ -10,15 +10,15 @@ import substr from './substr'
  * ```sh
  * yarn add strman
  * ```
- * or just the removeSpaces function
+ * or just the removeRight function
  * ```sh
- * yarn add strman.removespaces
+ * yarn add strman.removeRight
  * ```
  * ## Usage
  * ```javascript
- * import { removeSpaces } from 'strman'
+ * import { removeRight } from 'strman'
  * // OR
- * import removeSpaces from 'strman.removespaces'
+ * import removeRight from 'strman.removeRight'
  * ```
  * @param {String} value The String!
  * @param {String} suffix String to remove on right.
@@ -32,7 +32,7 @@ import substr from './substr'
 export default (value: string, suffix: string, caseSensitive: boolean = true): string => {
   const length = value.length - suffix.length
 
-  if (endsWith(value, suffix, 0, caseSensitive)) {
+  if (endsWith(value, suffix, undefined, caseSensitive)) {
     return substr(value, 0, length)
   }
 

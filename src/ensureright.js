@@ -32,7 +32,7 @@ import append from './append'
  * @returns {String} The string which is guarenteed to start with `substr`
  */
 export default (value: string, _substr: string, caseSensitive: boolean = true): string => {
-  if (!endsWith(value, _substr, 0, caseSensitive)) {
+  if (!endsWith(value, _substr, undefined, caseSensitive)) {
     return append(value, _substr)
   }
   return value
