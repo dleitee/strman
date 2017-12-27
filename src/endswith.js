@@ -9,10 +9,7 @@ const getPosition = (value: string, search: string, position?: number): number =
   if (!isInteger(position) || (position && position > value.length)) {
     return value.length - search.length
   }
-  if (position || position === 0) {
-    return position - search.length
-  }
-  return 0
+  return Math.floor(position || 0) - search.length
 }
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "strman",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Javascript string manipulation library without npm dependences.",
   "main": "lib/strman.js",
   "directories": {
@@ -12,6 +12,7 @@
     "prepublish": "npm run build:strman",
     "postpublish": "rm -rf ./lib",
     "test": "jest --coverage --expand",
+    "test-version": "jest --version",
     "test-watch": "jest --watch",
     "lint": "eslint src tests",
     "flow": "flow check",
