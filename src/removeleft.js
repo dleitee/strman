@@ -31,7 +31,7 @@ import substr from './substr'
  */
 export default (value: string, prefix: string, caseSensitive: boolean = true): string => {
   if (startsWith(value, prefix, 0, caseSensitive)) {
-    return substr(value, prefix.length, value.length - prefix.length)
+    return substr(value, prefix.length)
   }
   return value
 }
