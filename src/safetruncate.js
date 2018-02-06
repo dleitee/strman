@@ -50,7 +50,7 @@ export default (value: string, length: number, append: string = ''): string => {
 
   if (position !== newLength) {
     const lastPos = lastIndexOf(truncated, ' ')
-    truncated = substr(truncated, 0, Math.max(lastPos, 0))
+    truncated = substr(truncated, 0, lastPos)
   }
 
   return _append(truncated, append)
