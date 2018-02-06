@@ -1,5 +1,4 @@
 // @flow
-import toCaseSensitive from './lib/case'
 import indexOf from './indexof'
 
 const isInteger = (value: number): boolean =>
@@ -53,7 +52,7 @@ export default (
     value,
     search,
     newPosition,
-    caseSensitive
+    caseSensitive,
   )
   return lastIndex !== -1 && lastIndex === newPosition
 }
