@@ -32,4 +32,4 @@ import indexOf from './indexof'
  * @returns {String[]} An array with all the matches between a pair of `start` and `end`
  */
 export default (value: string, start: string, end: string): Array<string> =>
-  pop(split(value, end).map(text => substr(text, indexOf(text, start) + start.length)))
+  pop(split(value, end).map(text => substr(text, indexOf(text, start) + start.length, value.length)))
