@@ -8,4 +8,12 @@ describe('strman.removeLeft', () => {
       expect(removeLeft(el, 'foo')).toBe('bar')
     })
   })
+
+  test('should be Foobar', () => {
+    expect(removeLeft('Foobar', 'foo')).toBe('Foobar')
+  })
+
+  test('should be bar', () => {
+    expect(removeLeft('Foobar', 'foo', false)).toBe('bar')
+  })
 })
