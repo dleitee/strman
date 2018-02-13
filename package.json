@@ -11,7 +11,7 @@
     "build:strman": "babel src --out-dir lib",
     "prepublish": "npm run build:strman",
     "postpublish": "rm -rf ./lib",
-    "test": "jest --coverage --expand",
+    "test": "jest --coverage --expand -i",
     "test-watch": "jest --watch",
     "lint": "eslint src tests",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",

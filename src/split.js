@@ -26,5 +26,5 @@
  * // => ['s', 't', 'r', 'm', 'a', 'n']
  * @returns {String}  The String splited!
  */
-export default (value: string, separator: string = '', limit: number = 0): Array<string> =>
+export default (value: string, separator: string = '', limit: number = -1): Array<string> =>
   value.split(separator, limit)

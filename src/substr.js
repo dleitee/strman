@@ -26,5 +26,5 @@
  * // => 'strm'
  * @returns {String} The Substring!
  */
-export default (value: string, start: number, length: number = 0): string =>
+export default (value: string, start: number, length: number): string =>
   value.substr(start, length)

@@ -1,12 +1,11 @@
 // @flow
-import toCaseSensitive from './lib/case'
 import indexOf from './indexof'
 
 const isInteger = (value: number): boolean =>
   typeof value === 'number' && isFinite(value) && Math.floor(value) === value
 
 const getPosition = (value: string, search: string, position: number): number => {
-  if (!isInteger(position) || position > value.length) {
+  if (!isInteger(position) || position > value.length || position < search.length) {
     return value.length - search.length
   }
   return position - search.length
@@ -40,7 +39,7 @@ const getPosition = (value: string, search: string, position: number): number =>
  * const search = 'Leite'
  * endsWith(value, search)
  * // => true
- * @returns {Boolean} True if `input` ends with `search`
+ * @returns {Boolean} True if `value` ends with `search`
  */
 export default (
   value: string,
@@ -50,9 +49,10 @@ export default (
 ): boolean => {
   const newPosition = getPosition(value, search, position)
   const lastIndex = indexOf(
-    toCaseSensitive(value, caseSensitive),
-    toCaseSensitive(search, caseSensitive),
+    value,
+    search,
     newPosition,
+    caseSensitive,
   )
   return lastIndex !== -1 && lastIndex === newPosition
 }
