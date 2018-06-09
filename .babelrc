@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["es2015", {"modules": false}], "stage-0", "flow"
+  ],
+  "plugins": ["transform-object-rest-spread"],
+  "env": {
+    "test": {
+      "presets": ["es2015", "stage-0", "flow"]
+    },
+    "rollup": {
+      "presets": [["es2015", {"modules": false}], "stage-0", "flow"],
+      "plugins": ["external-helpers"]
+    }
+  }
+}
