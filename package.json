@@ -28,64 +28,6 @@
     "manipulation",
     "strman"
   ],
-  "babel": {
-    "presets": [
-      "es2015",
-      "stage-0",
-      "flow"
-    ]
-  },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "airbnb/base",
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest": true
-    },
-    "rules": {
-      "semi": [
-        2,
-        "never"
-      ],
-      "no-console": [
-        2,
-        {
-          "allow": [
-            "warn",
-            "info",
-            "error"
-          ]
-        }
-      ],
-      "import/named": 2,
-      "no-multiple-empty-lines": [
-        "error",
-        {
-          "max": 1,
-          "maxEOF": 1,
-          "maxBOF": 0
-        }
-      ],
-      "import/order": [
-        "error",
-        {
-          "groups": [
-            "builtin",
-            "external",
-            "parent",
-            "sibling",
-            "index"
-          ],
-          "newlines-between": "always"
-        }
-      ],
-      "no-lenght/no-lenght": "error"
-    },
-    "plugins": [
-      "no-lenght"
-    ]
-  },
   "author": "Daniel Leite de Oliveira <dleitee@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -110,13 +52,16 @@
     "dox": "^0.9.0",
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-no-lenght": "^1.0.2-0",
+    "eslint-plugin-prettier": "^2.6.0",
     "flow-bin": "^0.57.3",
     "jest": "^19.0.2",
     "jsdoc": "^3.4.3",
     "jsdoc-babel": "^0.3.0",
     "minami": "^1.1.1",
+    "prettier": "^1.13.5",
     "rollup": "^0.60.1",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-commonjs": "^9.1.3",
