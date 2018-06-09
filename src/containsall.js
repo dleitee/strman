@@ -5,7 +5,7 @@ const containsAll = (
   value: string,
   caseSensitive: boolean,
   previous: boolean,
-  current: string,
+  current: string
 ): boolean => {
   if (!contains(value, current, caseSensitive)) {
     return false
@@ -44,7 +44,7 @@ const containsAll = (
  */
 export default (value: string, needles: Array<string>, caseSensitive: boolean = true): boolean => {
   if (needles.length > 0) {
-    return needles.reduce(containsAll.bind(this, value, caseSensitive), true)
+    return needles.reduce(containsAll.bind(null, value, caseSensitive), true)
   }
 
   return false
