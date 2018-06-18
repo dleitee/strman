@@ -2,7 +2,7 @@
 <img src="https://github.com/dleitee/strman/blob/master/strman_new.png?raw=true">
 </p>
 
-[![Build Status](https://travis-ci.org/dleitee/strman.svg?branch=master)](https://travis-ci.org/dleitee/strman)
+[![CircleCI](https://circleci.com/gh/dleitee/strman.svg?style=svg)](https://circleci.com/gh/dleitee/strman)
 [![Coverage Status](https://coveralls.io/repos/github/dleitee/strman/badge.svg?branch=master)](https://coveralls.io/github/dleitee/strman?branch=master)
 [![Code Climate](https://codeclimate.com/github/dleitee/strman/badges/gpa.svg)](https://codeclimate.com/github/dleitee/strman)
 
