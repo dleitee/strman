@@ -4,7 +4,7 @@
 
 [![CircleCI](https://circleci.com/gh/dleitee/strman.svg?style=svg)](https://circleci.com/gh/dleitee/strman)
 [![Coverage Status](https://coveralls.io/repos/github/dleitee/strman/badge.svg?branch=master)](https://coveralls.io/github/dleitee/strman?branch=master)
-[![Code Climate](https://codeclimate.com/github/dleitee/strman/badges/gpa.svg)](https://codeclimate.com/github/dleitee/strman)
+[![Code Climate](https://codeclimate.com/github/dleitee/strman/badges/gpa.svg)](https://codeclimate.com/github/dleitee/strman) [![Greenkeeper badge](https://badges.greenkeeper.io/dleitee/strman.svg)](https://greenkeeper.io/)
 
 A Javascript string manipulation library.
 
