@@ -1,3 +1,3 @@
 export default (value, length, base) =>
-    value.match(new RegExp(`.{1,${length}}`, 'g'))
+  value.match(new RegExp(`.{1,${length}}`, 'g'))
     .map(string => String.fromCharCode(parseInt(string, base))).join('')
