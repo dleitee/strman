@@ -1,7 +1,8 @@
 {
   "name": "strman",
   "version": "2.0.1",
-  "description": "A Javascript string manipulation library without npm dependences.",
+  "description":
+    "A Javascript string manipulation library without npm dependences.",
   "main": "lib/strman.js",
   "directories": {
     "test": "test"
@@ -13,8 +14,9 @@
     "postpublish": "rm -rf ./lib",
     "test": "jest --coverage --expand -i",
     "test-watch": "jest --watch",
-    "lint": "eslint src tests",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "lint": "eslint src test",
+    "coveralls":
+      "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "docs": "jsdoc --configure .jsdocrc --verbose -r"
   },
   "repository": {
@@ -50,7 +52,7 @@
     "babel-register": "^6.7.2",
     "coveralls": "^3.0.1",
     "dox": "^0.9.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.2.0",
