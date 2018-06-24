@@ -1,7 +1,8 @@
 {
   "name": "strman",
   "version": "2.0.0",
-  "description": "A Javascript string manipulation library without npm dependences.",
+  "description":
+    "A Javascript string manipulation library without npm dependences.",
   "main": "lib/strman.js",
   "directories": {
     "test": "test"
@@ -13,27 +14,18 @@
     "postpublish": "rm -rf ./lib",
     "test": "jest --coverage --expand -i",
     "test-watch": "jest --watch",
-    "lint": "eslint src tests",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "lint": "eslint src test",
+    "coveralls":
+      "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "docs": "jsdoc --configure .jsdocrc --verbose -r"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dleitee/strman.git"
   },
-  "keywords": [
-    "string",
-    "manipulate",
-    "str",
-    "manipulation",
-    "strman"
-  ],
+  "keywords": ["string", "manipulate", "str", "manipulation", "strman"],
   "babel": {
-    "presets": [
-      "es2015",
-      "stage-0",
-      "flow"
-    ]
+    "presets": ["es2015", "stage-0", "flow"]
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -44,18 +36,11 @@
       "jest": true
     },
     "rules": {
-      "semi": [
-        2,
-        "never"
-      ],
+      "semi": [2, "never"],
       "no-console": [
         2,
         {
-          "allow": [
-            "warn",
-            "info",
-            "error"
-          ]
+          "allow": ["warn", "info", "error"]
         }
       ],
       "import/named": 2,
@@ -70,21 +55,13 @@
       "import/order": [
         "error",
         {
-          "groups": [
-            "builtin",
-            "external",
-            "parent",
-            "sibling",
-            "index"
-          ],
+          "groups": ["builtin", "external", "parent", "sibling", "index"],
           "newlines-between": "always"
         }
       ],
       "no-lenght/no-lenght": "error"
     },
-    "plugins": [
-      "no-lenght"
-    ]
+    "plugins": ["no-lenght"]
   },
   "author": "Daniel Leite de Oliveira <dleitee@gmail.com>",
   "license": "MIT",

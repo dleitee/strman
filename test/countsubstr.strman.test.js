@@ -17,7 +17,6 @@ describe('strman.countSubstr', () => {
     })
   })
 
-
   test('should be 2 with allowOverlaping', () => {
     expect(countSubstr('aaa', 'aa', true, true)).toBe(2)
   })
