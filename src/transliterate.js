@@ -33,7 +33,7 @@ export default (value: string): string =>
     (newValue, currentKey) =>
       ascii[currentKey].reduce(
         (previous, currentValue) => replace(previous, currentValue, currentKey),
-        newValue,
+        newValue
       ),
-    value,
+    value
   )

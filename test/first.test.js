@@ -4,7 +4,7 @@ describe('strman.first', () => {
   test('should be foo', () => {
     const fixtures = ['foo', 'foobar']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(first(el, 3)).toBe('foo')
     })
   })

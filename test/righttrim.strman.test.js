@@ -4,7 +4,7 @@ describe('strman.rightTrim', () => {
   test('should be foo bar', () => {
     const fixtures = [' foo bar', ' foo bar ', ' foo bar  ']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(rightTrim(el)).toBe(' foo bar')
     })
   })
@@ -12,7 +12,7 @@ describe('strman.rightTrim', () => {
   test('should be foo bar without @', () => {
     const fixtures = ['foo bar@', 'foo bar@@@@@']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(rightTrim(el, '@')).toBe('foo bar')
     })
   })

@@ -33,6 +33,6 @@ export default (
   value: string,
   needle: string,
   offset: number = 0,
-  caseSensitive: boolean = true,
+  caseSensitive: boolean = true
 ): number =>
   toCaseSensitive(value, caseSensitive).indexOf(toCaseSensitive(needle, caseSensitive), offset)

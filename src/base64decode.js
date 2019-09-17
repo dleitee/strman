@@ -24,5 +24,4 @@
  * // => 'strman'
  * @returns {String} The base64 decoded data.
  */
-export default (value: string): string =>
-  Buffer.from(value, 'base64').toString()
+export default (value: string): string => Buffer.from(value, 'base64').toString()

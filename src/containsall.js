@@ -5,7 +5,7 @@ const containsAll = (
   value: string,
   caseSensitive: boolean,
   previous: boolean,
-  current: string,
+  current: string
 ): boolean => {
   if (!contains(value, current, caseSensitive)) {
     return false

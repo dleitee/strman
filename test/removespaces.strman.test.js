@@ -4,7 +4,7 @@ describe('strman.removeSpaces', () => {
   test('should be foobar', () => {
     const fixtures = ['foo bar', 'foo bar ', ' foo bar', ' foo bar ']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(removeSpaces(el)).toBe('foobar')
     })
   })
@@ -12,7 +12,7 @@ describe('strman.removeSpaces', () => {
   test('should be foo-bar', () => {
     const fixtures = ['foo bar']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(removeSpaces(el, '-')).toBe('foo-bar')
     })
   })

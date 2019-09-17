@@ -1,8 +1,7 @@
 {
   "name": "strman",
   "version": "2.0.0",
-  "description":
-    "A Javascript string manipulation library without npm dependences.",
+  "description": "A Javascript string manipulation library without npm dependences.",
   "main": "lib/strman.js",
   "directories": {
     "test": "test"
@@ -15,53 +14,26 @@
     "test": "jest --coverage --expand -i",
     "test-watch": "jest --watch",
     "lint": "eslint src test",
-    "coveralls":
-      "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "docs": "jsdoc --configure .jsdocrc --verbose -r"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dleitee/strman.git"
   },
-  "keywords": ["string", "manipulate", "str", "manipulation", "strman"],
+  "keywords": [
+    "string",
+    "manipulate",
+    "str",
+    "manipulation",
+    "strman"
+  ],
   "babel": {
-    "presets": ["es2015", "stage-0", "flow"]
-  },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "airbnb/base",
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest": true
-    },
-    "rules": {
-      "semi": [2, "never"],
-      "no-console": [
-        2,
-        {
-          "allow": ["warn", "info", "error"]
-        }
-      ],
-      "import/named": 2,
-      "no-multiple-empty-lines": [
-        "error",
-        {
-          "max": 1,
-          "maxEOF": 1,
-          "maxBOF": 0
-        }
-      ],
-      "import/order": [
-        "error",
-        {
-          "groups": ["builtin", "external", "parent", "sibling", "index"],
-          "newlines-between": "always"
-        }
-      ],
-      "no-lenght/no-lenght": "error"
-    },
-    "plugins": ["no-lenght"]
+    "presets": [
+      "es2015",
+      "stage-0",
+      "flow"
+    ]
   },
   "author": "Daniel Leite de Oliveira <dleitee@gmail.com>",
   "license": "MIT",
@@ -84,15 +56,17 @@
     "babel-register": "^6.7.2",
     "coveralls": "^3.0.1",
     "dox": "^0.9.0",
-    "eslint": "^5.0.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-no-lenght": "^1.0.2-0",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
     "flow-bin": "^0.78.0",
     "jest": "^23.1.0",
     "jsdoc": "^3.4.3",
     "jsdoc-babel": "^0.5.0",
     "minami": "^1.1.1",
+    "prettier": "^1.18.2",
     "showdeps": "^1.0.0",
     "yarn": "^1.7.0"
   }

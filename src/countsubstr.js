@@ -7,7 +7,7 @@ const countSubstr = (
   substr: string,
   allowOverlapping: boolean = false,
   position: number = 0,
-  count: number = 0,
+  count: number = 0
 ): number => {
   let currentPosition = indexOf(value, substr, position)
   if (currentPosition === -1) {
@@ -53,6 +53,6 @@ export default (
   value: string,
   substr: string,
   caseSensitive: boolean = true,
-  allowOverlapping: boolean = false,
+  allowOverlapping: boolean = false
 ): number =>
   countSubstr(getCase(value, caseSensitive), getCase(substr, caseSensitive), allowOverlapping)

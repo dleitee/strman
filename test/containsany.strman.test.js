@@ -4,7 +4,7 @@ describe('strman.containsAny', () => {
   test('should be true, caseSensitive = true', () => {
     const fixtures = ['foo bar', 'bar foo', 'foobar']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(containsAny(el, ['foo', 'bar', 'test'], true)).toBe(true)
     })
   })
@@ -12,7 +12,7 @@ describe('strman.containsAny', () => {
   test('should be true, caseSensitive = false', () => {
     const fixtures = ['foo bar', 'bar foo', 'foobar']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(containsAny(el, ['FOO', 'BAR', 'Test'], false)).toBe(true)
     })
   })
@@ -20,7 +20,7 @@ describe('strman.containsAny', () => {
   test('should be false, caseSensitive = true', () => {
     const fixtures = ['foo', 'bar foo', 'foobar', 'foo']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(containsAny(el, ['FOO', 'BAR', 'TEST'], true)).toBe(false)
     })
   })
@@ -28,7 +28,7 @@ describe('strman.containsAny', () => {
   test('should be false, caseSensitive = false', () => {
     const fixtures = ['foo bar', 'bar foo', 'foobar', 'foo']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(containsAny(el, ['dleitee'], false)).toBe(false)
     })
   })

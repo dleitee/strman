@@ -33,7 +33,7 @@ export default (
   value: string,
   search: string,
   position: number = 0,
-  caseSensitive: boolean = true,
+  caseSensitive: boolean = true
 ): boolean =>
   substr(toCaseSensitive(value, caseSensitive), position, search.length) ===
   toCaseSensitive(search, caseSensitive)

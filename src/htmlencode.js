@@ -37,5 +37,5 @@ export default (value: string): string =>
       return match
     },
     true,
-    true,
+    true
   )

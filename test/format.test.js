@@ -10,10 +10,12 @@ describe('strman.format', () => {
     expect(format('{1} {0}', ['bar', 'foo'])).toBe('foo bar')
     expect(format('{1} {0}', ['bar'])).toBe('{1} bar')
     expect(format('{foo} bar', { foo: 'foo' })).toBe('foo bar')
-    expect(format('{foo} {bar}', {
-      foo: 'foo',
-      bar: 'bar',
-    })).toBe('foo bar')
+    expect(
+      format('{foo} {bar}', {
+        foo: 'foo',
+        bar: 'bar',
+      })
+    ).toBe('foo bar')
   })
 
   test('should be {0}', () => {

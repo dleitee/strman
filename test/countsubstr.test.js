@@ -4,7 +4,7 @@ describe('strman.countSubstr', () => {
   test('should be 7', () => {
     const fixtures = ['aaaaaAaaAA', 'faaaAAaaaaAA', 'aaAAaaaaafA', 'AAaaafaaaaAAAA']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(countSubstr(el, 'a')).toBe(7)
     })
   })
@@ -12,7 +12,7 @@ describe('strman.countSubstr', () => {
   test('should be 7 without caseSensitive', () => {
     const fixtures = ['aaaaaaa', 'faaaaaaa', 'aaaaaaaf', 'aaafaaaa']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(countSubstr(el, 'A', false)).toBe(7)
     })
   })

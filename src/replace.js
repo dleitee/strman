@@ -34,7 +34,7 @@ export default (
   search: string = '',
   newvalue: string | Function = '',
   caseSensitive: boolean = true,
-  multiline: boolean = true,
+  multiline: boolean = true
 ): string => {
   const flags = caseSensitive ? 'g' : 'gi'
   const flagsMultiline = multiline ? `${flags}m` : flags

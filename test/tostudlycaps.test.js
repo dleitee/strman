@@ -14,7 +14,7 @@ describe('strman.toStudlyCaps', () => {
       '     de_camelize',
     ]
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(toStudlyCaps(el)).toBe('DeCamelize')
     })
   })
@@ -24,7 +24,7 @@ describe('strman.toStudlyCaps', () => {
       1`,
     ]
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(toStudlyCaps(el)).toBe('1')
     })
   })

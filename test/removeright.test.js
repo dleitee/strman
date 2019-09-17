@@ -4,7 +4,7 @@ describe('strman.removeRight', () => {
   test('should be true', () => {
     const fixtures = ['foobar', 'foo']
 
-    fixtures.forEach((el) => {
+    fixtures.forEach(el => {
       expect(removeRight(el, 'bar')).toBe('foo')
     })
 
