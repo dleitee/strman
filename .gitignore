@@ -3,3 +3,4 @@ _site
 coverage
 docs.json
 lib
+*.log
