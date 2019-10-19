@@ -27,15 +27,15 @@ yarn add strman
 ```javascript
 import { slugify } from 'strman'
 
-const  title = "A Javascript string manipulation library.";
-slugify(title);
+const  title = 'A Javascript string manipulation library.'
+slugify(title)
 // => "a-javascript-string-manipulation-library"
 ```
 
 ### With require
 
 ```javascript
-const slugify = require('strman').slugify;
+const slugify = require('strman').slugify
 
 const title = 'A Javascript string manipulation library.'
 slugify(title)
