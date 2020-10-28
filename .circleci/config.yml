@@ -12,9 +12,9 @@ jobs:
             - checkout
             - restore_cache:
                 keys:
-                - v1-dependencies-
+                - v1-dependent-
                 # fallback to using the latest cache if no exact match is found
-                - v1-dependencies-
+                - v1-dependent-
 
             - run: npm install
             - run:
@@ -25,7 +25,7 @@ jobs:
             - save_cache:
                 paths:
                   - node_modules
-                key: v1-dependencies-
+                key: v1-dependent-
 
             - persist_to_workspace:
                 root: ~/repo
