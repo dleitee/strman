@@ -8,7 +8,7 @@
 
 A Javascript string manipulation library.
 
-## Install
+## Installation
 
 strman v2.0.0 is available on npm/yarn:
 ```
@@ -20,7 +20,7 @@ yarn add strman
 
 [https://dleitee.github.io/strman/](https://dleitee.github.io/strman/)
 
-## Usage
+## Usages
 
 ### With ES6/import
 
@@ -42,12 +42,12 @@ slugify(title)
 // => "a-javascript-string-manipulation-library"
 ```
 
-## Credits
+## Credit
 
  - [Stringy](https://github.com/danielstjules/Stringy)
 
 
-# Contributing
+# Contribution
 
 Want to contribute? [Follow these recommendations.](https://github.com/dleitee/strman/blob/master/CONTRIBUTING.md)
 
